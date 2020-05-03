@@ -7,6 +7,10 @@ verify_ssl = true
 
 [packages]
 django = "*"
+psycopg2-binary = "*"
+django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
+pillow = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.8"
