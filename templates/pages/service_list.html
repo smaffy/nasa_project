@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+    our projects
+{% endblock title %}
+
+{% block conteiner %}
+
+    <!-- Start service Area -->
+    <section class="service-area section-gap" id="service">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 pb-50 header-text text-center">
+                    <h1 class="mb-10">What we offer to our clients</h1>
+                    <p>
+                        Who are in extremely love with eco friendly system..
+                    </p>
+                </div>
+            </div>
+
+            {% for service in services_list %}
+                <div class="row justify-content-center" >
+                    <a href="{{ service.get_absolute_url }}">
+                        <div class="col-lg-12">
+                            <div class="single-service">
+                                <h4>{{ service.title }}</h4>
+                                <p>
+                                    {{ service.short_description }}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- End service Area -->
+
+{% endblock conteiner %}

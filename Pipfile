@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
 pillow = "*"
 django-ckeditor = "*"
+sorl-thumbnail = "*"
 
 [requires]
 python_version = "3.8"

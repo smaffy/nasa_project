@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
@@ -14,6 +15,7 @@ class Project(models.Model):
     short_description = models.TextField()
     description = models.TextField(blank=True, null=True)
     first_image = models.ImageField(upload_to='images/projects/', default='images/defaults/project-details.jpg')
+    ind = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
         ordering = ['completed']
@@ -25,9 +27,9 @@ class Project(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             if len(self.title) < 15:
-                self.slug = self.title
+                self.slug = slugify(self.title)
             else:
-                self.slug = truncatewords(self.title, 3)
+                self.slug = slugify(truncatewords(self.title, 3))
         super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -49,10 +51,13 @@ class Service(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             if len(self.title) < 15:
-                self.slug = self.title
+                self.slug = slugify(self.title)
             else:
-                self.slug = truncatewords(self.title, 3)
+                self.slug = slugify(truncatewords(self.title, 3))
         super(Service, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('pages:service_detail', kwargs={'slug': self.slug, })
 
 
 class Profile(models.Model):
@@ -79,7 +84,7 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = self.first_name + '_' + self.last_name
+            self.slug = slugify(self.get_name())
         super(Profile, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -101,9 +106,9 @@ class News(models.Model):
 
     def save(self, *args, **kwargs):
         if len(self.title) < 15:
-            self.slug = self.title
+            self.slug = slugify(self.title)
         else:
-            self.slug = truncatewords(self.title, 3)
+            self.slug = slugify(truncatewords(self.title, 3))
         super(News, self).save(*args, **kwargs)
 
     def get_absolute_url(self):

@@ -1,17 +1,66 @@
 {% extends '_base.html' %}
 
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}
-    our projects
+our projects
 {% endblock title %}
 
 {% block conteiner %}
 
-    {% for project in project_list %}
-        <h1>{{ project.title }}</h1>
-        {{ project.website }}
-        <hr>
-    {% endfor %}
+    <h1>{{ project.title }}</h1>
+    {{ project.website }}
+    <hr>
+    <!-- Start gallery Area -->
+    <section class="gallery-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 pb-40 header-text text-center">
+                    <h1 class="pb-10">Our Recent Works may impress you</h1>
+                    <p>
+                        Who are in extremely love with eco friendly system.
+                    </p>
+                </div>
+            </div>
+            {% for pr in projects %}
+                <div class="row">
+                    {% with pr.0 as project %}
+                        <div class="col-lg-8">
+                            <div class="single-gallery">
+                                <div class="content">
+                                    <a href="#" target="_blank">
+                                      <div class="content-overlay"></div>
+                                         <img class="content-image img-fluid d-block mx-auto" src="{{ project.first_image.url }}" alt="">
+                                      <div class="content-details fadeIn-bottom">
+                                        <h3 class="content-title mx-auto">{{ project.title }}</h3>
+                                        <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">More Details</a>
+                                      </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endwith %}
+                    {% with pr.1 as project %}
+                        <div class="col-lg-4">
+                            <div class="single-gallery">
+                                <div class="content">
+                                    <a href="#" target="_blank">
+                                      <div class="content-overlay"></div>
+                                         <img class="content-image img-fluid d-block mx-auto" src="{{ project.first_image.url }}" alt="">
+                                      <div class="content-details fadeIn-bottom">
+                                        <h3 class="content-title mx-auto">{{ project.title }}</h3>
+                                        <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">More Details</a>
+                                      </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endwith %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- End gallery Area -->
 
 {% endblock conteiner %}

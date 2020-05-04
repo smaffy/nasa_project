@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'ckeditor',
     'ckeditor_uploader',
+    'sorl.thumbnail',
 
     # Local apps
     'pages.apps.PagesConfig',

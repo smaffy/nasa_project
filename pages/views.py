@@ -12,10 +12,26 @@ class ProjectsListView(ListView):
     model = Project
     context_object_name = 'project_list'
     template_name = 'pages/projects_list.html'
-    paginate_by = 10
+    paginate_by = 8
 
     def get_images(self):
         return ProjectImage.objects.filter(project__slug=self.kwargs['slug'])
+
+    def get_projects(self):
+        pr = Project.objects.all()[::2]
+        pr2 = Project.objects.all()[1::2]
+        if len(pr) == len(pr2):
+            projects1 = [[i, m] for i in pr for m in pr2]
+        else:
+
+            projects1 = [[i, m] for i in pr[:-1] for m in pr2]
+        return projects1
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=object_list, **kwargs)
+
+        data['projects'] = self.get_projects()
+        return data
 
 
 class ProjectDetailView(DetailView):
@@ -24,11 +40,17 @@ class ProjectDetailView(DetailView):
     template_name = 'pages/project_detail.html'
 
 
-class ServicesView(ListView):
+class ServiceListView(ListView):
     model = Service
     context_object_name = 'services_list'
-    template_name = 'pages/services.html'
+    template_name = 'pages/service_list.html'
     paginate_by = 10
+
+
+class ServiceDetailView(DetailView):
+    model = Service
+    context_object_name = 'service'
+    template_name = 'pages/service_detail.html'
 
 
 class PeopleListView(ListView):
@@ -39,7 +61,7 @@ class PeopleListView(ListView):
 
 
 class ProfileView(DetailView):
-    model =  Profile
+    model = Profile
     context_object_name = 'profile'
     template_name = 'pages/profile.html'
 
