@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+    our projects
+{% endblock title %}
+
+{% block conteiner %}
+
+    {% for project in project_list %}
+        <h1>{{ project.title }}</h1>
+        {{ project.website }}
+        <hr>
+    {% endfor %}
+
+{% endblock conteiner %}

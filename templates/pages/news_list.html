@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+    news list
+{% endblock title %}
+
+{% block conteiner %}
+
+    {% for page in news_list %}
+        <h1>{{ page.title }}</h1>
+        {{ page.short_description }}
+        <hr>
+    {% endfor %}
+
+{% endblock conteiner %}

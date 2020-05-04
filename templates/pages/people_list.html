@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+    our team
+{% endblock title %}
+
+{% block conteiner %}
+
+    {% for profile in people_list %}
+        <h1>{{ profile.get_name }}</h1>
+        {{ profile.facebook }}
+        <hr>
+    {% endfor %}
+
+{% endblock conteiner %}
