@@ -12,7 +12,7 @@ class Project(models.Model):
     website = models.URLField(max_length=200, blank=True, null=True)
     completed = models.DateField(auto_now=False, auto_now_add=False)
     short_description = models.TextField()
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     first_image = models.ImageField(upload_to='images/projects/', default='images/defaults/project-details.jpg')
 
     class Meta:
@@ -64,6 +64,7 @@ class Profile(models.Model):
     email = models.EmailField(blank=True, null=True)
     start_work = models.DateField(auto_now=False, auto_now_add=False)
     short_description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='images/profile/', default='images/defaults/project-details.jpg')
 
     class Meta:
@@ -89,7 +90,7 @@ class News(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     short_description = models.TextField()
-    text = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='images/news/', default='images/defaults/news.jpg')
 
     class Meta:

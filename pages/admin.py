@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Project, Profile, News, Service, ProjectImage
-
 from django.template.defaultfilters import truncatewords
+
+from .models import Project, Profile, News, Service, ProjectImage
+from .forms import ProjectAdminForm, ProfileAdminForm, NewsAdminForm
 
 
 class ImageInline(admin.StackedInline):
@@ -12,6 +13,9 @@ class ImageInline(admin.StackedInline):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+    save_on_top = True
+    save_as = True
+    form = ProjectAdminForm
     list_display = (
         'title',
         'client', 'website', 'completed',
@@ -22,6 +26,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
+    form = ProfileAdminForm
     list_display = (
         'first_name', 'last_name', 'phone_number', 'email',
         'short_description',
@@ -38,6 +43,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
+    form = NewsAdminForm
     list_display = (
         'title',
         'short_description',
