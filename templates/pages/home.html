@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block conteiner %}
+
+    {% include 'include/gallery.html' %}
+    {% include 'include/service.html' %}
+    {% include 'include/feature.html' %}
+    {% include 'include/testimonial.html' %}
+    {% include 'include/callto-action.html' %}
+    {% include 'include/blog.html' %}
+    {% include 'include/brands.html' %}
+
+{% endblock conteiner %}

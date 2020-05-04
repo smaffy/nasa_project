@@ -20,7 +20,7 @@
     <!-- Site Title -->
 
     <title>
-        Interior,
+        Nasa arhitektuuriburoo,
         {% block title %}
 
         {% endblock title %}
@@ -42,18 +42,16 @@
 
     <body>
         {% include 'include/header.html' %}
-
         {% include 'include/bannertop.html' %}
-        {% include 'include/gallery.html' %}
-        {% include 'include/service.html' %}
-        {% include 'include/feature.html' %}
-        {% include 'include/testimonial.html' %}
-        {% include 'include/callto-action.html' %}
-        {% include 'include/blog.html' %}
-        {% include 'include/brands.html' %}
 
+        <section class="gallery-area pt-120">
+            <div class="container">
+                {% block conteiner %}
+
+                {% endblock conteiner %}
+            </div>
+        </section>
         {% include 'include/footer.html' %}
-
 
         <!--
         JS
