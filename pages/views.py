@@ -4,8 +4,14 @@ from django.views.generic import TemplateView, ListView, DetailView
 from .models import Project, Profile, News, Service, ProjectImage
 
 
-def group(iterable, count):
-    return list(zip(*[iter(iterable)] * count))
+def group(iterable, mycount):
+    it = len(list(iterable))
+    a = list(zip(*[iter(iterable)] * mycount))
+    b = len(a) * mycount
+    c = it - b
+    if c > 0:
+        a.append(list(list(iterable)[-c:]))
+    return a
 
 
 class HomePageView(TemplateView):
@@ -16,7 +22,7 @@ class ProjectsListView(ListView):
     model = Project
     context_object_name = 'project_list'
     template_name = 'pages/projects_list.html'
-    paginate_by = 1
+    paginate_by = 2
 
     def get_images(self):
         return ProjectImage.objects.filter(project__slug=self.kwargs['slug'])
@@ -25,19 +31,12 @@ class ProjectsListView(ListView):
         pr = Project.objects.all()
         return group(pr, 4)
 
-        # pr = Project.objects.all()[::2]
-        # pr2 = Project.objects.all()[1::2]
-        # if len(pr) == len(pr2):
-        #     projects1 = [[i, m] for i in pr for m in pr2]
-        # else:
-        #     projects1 = [[i, m] for i in pr[:-1] for m in pr2]
-        # return projects1
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        data = super().get_context_data(object_list=object_list, **kwargs)
-
-        data['projects'] = self.get_queryset()
-        return data
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     data = super().get_context_data(object_list=object_list, **kwargs)
+    #
+    #     data['projects'] = group(self.object_list, 4)
+    #     return data
 
 
 class ProjectDetailView(DetailView):
