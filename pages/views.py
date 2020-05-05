@@ -1,7 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, DetailView, FormView
 
 from .models import Project, Profile, News, Service, ProjectImage
+from .forms import ContactForm
 
 
 def group(iterable, mycount):
@@ -88,6 +92,25 @@ class NewsDetailView(DetailView):
     template_name = 'pages/news_detail.html'
 
 
-class ContactView(TemplateView):
-    template_name = 'pages/contact.html'
+class AboutView(TemplateView):
+    template_name = 'pages/about.html'
 
+
+class ContactView(FormView):
+    form_class = ContactForm
+    template_name = 'pages/contact.html'
+    success_url = 'success/'
+
+    def form_valid(self, form):
+        self.send_email(form.cleaned_data)
+        return super(ContactView, self).form_valid(form)
+
+    def send_email(self, data):
+        subject = data['subject']
+        message = data['message']
+        from_email = data['email']
+        send_mail(subject, message, from_email, ['jekrudcz@gmail.com'])
+
+
+class SuccessView(TemplateView):
+    template_name = 'pages/success.html'

@@ -221,3 +221,22 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'rudakovapraha@gmail.com'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'rudakovapraha@gmail.com'
+EMAIL_HOST_PASSWORD = 'petja321'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+"""
+send_mail('Django mail', 'This e-mail was sent with Django.', 
+'rudakovapraha@gmail.com', ['kate@itpeople.ee'], fail_silently=False)
+"""
+
