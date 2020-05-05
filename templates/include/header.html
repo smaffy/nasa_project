@@ -21,21 +21,21 @@
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
           <div id="logo">
-            <a href="index.html"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>
+            <a href="{% url 'pages:home' %}"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>
           </div>
           <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li class="menu-active"><a href="index.html">AVALEHT</a></li>
-                <li class="menu-has-children"><a href="">TEHTUD TÖÖD</a>
+                <li class="menu-active"><a href="{% url 'pages:home' %}">AVALEHT</a></li>
+                <li class="menu-has-children"><a href="{% url 'pages:projects' %}">TEHTUD TÖÖD</a>
 {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
                     <ul>
-                        <li><a href="blog-home.html">Valik töid</a></li>
-                        <li><a href="blog-single.html">Konkurss</a></li>
+                        <li><a href="#">Valik töid</a></li>
+                        <li><a href="#">Konkurss</a></li>
                     </ul>
                 </li>
-                <li><a href="services.html">TEENUSED</a></li>
-                <li><a href="projects.html">INIMESED</a></li>
-                <li><a href="about.html">UUDISED</a></li>
+                <li><a href="{% url 'pages:service_list' %}">TEENUSED</a></li>
+                <li><a href="{% url 'pages:projects' %}">INIMESED</a></li>
+                <li><a href="{% url 'pages:news' %}">UUDISED</a></li>
 
 
 {#              <li class="menu-has-children"><a href="">Pages</a>#}
@@ -50,8 +50,8 @@
 {#                    </li>#}
 {#                </ul>#}
 {#              </li>#}
-                <li><a href="contact.html">Kontakt</a></li>
-                <li><a href="contact.html">English</a></li>
+                <li><a href="{% url 'pages:contact' %}">Kontakt</a></li>
+                <li><a href="#">English</a></li>
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
