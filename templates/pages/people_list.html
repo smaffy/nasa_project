@@ -1,17 +1,45 @@
 {% extends '_base.html' %}
+{% load thumbnail %}
 
 {% load static %}
 
 {% block title %}
-    our team
+    Our Team
 {% endblock title %}
 
 {% block conteiner %}
 
-    {% for profile in people_list %}
-        <h1>{{ profile.get_name }}</h1>
-        {{ profile.facebook }}
-        <hr>
-    {% endfor %}
+    <!-- Start gallery Area -->
+    <section class="gallery-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 pb-40 header-text text-center">
+                    <h1 class="pb-10">Our Team may impress you</h1>
+                    <p>
+                        Who are in extremely love with eco friendly system.
+                    </p>
+                </div>
+            </div>
+            {% for pr in people_list %}
+                <div class="row">
+                    {% with pr.0 as profile %}
+                        {% include 'include/pages/people.html' %}
+                    {% endwith %}
+                    {% if pr.1 %}
+                        {% with pr.1 as profile %}
+                            {% include 'include/pages/people.html' %}
+                        {% endwith %}
+                    {% endif %}
+                    {% if pr.2 %}
+                        {% with pr.2 as profile %}
+                            {% include 'include/pages/people.html' %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% include 'include/pagination.html' %}
+        </div>
+    </section>
+    <!-- End gallery Area -->
 
 {% endblock conteiner %}

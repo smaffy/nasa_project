@@ -9,9 +9,6 @@ our projects
 
 {% block conteiner %}
 
-    <h1>{{ project.title }}</h1>
-    {{ project.website }}
-    <hr>
     <!-- Start gallery Area -->
     <section class="gallery-area section-gap">
         <div class="container">
@@ -24,10 +21,43 @@ our projects
                 </div>
             </div>
             {% for pr in project_list %}
-                {% include 'include/pages/projects.html' %}
-                {% include 'include/pagination.html' %}
-            {% endfor %}
+                <div class="row">
+                    {% with pr.0 as project %}
+                        {% include 'include/pages/projects8.html' %}
+                    {% endwith %}
+                    {% if pr.1 %}
+                        {% with pr.1 as project %}
+                            {% include 'include/pages/projects4.html' %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if pr.2 %}
+                        {% with pr.2 as project %}
+                            {% include 'include/pages/projects4.html' %}
+                        {% endwith %}
+                    {% endif %}
+                    {% if pr.3 %}
+                        {% with pr.3 as project %}
+                            {% include 'include/pages/projects8.html' %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if pr.4 %}
+                        {% with pr.4 as project %}
+                            {% include 'include/pages/projects4.html' %}
+                        {% endwith %}
+                    {% endif %}
+                    {% if pr.5 %}
+                        {% with pr.5 as project %}
+                            {% include 'include/pages/projects8.html' %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
 
+            {% endfor %}
+            {% include 'include/pagination.html' %}
         </div>
     </section>
     <!-- End gallery Area -->
