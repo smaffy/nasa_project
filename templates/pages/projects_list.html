@@ -23,7 +23,7 @@ our projects
                     </p>
                 </div>
             </div>
-            {% for pr in projects %}
+            {% for pr in project_list %}
                 <div class="row">
                     {% with pr.0 as project %}
                         <div class="col-lg-8">
@@ -31,10 +31,18 @@ our projects
                                 <div class="content">
                                     <a href="#" target="_blank">
                                       <div class="content-overlay"></div>
-                                         <img class="content-image img-fluid d-block mx-auto" src="{{ project.first_image.url }}" alt="">
+                                        {% with project.first_image as image %}
+                                            {% if image %}
+                                                {% thumbnail image "730x370" crop='center' as img %}
+                                                    <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px" src="{{ img.url }}" height="370" alt="">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                Sorry, no picture :(
+                                            {% endif %}
+                                        {% endwith %}
                                       <div class="content-details fadeIn-bottom">
                                         <h3 class="content-title mx-auto">{{ project.title }}</h3>
-                                        <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">More Details</a>
+                                        <a href="{{ project.get_absolute_url }}"  class="primary-btn text-uppercase mt-20">More Details</a>
                                       </div>
                                     </a>
                                 </div>
@@ -47,7 +55,15 @@ our projects
                                 <div class="content">
                                     <a href="#" target="_blank">
                                       <div class="content-overlay"></div>
-                                         <img class="content-image img-fluid d-block mx-auto" src="{{ project.first_image.url }}" alt="">
+                                        {% with project.first_image as image %}
+                                            {% if image %}
+                                                {% thumbnail image "350x370" crop='center' as img %}
+                                                    <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px"  src="{{ img.url }}" height="370" alt="">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                Sorry, no picture :(
+                                            {% endif %}
+                                        {% endwith %}
                                       <div class="content-details fadeIn-bottom">
                                         <h3 class="content-title mx-auto">{{ project.title }}</h3>
                                         <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">More Details</a>
@@ -57,8 +73,58 @@ our projects
                             </div>
                         </div>
                     {% endwith %}
+                    {% with pr.2 as project %}
+                        <div class="col-lg-4">
+                            <div class="single-gallery">
+                                <div class="content">
+                                    <a href="#" target="_blank">
+                                      <div class="content-overlay"></div>
+                                        {% with project.first_image as image %}
+                                            {% if image %}
+                                                {% thumbnail image "350x370" crop='center' as img %}
+                                                    <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px"  src="{{ img.url }}" height="370" alt="">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                Sorry, no picture :(
+                                            {% endif %}
+                                        {% endwith %}
+                                      <div class="content-details fadeIn-bottom">
+                                        <h3 class="content-title mx-auto">{{ project.title }}</h3>
+                                        <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">More Details</a>
+                                      </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endwith %}
+                    {% with pr.3 as project %}
+                        <div class="col-lg-8">
+                            <div class="single-gallery">
+                                <div class="content">
+                                    <a href="#" target="_blank">
+                                      <div class="content-overlay"></div>
+                                        {% with project.first_image as image %}
+                                            {% if image %}
+                                                {% thumbnail image "730x370" crop='center' as img %}
+                                                    <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px" src="{{ img.url }}" height="370" alt="">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                Sorry, no picture :(
+                                            {% endif %}
+                                        {% endwith %}
+                                      <div class="content-details fadeIn-bottom">
+                                        <h3 class="content-title mx-auto">{{ project.title }}</h3>
+                                        <a href="{{ project.get_absolute_url }}"  class="primary-btn text-uppercase mt-20">More Details</a>
+                                      </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endwith %}
+                    {% include 'include/pagination.html' %}
                 </div>
             {% endfor %}
+
         </div>
     </section>
     <!-- End gallery Area -->
