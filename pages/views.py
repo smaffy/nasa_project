@@ -1,10 +1,10 @@
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, FormView
 
-from .models import Project, Profile, News, Service, ProjectImage
+from .models import Project, Profile, News, Service, ProjectImage, Category
 from .forms import ContactForm
 
 
@@ -38,6 +38,26 @@ class ProjectsListView(ListView):
     #
     #     data['projects'] = group(self.object_list, 4)
     #     return data
+
+
+class CategoryProjectListView(ProjectsListView):
+
+    def get_queryset(self):
+        pr = Project.objects.filter(category__category_slug=self.kwargs['category_slug'])
+        return group(pr, 6)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=object_list, **kwargs)
+
+        data['category'] = self.get_category()
+        return data
+
+    def get_category(self):
+        try:
+            category = Category.objects.get(category_slug=self.kwargs['category_slug'])
+        except Category.DoesNotExist:
+            raise Http404
+        return category
 
 
 class ProjectDetailView(DetailView):

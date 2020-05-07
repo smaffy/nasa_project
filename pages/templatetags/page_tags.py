@@ -1,5 +1,7 @@
 from django import template
 
+from pages.models import Category
+
 register = template.Library()
 
 
@@ -21,6 +23,11 @@ def proper_paginate(paginator, current_page, neighbors=1):
         page_list = [f for f in range(start_index, end_index+1)]
         return page_list[:(2*neighbors + 1)]
     return paginator.page_range
+
+
+@register.simple_tag(name='categories')
+def categories():
+    return Category.objects.all()
 
 
 

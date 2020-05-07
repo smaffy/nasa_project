@@ -6,36 +6,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
 
 
-class Project(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
-    client = models.CharField(max_length=200, blank=True, null=True)
-    website = models.URLField(max_length=200, blank=True, null=True)
-    completed = models.DateField(auto_now=False, auto_now_add=False)
-    short_description = models.TextField()
-    description = models.TextField(blank=True, null=True)
-    first_image = models.ImageField(upload_to='images/projects/', default='images/defaults/project-details.jpg')
-    ind = models.PositiveSmallIntegerField(default=0)
-
-    class Meta:
-        ordering = ['completed']
-        verbose_name_plural = 'Projects'
-
-    def __str__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            if len(self.title) < 15:
-                self.slug = slugify(self.title)
-            else:
-                self.slug = slugify(truncatewords(self.title, 3))
-        super(Project, self).save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return reverse('pages:projects_detail', kwargs={'slug': self.slug, })
-
-
 class Service(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
@@ -61,8 +31,8 @@ class Service(models.Model):
 
 
 class Profile(models.Model):
-    first_name = models.CharField(max_length=200, unique=True)
-    last_name = models.CharField(max_length=200, unique=True)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     facebook = models.URLField(max_length=200, blank=True, null=True)
     phone_number = PhoneNumberField(blank=True, null=True)
@@ -115,6 +85,60 @@ class News(models.Model):
         return reverse('pages:news_detail', kwargs={'slug': self.slug, })
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    category_slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+
+    class Meta:
+        ordering = ['title']
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.category_slug:
+            if len(self.title) < 15:
+                self.category_slug = slugify(self.title)
+            else:
+                self.category_slug = slugify(truncatewords(self.title, 3))
+        super(Category, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('pages:category', kwargs={'category_slug': self.category_slug, })
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    category = models.ManyToManyField(Category, default=None, related_name='project_category')
+    client = models.CharField(max_length=200, blank=True, null=True)
+    website = models.URLField(max_length=200, blank=True, null=True)
+    completed = models.DateField(auto_now=False, auto_now_add=False)
+    short_description = models.TextField()
+    description = models.TextField(blank=True, null=True)
+    first_image = models.ImageField(upload_to='images/projects/', default='images/defaults/project-details.jpg')
+    ind = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['completed']
+        verbose_name_plural = 'Projects'
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            if len(self.title) < 15:
+                self.slug = slugify(self.title)
+            else:
+                self.slug = slugify(truncatewords(self.title, 3))
+        super(Project, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('pages:projects_detail', kwargs={'slug': self.slug, })
+
+
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, default=None, on_delete=models.CASCADE, related_name='image')
     image = models.ImageField(upload_to='images/projects/', verbose_name='product_image', default='images/products/project_detail.jpg')
@@ -123,3 +147,4 @@ class ProjectImage(models.Model):
     class Meta:
         ordering = ['index']
         verbose_name_plural = 'ProjectImages'
+

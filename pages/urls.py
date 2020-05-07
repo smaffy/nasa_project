@@ -6,6 +6,7 @@ app_name = 'pages'
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
     path('projects/', views.ProjectsListView.as_view(), name='projects'),
+    path('projects/category/<slug:category_slug>/', views.CategoryProjectListView.as_view(), name='category'),
     path('projects/<slug:slug>/', views.ProjectDetailView.as_view(), name='projects_detail'),
     path('service/', views.ServiceListView.as_view(), name='service_list'),
     path('service/<slug:slug>/', views.ServiceDetailView.as_view(), name='service_detail'),
