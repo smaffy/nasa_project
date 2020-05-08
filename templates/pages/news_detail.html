@@ -3,8 +3,29 @@
 {% load static %}
 
 {% block title %}
+    News '{{ news.title }}'
 {% endblock title %}
 
 {% block conteiner %}
-
+    <section class="service-area section-gap" id="service">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 pb-50 header-text text-center">
+                    <h1 class="mb-10">{{ news.title }}</h1>
+                    <p>
+                        <br><br>
+                        {{ news.publicated }}
+                    </p>
+                    <p style="color: black">
+                        <br><br>
+                        {{ news.short_description }}
+                        <br><br>
+{#                        image#}
+                        <br><br>
+                        {{ news.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock conteiner %}

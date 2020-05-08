@@ -1,3 +1,6 @@
+import datetime
+from datetime import date
+
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -67,6 +70,7 @@ class News(models.Model):
     short_description = models.TextField()
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='images/news/', default='images/defaults/news.jpg')
+    publicated = models.DateField(default=datetime.date.today)
 
     class Meta:
         verbose_name_plural = 'News'
