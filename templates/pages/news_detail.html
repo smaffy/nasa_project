@@ -9,21 +9,16 @@
 {% block conteiner %}
     <section class="service-area section-gap" id="service">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12 pb-50 header-text text-center">
-                    <h1 class="mb-10">{{ news.title }}</h1>
-                    <p>
-                        <br><br>
-                        {{ news.publicated }}
-                    </p>
-                    <p style="color: black">
-                        <br><br>
-                        {{ news.short_description }}
-                        <br><br>
-{#                        image#}
-                        <br><br>
-                        {{ news.description }}
-                    </p>
+            <h1 class="mb-10 text-center">{{ news.title }}</h1>
+            <div class="section-top-border p-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <blockquote class="generic-blockquote">
+                            <p style="color: grey">{{ news.publicated }}</p>
+                            <p style="color: black">{{ news.short_description }}</p>
+                            <p style="color: black">{{ news.description }}</p>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </div>
