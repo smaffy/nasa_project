@@ -1,12 +1,24 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 {% load page_tags %}
 {% load thumbnail %}
 
 {% block title %}
-our projects
+    Projects
 {% endblock title %}
+
+{% block title2 %}
+    Projects
+{% endblock title2 %}
+
+{% block top %}
+    <p class="text-white link-nav">
+        <a href="{% url 'pages:home' %}"> Home </a>
+        <span class="lnr lnr-arrow-right"></span>
+        <a href="{% url 'pages:projects' %}"> Projects </a>
+    </p>
+{% endblock top %}
 
 {% block conteiner %}
 

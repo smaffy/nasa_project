@@ -6,14 +6,21 @@
     Home
 {% endblock title %}
 
-{% block conteiner %}
+{% block base %}
 
-    {% include 'include/gallery.html' %}
-    {% include 'include/service.html' %}
-    {% include 'include/feature.html' %}
-    {% include 'include/testimonial.html' %}
-    {% include 'include/callto-action.html' %}
-    {% include 'include/blog.html' %}
-    {% include 'include/brands.html' %}
+    {% include 'include/bannerbigtop.html' %}
 
-{% endblock conteiner %}
+    <section class="gallery-area pt-40">
+        <div class="container">
+            {% include 'include/gallery.html' %}
+            {% include 'include/service.html' %}
+            {% include 'include/feature.html' %}
+            {% include 'include/testimonial.html' %}
+            {% include 'include/callto-action.html' %}
+            {% include 'include/blog.html' %}
+            {% include 'include/brands.html' %}
+        </div>
+    </section>
+
+
+{% endblock base %}

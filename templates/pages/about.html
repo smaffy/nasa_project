@@ -1,10 +1,22 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block title %}
     About Us
 {% endblock title %}
+
+{% block title2 %}
+    About Us
+{% endblock title2 %}
+
+{% block top %}
+    <p class="text-white link-nav">
+        <a href="{% url 'pages:home' %}"> Home </a>
+        <span class="lnr lnr-arrow-right"></span>
+        <a href="{% url 'pages:about' %}"> About Us </a>
+    </p>
+{% endblock top %}
 
 {% block conteiner %}
 

@@ -1,10 +1,22 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block title %}
     Contact Success
 {% endblock title %}
+
+{% block title2 %}
+    Contact Success
+{% endblock title2 %}
+
+{% block top %}
+    <p class="text-white link-nav">
+        <a href="{% url 'pages:home' %}"> Home </a>
+        <span class="lnr lnr-arrow-right"></span>
+        <a href="{% url 'pages:contact' %}"> Contact Us </a>
+    </p>
+{% endblock top %}
 
 {% block conteiner %}
     <div style="text-align: center">

@@ -1,10 +1,22 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block title %}
     News '{{ news.title }}'
 {% endblock title %}
+
+{% block title2 %}
+    {{ news.title }}
+{% endblock title2 %}
+
+{% block top %}
+    <p class="text-white link-nav">
+        <a href="{% url 'pages:home' %}"> Home </a>
+        <span class="lnr lnr-arrow-right"></span>
+        <a href="{% url 'pages:news' %}"> News </a>
+    </p>
+{% endblock top %}
 
 {% block conteiner %}
     <section class="service-area section-gap" id="service">

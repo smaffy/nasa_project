@@ -43,15 +43,11 @@
 
     <body>
         {% include 'include/header.html' %}
-        {% include 'include/bannertop.html' %}
 
-        <section class="gallery-area pt-40">
-            <div class="container">
-                {% block conteiner %}
+        {% block base %}
 
-                {% endblock conteiner %}
-            </div>
-        </section>
+        {% endblock base %}
+
         {% include 'include/footer.html' %}
 
         <!--
