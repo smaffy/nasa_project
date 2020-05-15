@@ -1,0 +1,13 @@
+{% load thumbnail %}
+
+<div class="col-lg-8">
+    <div class="single-gallery">
+            {% if image %}
+                <a href="{{ image.image.url }}">
+                    {% thumbnail image.image "730x370" crop='center' as img %}
+                        <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px" src="{{ img.url }}" height="370" alt="">
+                    {% endthumbnail %}
+                </a>
+            {% endif %}
+    </div>
+</div>

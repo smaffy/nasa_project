@@ -48,6 +48,16 @@ class ProjectDetailView(DetailView):
     context_object_name = 'project'
     template_name = 'pages/project_detail.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=object_list, **kwargs)
+
+        data['images'] = self.get_images()
+        return data
+
+    def get_images(self):
+        pr = ProjectImage.objects.filter(project__slug=self.kwargs['slug'])
+        return group(pr, 4)
+
 
 class ServiceListView(ListView):
     model = Service
