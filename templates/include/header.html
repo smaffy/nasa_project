@@ -31,14 +31,22 @@
 {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
                     <ul>
                         <li><a href="{% url 'pages:projects' %}">All Projects</a></li>
-                        {% categories as categories %}
-                            {% for category in categories %}
+                        {% project_categories as project_categories %}
+                            {% for category in project_categories %}
+                                <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                            {% endfor %}
+                    </ul>
+                </li>
+                <li class="menu-has-children"><a href="{% url 'pages:people' %}">INIMESED</a>
+                    <ul>
+                        <li><a href="{% url 'pages:people' %}">All People</a></li>
+                        {% profile_categories as profile_categories %}
+                            {% for category in profile_categories %}
                                 <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
                             {% endfor %}
                     </ul>
                 </li>
                 <li><a href="{% url 'pages:service_list' %}">TEENUSED</a></li>
-                <li><a href="{% url 'pages:people' %}">INIMESED</a></li>
                 <li><a href="{% url 'pages:news' %}">UUDISED</a></li>
 
 

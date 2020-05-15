@@ -1,6 +1,6 @@
 from django import template
 
-from pages.models import Category
+from pages.models import ProjectCategory, ProfileCategory
 
 register = template.Library()
 
@@ -25,9 +25,15 @@ def proper_paginate(paginator, current_page, neighbors=1):
     return paginator.page_range
 
 
-@register.simple_tag(name='categories')
-def categories():
-    return Category.objects.all()
+@register.simple_tag(name='project_categories')
+def project_categories():
+    return ProjectCategory.objects.all()
+
+
+@register.simple_tag(name='profile_categories')
+def profile_categories():
+    return ProfileCategory.objects.all()
+
 
 
 

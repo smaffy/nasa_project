@@ -9,6 +9,16 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
 
 
+def group(iterable, mycount):
+    it = len(list(iterable))
+    a = list(zip(*[iter(iterable)] * mycount))
+    b = len(a) * mycount
+    c = it - b
+    if c > 0:
+        a.append(list(list(iterable)[-c:]))
+    return a
+
+
 class Service(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
@@ -33,10 +43,34 @@ class Service(models.Model):
         return reverse('pages:service_detail', kwargs={'slug': self.slug, })
 
 
+class ProfileCategory(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    category_slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+
+    class Meta:
+        ordering = ['title']
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.category_slug:
+            if len(self.title) < 15:
+                self.category_slug = slugify(self.title)
+            else:
+                self.category_slug = slugify(truncatewords(self.title, 3))
+        super(ProfileCategory, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('pages:profile_category', kwargs={'category_slug': self.category_slug, })
+
+
 class Profile(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    profile_category = models.ManyToManyField(ProfileCategory, default=None, related_name='profile_category')
     facebook = models.URLField(max_length=200, blank=True, null=True)
     phone_number = PhoneNumberField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
@@ -89,7 +123,7 @@ class News(models.Model):
         return reverse('pages:news_detail', kwargs={'slug': self.slug, })
 
 
-class Category(models.Model):
+class ProjectCategory(models.Model):
     title = models.CharField(max_length=200, unique=True)
     category_slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
 
@@ -106,16 +140,16 @@ class Category(models.Model):
                 self.category_slug = slugify(self.title)
             else:
                 self.category_slug = slugify(truncatewords(self.title, 3))
-        super(Category, self).save(*args, **kwargs)
+        super(ProjectCategory, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:category', kwargs={'category_slug': self.category_slug, })
+        return reverse('pages:projects_category', kwargs={'category_slug': self.category_slug, })
 
 
 class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
-    category = models.ManyToManyField(Category, default=None, related_name='project_category')
+    project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
     client = models.CharField(max_length=200, blank=True, null=True)
     website = models.URLField(max_length=200, blank=True, null=True)
     completed = models.DateField(auto_now=False, auto_now_add=False)
@@ -141,6 +175,10 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('pages:projects_detail', kwargs={'slug': self.slug, })
+
+    def get_images(self):
+        images = ProjectImage.objects.filter(project__slug=self.slug)
+        return group(images, 4)
 
 
 class ProjectImage(models.Model):

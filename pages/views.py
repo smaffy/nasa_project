@@ -4,18 +4,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, FormView
 
-from .models import Project, Profile, News, Service, ProjectImage, Category
+from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory, group
 from .forms import ContactForm
-
-
-def group(iterable, mycount):
-    it = len(list(iterable))
-    a = list(zip(*[iter(iterable)] * mycount))
-    b = len(a) * mycount
-    c = it - b
-    if c > 0:
-        a.append(list(list(iterable)[-c:]))
-    return a
 
 
 class HomePageView(TemplateView):
@@ -33,17 +23,10 @@ class ProjectsListView(ListView):
         return group(pr, 6)
 
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     data = super().get_context_data(object_list=object_list, **kwargs)
-    #
-    #     data['projects'] = group(self.object_list, 4)
-    #     return data
-
-
 class CategoryProjectListView(ProjectsListView):
 
     def get_queryset(self):
-        pr = Project.objects.filter(category__category_slug=self.kwargs['category_slug'])
+        pr = Project.objects.filter(project_category__category_slug=self.kwargs['category_slug'])
         return group(pr, 6)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -54,8 +37,8 @@ class CategoryProjectListView(ProjectsListView):
 
     def get_category(self):
         try:
-            category = Category.objects.get(category_slug=self.kwargs['category_slug'])
-        except Category.DoesNotExist:
+            category = ProjectCategory.objects.get(category_slug=self.kwargs['category_slug'])
+        except ProjectCategory.DoesNotExist:
             raise Http404
         return category
 
@@ -64,9 +47,6 @@ class ProjectDetailView(DetailView):
     model = Project
     context_object_name = 'project'
     template_name = 'pages/project_detail.html'
-
-    def get_images(self):
-        return ProjectImage.objects.filter(project__slug=self.kwargs['slug'])
 
 
 class ServiceListView(ListView):
@@ -91,6 +71,26 @@ class PeopleListView(ListView):
     def get_queryset(self):
         pr = Profile.objects.all()
         return group(pr, 3)
+
+
+class CategoryProfileListView(PeopleListView):
+
+    def get_queryset(self):
+        pr = Profile.objects.filter(profile_category__category_slug=self.kwargs['category_slug'])
+        return group(pr, 6)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=object_list, **kwargs)
+
+        data['category'] = self.get_category()
+        return data
+
+    def get_category(self):
+        try:
+            category = ProfileCategory.objects.get(category_slug=self.kwargs['category_slug'])
+        except ProfileCategory.DoesNotExist:
+            raise Http404
+        return category
 
 
 class ProfileView(DetailView):

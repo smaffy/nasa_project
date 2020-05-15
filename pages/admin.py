@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.template.defaultfilters import truncatewords
 
-from .models import Project, Profile, News, Service, ProjectImage, Category
+from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory
 from .forms import ProjectAdminForm, ProfileAdminForm, NewsAdminForm
 
 
@@ -30,7 +30,7 @@ class ProfileAdmin(admin.ModelAdmin):
     save_as = True
     form = ProfileAdminForm
     list_display = (
-        'first_name', 'last_name', 'slug', 'phone_number', 'email',
+        'first_name', 'last_name', 'slug',
         'short_description',
     )
 
@@ -45,8 +45,17 @@ class ServiceAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+@admin.register(ProjectCategory)
+class ProjectCategoryAdmin(admin.ModelAdmin):
+    save_on_top = True
+    save_as = True
+    list_display = (
+        'title', 'category_slug',
+    )
+
+
+@admin.register(ProfileCategory)
+class ProfileCategoryAdmin(admin.ModelAdmin):
     save_on_top = True
     save_as = True
     list_display = (
