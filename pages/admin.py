@@ -22,6 +22,7 @@ class ProjectAdmin(admin.ModelAdmin):
         'short_description',
     )
     inlines = [ImageInline, ]
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Profile)
@@ -33,6 +34,7 @@ class ProfileAdmin(admin.ModelAdmin):
         'first_name', 'last_name', 'slug',
         'short_description',
     )
+    prepopulated_fields = {'slug': ('first_name', 'last_name',)}
 
 
 @admin.register(Service)
@@ -43,6 +45,7 @@ class ServiceAdmin(admin.ModelAdmin):
         'title', 'slug',
         'short_description',
     )
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(ProjectCategory)
@@ -52,6 +55,7 @@ class ProjectCategoryAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'category_slug',
     )
+    prepopulated_fields = {'category_slug': ('title',)}
 
 
 @admin.register(ProfileCategory)
@@ -61,6 +65,7 @@ class ProfileCategoryAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'category_slug',
     )
+    prepopulated_fields = {'category_slug': ('title',)}
 
 
 @admin.register(News)
@@ -72,6 +77,7 @@ class NewsAdmin(admin.ModelAdmin):
         'title',
         'short_description',
     )
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(ProjectImage)
