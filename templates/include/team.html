@@ -1,0 +1,52 @@
+{% load thumbnail %}
+{% load static %}
+
+<!-- Start blog Area -->
+{% if hteam %}
+    <section class="blog-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-20 pt-30 col-lg-9">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Our Team</h1>
+                        <p>Who are in extremely love with eco friendly system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="active-blog-carusel">
+                    {% for item in hteam %}
+                        <div class="single-blog-post item">
+                            <a href="{{ item.get_absolute_url }}" style="color: inherit">
+                                <div class="thumb">
+                                    {% thumbnail item.image "250x250" crop='center' as img %}
+                                        <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px" src="{{ img.url }}" height="250" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                                <div class="details">
+                                    <h4 class="title">{{ item.get_name }}</h4>
+                                    <div class="tags">
+                                        <ul>
+                                            {% for categ in item.profile_category.all %}
+                                                <li class="mb-2">
+                                                    <a href="{{ categ.get_absolute_url }}">{{ categ.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+
+                                    <p>
+                                        {{ item.get_short_description|safe }}
+                                    </p>
+                                    <h6 class="date pb-10" >from {{ item.start_work }}</h6>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+<!-- End blog Area -->

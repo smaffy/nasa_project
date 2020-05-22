@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}
+    {{ profile.first_name }} {{ profile.last_name }}
 {% endblock title %}
 
 {% block title2 %}
+    {{ profile.first_name }} {{ profile.last_name }}
 {% endblock title2 %}
 
 {% block top %}
@@ -17,5 +20,107 @@
 {% endblock top %}
 
 {% block conteiner %}
+    <!-- Start project-details Area -->
+    <section class="project-details-area section-gap">
+        <div class="container" style="color: black">
+            <div class="row">
+                <div class="col-lg-6 project-details-left">
+                    {% with profile.image as image %}
+                        {% if image %}
+                            {% thumbnail image "520x520" crop='center' as img %}
+                                <img class="img-fluid d-block mx-auto" style="border-radius: 10px"  src="{{ img.url }}" height="520" alt="">
+                            {% endthumbnail %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="col-lg-6 project-details-right">
+                    <h3 class="pb-20 pt-20">{{ profile.first_name }} {{ profile.last_name }}</h3>
+                    <p>
+                        {{ profile.short_description }}
+                    </p>
+                    <div class="details-info d-flex flex-row  mt-20">
+                        <ul class="names">
+{#                            <li>Rating    </li>#}
+                            {% if profile.email %}
+                                <li>Email    </li>
+                            {% endif %}
+                            {% if profile.phone_number %}
+                                <li>Phone number   </li>
+                            {% endif %}
+                            <li>Started work </li>
+                        </ul>
+                        <ul class="desc">
+{#                            <li>#}
+{#                                <div class="star">#}
+{#                                    : <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{##}
+                                    {#<span class="fa fa-star"></span>#}
+{#                                </div>#}
+{#                            </li>#}
+                            {% if profile.email %}
+                                <li>: {{ profile.email }}</li>
+                            {% endif %}
+                            {% if profile.phone_number %}
+                                <li>: {{ profile.phone_number }} </li>
+                            {% endif %}
+                            <li>: {{ profile.start_work }}</li>
 
+                        </ul>
+                    </div>
+                    <div class="social-links mt-30">
+                        {% if profile.facebook %}
+                            <a href="{{ profile.facebook }}"><i class="fa fa-facebook"></i></a>
+                        {% endif %}
+                        {% if profile.twitter %}
+                            <a href="{{ profile.twitter }}"><i class="fa fa-twitter"></i></a>
+                        {% endif %}
+{#                        <a href="#"><i class="fa fa-dribbble"></i></a>#}
+{#                        <a href="#"><i class="fa fa-behance"></i></a>#}
+{#                        <a href="#"><i class="fa fa-linkedin"></i></a>#}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12 project-desc mt-60 mb-60">
+                <p>
+                    {{ profile.description|safe }}
+                </p>
+            </div>
+            <div class="col-lg-12 project-desc mt-60 mb-60">
+                {% if profile.team.all %}
+                    <h3 class="text-center mt-30 mb-30">Projects:</h3>
+                    {% for pr in projects %}
+                        <div class="row">
+                            {% with pr.0 as project %}
+                                {% include 'include/pages/projects8.html' %}
+                            {% endwith %}
+                            {% if pr.1 %}
+                                {% with pr.1 as project %}
+                                    {% include 'include/pages/projects4.html' %}
+                                {% endwith %}
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            {% if pr.2 %}
+                                {% with pr.2 as project %}
+                                    {% include 'include/pages/projects4.html' %}
+                                {% endwith %}
+                            {% endif %}
+                            {% if pr.3 %}
+                                {% with pr.3 as project %}
+                                    {% include 'include/pages/projects8.html' %}
+                                {% endwith %}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- End project-details Area -->
 {% endblock conteiner %}

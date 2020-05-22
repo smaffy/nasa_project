@@ -27,24 +27,31 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0']
 
+SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 'suit',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'phonenumber_field',
     'ckeditor',
     'ckeditor_uploader',
     'sorl.thumbnail',
+    'allauth',
+    'allauth.account',
 
     # Local apps
     'pages.apps.PagesConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -240,3 +247,9 @@ send_mail('Django mail', 'This e-mail was sent with Django.',
 'rudakovapraha@gmail.com', ['kate@itpeople.ee'], fail_silently=False)
 """
 
+# auth
+AUTH_USER_MODEL = 'users.CustomUser'
+
+LOGIN_REDIRECT_URL = 'pages:home'
+
+ACCOUNT_LOGOUT_REDIRECT = 'pages:home'

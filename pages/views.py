@@ -4,12 +4,35 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, FormView
 
+from users.models import CustomUser
 from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory, group
 from .forms import ContactForm
 
 
 class HomePageView(TemplateView):
     template_name = 'pages/home.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=object_list, **kwargs)
+
+        data['hprojects'] = self.get_projects()
+        data['hservices'] = self.get_services()
+        data['hnews'] = self.get_news()
+        data['hteam'] = self.get_team()
+        return data
+
+    def get_projects(self):
+        return Project.objects.all()[:4]
+
+    def get_services(self):
+        serv = Service.objects.all()
+        return group(serv, 3)
+
+    def get_news(self):
+        return News.objects.all()[:6]
+
+    def get_team(self):
+        return Profile.objects.all()[:8]
 
 
 class ProjectsListView(ListView):
@@ -52,6 +75,7 @@ class ProjectDetailView(DetailView):
         data = super().get_context_data(object_list=object_list, **kwargs)
 
         data['images'] = self.get_images()
+
         return data
 
     def get_images(self):
@@ -108,6 +132,19 @@ class ProfileView(DetailView):
     context_object_name = 'profile'
     template_name = 'pages/profile.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=object_list, **kwargs)
+
+        data['projects'] = self.get_projects()
+        # data['category'] = self.get_category()
+
+        return data
+
+    def get_projects(self):
+        profile = Profile.objects.get(slug=self.kwargs['slug'])
+        pr = Project.objects.filter(project_team=profile)
+        return group(pr, 4)
+
 
 class NewsListView(ListView):
     model = News
@@ -136,11 +173,13 @@ class ContactView(FormView):
         return super(ContactView, self).form_valid(form)
 
     def send_email(self, data):
+        contacts = CustomUser.objects.get(username='company')
         subject = data['subject']
         message = data['message']
         from_email = data['email']
-        send_mail(subject, message, from_email, ['jekrudcz@gmail.com'])
-
+        if contacts:
+            send_mail(subject, message, from_email, [contacts.email])
+        
 
 class SuccessView(TemplateView):
     template_name = 'pages/success.html'

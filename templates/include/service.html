@@ -1,52 +1,39 @@
 {% load static %}
 
 <!-- Start service Area -->
-<section class="service-area section-gap" id="service">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 pb-50 header-text text-center">
-                <h1 class="mb-10">What we offer to our clients</h1>
-                <p>
-                    Meil on üle kümne aasta jagu kogemusi väga erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.
-                    Aastast 2004 oleme taotlenud suurusjärgus 200+ ehitusluba.
-                    Omame suuri kogemusi miljööaladele projekterimisel ning fikseeritud eelarvega töötamisel.
-                    Koostöös klientidega oleme välja arendanud mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava
-                    ja teavitame klienti projekti arengutest kindla regulaarsusega.
-                </p>
+{% if hservices %}
+    <section class="service-area section-gap" id="service">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 pb-50 pt-40 header-text text-center">
+                    <h1 class="mb-10">What we offer to our clients</h1>
+                    <p>
+                        Meil on üle kümne aasta jagu kogemusi väga erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.
+                        Aastast 2004 oleme taotlenud suurusjärgus 200+ ehitusluba.
+                        Omame suuri kogemusi miljööaladele projekterimisel ning fikseeritud eelarvega töötamisel.
+                        Koostöös klientidega oleme välja arendanud mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava
+                        ja teavitame klienti projekti arengutest kindla regulaarsusega.
+                    </p>
+                </div>
             </div>
+            {% for row in hservices %}
+                <div class="row mb-20">
+                    {% for service in row %}
+                        <div class="col-lg-4">
+                            <div class="single-service">
+                                <a href="{{ service.get_absolute_url }}"  style="color: inherit">
+                                    <h4>{{ service.title }}</h4>
+                                    <p>
+                                        {{ service.short_description }}
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endfor %}
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="single-service">
-                    <a href="#"><h4>Arhitektuur</h4></a>
-                    <p>
-                        Meil on kogemusi nii väikeste kui suurte uushoonete ning rekonstrueeritavate hoonete projektide juhtimisel.
-                        Meie meeskonnal on olemas energiatõhusa projekteerimise sertifikaat PASSIVE HOUSE DESIGNER.
-                        Oleme planeerinud mitmeid madala energiatarbega eramuid ning kavandanud netonullenergia lasteaia Palamuse valda.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-service">
-                    <a href="#"><h4>Sissearhitektuur</h4></a>
-                    <p>
-                        Oleme kujundanud hulgaliselt kaasaegseid bürookeskkondi ja teisi avalikke ruume. Pakume projekteerimist koos
-                        projektijuhtimisega st. koostame kliendi eest eelarve, otsime lahendustele teostajad-pakkujad ning teostame autorijärelevalvet objekti valmimiseni.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-service">
-                    <a href="#"><h4>Concept Design</h4></a>
-                    <p>
-                        Aitame kliente tehningueelse konsultatsiooni ja teostatavus-tasuvusuuringuga.
-                        Analüüsime detailplaneeringuga määratud ehitusõigus võimalusi planeerida investorile tasuvat hoonet.
-                        Samuti selgitame välja, kas valitud pind on kontori või muu ruumiprogrammi sisseseadmiseks sobiv.
-                        Meie klientideks on olnud RIIGI KINNISVARA, SISEMINISTEERIUM, DOMUS KINNISVARA, CITYCON, HELMES, ANDMEVARA.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End service Area -->
+    </section>
+{% endif %}
+    <!-- End service Area -->

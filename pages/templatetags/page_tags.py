@@ -1,6 +1,8 @@
 from django import template
+from django.core.exceptions import ObjectDoesNotExist
 
 from pages.models import ProjectCategory, ProfileCategory
+from users.models import CustomUser
 
 register = template.Library()
 
@@ -35,5 +37,10 @@ def profile_categories():
     return ProfileCategory.objects.all()
 
 
-
-
+@register.simple_tag(name='company')
+def company():
+    try:
+        comp = CustomUser.objects.get(username='company')
+    except ObjectDoesNotExist:
+        comp = CustomUser.objects.get_or_create(username='company', password='cc123456')
+    return comp

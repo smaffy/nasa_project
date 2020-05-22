@@ -21,10 +21,11 @@
 
 
 {% block conteiner %}
+
     <!-- Start project-details Area -->
     <section class="project-details-area section-gap">
-        <div class="container">
-            <div class="row align-items-center">
+        <div class="container" style="color: black">
+            <div class="row">
                 <div class="col-lg-6 project-details-left">
                     {% with project.first_image as image %}
                         {% if image %}
@@ -34,52 +35,86 @@
                         {% endif %}
                     {% endwith %}
                 </div>
-                <div class="col-lg-6 project-details-right">
-                    <h3 class="pb-20">{{ project.title }}</h3>
+                <div class="col-lg-6 project-details-right" style="vertical-align: top">
+                    <h3 class="pb-20 pt-20">{{ project.title }}</h3>
                     <p>
                         {{ project.short_description }}
                     </p>
-                    <div class="details-info d-flex flex-row">
-                        <ul class="names">
-                            <li>Rating    </li>
+                    <div class=" details-info d-flex flex-row">
+                        <table class="names" style="vertical-align: top">
+{#                            <li>Rating    </li>#}
                             {% if project.client %}
-                                <li>Client    </li>
+                                <tr>
+                                    <td>Client    </td>
+                                    <td>:</td>
+                                    <td> {{ project.client }}</td>
+                                </tr>
                             {% endif %}
-                            {% if project.website %}
-                                <li>Website   </li>
-                            {% endif %}
-                            <li>Completed </li>
-                        </ul>
-                        <ul class="desc">
-                            <li>
-                                <div class="star">
-                                    : <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
 
-                                    {#<span class="fa fa-star"></span>#}
-                                </div>
-                            </li>
-                            {% if project.client %}
-                                <li>: {{ project.client }}</li>
-                            {% endif %}
+                            <tr>
+                                <td>Completed    </td>
+                                <td>:</td>
+                                <td> {{ project.completed }}</td>
+                            </tr>
+
                             {% if project.website %}
-                                <li>: <a href="{{ project.website }}">{{ project.website }}</a> </li>
+                                <tr>
+                                    <td >Website    </td>
+                                    <td>:</td>
+                                    <td> <a href="{{ project.website }}">{{ project.website }}</a></td>
+                                </tr>
                             {% endif %}
-                            <li>: {{ project.completed }}</li>
-                        </ul>
+                            {% if project.project_team.all %}
+                                <tr>
+                                    <td>Team    </td>
+                                    <td>:</td>
+                                    <td>
+
+                                        {% for profile in project.project_team.all %}
+                                            <b><a href="{{ profile.get_absolute_url }}" >{{ profile.first_name }} {{ profile.last_name }}</a></b>,
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            {% if project.project_category.all %}
+                                <tr>
+                                    <td>Category    </td>
+                                    <td>:</td>
+                                    <td>
+                                        {% for categ in project.project_category.all %}
+                                            <b><a href="{{ categ.get_absolute_url }}" >{{ categ.title }}</a></b>,
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </table>
+                        <ul class="desc">
+{#                            <li>#}
+{#                                <div class="star">#}
+{#                                    : <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{#                                    <span class="fa fa-star checked"></span>#}
+{##}
+                                    {#<span class="fa fa-star"></span>#}
+{#                                </div>#}
+{#                            </li>#}
+{##}
+{##}
+{#                            #}
+{#                        </ul>#}
                     </div>
-                    <div class="social-links mt-30">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
+{#                    <div class="social-links mt-30">#}
+{#                        <a href="#"><i class="fa fa-facebook"></i></a>#}
+{#                        <a href="#"><i class="fa fa-twitter"></i></a>#}
 {#                        <a href="#"><i class="fa fa-dribbble"></i></a>#}
-{#                        <a href="#"><i class="fa fa-behance"></i></a>#}
+{#                         <a href="#"><i class="fa fa-behance"></i></a>#}
 {#                        <a href="#"><i class="fa fa-linkedin"></i></a>#}
-                    </div>
+{#                    </div>#}
                 </div>
-                <div class="col-lg-12 project-desc mt-60 mb-60">
+
+                <div class="col-lg-12 project-desc mt-60 mb-60" style="color: black">
                     <p>
                         {{ project.description|safe }}
                     </p>

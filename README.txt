@@ -1,3 +1,10 @@
+makemigrations
+migrate
+createsuperuser
+
+please create user 'company' and add all static data for site
+
+
 1. git
 sudo apt-get install git
 

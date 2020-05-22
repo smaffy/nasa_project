@@ -5,16 +5,33 @@
     <div class="header-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
-                    <a href="tel:+372 506 5668">+372 506 5668</a>
-                    <a href="mailto:info@nasa.ee">info@nasa.ee</a>
-                </div>
-                <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li
-                    </ul>
-                </div>
+                {% company as contacts %}
+                {% if contacts.active %}
+
+                    <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+                        <a href="tel:{{ contacts.phone_number }}">{{ contacts.phone_number }}</a>
+                        <a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
+                        <ul>
+                            {% if contacts.facebook %}
+                                <li><a href="{{ contacts.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                            {% endif %}
+                            {% if contacts.instagram %}
+                                <li><a href="{{ contacts.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                            {% endif %}
+                            {% if contacts.tvitter %}
+                                <li><a href="{{ contacts.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+                        <a href="tel:+372 506 5668">+372 506 5668</a>
+                        <a href="mailto:info@nasa.ee">info@nasa.ee</a>
+                    </div>
+                {% endif %}
+
             </div>
         </div>
     </div>

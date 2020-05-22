@@ -1,11 +1,12 @@
 {% load static %}
+{% load page_tags %}
 
 <!-- start footer Area -->
 <footer class="footer-area section-gap">
     <hr>
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 col-md-6 col-sm-6">
+            <div class="col-lg-8 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6><a href="{% url 'pages:about' %}" style="color: black">About Us</a></h6>
                     <p>
@@ -16,18 +17,46 @@
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                <div class="single-footer-widget">
-                    <h6>Follow Us</h6>
-                    <p>Let us be social</p>
-                    <div class="footer-social d-flex align-items-center">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
+            {% company as contacts %}
+            {% if contacts.active %}
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        {% if  contacts.instagram or contacts.twitter %}
+                            <h6>Follow Us</h6>
+                            <p>Let us be social</p>
+                            <div class="footer-social d-flex align-items-center">
+                                {% if contacts.facebook %}
+                                    <a href="{{ contacts.facebook }}"><i class="fa fa-facebook"></i></a>
+                                {% endif %}
+                                {% if contacts.instagram %}
+                                    <a href="{{ contacts.instagram }}"><i class="fa fa-instagram"></i></a>
+                                {% endif %}
+                                {% if contacts.twitter %}
+                                    <a href="{{ contacts.twitter }}"><i class="fa fa-twitter"></i></a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6><a href="{% url 'pages:contact' %}" style="color: inherit">Contact Us</a></h6>
+                        <a href="tel:{{ contacts.phone_number }}" style="color: inherit">{{ contacts.phone_number }}</a>
+                        <a href="mailto:{{ contacts.email }}" style="color: inherit">{{ contacts.email }}</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6><a href="{% url 'pages:contact' %}" style="color: inherit">Contact Us</a></h6>
+                        <a href="tel:+372 506 5668">+372 506 5668</a>
+                        <a href="mailto:info@nasa.ee">info@nasa.ee</a>
+                    </div>
+                </div>
+            {% endif %}
+
         </div>
     </div>
 </footer>
 <!-- End footer Area -->
+

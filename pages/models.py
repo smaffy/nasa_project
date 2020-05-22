@@ -72,6 +72,7 @@ class Profile(models.Model):
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     profile_category = models.ManyToManyField(ProfileCategory, default=None, related_name='profile_category')
     facebook = models.URLField(max_length=200, blank=True, null=True)
+    twitter = models.URLField(max_length=200, blank=True, null=True)
     phone_number = PhoneNumberField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     start_work = models.DateField(auto_now=False, auto_now_add=False)
@@ -97,6 +98,10 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('pages:profile', kwargs={'slug': self.slug, })
 
+    def get_short_description(self):
+        desc = truncatewords(self.short_description, 25) + '...'
+        return desc
+
 
 class News(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -104,10 +109,11 @@ class News(models.Model):
     short_description = models.TextField()
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='images/news/', default='images/defaults/news.jpg')
-    publicated = models.DateField(default=datetime.date.today)
+    published = models.DateField(default=datetime.date.today)
 
     class Meta:
         verbose_name_plural = 'News'
+        ordering = ['-published']
 
     def __str__(self):
         return self.title
@@ -150,6 +156,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
+    project_team = models.ManyToManyField(Profile, default=None, related_name='team')
     client = models.CharField(max_length=200, blank=True, null=True)
     website = models.URLField(max_length=200, blank=True, null=True)
     completed = models.DateField(auto_now=False, auto_now_add=False)
@@ -159,7 +166,7 @@ class Project(models.Model):
     ind = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ['completed']
+        ordering = ['-completed']
         verbose_name_plural = 'Projects'
 
     def __str__(self):

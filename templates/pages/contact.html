@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load page_tags %}
+
 
 {% block title %}
     Contact Us
@@ -25,16 +27,25 @@
         <div class="container">
             <div class="row">
                 <div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
+                {% company as contacts %}
                 <div class="col-lg-4 d-flex flex-column address-wrap">
                     <div class="single-contact-address d-flex flex-row">
                         <div class="icon">
                             <span class="lnr lnr-home"></span>
                         </div>
                         <div class="contact-details">
-                            <h5>Tallinn, Estonia</h5>
-                            <p>
-                                Pronksi 3, 10124 Tallinn
-                            </p>
+                            {% if contacts.active and contacts.address %}
+                                <h5>{{ contacts.country }}</h5>
+                                <p>
+                                    {{ contacts.postal_code }} {{ contacts.city }} <br>
+                                    {{ contacts.address }}
+                                </p>
+                            {% else %}
+                                <h5>Tallinn, Estonia</h5>
+                                <p>
+                                    Pronksi 3, 10124 Tallinn
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="single-contact-address d-flex flex-row">
@@ -42,8 +53,15 @@
                             <span class="lnr lnr-phone-handset"></span>
                         </div>
                         <div class="contact-details">
-                            <h5>+372 506 5668</h5>
-                            <p>Mon to Fri 9am to 6 pm</p>
+                            {% if contacts.active and contacts.phone_number %}
+                                <h5>{{ contacts.phone_number }}</h5>
+                            {% else %}
+                                <h5>+372 506 5668</h5>
+                            {% endif %}
+                            {% if contacts.active and contacts.time_for_colling %}
+                                <p>{{ contacts.time_for_colling }}</p>
+                            {% endif %}
+
                         </div>
                     </div>
                     <div class="single-contact-address d-flex flex-row">
@@ -51,7 +69,11 @@
                             <span class="lnr lnr-envelope"></span>
                         </div>
                         <div class="contact-details">
-                            <h5>info@nasa.ee</h5>
+                            {% if contacts.active and contacts.email %}
+                                <h5>{{ contacts.email }}</h5>
+                            {% else %}
+                                <h5>info@nasa.ee</h5>
+                            {% endif %}
                             <p>Send us your query anytime!</p>
                         </div>
                     </div>

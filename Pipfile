@@ -12,6 +12,8 @@ django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
 pillow = "*"
 django-ckeditor = "*"
 sorl-thumbnail = "*"
+django-suit = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"

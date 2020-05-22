@@ -1,0 +1,53 @@
+{% load thumbnail %}
+{% load static %}
+
+<!-- Start blog Area -->
+{% if hnews %}
+    <section class="blog-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-20 pt-60 col-lg-9">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Last news</h1>
+                        <p>news news news news</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="active-blog-carusel">
+                    {% for item in hnews %}
+                        <div class="single-blog-post item">
+                            <a href="{{ item.get_absolute_url }}" style="color: inherit">
+                                <div class="thumb">
+                                    {% thumbnail item.image "350x250" crop='center' as img %}
+                                        <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px" src="{{ img.url }}" height="250" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                                <div class="details">
+        {#                            <div class="tags">#}
+        {#                                <ul>#}
+        {#                                    <li>#}
+        {#                                        <a href="#">Travel</a>#}
+        {#                                    </li>#}
+        {#                                    <li>#}
+        {#                                        <a href="#">Life Style</a>#}
+        {#                                    </li>#}
+        {#                                </ul>#}
+        {#                            </div>#}
+                                    <h4 class="title">{{ item.title }}</h4>
+                                    <h6 class="date pb-10" >{{ item.published }}</h6>
+                                    <p>
+                                        {{ item.short_description|safe }}
+                                    </p>
+
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+<!-- End blog Area -->
