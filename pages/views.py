@@ -159,7 +159,7 @@ class NewsDetailView(DetailView):
     template_name = 'pages/news_detail.html'
 
 
-class AboutView(TemplateView):
+class AboutView(HomePageView):
     template_name = 'pages/about.html'
 
 
