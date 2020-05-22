@@ -38,9 +38,16 @@
 {#         TEHTUD TÖÖD TEENUSED INIMESED UUDISED KONTAKT In English#}
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
-          <div id="logo">
-            <a href="{% url 'pages:home' %}"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>
-          </div>
+            <div id="logo">
+                {% company as contacts %}
+                {% if contacts.active %}
+                    {% if contacts.logo %}
+                        <a href="{% url 'pages:home' %}"><img class="img-fluid d-block mx-auto" src="{{ contacts.logo.url }}" height="30" alt=""></a>
+                    {% endif %}
+                {% else %}
+                    <a href="{% url 'pages:home' %}"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>
+                {% endif %}
+            </div>
           <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="{% url 'pages:home' %}">AVALEHT</a></li>
