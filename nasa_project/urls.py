@@ -20,6 +20,7 @@ from . import settings
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('users/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('', include('pages.urls', namespace='pages')),
 ]
