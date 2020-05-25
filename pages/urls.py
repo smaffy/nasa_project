@@ -5,6 +5,8 @@ app_name = 'pages'
 
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
+    path('about_us/', views.AboutView.as_view(), name='about'),
+
     path('projects/', views.ProjectsListView.as_view(), name='projects'),
     path('projects/category/<slug:category_slug>/', views.CategoryProjectListView.as_view(), name='projects_category'),
     path('projects/<slug:slug>/', views.ProjectDetailView.as_view(), name='projects_detail'),
@@ -15,7 +17,6 @@ urlpatterns = [
     path('people/<slug:slug>/', views.ProfileView.as_view(), name='profile'),
     path('news/', views.NewsListView.as_view(), name='news'),
     path('news/<slug:slug>/', views.NewsDetailView.as_view(), name='news_detail'),
-    path('about_us/', views.AboutView.as_view(), name='about'),
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('contact/success/', views.SuccessView.as_view(), name='success'),
 
