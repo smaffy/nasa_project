@@ -1,8 +1,9 @@
+
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse, resolve
 
-from .models import Project, ProjectCategory, Profile
+from .models import Project, ProjectCategory, Profile, Service
 from .views import HomePageView, AboutView
 
 # setUpTestData
@@ -54,7 +55,7 @@ class AboutPageTests(TestCase):
         self.assertEqual(view.func.__name__, AboutView.as_view().__name__)
 
 
-class ProjectTests(TestCase):
+class ProjectAndProfileTests(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create_user(
@@ -70,17 +71,36 @@ class ProjectTests(TestCase):
             short_description='hejhej lala lej'
         )
 
+        self.profile2 = Profile.objects.create(
+            first_name='Lara',
+            last_name='Mara',
+            email='lama@email.com',
+            short_description='kuku jamba'
+        )
+
         self.project_category = ProjectCategory.objects.create(
             title='Python',
         )
 
+        self.project_category2 = ProjectCategory.objects.create(
+            title='JS',
+        )
+
         self.project = Project.objects.create(
-            title='Python/Django site',
+            title='Django site',
             short_description='lalala',
         )
+
+        self.project2 = Project.objects.create(
+            title='JS site',
+            short_description='hehehe',
+        )
+
         self.project.project_category.add(ProjectCategory.objects.get(title='Python'))
         self.project.project_team.add(Profile.objects.get(id=self.profile.id))
 
+        self.project2.project_category.add(ProjectCategory.objects.get(title='JS'), ProjectCategory.objects.get(title='Python'))
+        self.project2.project_team.add(Profile.objects.get(id=self.profile.id), Profile.objects.get(id=self.profile2.id))
 
         # self.review = Review.objects.create(
         #     book=self.book,
@@ -88,41 +108,118 @@ class ProjectTests(TestCase):
         #     review='An excellent review',
         # )
 
-    def test_book_listing(self):
+    def test_project_listing(self):
         project_team = self.project.project_team.first()
         project_category = self.project.project_category.first()
 
-        self.assertEqual(f'{self.project.title}', 'Python/Django site')
+        self.assertEqual(f'{self.project.title}', 'Django site')
         self.assertEqual(f'{project_category.title}', 'Python')
         self.assertEqual(f'{project_team.get_name()}', 'Alex Argo')
         self.assertEqual(f'{self.project.short_description}', 'lalala')
-#
-#     def test_book_list_view(self):
-#         response = self.client.get(reverse('book_list'))
-#
-#         self.assertEqual(response.status_code, 200)
-#         self.assertContains(response, 'Harry Potter')
-#         self.assertTemplateUsed(response, 'books/book_list.html')
-#
-#     def test_book_detail_view(self):
-#         response = self.client.get(self.project.get_absolute_url())
-#
-#         no_response = self.client.get('/books/12345/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertEqual(no_response.status_code, 404)
-#         self.assertContains(response, 'Harry Potter')
-#         self.assertContains(response, 'An excellent review')
-#         self.assertTemplateUsed(response, 'books/book_detail.html')
-#
-#
-# class ProjectCategoryTests(TestCase):
-#     pass
-#
-#
-# class ServiceTests(TestCase):
-#     pass
-#
-#
+
+    def test_project2_listing(self):
+        project_team = self.project2.project_team.all()
+        a = list(project_team).index(self.profile)
+        b = list(project_team).index(self.profile2)
+        project_category = self.project2.project_category.all()
+        project_category.order_by('title')
+
+        self.assertEqual(f'{self.project2.title}', 'JS site')
+        self.assertEqual(f'{project_category[1].title}', 'Python')
+        self.assertEqual(f'{project_category[0].title}', 'JS')
+        self.assertEqual(f'{project_team[b].get_name()}', 'Lara Mara')
+        self.assertEqual(f'{project_team[a].get_name()}', 'Alex Argo')
+        self.assertEqual(f'{self.project2.short_description}', 'hehehe')
+
+    def test_project_list_view(self):
+        response = self.client.get(reverse('pages:projects'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Django site')
+        self.assertTemplateUsed(response, 'pages/projects_list.html')
+
+    def test_category_project_list_view(self):
+        response = self.client.get(reverse('pages:projects_category', kwargs={'category_slug': 'js'}))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'JS site')
+        self.assertNotContains(response, 'Django site')
+        self.assertTemplateUsed(response, 'pages/projects_list.html')
+
+    def test_category2_project_list_view(self):
+        response = self.client.get(reverse('pages:projects_category', kwargs={'category_slug': 'python'}))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'JS site')
+        self.assertContains(response, 'Django site')
+        self.assertTemplateUsed(response, 'pages/projects_list.html')
+
+    def test_project_detail_view(self):
+        response = self.client.get(self.project.get_absolute_url())
+        no_response = self.client.get('/projects/12345/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, 'Django site')
+        self.assertContains(response, 'lalala')
+        self.assertContains(response, 'Alex Argo')
+        self.assertContains(response, 'Python')
+        self.assertNotContains(response, 'Lara Mara')
+        self.assertNotContains(response, 'hehehe')
+        self.assertTemplateUsed(response, 'pages/project_detail.html')
+
+    def test_project2_detail_view(self):
+        response = self.client.get(self.project2.get_absolute_url())
+        no_response = self.client.get('/projects/12345/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, 'JS site')
+        self.assertContains(response, 'hehehe')
+        self.assertContains(response, 'Lara Mara')
+        self.assertContains(response, 'JS')
+        self.assertContains(response, 'Alex Argo')
+        self.assertContains(response, 'Python')
+        self.assertTemplateUsed(response, 'pages/project_detail.html')
+
+
+class ServiceTests(TestCase):
+
+    def setUp(self):
+        self.service = Service.objects.create(
+            title='design',
+            short_description='short_description',
+            description='descriptiondescription descriptiondescription',
+        )
+
+    def test_service_listing(self):
+
+        self.assertEqual(f'{self.service.title}', 'design')
+        self.assertEqual(f'{self.service.short_description}', 'short_description')
+        self.assertEqual(f'{self.service.description}', 'descriptiondescription descriptiondescription')
+
+    def test_service_list_view(self):
+        response = self.client.get(reverse('pages:service_list'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'short_description')
+        self.assertNotContains(response, 'descriptiondescription descriptiondescription')
+        self.assertTemplateUsed(response, 'pages/service_list.html')
+
+    def test_service_detail_view(self):
+        response = self.client.get(self.service.get_absolute_url())
+        no_response = self.client.get('/service/12345/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, 'design')
+        self.assertContains(response, 'short')
+        self.assertContains(response, 'description')
+        self.assertTemplateUsed(response, 'pages/service_detail.html')
+
+
+
+
 # class ProfileTests(TestCase):
 #     pass
 #
