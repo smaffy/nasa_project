@@ -156,7 +156,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
-    project_team = models.ManyToManyField(Profile, default=None, related_name='team')
+    project_team = models.ManyToManyField(Profile, default=None, related_name='projects')
     client = models.CharField(max_length=200, blank=True, null=True)
     website = models.URLField(max_length=200, blank=True, null=True)
     completed = models.DateField(auto_now=True)

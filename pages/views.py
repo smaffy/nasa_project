@@ -85,7 +85,7 @@ class ProjectDetailView(DetailView):
 
 class ServiceListView(ListView):
     model = Service
-    context_object_name = 'services_list'
+    context_object_name = 'allservices'
     template_name = 'pages/service_list.html'
     paginate_by = 10
 
@@ -173,12 +173,14 @@ class ContactView(FormView):
         return super(ContactView, self).form_valid(form)
 
     def send_email(self, data):
-        contacts = CustomUser.objects.get(username='company')
-        subject = data['subject']
+        subject = data['name'] + ' ' + data['subject']
         message = data['message']
         from_email = data['email']
-        if contacts:
-            send_mail(subject, message, from_email, [contacts.email])
+        if CustomUser.objects.get(username='company').email:
+            contacts = CustomUser.objects.get(username='company')
+            send_mail(subject, message, from_email, contacts.email)
+        else:
+            send_mail(subject, message, from_email, ['rudakovacz@gmail.com', ])
         
 
 class SuccessView(TemplateView):

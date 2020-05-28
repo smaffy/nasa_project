@@ -32,7 +32,7 @@
 {#                </div>#}
 {#            </div>#}
 
-            {% for service in services_list %}
+            {% for service in allservices %}
                 <a href="{{ service.get_absolute_url }}">
                     <div class="section-top-border p-4">
                         <h3 class="mb-10">{{ service.title }}</h3>
@@ -46,6 +46,7 @@
                     </div>
                 </a>
             {% endfor %}
+            {% include 'include/pagination.html' %}
         </div>
     </section>
     <!-- End service Area -->
