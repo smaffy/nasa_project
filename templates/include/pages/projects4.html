@@ -1,4 +1,5 @@
 {% load thumbnail %}
+{% load i18n %}
 
 <div class="col-lg-4">
     <div class="single-gallery">
@@ -14,7 +15,7 @@
                 {% endwith %}
               <div class="content-details fadeIn-bottom">
                 <h3 class="content-title mx-auto">{{ project.title }}</h3>
-                <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">More Details</a>
+                <a href="{{ project.get_absolute_url }}" class="primary-btn text-uppercase mt-20">{% trans 'More Details' %}</a>
               </div>
             </a>
         </div>

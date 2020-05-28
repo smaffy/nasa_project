@@ -8,6 +8,9 @@ from django.utils.text import slugify
 from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
 
+from django.utils.translation import gettext_lazy as _
+# _(''),
+
 
 def group(iterable, mycount):
     it = len(list(iterable))
@@ -20,13 +23,14 @@ def group(iterable, mycount):
 
 
 class Service(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
-    short_description = models.TextField()
-    description = models.TextField(blank=True, null=True)
+    title = models.CharField(_('title'), max_length=200, unique=True)
+    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
+    short_description = models.TextField(_('short_description'))
+    description = models.TextField(_('description'), blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = 'Services'
+        verbose_name = _('Service')
+        verbose_name_plural = _('Services')
 
     def __str__(self):
         return self.title
@@ -44,12 +48,13 @@ class Service(models.Model):
 
 
 class ProfileCategory(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    category_slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    title = models.CharField(_('title'), max_length=200, unique=True)
+    category_slug = models.SlugField(_('category_slug'), max_length=200, unique=True, blank=True, null=True)
 
     class Meta:
         ordering = ['title']
-        verbose_name_plural = 'Categories'
+        verbose_name = _('Profile Category')
+        verbose_name_plural = _('Profile Categories')
 
     def __str__(self):
         return self.title
@@ -67,22 +72,23 @@ class ProfileCategory(models.Model):
 
 
 class Profile(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    first_name = models.CharField(_('first name'), max_length=200)
+    last_name = models.CharField(_('last name'), max_length=200)
+    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
     profile_category = models.ManyToManyField(ProfileCategory, default=None, related_name='profile_category')
-    facebook = models.URLField(max_length=200, blank=True, null=True)
-    twitter = models.URLField(max_length=200, blank=True, null=True)
-    phone_number = PhoneNumberField(blank=True, null=True)
-    email = models.EmailField(blank=True, null=True)
-    start_work = models.DateField(auto_now=True)
-    short_description = models.TextField()
-    description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='images/profile/', default='images/defaults/project-details.jpg')
+    facebook = models.URLField(_('facebook'), max_length=200, blank=True, null=True)
+    twitter = models.URLField(_('twitter'), max_length=200, blank=True, null=True)
+    phone_number = PhoneNumberField(_('phone number'), blank=True, null=True)
+    email = models.EmailField(_('email'), blank=True, null=True)
+    start_work = models.DateField(_('start_work'), auto_now=True)
+    short_description = models.TextField(_('short_description'))
+    description = models.TextField(_('description'), blank=True, null=True)
+    image = models.ImageField(_('profile image'), upload_to='images/profile/', default='images/defaults/project-details.jpg')
 
     class Meta:
         ordering = ['start_work']
-        verbose_name_plural = 'Profiles'
+        verbose_name = _('Profile')
+        verbose_name_plural = _('Profiles')
 
     def get_name(self):
         return '%s %s' % (self.first_name, self.last_name)
@@ -104,16 +110,17 @@ class Profile(models.Model):
 
 
 class News(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
-    short_description = models.TextField()
-    description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='images/news/', default='images/defaults/news.jpg')
-    published = models.DateField(default=datetime.date.today)
+    title = models.CharField(_('title'), max_length=200, unique=True)
+    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
+    short_description = models.TextField(_('short_description'), )
+    description = models.TextField(_('description'), blank=True, null=True)
+    image = models.ImageField(_('news image'), upload_to='images/news/', default='images/defaults/news.jpg')
+    published = models.DateField(_('published'), default=datetime.date.today)
 
     class Meta:
-        verbose_name_plural = 'News'
         ordering = ['-published']
+        verbose_name = _('News')
+        verbose_name_plural = _('News')
 
     def __str__(self):
         return self.title
@@ -130,12 +137,13 @@ class News(models.Model):
 
 
 class ProjectCategory(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    category_slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    title = models.CharField(_(''), max_length=200, unique=True)
+    category_slug = models.SlugField(_(''), max_length=200, unique=True, blank=True, null=True)
 
     class Meta:
         ordering = ['title']
-        verbose_name_plural = 'Categories'
+        verbose_name = _('Project Category')
+        verbose_name_plural = _('Project Categories')
 
     def __str__(self):
         return self.title
@@ -153,21 +161,22 @@ class ProjectCategory(models.Model):
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
-    project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
-    project_team = models.ManyToManyField(Profile, default=None, related_name='projects')
-    client = models.CharField(max_length=200, blank=True, null=True)
-    website = models.URLField(max_length=200, blank=True, null=True)
-    completed = models.DateField(auto_now=True)
-    short_description = models.TextField()
-    description = models.TextField(blank=True, null=True)
-    first_image = models.ImageField(upload_to='images/projects/', default='images/defaults/project-details.jpg')
-    ind = models.PositiveSmallIntegerField(default=0)
+    title = models.CharField(_('title'), max_length=200, unique=True)
+    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
+    project_category = models.ManyToManyField(ProjectCategory, default=None, related_name=_('project_category'))
+    project_team = models.ManyToManyField(Profile, default=None, related_name=_('projects'))
+    client = models.CharField(_('client'), max_length=200, blank=True, null=True)
+    website = models.URLField(_('website'), max_length=200, blank=True, null=True)
+    completed = models.DateField(_('completed'), auto_now=True)
+    short_description = models.TextField(_('short_description'), )
+    description = models.TextField(_('description'), blank=True, null=True)
+    first_image = models.ImageField(_('first_image'), upload_to='images/projects/', default='images/defaults/project-details.jpg')
+    index = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
     class Meta:
         ordering = ['-completed']
-        verbose_name_plural = 'Projects'
+        verbose_name = _('Project')
+        verbose_name_plural = _('Projects')
 
     def __str__(self):
         return self.title
@@ -190,10 +199,10 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, default=None, on_delete=models.CASCADE, related_name='image')
-    image = models.ImageField(upload_to='images/projects/', verbose_name='product_image', default='images/products/project_detail.jpg')
-    index = models.PositiveIntegerField(blank=True, null=True, default=0)
+    image = models.ImageField(_('project image'), upload_to='images/projects/', default='images/products/project_detail.jpg')
+    index = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
     class Meta:
         ordering = ['index']
-        verbose_name_plural = 'ProjectImages'
-
+        verbose_name = _('Project Image')
+        verbose_name_plural = _('Project Images')

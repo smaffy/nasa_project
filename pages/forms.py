@@ -1,12 +1,13 @@
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.core.mail import send_mail
+from django.utils.translation import gettext_lazy as _
 
 from .models import Project, Profile, News
 
 
 class ProjectAdminForm(forms.ModelForm):
-    description = forms.CharField(widget=CKEditorUploadingWidget())
+    description = forms.CharField(widget=CKEditorUploadingWidget(), label=_('description'))
 
     class Meta:
         model = Project
@@ -14,7 +15,7 @@ class ProjectAdminForm(forms.ModelForm):
 
 
 class ProfileAdminForm(forms.ModelForm):
-    description = forms.CharField(widget=CKEditorUploadingWidget())
+    description = forms.CharField(widget=CKEditorUploadingWidget(), label=_('description'))
 
     class Meta:
         model = Profile
@@ -22,7 +23,7 @@ class ProfileAdminForm(forms.ModelForm):
 
 
 class NewsAdminForm(forms.ModelForm):
-    description = forms.CharField(widget=CKEditorUploadingWidget())
+    description = forms.CharField(widget=CKEditorUploadingWidget(), label=_('description'))
 
     class Meta:
         model = News
@@ -30,8 +31,8 @@ class NewsAdminForm(forms.ModelForm):
 
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=50)
-    email = forms.EmailField()
-    subject = forms.CharField(max_length=50)
-    message = forms.CharField()
+    name = forms.CharField(max_length=50, label=_('name'))
+    email = forms.EmailField(label=_('email'))
+    subject = forms.CharField(max_length=50, label=_('subject'))
+    message = forms.CharField(label=_('message'))
 
