@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block title %}
-    Service '{{ service.title }}'
+    {% trans 'Service' %} '{{ service.title }}'
 {% endblock title %}
 
 {% block title2 %}
@@ -13,9 +13,9 @@
 
 {% block top %}
     <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> Home </a>
+        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
         <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:service_list' %}"> Service </a>
+        <a href="{% url 'pages:service_list' %}"> {% trans 'Service' %} </a>
     </p>
 {% endblock top %}
 

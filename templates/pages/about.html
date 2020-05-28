@@ -4,18 +4,18 @@
 {% load i18n %}
 
 {% block title %}
-    About Us
+    {% trans 'About Us' %}
 {% endblock title %}
 
 {% block title2 %}
-    About Us
+    {% trans 'About Us' %}
 {% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> Home </a>
+        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
         <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:about' %}"> About Us </a>
+        <a href="{% url 'pages:about' %}"> {% trans 'About Us' %} </a>
     </p>
 {% endblock top %}
 
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 about-video-left">
-                    <h6 class="text-uppercase">Brand new app to blow your mind</h6>
+                    <h6 class="text-uppercase">{% trans 'Brand new app to blow your mind' %}</h6>
                     <h1>
                         We’ve made a life <br>
                         that will change you

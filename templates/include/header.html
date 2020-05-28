@@ -28,15 +28,15 @@
                     </div>
                 {% else %}
                     <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
-                        <a href="tel:+372 506 5668">+372 506 5668</a>
-                        <a href="mailto:info@nasa.ee">info@nasa.ee</a>
+                        <a href="tel:+372 506 5668">+372 555 5665</a>
+                        <a href="mailto:info@nasa.ee">info@default.ee</a>
                     </div>
                 {% endif %}
 
             </div>
         </div>
     </div>
-{#         TEHTUD TÖÖD TEENUSED INIMESED UUDISED KONTAKT In English#}
+
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
@@ -51,28 +51,28 @@
             </div>
           <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li class="menu-active"><a href="{% url 'pages:home' %}">AVALEHT</a></li>
-                <li class="menu-has-children"><a href="{% url 'pages:projects' %}">TEHTUD TÖÖD</a>
+                <li class="menu-active"><a href="{% url 'pages:home' %}">{% trans 'AVALEHT' %}</a></li>
+                <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'TEHTUD TÖÖD' %}</a>
 {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
                     <ul>
-                        <li><a href="{% url 'pages:projects' %}">All Projects</a></li>
+                        <li><a href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a></li>
                         {% project_categories as project_categories %}
                             {% for category in project_categories %}
                                 <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
                             {% endfor %}
                     </ul>
                 </li>
-                <li class="menu-has-children"><a href="{% url 'pages:people' %}">INIMESED</a>
+                <li class="menu-has-children"><a href="{% url 'pages:people' %}">{% trans 'INIMESED' %}</a>
                     <ul>
-                        <li><a href="{% url 'pages:people' %}">All People</a></li>
+                        <li><a href="{% url 'pages:people' %}">{% trans 'All People' %}</a></li>
                         {% profile_categories as profile_categories %}
                             {% for category in profile_categories %}
                                 <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
                             {% endfor %}
                     </ul>
                 </li>
-                <li><a href="{% url 'pages:service_list' %}">TEENUSED</a></li>
-                <li><a href="{% url 'pages:news' %}">UUDISED</a></li>
+                <li><a href="{% url 'pages:service_list' %}">{% trans 'TEENUSED' %}</a></li>
+                <li><a href="{% url 'pages:news' %}">{% trans 'UUDISED' %}</a></li>
 
 
 {#              <li class="menu-has-children"><a href="">Pages</a>#}
@@ -87,8 +87,8 @@
 {#                    </li>#}
 {#                </ul>#}
 {#              </li>#}
-                <li><a href="{% url 'pages:about' %}">About Us</a></li>
-                <li><a href="{% url 'pages:contact' %}">Kontakt</a></li>
+                <li><a href="{% url 'pages:about' %}">{% trans 'About Us' %}</a></li>
+                <li><a href="{% url 'pages:contact' %}">{% trans 'Kontakt' %}</a></li>
                 <li><a href="#">English</a></li>
             </ul>
           </nav><!-- #nav-menu-container -->

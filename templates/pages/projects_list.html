@@ -6,18 +6,18 @@
 {% load i18n %}
 
 {% block title %}
-    Projects
+    {% trans 'Projects' as pr %}
 {% endblock title %}
 
 {% block title2 %}
-    Projects
+    {{ pr }}
 {% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">
         <a href="{% url 'pages:home' %}"> Home </a>
         <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:projects' %}"> Projects </a>
+        <a href="{% url 'pages:projects' %}"> {{ pr }} </a>
     </p>
 {% endblock top %}
 
@@ -28,15 +28,15 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-12 pb-20 header-text text-center">
-                    <h1 class="pb-10">Our Recent Works may impress you</h1>
+                    <h1 class="pb-10">{% trans 'Our Recent Works may impress you' %}</h1>
                     <p>
-                        Who are in extremely love with eco friendly system.
+                        {% trans 'Who are in extremely love with eco friendly system.' %}
                     </p>
                 </div>
 
                 <div class="col-md-12 pb-10 header-text text-center">
                     <div class="row pb-15 pt-30 justify-content-center ml-20 mr-20" style="float: none">
-                        <a class="primary-btn mt-30 ml-10" href="{% url 'pages:projects' %}">All Projects</a>
+                        <a class="primary-btn mt-30 ml-10" href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a>
                         {% project_categories as categories %}
                         {% for categ in categories %}
                             <a class="primary-btn mt-30 ml-10" href="{{ categ.get_absolute_url }}">{{ categ.title }}</a>
@@ -47,9 +47,9 @@
                 <div class="col-md-12 pb-10 header-text text-center">
                     <h3 class="pb-15 pt-30">
                         {% if category %}
-                            <div style="text-align: center">Category: {{ category.title }}</div>
+                            <div style="text-align: center">{% trans 'Category' %}: {{ category.title }}</div>
                         {% else %}
-                            <div style="text-align: center">All Projects:</div>
+                            <div style="text-align: center">{% trans 'All Projects' %}:</div>
                         {% endif %}
                     </h3>
                 </div>

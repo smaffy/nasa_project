@@ -4,31 +4,31 @@
 {% load i18n %}
 
 {% block title %}
-    Contact Success
+    {% trans 'Contact Success' %}
 {% endblock title %}
 
 {% block title2 %}
-    Contact Success
+    {% trans 'Contact Success' %}
 {% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> Home </a>
+        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
         <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:contact' %}"> Contact Us </a>
+        <a href="{% url 'pages:contact' %}"> {% trans 'Contact Us' %} </a>
     </p>
 {% endblock top %}
 
 {% block conteiner %}
     <div style="text-align: center">
-        <h1><b>Thanks for being awesome! </b></h1>
+        <h1><b>{% trans 'Thanks for being awesome! ' %}</b></h1>
 
         <h3><br>
             We have received your message and would like to thank you for writing to us. <br><br>
             If your inquiry is urgent, please use the telephone number listed below to talk to one of our staff members. <br><br>
             Otherwise, we will reply by email as soon as possible.
             <br><br><br>
-            Talk to you soon, <b>Nasa arhitektuuriburoo.</b>
+            Talk to you soon, <b>Default arhitektuuriburoo.</b>
         </h3>
     </div>
 {% endblock conteiner %}

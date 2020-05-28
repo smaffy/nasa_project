@@ -5,18 +5,18 @@
 {% load i18n %}
 
 {% block title %}
-    Contact Us
+    {% trans 'Contact Us' %}
 {% endblock title %}
 
 {% block title2 %}
-    Contact Us
+    {% trans 'Contact Us' %}
 {% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> Home </a>
+        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
         <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:contact' %}"> Contact Us </a>
+        <a href="{% url 'pages:contact' %}"> {% trans 'Contact Us' %} </a>
     </p>
 {% endblock top %}
 
@@ -41,9 +41,9 @@
                                     {{ contacts.address }}
                                 </p>
                             {% else %}
-                                <h5>Tallinn, Estonia</h5>
+                                <h5>{% trans 'Tallinn, Estonia' %}</h5>
                                 <p>
-                                    Pronksi 3, 10124 Tallinn
+                                    {% trans 'Pronksi 9, 10124 Tallinn' %}
                                 </p>
                             {% endif %}
                         </div>
@@ -56,7 +56,7 @@
                             {% if contacts.active and contacts.phone_number %}
                                 <h5>{{ contacts.phone_number }}</h5>
                             {% else %}
-                                <h5>+372 506 5668</h5>
+                                <h5>+372 555 5665</h5>
                             {% endif %}
                             {% if contacts.active and contacts.time_for_colling %}
                                 <p>{{ contacts.time_for_colling }}</p>
@@ -72,9 +72,9 @@
                             {% if contacts.active and contacts.email %}
                                 <h5>{{ contacts.email }}</h5>
                             {% else %}
-                                <h5>info@nasa.ee</h5>
+                                <h5>info@default.ee</h5>
                             {% endif %}
-                            <p>Send us your query anytime!</p>
+                            <p>{% trans 'Send us your query anytime!' %}</p>
                         </div>
                     </div>
                 </div>
@@ -84,17 +84,17 @@
 
                         <div class="row">
                             <div class="col-lg-6 form-group">
-                                <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+                                <input name="name" placeholder="{% trans 'Enter your name' %}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
 
-                                <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+                                <input name="email" placeholder="{% trans 'Enter email address' %}" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
 
-                                <input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+                                <input name="subject" placeholder="{% trans 'Enter your subject' %}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
                             </div>
                             <div class="col-lg-6 form-group">
-                                <textarea class="common-textarea form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                <textarea class="common-textarea form-control" name="message" placeholder="{% trans 'Messege' %}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
                             </div>
                             <div class="col-lg-12">
-                                <input type="submit" class="genric-btn primary circle" style="float: right; border-radius: 15px; height: 50px; padding-top: 2px; padding-bottom: 2px; padding-left: 20px; padding-right: 20px" value="Send Message">
+                                <input type="submit" class="genric-btn primary circle" style="float: right; border-radius: 15px; height: 50px; padding-top: 2px; padding-bottom: 2px; padding-left: 20px; padding-right: 20px" value="{% trans 'Send Message' %}">
                             </div>
                         </div>
                     </form>
@@ -122,7 +122,7 @@
     * The callback parameter executes the initMap() function
     -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGAus615KAgV6_UHnzASc4nlmWXxorOVo&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGAus615KAgV6_UHnzASc4nlmWXxorOVo&callback=initMap">
     </script>
 
 

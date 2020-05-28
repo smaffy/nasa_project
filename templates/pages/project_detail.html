@@ -5,18 +5,18 @@
 {% load i18n %}
 
 {% block title %}
-    Project "{{ project.title }}"
+    {% trans 'Project' %} "{{ project.title }}"
 {% endblock title %}
 
 {% block title2 %}
-    Project "{{ project.title }}"
+    {% trans 'Project' %} "{{ project.title }}"
 {% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> Home </a>
+        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
         <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:projects' %}"> Projects </a>
+        <a href="{% url 'pages:projects' %}"> {% trans 'Projects' %} </a>
     </p>
 {% endblock top %}
 
@@ -46,40 +46,40 @@
 {#                            <li>Rating    </li>#}
                             {% if project.client %}
                                 <tr>
-                                    <td>Client    </td>
+                                    <td> {% trans 'Client' %}    </td>
                                     <td>:</td>
                                     <td> {{ project.client }}</td>
                                 </tr>
                             {% endif %}
 
                             <tr>
-                                <td>Completed    </td>
+                                <td> {% trans 'Completed' %}    </td>
                                 <td>:</td>
                                 <td> {{ project.completed }}</td>
                             </tr>
 
                             {% if project.website %}
                                 <tr>
-                                    <td >Website    </td>
+                                    <td> {% trans 'Website' %}    </td>
                                     <td>:</td>
                                     <td> <a href="{{ project.website }}">{{ project.website }}</a></td>
                                 </tr>
                             {% endif %}
                             {% if project.project_team.all %}
                                 <tr>
-                                    <td>Team    </td>
+                                    <td> {% trans 'Team' %}   </td>
                                     <td>:</td>
                                     <td>
 
                                         {% for profile in project.project_team.all %}
-                                            <b><a href="{{ profile.get_absolute_url }}" >{{ profile.first_name }} {{ profile.last_name }}</a></b>,
+                                            <b><a href="{{ profile.get_absolute_url }}" >{{ profile.get_name }}</a></b>,
                                         {% endfor %}
                                     </td>
                                 </tr>
                             {% endif %}
                             {% if project.project_category.all %}
                                 <tr>
-                                    <td>Category    </td>
+                                    <td> {% trans 'Category' %}    </td>
                                     <td>:</td>
                                     <td>
                                         {% for categ in project.project_category.all %}
