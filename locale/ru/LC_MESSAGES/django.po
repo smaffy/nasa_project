@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: pages/models.py:136 pages/models.py:137
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-28 20:20+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: nasa_project/settings.py:137
+msgid "English"
+msgstr "Английский"
+
+#: nasa_project/settings.py:138
+msgid "Estonian"
+msgstr "Эстонский"
+
+#: nasa_project/settings.py:139
+msgid "Russian"
+msgstr "Русский"
+
+#: pages/models.py:26 pages/models.py:50 pages/models.py:110
+#: pages/models.py:159
+msgid "title"
+msgstr ""
+
+#: pages/models.py:27 pages/models.py:75 pages/models.py:111
+#: pages/models.py:160
+msgid "slug"
+msgstr ""
+
+#: pages/models.py:28 pages/models.py:82 pages/models.py:112
+#: pages/models.py:166
+msgid "short_description"
+msgstr ""
+
+#: pages/models.py:29 pages/models.py:83 pages/models.py:113
+#: pages/models.py:167
+msgid "description"
+msgstr ""
+
+#: pages/models.py:51
+msgid "category_slug"
+msgstr ""
+
+#: pages/models.py:73
+msgid "first name"
+msgstr ""
+
+#: pages/models.py:74
+msgid "last name"
+msgstr ""
+
+#: pages/models.py:77
+msgid "facebook"
+msgstr ""
+
+#: pages/models.py:78
+msgid "twitter"
+msgstr ""
+
+#: pages/models.py:79
+msgid "phone number"
+msgstr ""
+
+#: pages/models.py:80
+msgid "email"
+msgstr ""
+
+#: pages/models.py:81
+msgid "start_work"
+msgstr ""
+
+#: pages/models.py:84
+msgid "profile image"
+msgstr ""
+
+#: pages/models.py:114
+msgid "news image"
+msgstr ""
+
+#: pages/models.py:115
+msgid "published"
+msgstr ""
+
+#: pages/models.py:161
+msgid "project_category"
+msgstr ""
+
+#: pages/models.py:162
+msgid "projects"
+msgstr ""
+
+#: pages/models.py:163
+msgid "client"
+msgstr ""
+
+#: pages/models.py:164
+msgid "website"
+msgstr ""
+
+#: pages/models.py:165
+msgid "completed"
+msgstr ""
+
+#: pages/models.py:168
+msgid "first_image"
+msgstr ""
+
+#: pages/models.py:196
+msgid "project image"
+msgstr ""
