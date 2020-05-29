@@ -7,14 +7,19 @@
     <div class="container">
         <div class="row fullscreen d-flex justify-content-center align-items-center">
             <div class="banner-content col-lg-9 col-md-12 justify-content-center ">
+
                 <h1>
-                    Arhitektuur.     <br>
-                    Sisearhitektuur. <br>
-                    Concept Design.
+                    {% blocktrans %}
+                        Arhitektuur.     <br>
+                        Sisearhitektuur. <br>
+                        Concept Design.
+                    {% endblocktrans %}
                 </h1>
                 <p class="text-white mx-auto">
-                    Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev arhitektuuri- ja disainibüroo. <br>
-                    Meie meeskonda ühendab huvi seostada pragmaatiline ja ratsionaalne kaunite kunstidega.
+                    {% blocktrans %}
+                        Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev arhitektuuri- ja disainibüroo. <br>
+                        Meie meeskonda ühendab huvi seostada pragmaatiline ja ratsionaalne kaunite kunstidega.
+                    {% endblocktrans %}
                 </p>
                 <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{% trans 'Get Started' %}</a>
             </div>
