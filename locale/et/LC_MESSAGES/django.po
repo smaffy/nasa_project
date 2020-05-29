@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: pages/models.py:136 pages/models.py:137
+#: pages/models.py:140 pages/models.py:141
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-28 20:20+0000\n"
+"POT-Creation-Date: 2020-05-29 00:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,94 +31,532 @@ msgstr "Eesti"
 msgid "Russian"
 msgstr "Vene"
 
-#: pages/models.py:26 pages/models.py:50 pages/models.py:110
-#: pages/models.py:159
-msgid "title"
-msgstr ""
-
-#: pages/models.py:27 pages/models.py:75 pages/models.py:111
-#: pages/models.py:160
-msgid "slug"
-msgstr ""
-
-#: pages/models.py:28 pages/models.py:82 pages/models.py:112
-#: pages/models.py:166
-msgid "short_description"
-msgstr ""
-
-#: pages/models.py:29 pages/models.py:83 pages/models.py:113
-#: pages/models.py:167
+#: pages/forms.py:10 pages/forms.py:18 pages/forms.py:26 pages/models.py:29
+#: pages/models.py:85 pages/models.py:116 pages/models.py:172
 msgid "description"
 msgstr ""
 
-#: pages/models.py:51
-msgid "category_slug"
+#: pages/forms.py:34
+msgid "name"
 msgstr ""
 
-#: pages/models.py:73
-msgid "first name"
-msgstr ""
-
-#: pages/models.py:74
-msgid "last name"
-msgstr ""
-
-#: pages/models.py:77
-msgid "facebook"
-msgstr ""
-
-#: pages/models.py:78
-msgid "twitter"
-msgstr ""
-
-#: pages/models.py:79
-msgid "phone number"
-msgstr ""
-
-#: pages/models.py:80
+#: pages/forms.py:35 pages/models.py:82
 msgid "email"
 msgstr ""
 
+#: pages/forms.py:36
+msgid "subject"
+msgstr ""
+
+#: pages/forms.py:37
+msgid "message"
+msgstr ""
+
+#: pages/models.py:26 pages/models.py:51 pages/models.py:113
+#: pages/models.py:164
+msgid "title"
+msgstr ""
+
+#: pages/models.py:27 pages/models.py:77 pages/models.py:114
+#: pages/models.py:165
+msgid "slug"
+msgstr ""
+
+#: pages/models.py:28 pages/models.py:84 pages/models.py:115
+#: pages/models.py:171
+msgid "short_description"
+msgstr ""
+
+#: pages/models.py:32 templates/pages/service_detail.html:7
+#: templates/pages/service_detail.html:18 templates/pages/service_list.html:18
+msgid "Service"
+msgstr ""
+
+#: pages/models.py:33
+msgid "Services"
+msgstr ""
+
+#: pages/models.py:52
+msgid "category_slug"
+msgstr ""
+
+#: pages/models.py:56
+msgid "Profile Category"
+msgstr ""
+
+#: pages/models.py:57
+msgid "Profile Categories"
+msgstr ""
+
+#: pages/models.py:75
+msgid "first name"
+msgstr ""
+
+#: pages/models.py:76
+msgid "last name"
+msgstr ""
+
+#: pages/models.py:79
+msgid "facebook"
+msgstr ""
+
+#: pages/models.py:80
+msgid "twitter"
+msgstr ""
+
 #: pages/models.py:81
+msgid "phone number"
+msgstr ""
+
+#: pages/models.py:83
 msgid "start_work"
 msgstr ""
 
-#: pages/models.py:84
+#: pages/models.py:86
 msgid "profile image"
 msgstr ""
 
-#: pages/models.py:114
+#: pages/models.py:90
+msgid "Profile"
+msgstr ""
+
+#: pages/models.py:91
+msgid "Profiles"
+msgstr ""
+
+#: pages/models.py:117
 msgid "news image"
 msgstr ""
 
-#: pages/models.py:115
+#: pages/models.py:118
 msgid "published"
 msgstr ""
 
-#: pages/models.py:161
+#: pages/models.py:122 pages/models.py:123 templates/pages/news_detail.html:8
+#: templates/pages/news_detail.html:19 templates/pages/news_list.html:8
+#: templates/pages/news_list.html:12 templates/pages/news_list.html:19
+#: templates/pages/news_list.html:30
+msgid "News"
+msgstr ""
+
+#: pages/models.py:145
+msgid "Project Category"
+msgstr ""
+
+#: pages/models.py:146
+msgid "Project Categories"
+msgstr ""
+
+#: pages/models.py:166
 msgid "project_category"
 msgstr ""
 
-#: pages/models.py:162
+#: pages/models.py:167
 msgid "projects"
 msgstr ""
 
-#: pages/models.py:163
+#: pages/models.py:168
 msgid "client"
 msgstr ""
 
-#: pages/models.py:164
+#: pages/models.py:169
 msgid "website"
 msgstr ""
 
-#: pages/models.py:165
+#: pages/models.py:170
 msgid "completed"
 msgstr ""
 
-#: pages/models.py:168
+#: pages/models.py:173
 msgid "first_image"
 msgstr ""
 
-#: pages/models.py:196
+#: pages/models.py:178 templates/pages/project_detail.html:8
+#: templates/pages/project_detail.html:12
+msgid "Project"
+msgstr ""
+
+#: pages/models.py:179 templates/pages/profile.html:98
+#: templates/pages/project_detail.html:19 templates/pages/projects_list.html:9
+msgid "Projects"
+msgstr ""
+
+#: pages/models.py:202
 msgid "project image"
+msgstr ""
+
+#: pages/models.py:207
+msgid "Project Image"
+msgstr ""
+
+#: pages/models.py:208
+msgid "Project Images"
+msgstr ""
+
+#: templates/_base.html:27
+msgid "Default arhitektuuriburoo"
+msgstr ""
+
+#: templates/include/bannerbigtop.html:12
+msgid ""
+"\n"
+"                        Arhitektuur.     <br>\n"
+"                        Sisearhitektuur. <br>\n"
+"                        Concept Design.\n"
+"                    "
+msgstr ""
+
+#: templates/include/bannerbigtop.html:19
+msgid ""
+"\n"
+"                        Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev "
+"arhitektuuri- ja disainibüroo. <br>\n"
+"                        Meie meeskonda ühendab huvi seostada pragmaatiline "
+"ja ratsionaalne kaunite kunstidega.\n"
+"                    "
+msgstr ""
+
+#: templates/include/bannerbigtop.html:24
+msgid "Get Started"
+msgstr ""
+
+#: templates/include/callto-action.html:11
+msgid ""
+"\n"
+"                            Looking for a <br>\n"
+"                            quality and affordable interior design?\n"
+"                        "
+msgstr ""
+
+#: templates/include/callto-action.html:17
+msgid ""
+"inappropriate behavior is often laughed off as “boys will be boys,” women "
+"face higher conduct standards especially in the workplace."
+msgstr ""
+
+#: templates/include/callto-action.html:19
+msgid "Request quote now"
+msgstr ""
+
+#: templates/include/feature.html:9
+msgid "Some Features that Made us Unique"
+msgstr ""
+
+#: templates/include/feature.html:11 templates/include/gallery.html:11
+#: templates/include/team.html:13 templates/include/testimonial.html:11
+#: templates/pages/people_list.html:34 templates/pages/projects_list.html:33
+msgid "Who are in extremely love with eco friendly system."
+msgstr ""
+
+#: templates/include/feature.html:20
+msgid "Expert Technicians"
+msgstr ""
+
+#: templates/include/feature.html:23
+msgid ""
+"Computer users and programmers have become so accustomed to using Windows, "
+"even for the changing."
+msgstr ""
+
+#: templates/include/feature.html:31
+msgid "Professional Service"
+msgstr ""
+
+#: templates/include/feature.html:34
+msgid ""
+"Finding the perfect learning tool for Flash is a daunting task to any novice "
+"web developer. One can find help."
+msgstr ""
+
+#: templates/include/feature.html:42
+msgid "Great Support"
+msgstr ""
+
+#: templates/include/feature.html:45
+msgid ""
+"While most people enjoy casino ambling, sports betting, lottery and bingo "
+"playing for the fun and excitement."
+msgstr ""
+
+#: templates/include/feature.html:53
+msgid "Technical Skills"
+msgstr ""
+
+#: templates/include/feature.html:56
+msgid ""
+"“The moment you think of buying a Web Hosting Plan, you know one thing – So "
+"many choices, which one to choose."
+msgstr ""
+
+#: templates/include/feature.html:64
+msgid "Highly Recomended"
+msgstr ""
+
+#: templates/include/feature.html:67
+msgid ""
+"Many conventional colleges and universities are now offering online DVD "
+"repair courses, which are the exact same."
+msgstr ""
+
+#: templates/include/feature.html:75
+msgid "Positive Reviews"
+msgstr ""
+
+#: templates/include/feature.html:78
+msgid ""
+"So you have your new digital camera and clicking away to glory anything and "
+"everything in sight. Now you want."
+msgstr ""
+
+#: templates/include/footer.html:12 templates/include/header.html:90
+#: templates/pages/about.html:7 templates/pages/about.html:11
+#: templates/pages/about.html:18
+msgid "About Us"
+msgstr ""
+
+#: templates/include/footer.html:14
+msgid ""
+"If you own an Iphone, you’ve probably already worked out how much fun it is "
+"to use it to watch movies-it has that."
+msgstr ""
+
+#: templates/include/footer.html:26
+msgid "Follow Us"
+msgstr ""
+
+#: templates/include/footer.html:44 templates/include/footer.html:52
+#: templates/pages/contact.html:8 templates/pages/contact.html:12
+#: templates/pages/contact.html:19 templates/pages/success.html:18
+msgid "Contact Us"
+msgstr ""
+
+#: templates/include/gallery.html:9 templates/pages/projects_list.html:31
+msgid "Our Recent Works may impress you"
+msgstr ""
+
+#: templates/include/header.html:54
+msgid "AVALEHT"
+msgstr ""
+
+#: templates/include/header.html:55
+msgid "TEHTUD TÖÖD"
+msgstr ""
+
+#: templates/include/header.html:58 templates/pages/projects_list.html:39
+#: templates/pages/projects_list.html:52
+msgid "All Projects"
+msgstr ""
+
+#: templates/include/header.html:65
+msgid "INIMESED"
+msgstr ""
+
+#: templates/include/header.html:67 templates/pages/people_list.html:40
+msgid "All People"
+msgstr ""
+
+#: templates/include/header.html:74
+msgid "TEENUSED"
+msgstr ""
+
+#: templates/include/header.html:75
+msgid "UUDISED"
+msgstr ""
+
+#: templates/include/header.html:91
+msgid "Kontakt"
+msgstr ""
+
+#: templates/include/news.html:12
+msgid "Last news"
+msgstr ""
+
+#: templates/include/news.html:13
+msgid "news news news news"
+msgstr ""
+
+#: templates/include/pages/people.html:20
+#: templates/include/pages/projects4.html:18
+#: templates/include/pages/projects8.html:19
+msgid "More Details"
+msgstr ""
+
+#: templates/include/service.html:10 templates/pages/service_list.html:11
+msgid "What we offer to our clients"
+msgstr ""
+
+#: templates/include/service.html:12
+msgid ""
+"\n"
+"                            Meil on üle kümne aasta jagu kogemusi väga "
+"erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.\n"
+"                            Aastast 2004 oleme taotlenud suurusjärgus 200+ "
+"ehitusluba.\n"
+"                            Omame suuri kogemusi miljööaladele "
+"projekterimisel ning fikseeritud eelarvega töötamisel.\n"
+"                            Koostöös klientidega oleme välja arendanud "
+"mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava\n"
+"                            ja teavitame klienti projekti arengutest kindla "
+"regulaarsusega.\n"
+"                        "
+msgstr ""
+
+#: templates/include/team.html:12 templates/pages/people_list.html:10
+msgid "Our Team"
+msgstr ""
+
+#: templates/include/testimonial.html:10
+msgid "Testimonial from our Clients"
+msgstr ""
+
+#: templates/include/testimonial.html:23 templates/include/testimonial.html:59
+msgid ""
+"Accessories Here you can find the best computer accessory for your laptop, "
+"monitor, printer, scanner, speaker, projector, hardware."
+msgstr ""
+
+#: templates/include/testimonial.html:41 templates/include/testimonial.html:77
+msgid ""
+"Hypnosis quit smoking methods maintain caused quite world over the last two "
+"decades. There is a lot of argument pertaining to"
+msgstr ""
+
+#: templates/pages/about.html:16 templates/pages/contact.html:17
+#: templates/pages/home.html:8 templates/pages/news_detail.html:17
+#: templates/pages/news_list.html:17 templates/pages/people_list.html:19
+#: templates/pages/profile.html:18 templates/pages/project_detail.html:17
+#: templates/pages/service_detail.html:16 templates/pages/service_list.html:16
+#: templates/pages/success.html:16
+msgid "Home"
+msgstr ""
+
+#: templates/pages/about.html:29
+msgid "Brand new app to blow your mind"
+msgstr ""
+
+#: templates/pages/about.html:30
+msgid ""
+"\n"
+"                        <h1>\n"
+"                            We’ve made a life <br>\n"
+"                            that will change you\n"
+"\n"
+"                        </h1>\n"
+"                        <p>\n"
+"                            <span>We are here to listen from you deliver "
+"exellence</span>\n"
+"                        </p>\n"
+"                        <p>\n"
+"                            Lorem ipsum dolor sit amet, consectetur "
+"adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna "
+"aliqua. Ut enim ad minim.\n"
+"                        </p>\n"
+"                    "
+msgstr ""
+
+#: templates/pages/about.html:43
+msgid "Get Started Now"
+msgstr ""
+
+#: templates/pages/contact.html:44
+msgid "Tallinn, Estonia"
+msgstr ""
+
+#: templates/pages/contact.html:46
+msgid "Pronksi 9, 10124 Tallinn"
+msgstr ""
+
+#: templates/pages/contact.html:77
+msgid "Send us your query anytime!"
+msgstr ""
+
+#: templates/pages/contact.html:87
+msgid "Enter your name"
+msgstr ""
+
+#: templates/pages/contact.html:89
+msgid "Enter email address"
+msgstr ""
+
+#: templates/pages/contact.html:91
+msgid "Enter your subject"
+msgstr ""
+
+#: templates/pages/contact.html:94
+msgid "Messege"
+msgstr ""
+
+#: templates/pages/contact.html:97
+msgid "Send Message"
+msgstr ""
+
+#: templates/pages/people_list.html:21 templates/pages/profile.html:20
+msgid "People"
+msgstr ""
+
+#: templates/pages/people_list.html:32
+msgid "Our Team may impress you"
+msgstr ""
+
+#: templates/pages/people_list.html:51 templates/pages/project_detail.html:82
+#: templates/pages/projects_list.html:50
+msgid "Category"
+msgstr ""
+
+#: templates/pages/people_list.html:53
+msgid "All People:"
+msgstr ""
+
+#: templates/pages/profile.html:47
+msgid "Email "
+msgstr ""
+
+#: templates/pages/profile.html:50
+msgid "Phone number"
+msgstr ""
+
+#: templates/pages/profile.html:52
+msgid "Started work"
+msgstr ""
+
+#: templates/pages/project_detail.html:49
+msgid "Client"
+msgstr ""
+
+#: templates/pages/project_detail.html:56
+msgid "Completed"
+msgstr ""
+
+#: templates/pages/project_detail.html:63
+msgid "Website"
+msgstr ""
+
+#: templates/pages/project_detail.html:70
+msgid "Team"
+msgstr ""
+
+#: templates/pages/service_list.html:7
+msgid "Our Services"
+msgstr ""
+
+#: templates/pages/success.html:7 templates/pages/success.html:11
+msgid "Contact Success"
+msgstr ""
+
+#: templates/pages/success.html:24
+msgid "Thanks for being awesome! "
+msgstr ""
+
+#: templates/pages/success.html:27
+msgid ""
+"\n"
+"                <br>\n"
+"                We have received your message and would like to thank you "
+"for writing to us. <br><br>\n"
+"                If your inquiry is urgent, please use the telephone number "
+"listed below to talk to one of our staff members. <br><br>\n"
+"                Otherwise, we will reply by email as soon as possible.\n"
+"                <br><br><br>\n"
+"                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
+"            "
 msgstr ""
