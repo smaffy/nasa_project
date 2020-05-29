@@ -23,10 +23,10 @@ from django.utils.translation import gettext_lazy as _
 from . import settings
 
 urlpatterns = i18n_patterns(
-    path(_('ckeditor/'), include('ckeditor_uploader.urls')),
-    path(_('users/'), include('allauth.urls')),
-    path(_('admin/'), admin.site.urls),
-    path(_('rosetta/'), include('rosetta.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('users/', include('allauth.urls')),
+    path('admin/', admin.site.urls),
+    path('rosetta/', include('rosetta.urls')),
     path('', include('pages.urls', namespace='pages')),
 )
 
