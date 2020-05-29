@@ -16,14 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
+# _(''),
+
 from . import settings
 
-urlpatterns = [
-    path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('users/', include('allauth.urls')),
-    path('admin/', admin.site.urls),
+urlpatterns = i18n_patterns(
+    path(_('ckeditor/'), include('ckeditor_uploader.urls')),
+    path(_('users/'), include('allauth.urls')),
+    path(_('admin/'), admin.site.urls),
+    path(_('rosetta/'), include('rosetta.urls')),
     path('', include('pages.urls', namespace='pages')),
-]
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

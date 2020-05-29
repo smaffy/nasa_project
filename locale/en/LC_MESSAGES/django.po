@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: pages/models.py:140 pages/models.py:141
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 00:13+0000\n"
+"POT-Creation-Date: 2020-05-29 10:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,16 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: nasa_project/settings.py:137
+#: nasa_project/settings.py:138
 msgid "English"
 msgstr ""
 
-#: nasa_project/settings.py:138
+#: nasa_project/settings.py:139
 msgid "Estonian"
 msgstr ""
 
-#: nasa_project/settings.py:139
+#: nasa_project/settings.py:140
 msgid "Russian"
+msgstr ""
+
+#: nasa_project/urls.py:26
+msgid "ckeditor/"
+msgstr ""
+
+#: nasa_project/urls.py:27
+msgid "users/"
+msgstr ""
+
+#: nasa_project/urls.py:28
+msgid "admin/"
+msgstr ""
+
+#: nasa_project/urls.py:29
+msgid "rosetta/"
 msgstr ""
 
 #: pages/forms.py:10 pages/forms.py:18 pages/forms.py:26 pages/models.py:29
@@ -40,7 +55,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: pages/forms.py:35 pages/models.py:82
+#: pages/forms.py:35 pages/models.py:82 users/models.py:25
 msgid "email"
 msgstr ""
 
@@ -53,12 +68,12 @@ msgid "message"
 msgstr ""
 
 #: pages/models.py:26 pages/models.py:51 pages/models.py:113
-#: pages/models.py:164
+#: pages/models.py:140 pages/models.py:164
 msgid "title"
 msgstr ""
 
 #: pages/models.py:27 pages/models.py:77 pages/models.py:114
-#: pages/models.py:165
+#: pages/models.py:165 users/models.py:12
 msgid "slug"
 msgstr ""
 
@@ -76,7 +91,7 @@ msgstr ""
 msgid "Services"
 msgstr ""
 
-#: pages/models.py:52
+#: pages/models.py:52 pages/models.py:141
 msgid "category_slug"
 msgstr ""
 
@@ -96,11 +111,11 @@ msgstr ""
 msgid "last name"
 msgstr ""
 
-#: pages/models.py:79
+#: pages/models.py:79 users/models.py:28
 msgid "facebook"
 msgstr ""
 
-#: pages/models.py:80
+#: pages/models.py:80 users/models.py:30
 msgid "twitter"
 msgstr ""
 
@@ -147,14 +162,6 @@ msgstr ""
 msgid "Project Categories"
 msgstr ""
 
-#: pages/models.py:166
-msgid "project_category"
-msgstr ""
-
-#: pages/models.py:167
-msgid "projects"
-msgstr ""
-
 #: pages/models.py:168
 msgid "client"
 msgstr ""
@@ -191,6 +198,54 @@ msgstr ""
 
 #: pages/models.py:208
 msgid "Project Images"
+msgstr ""
+
+#: pages/urls.py:13
+msgid "projects/"
+msgstr ""
+
+#: pages/urls.py:14
+msgid "projects/category/<slug:category_slug>/"
+msgstr ""
+
+#: pages/urls.py:15
+msgid "projects/<slug:slug>/"
+msgstr ""
+
+#: pages/urls.py:16
+msgid "service/"
+msgstr ""
+
+#: pages/urls.py:17
+msgid "service/<slug:slug>/"
+msgstr ""
+
+#: pages/urls.py:18
+msgid "people/"
+msgstr ""
+
+#: pages/urls.py:19
+msgid "people/category/<slug:category_slug>/"
+msgstr ""
+
+#: pages/urls.py:20
+msgid "people/<slug:slug>/"
+msgstr ""
+
+#: pages/urls.py:21
+msgid "news/"
+msgstr ""
+
+#: pages/urls.py:22
+msgid "news/<slug:slug>/"
+msgstr ""
+
+#: pages/urls.py:23
+msgid "contact/"
+msgstr ""
+
+#: pages/urls.py:24
+msgid "contact/success/"
 msgstr ""
 
 #: templates/_base.html:27
@@ -320,7 +375,7 @@ msgid ""
 "to use it to watch movies-it has that."
 msgstr ""
 
-#: templates/include/footer.html:26
+#: templates/include/footer.html:26 users/admin.py:32
 msgid "Follow Us"
 msgstr ""
 
@@ -559,4 +614,88 @@ msgid ""
 "                <br><br><br>\n"
 "                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
 "            "
+msgstr ""
+
+#: users/admin.py:23
+msgid "Address"
+msgstr ""
+
+#: users/admin.py:26
+msgid "Company"
+msgstr ""
+
+#: users/admin.py:29
+msgid "Contact"
+msgstr ""
+
+#: users/admin.py:35
+msgid "Password"
+msgstr ""
+
+#: users/admin.py:38
+msgid "Logo"
+msgstr ""
+
+#: users/models.py:10
+msgid "first_name"
+msgstr ""
+
+#: users/models.py:11
+msgid "last_name"
+msgstr ""
+
+#: users/models.py:14
+msgid "address"
+msgstr ""
+
+#: users/models.py:15
+msgid "postal_code"
+msgstr ""
+
+#: users/models.py:16
+msgid "city"
+msgstr ""
+
+#: users/models.py:17
+msgid "country"
+msgstr ""
+
+#: users/models.py:18
+msgid "company_name"
+msgstr ""
+
+#: users/models.py:19
+msgid "logo"
+msgstr ""
+
+#: users/models.py:21
+msgid "registation_number"
+msgstr ""
+
+#: users/models.py:22
+msgid "address_inline"
+msgstr ""
+
+#: users/models.py:23
+msgid "languages"
+msgstr ""
+
+#: users/models.py:26
+msgid "phone_number"
+msgstr ""
+
+#: users/models.py:27
+msgid "time_for_colling"
+msgstr ""
+
+#: users/models.py:29
+msgid "instagram"
+msgstr ""
+
+#: users/models.py:31
+msgid "active"
+msgstr ""
+
+#: users/models.py:34 users/models.py:35 users/models.py:36
+msgid "user"
 msgstr ""

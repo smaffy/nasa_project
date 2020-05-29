@@ -2,6 +2,7 @@ from django.contrib.admin.forms import AdminPasswordChangeForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 CustomUser = get_user_model()
 
@@ -19,20 +20,23 @@ class CustomUserAdmin(UserAdmin):
         (None, {
             'fields': (('username', 'first_name', 'last_name'), 'active')
         }),
-        ('Address', {
+        (_('Address'), {
             'fields': ('address', 'postal_code', 'city', 'country')
         }),
-        ('Company', {
-            'fields': ('company_name',)
+        (_('Company'), {
+            'fields': ('company_name', 'registation_number', 'address_inline', 'languages',)
         }),
-        ('Contact', {
+        (_('Contact'), {
             "fields": ('email', 'phone_number', 'time_for_colling')
         }),
-        ('Follow Us', {
+        (_('Follow Us'), {
             "fields": ('facebook', 'instagram', 'twitter')
         }),
-        ('Password', {
+        (_('Password'), {
             'fields': ('password', )
+        }),
+        (_('Logo'), {
+            'fields': ('logo',)
         }),
     ]
 

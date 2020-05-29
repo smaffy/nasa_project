@@ -42,5 +42,6 @@ def company():
     try:
         comp = CustomUser.objects.get(username='company')
     except ObjectDoesNotExist:
-        comp = CustomUser.objects.get_or_create(username='company', password='cc123456')
+        password = CustomUser.objects.make_random_password()
+        comp = CustomUser.objects.get_or_create(username='company', password=password)
     return comp

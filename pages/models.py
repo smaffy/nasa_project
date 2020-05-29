@@ -137,8 +137,8 @@ class News(models.Model):
 
 
 class ProjectCategory(models.Model):
-    title = models.CharField(_(''), max_length=200, unique=True)
-    category_slug = models.SlugField(_(''), max_length=200, unique=True, blank=True, null=True)
+    title = models.CharField(_('title'), max_length=200, unique=True)
+    category_slug = models.SlugField(_('category_slug'), max_length=200, unique=True, blank=True, null=True)
 
     class Meta:
         ordering = ['title']
@@ -163,8 +163,8 @@ class ProjectCategory(models.Model):
 class Project(models.Model):
     title = models.CharField(_('title'), max_length=200, unique=True)
     slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
-    project_category = models.ManyToManyField(ProjectCategory, default=None, related_name=_('project_category'))
-    project_team = models.ManyToManyField(Profile, default=None, related_name=_('projects'))
+    project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
+    project_team = models.ManyToManyField(Profile, default=None, related_name='projects')
     client = models.CharField(_('client'), max_length=200, blank=True, null=True)
     website = models.URLField(_('website'), max_length=200, blank=True, null=True)
     completed = models.DateField(_('completed'), auto_now=True)

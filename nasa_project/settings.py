@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'rosetta',
     'phonenumber_field',
     'ckeditor',
     'ckeditor_uploader',
