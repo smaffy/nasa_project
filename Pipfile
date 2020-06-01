@@ -15,6 +15,7 @@ sorl-thumbnail = "*"
 django-allauth = "*"
 django-rosetta = "*"
 django-parler = "*"
+pipfile = "*"
 
 [requires]
 python_version = "3.8"

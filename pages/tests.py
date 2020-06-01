@@ -32,7 +32,7 @@ class HomepageTests(TestCase):
         self.assertNotContains(self.response, 'Hi there! I should not be on the page.')
 
     def test_homepage_url_resolves_homepageview(self):
-        view = resolve('/')
+        view = resolve('/en/')
         self.assertEqual(view.func.__name__, HomePageView.as_view().__name__)
 
 
@@ -55,7 +55,7 @@ class AboutPageTests(TestCase):
         self.assertNotContains(self.response, 'Hi there! I should not be on the page.')
 
     def test_aboutpage_url_resolves_aboutview(self):
-        view = resolve('/about_us/')
+        view = resolve('/en/about_us/')
         self.assertEqual(view.func.__name__, AboutView.as_view().__name__)
 
 
@@ -173,7 +173,7 @@ class ProjectAndProfileTests(TestCase):
 
     def test_project_detail_view(self):
         response = self.client.get(self.project.get_absolute_url())
-        no_response = self.client.get('/projects/12345/')
+        no_response = self.client.get('/en/projects/12345/')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
@@ -187,7 +187,7 @@ class ProjectAndProfileTests(TestCase):
 
     def test_project2_detail_view(self):
         response = self.client.get(self.project2.get_absolute_url())
-        no_response = self.client.get('/projects/12345/')
+        no_response = self.client.get('/en/projects/12345/')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
@@ -254,7 +254,7 @@ class ProjectAndProfileTests(TestCase):
 
     def test_profile_detail_view(self):
         response = self.client.get(self.profile.get_absolute_url())
-        no_response = self.client.get('/people/12345/')
+        no_response = self.client.get('/en/people/12345/')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
@@ -271,7 +271,7 @@ class ProjectAndProfileTests(TestCase):
 
     def test_profile2_detail_view(self):
         response = self.client.get(self.profile2.get_absolute_url())
-        no_response = self.client.get('/profile/12345/')
+        no_response = self.client.get('/en/profile/12345/')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
@@ -308,7 +308,7 @@ class ServiceTests(TestCase):
 
     def test_service_detail_view(self):
         response = self.client.get(self.service.get_absolute_url())
-        no_response = self.client.get('/service/12345/')
+        no_response = self.client.get('/en/service/12345/')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
@@ -343,7 +343,7 @@ class NewsTests(TestCase):
 
     def test_news_detail_view(self):
         response = self.client.get(self.news.get_absolute_url())
-        no_response = self.client.get('/news/12345/')
+        no_response = self.client.get('/en/news/12345/')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)

@@ -4,11 +4,11 @@ from datetime import date
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-
 from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
 
 from django.utils.translation import gettext_lazy as _
+from parler.models import TranslatableModel, TranslatedFields
 # _(''),
 
 
