@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 10:30+0000\n"
+"POT-Creation-Date: 2020-06-01 22:16+0000\n"
 "PO-Revision-Date: 2020-05-29 10:12+0000\n"
 "Last-Translator: b'Jekaterina Rudakova <jekrudcz@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,23 +29,7 @@ msgstr "Eesti"
 
 #: nasa_project/settings.py:140
 msgid "Russian"
-msgstr "Vene"
-
-#: nasa_project/urls.py:26
-msgid "ckeditor/"
-msgstr ""
-
-#: nasa_project/urls.py:27
-msgid "users/"
-msgstr ""
-
-#: nasa_project/urls.py:28
-msgid "admin/"
-msgstr ""
-
-#: nasa_project/urls.py:29
-msgid "rosetta/"
-msgstr ""
+msgstr "Русский"
 
 #: pages/forms.py:10 pages/forms.py:18 pages/forms.py:26 pages/models.py:29
 #: pages/models.py:85 pages/models.py:116 pages/models.py:172
@@ -186,6 +170,7 @@ msgstr ""
 
 #: pages/models.py:179 templates/pages/profile.html:98
 #: templates/pages/project_detail.html:19 templates/pages/projects_list.html:9
+#: templates/pages/projects_list.html:13 templates/pages/projects_list.html:20
 msgid "Projects"
 msgstr ""
 
@@ -201,16 +186,20 @@ msgstr ""
 msgid "Project Images"
 msgstr ""
 
+#: pages/urls.py:11
+msgid "about_us/"
+msgstr ""
+
 #: pages/urls.py:13
 msgid "projects/"
 msgstr ""
 
 #: pages/urls.py:14
-msgid "projects/category/<slug:category_slug>/"
+msgid "projects/category"
 msgstr ""
 
 #: pages/urls.py:15
-msgid "projects/<slug:slug>/"
+msgid "projects"
 msgstr ""
 
 #: pages/urls.py:16
@@ -218,7 +207,7 @@ msgid "service/"
 msgstr ""
 
 #: pages/urls.py:17
-msgid "service/<slug:slug>/"
+msgid "service"
 msgstr ""
 
 #: pages/urls.py:18
@@ -226,11 +215,11 @@ msgid "people/"
 msgstr ""
 
 #: pages/urls.py:19
-msgid "people/category/<slug:category_slug>/"
+msgid "people/category"
 msgstr ""
 
 #: pages/urls.py:20
-msgid "people/<slug:slug>/"
+msgid "people"
 msgstr ""
 
 #: pages/urls.py:21
@@ -238,7 +227,7 @@ msgid "news/"
 msgstr ""
 
 #: pages/urls.py:22
-msgid "news/<slug:slug>/"
+msgid "news"
 msgstr ""
 
 #: pages/urls.py:23
@@ -247,6 +236,10 @@ msgstr ""
 
 #: pages/urls.py:24
 msgid "contact/success/"
+msgstr ""
+
+#: pages/urls.py:26
+msgid "design_elements/"
 msgstr ""
 
 #: templates/_base.html:27
@@ -364,7 +357,7 @@ msgid ""
 "everything in sight. Now you want."
 msgstr ""
 
-#: templates/include/footer.html:12 templates/include/header.html:90
+#: templates/include/footer.html:12 templates/include/header.html:94
 #: templates/pages/about.html:7 templates/pages/about.html:11
 #: templates/pages/about.html:18
 msgid "About Us"
@@ -376,11 +369,11 @@ msgid ""
 "to use it to watch movies-it has that."
 msgstr ""
 
-#: templates/include/footer.html:26 users/admin.py:32
+#: templates/include/footer.html:27 users/admin.py:32
 msgid "Follow Us"
 msgstr ""
 
-#: templates/include/footer.html:44 templates/include/footer.html:52
+#: templates/include/footer.html:45 templates/include/footer.html:53
 #: templates/pages/contact.html:8 templates/pages/contact.html:12
 #: templates/pages/contact.html:19 templates/pages/success.html:18
 msgid "Contact Us"
@@ -390,36 +383,40 @@ msgstr ""
 msgid "Our Recent Works may impress you"
 msgstr ""
 
-#: templates/include/header.html:54
+#: templates/include/header.html:18 templates/include/header.html:33
+msgid "Other Design Elements"
+msgstr ""
+
+#: templates/include/header.html:58
 msgid "AVALEHT"
 msgstr ""
 
-#: templates/include/header.html:55
+#: templates/include/header.html:59
 msgid "TEHTUD TÖÖD"
 msgstr ""
 
-#: templates/include/header.html:58 templates/pages/projects_list.html:39
+#: templates/include/header.html:62 templates/pages/projects_list.html:39
 #: templates/pages/projects_list.html:52
 msgid "All Projects"
 msgstr ""
 
-#: templates/include/header.html:65
+#: templates/include/header.html:69
 msgid "INIMESED"
 msgstr ""
 
-#: templates/include/header.html:67 templates/pages/people_list.html:40
+#: templates/include/header.html:71 templates/pages/people_list.html:40
 msgid "All People"
 msgstr ""
 
-#: templates/include/header.html:74
+#: templates/include/header.html:78
 msgid "TEENUSED"
 msgstr ""
 
-#: templates/include/header.html:75
+#: templates/include/header.html:79
 msgid "UUDISED"
 msgstr ""
 
-#: templates/include/header.html:91
+#: templates/include/header.html:95
 msgid "Kontakt"
 msgstr ""
 
@@ -458,6 +455,7 @@ msgid ""
 msgstr ""
 
 #: templates/include/team.html:12 templates/pages/people_list.html:10
+#: templates/pages/people_list.html:14
 msgid "Our Team"
 msgstr ""
 
@@ -478,9 +476,10 @@ msgid ""
 msgstr ""
 
 #: templates/pages/about.html:16 templates/pages/contact.html:17
-#: templates/pages/home.html:8 templates/pages/news_detail.html:17
-#: templates/pages/news_list.html:17 templates/pages/people_list.html:19
-#: templates/pages/profile.html:18 templates/pages/project_detail.html:17
+#: templates/pages/elements.html:18 templates/pages/home.html:8
+#: templates/pages/news_detail.html:17 templates/pages/news_list.html:17
+#: templates/pages/people_list.html:19 templates/pages/profile.html:18
+#: templates/pages/project_detail.html:17 templates/pages/projects_list.html:18
 #: templates/pages/service_detail.html:16 templates/pages/service_list.html:16
 #: templates/pages/success.html:16
 msgid "Home"
@@ -544,6 +543,11 @@ msgstr ""
 
 #: templates/pages/contact.html:97
 msgid "Send Message"
+msgstr ""
+
+#: templates/pages/elements.html:9 templates/pages/elements.html:13
+#: templates/pages/elements.html:20
+msgid "Elements"
 msgstr ""
 
 #: templates/pages/people_list.html:21 templates/pages/profile.html:20

@@ -93,7 +93,26 @@
 {#              </li>#}
                 <li><a href="{% url 'pages:about' %}">{% trans 'About Us' %}</a></li>
                 <li><a href="{% url 'pages:contact' %}">{% trans 'Kontakt' %}</a></li>
-                <li><a href="#">English</a></li>
+
+
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+
+                <li class="menu-has-children">
+                    <a href="/{{ LANGUAGE_CODE.code }}/">
+                        {{ LANGUAGE_CODE|language_name_local }}
+                    </a>
+                    <ul>
+                        {% for language in languages %}
+                            <li>
+                                <a href="/{{ language.code }}/">
+                                    {{ language.name_local }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
