@@ -12,9 +12,9 @@ django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
 pillow = "*"
 django-ckeditor = "*"
 sorl-thumbnail = "*"
-django-suit = "*"
 django-allauth = "*"
 django-rosetta = "*"
+django-parler = "*"
 
 [requires]
 python_version = "3.8"

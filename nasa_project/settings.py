@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'parser',
     'rosetta',
     'phonenumber_field',
     'ckeditor',
@@ -139,6 +140,19 @@ LANGUAGES = (
     ('et', _('Estonian')),
     ('ru', _('Russian')),
 )
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'et'},
+        {'code': 'ru'},
+    ),
+
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+        }
+}
 
 LANGUAGE_CODE = 'en'
 
