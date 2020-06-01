@@ -15,6 +15,8 @@
                     </div>
                     <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
                         <ul>
+                            <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
+                            <li></li>
                             {% if contacts.facebook %}
                                 <li><a href="{{ contacts.facebook }}"><i class="fa fa-facebook"></i></a></li>
                             {% endif %}
@@ -28,6 +30,8 @@
                     </div>
                 {% else %}
                     <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+                        <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
+                            <li></li>
                         <a href="tel:+372 506 5668">+372 555 5665</a>
                         <a href="mailto:info@nasa.ee">info@default.ee</a>
                     </div>

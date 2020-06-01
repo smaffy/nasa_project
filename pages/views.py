@@ -9,6 +9,10 @@ from .models import Project, Profile, News, Service, ProjectImage, ProjectCatego
 from .forms import ContactForm
 
 
+class ElementsView(TemplateView):
+    template_name = 'pages/elements.html'
+
+
 class HomePageView(TemplateView):
     template_name = 'pages/home.html'
 
