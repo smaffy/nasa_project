@@ -1,14 +1,8 @@
 from django.contrib import admin
-from django.contrib.sites.admin import SiteAdmin
 from django.template.defaultfilters import truncatewords
-from parler.admin import TranslatableAdmin
 
 from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory
 from .forms import ProjectAdminForm, ProfileAdminForm, NewsAdminForm
-from django.contrib.sites.models import Site
-from parler.models import TranslatableModel, TranslatedFields
-from django.contrib.sites.admin import SiteAdmin
-from django.contrib.sites.models import Site
 from parler.admin import TranslatableAdmin, TranslatableStackedInline
 
 #
@@ -27,14 +21,14 @@ from parler.admin import TranslatableAdmin, TranslatableStackedInline
 # admin.site.register(TranslatableSite, NewSiteAdmin)
 
 
-class ImageInline(admin.StackedInline):
+class ImageInline(TranslatableStackedInline):
     model = ProjectImage
     max_num = 10
     extra = 0
 
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(TranslatableAdmin):
     save_on_top = True
     save_as = True
     form = ProjectAdminForm
@@ -49,9 +43,12 @@ class ProjectAdmin(admin.ModelAdmin):
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
 
+    class Meta:
+        proxy = True
+
 
 @admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(TranslatableAdmin):
     save_on_top = True
     save_as = True
     form = ProfileAdminForm
@@ -63,6 +60,9 @@ class ProfileAdmin(admin.ModelAdmin):
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('first_name', 'last_name',)}
+
+    class Meta:
+        proxy = True
 
 
 @admin.register(Service)
@@ -77,11 +77,15 @@ class ServiceAdmin(TranslatableAdmin):
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
 
+    class Meta:
+        proxy = True
+
 
 @admin.register(ProjectCategory)
-class ProjectCategoryAdmin(admin.ModelAdmin):
+class ProjectCategoryAdmin(TranslatableAdmin):
     save_on_top = True
     save_as = True
+
     list_display = (
         'title', 'category_slug',
     )
@@ -89,10 +93,13 @@ class ProjectCategoryAdmin(admin.ModelAdmin):
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'category_slug': ('title',)}
+
+    class Meta:
+        proxy = True
 
 
 @admin.register(ProfileCategory)
-class ProfileCategoryAdmin(admin.ModelAdmin):
+class ProfileCategoryAdmin(TranslatableAdmin):
     save_on_top = True
     save_as = True
     list_display = (
@@ -102,6 +109,9 @@ class ProfileCategoryAdmin(admin.ModelAdmin):
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'category_slug': ('title',)}
+
+    class Meta:
+        proxy = True
 
 
 @admin.register(News)
@@ -123,7 +133,7 @@ class NewsAdmin(TranslatableAdmin):
 
 
 @admin.register(ProjectImage)
-class ProjectImageAdmin(admin.ModelAdmin):
+class ProjectImageAdmin(TranslatableAdmin):
     save_on_top = True
     save_as = True
     list_display = (
