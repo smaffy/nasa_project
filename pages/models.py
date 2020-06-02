@@ -8,7 +8,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
 
 from django.utils.translation import gettext_lazy as _
-from parler.models import TranslatableModel, TranslatedFields
+from parler.models import TranslatableModel, TranslatedFields, TranslatedFieldsModelMixin
 # _(''),
 
 
@@ -22,11 +22,14 @@ def group(iterable, mycount):
     return a
 
 
-class Service(models.Model):
-    title = models.CharField(_('title'), max_length=200, unique=True)
-    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
-    short_description = models.TextField(_('short_description'))
-    description = models.TextField(_('description'), blank=True, null=True)
+class Service(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
+        short_description = models.TextField(_('short_description')),
+        description = models.TextField(_('description'), blank=True, null=True),
+
+    )
 
     class Meta:
         verbose_name = _('Service')
@@ -47,12 +50,14 @@ class Service(models.Model):
         return reverse('pages:service_detail', kwargs={'slug': self.slug, })
 
 
-class ProfileCategory(models.Model):
-    title = models.CharField(_('title'), max_length=200, unique=True)
-    category_slug = models.SlugField(_('category_slug'), max_length=200, unique=True, blank=True, null=True)
+class ProfileCategory(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        category_slug = models.SlugField(_('category_slug'), db_index=True, max_length=200, unique=True, blank=True, null=True),
+    )
 
     class Meta:
-        ordering = ['title']
+        # ordering = ['title']
         verbose_name = _('Profile Category')
         verbose_name_plural = _('Profile Categories')
 
@@ -71,22 +76,26 @@ class ProfileCategory(models.Model):
         return reverse('pages:profile_category', kwargs={'category_slug': self.category_slug, })
 
 
-class Profile(models.Model):
-    first_name = models.CharField(_('first name'), max_length=200)
-    last_name = models.CharField(_('last name'), max_length=200)
-    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
+class Profile(TranslatableModel):
+    translations = TranslatedFields(
+        first_name = models.CharField(_('first name'), max_length=200),
+        last_name = models.CharField(_('last name'), max_length=200),
+        slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
+        short_description = models.TextField(_('short_description')),
+        description = models.TextField(_('description'), blank=True, null=True),
+    )
+
     profile_category = models.ManyToManyField(ProfileCategory, default=None, related_name='profile_category')
     facebook = models.URLField(_('facebook'), max_length=200, blank=True, null=True)
     twitter = models.URLField(_('twitter'), max_length=200, blank=True, null=True)
     phone_number = PhoneNumberField(_('phone number'), blank=True, null=True)
     email = models.EmailField(_('email'), blank=True, null=True)
     start_work = models.DateField(_('start_work'), auto_now=True)
-    short_description = models.TextField(_('short_description'))
-    description = models.TextField(_('description'), blank=True, null=True)
+
     image = models.ImageField(_('profile image'), upload_to='images/profile/', default='images/defaults/project-details.jpg')
 
     class Meta:
-        ordering = ['start_work']
+        # ordering = ['start_work']
         verbose_name = _('Profile')
         verbose_name_plural = _('Profiles')
 
@@ -109,16 +118,18 @@ class Profile(models.Model):
         return desc
 
 
-class News(models.Model):
-    title = models.CharField(_('title'), max_length=200, unique=True)
-    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
-    short_description = models.TextField(_('short_description'), )
-    description = models.TextField(_('description'), blank=True, null=True)
+class News(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
+        short_description = models.TextField(_('short_description'), ),
+        description = models.TextField(_('description'), blank=True, null=True),
+    )
     image = models.ImageField(_('news image'), upload_to='images/news/', default='images/defaults/news.jpg')
     published = models.DateField(_('published'), default=datetime.date.today)
 
     class Meta:
-        ordering = ['-published']
+        # ordering = ['-published']
         verbose_name = _('News')
         verbose_name_plural = _('News')
 
@@ -136,12 +147,14 @@ class News(models.Model):
         return reverse('pages:news_detail', kwargs={'slug': self.slug, })
 
 
-class ProjectCategory(models.Model):
-    title = models.CharField(_('title'), max_length=200, unique=True)
-    category_slug = models.SlugField(_('category_slug'), max_length=200, unique=True, blank=True, null=True)
+class ProjectCategory(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        category_slug = models.SlugField(_('category_slug'), db_index=True, max_length=200, unique=True, blank=True, null=True)
+    )
 
     class Meta:
-        ordering = ['title']
+        # ordering = ['title']
         verbose_name = _('Project Category')
         verbose_name_plural = _('Project Categories')
 
@@ -160,21 +173,24 @@ class ProjectCategory(models.Model):
         return reverse('pages:projects_category', kwargs={'category_slug': self.category_slug, })
 
 
-class Project(models.Model):
-    title = models.CharField(_('title'), max_length=200, unique=True)
-    slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True)
+class Project(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(_('title'), db_index=True, max_length=200, unique=True),
+        slug = models.SlugField(_('slug'), db_index=True, max_length=200, unique=True, blank=True, null=True),
+        short_description = models.TextField(_('short_description'), ),
+        description = models.TextField(_('description'), blank=True, null=True),
+    )
+
     project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
     project_team = models.ManyToManyField(Profile, default=None, related_name='projects')
     client = models.CharField(_('client'), max_length=200, blank=True, null=True)
     website = models.URLField(_('website'), max_length=200, blank=True, null=True)
     completed = models.DateField(_('completed'), auto_now=True)
-    short_description = models.TextField(_('short_description'), )
-    description = models.TextField(_('description'), blank=True, null=True)
     first_image = models.ImageField(_('first_image'), upload_to='images/projects/', default='images/defaults/project-details.jpg')
     index = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
     class Meta:
-        ordering = ['-completed']
+        # ordering = ['-completed']
         verbose_name = _('Project')
         verbose_name_plural = _('Projects')
 

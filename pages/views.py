@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, FormView
+from parler.views import TranslatableSlugMixin
 
 from users.models import CustomUser
 from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory, group
@@ -157,7 +158,7 @@ class NewsListView(ListView):
     paginate_by = 10
 
 
-class NewsDetailView(DetailView):
+class NewsDetailView(TranslatableSlugMixin, DetailView):
     model = News
     context_object_name = 'news'
     template_name = 'pages/news_detail.html'

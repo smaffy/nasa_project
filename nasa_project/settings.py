@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'parser',
+    'parler',
     'rosetta',
     'phonenumber_field',
     'ckeditor',
@@ -142,7 +142,7 @@ LANGUAGES = (
 )
 
 PARLER_LANGUAGES = {
-    None: (
+    SITE_ID: (
         {'code': 'en'},
         {'code': 'et'},
         {'code': 'ru'},

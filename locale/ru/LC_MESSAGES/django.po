@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-01 22:16+0000\n"
+"POT-Creation-Date: 2020-06-02 08:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,20 +20,20 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: nasa_project/settings.py:138
+#: nasa_project/settings.py:139
 msgid "English"
 msgstr "Английский"
 
-#: nasa_project/settings.py:139
+#: nasa_project/settings.py:140
 msgid "Estonian"
 msgstr "Eesti"
 
-#: nasa_project/settings.py:140
+#: nasa_project/settings.py:141
 msgid "Russian"
 msgstr "Русский"
 
-#: pages/forms.py:10 pages/forms.py:18 pages/forms.py:26 pages/models.py:29
-#: pages/models.py:85 pages/models.py:116 pages/models.py:172
+#: pages/forms.py:10 pages/forms.py:18 pages/forms.py:26 pages/models.py:30
+#: pages/models.py:88 pages/models.py:119 pages/models.py:175
 msgid "description"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: pages/forms.py:35 pages/models.py:82 users/models.py:25
+#: pages/forms.py:35 pages/models.py:85 users/models.py:26
 msgid "email"
 msgstr ""
 
@@ -53,137 +53,137 @@ msgstr ""
 msgid "message"
 msgstr ""
 
-#: pages/models.py:26 pages/models.py:51 pages/models.py:113
-#: pages/models.py:140 pages/models.py:164
+#: pages/models.py:27 pages/models.py:54 pages/models.py:116
+#: pages/models.py:143 pages/models.py:167
 msgid "title"
 msgstr ""
 
-#: pages/models.py:27 pages/models.py:77 pages/models.py:114
-#: pages/models.py:165 users/models.py:12
+#: pages/models.py:28 pages/models.py:80 pages/models.py:117
+#: pages/models.py:168 users/models.py:12
 msgid "slug"
 msgstr ""
 
-#: pages/models.py:28 pages/models.py:84 pages/models.py:115
-#: pages/models.py:171
+#: pages/models.py:29 pages/models.py:87 pages/models.py:118
+#: pages/models.py:174
 msgid "short_description"
 msgstr ""
 
-#: pages/models.py:32 templates/pages/service_detail.html:7
+#: pages/models.py:35 templates/pages/service_detail.html:7
 #: templates/pages/service_detail.html:18 templates/pages/service_list.html:18
 msgid "Service"
 msgstr ""
 
-#: pages/models.py:33
+#: pages/models.py:36
 msgid "Services"
 msgstr ""
 
-#: pages/models.py:52 pages/models.py:141
+#: pages/models.py:55 pages/models.py:144
 msgid "category_slug"
 msgstr ""
 
-#: pages/models.py:56
+#: pages/models.py:59
 msgid "Profile Category"
 msgstr ""
 
-#: pages/models.py:57
+#: pages/models.py:60
 msgid "Profile Categories"
 msgstr ""
 
-#: pages/models.py:75
+#: pages/models.py:78
 msgid "first name"
 msgstr ""
 
-#: pages/models.py:76
+#: pages/models.py:79
 msgid "last name"
 msgstr ""
 
-#: pages/models.py:79 users/models.py:28
+#: pages/models.py:82 users/models.py:29
 msgid "facebook"
 msgstr ""
 
-#: pages/models.py:80 users/models.py:30
+#: pages/models.py:83 users/models.py:31
 msgid "twitter"
 msgstr ""
 
-#: pages/models.py:81
+#: pages/models.py:84
 msgid "phone number"
 msgstr ""
 
-#: pages/models.py:83
+#: pages/models.py:86
 msgid "start_work"
 msgstr ""
 
-#: pages/models.py:86
+#: pages/models.py:89
 msgid "profile image"
 msgstr ""
 
-#: pages/models.py:90
+#: pages/models.py:93
 msgid "Profile"
 msgstr ""
 
-#: pages/models.py:91
+#: pages/models.py:94
 msgid "Profiles"
 msgstr ""
 
-#: pages/models.py:117
+#: pages/models.py:120
 msgid "news image"
 msgstr ""
 
-#: pages/models.py:118
+#: pages/models.py:121
 msgid "published"
 msgstr ""
 
-#: pages/models.py:122 pages/models.py:123 templates/pages/news_detail.html:8
+#: pages/models.py:125 pages/models.py:126 templates/pages/news_detail.html:8
 #: templates/pages/news_detail.html:19 templates/pages/news_list.html:8
 #: templates/pages/news_list.html:12 templates/pages/news_list.html:19
 #: templates/pages/news_list.html:30
 msgid "News"
 msgstr ""
 
-#: pages/models.py:145
+#: pages/models.py:148
 msgid "Project Category"
 msgstr ""
 
-#: pages/models.py:146
+#: pages/models.py:149
 msgid "Project Categories"
 msgstr ""
 
-#: pages/models.py:168
+#: pages/models.py:171
 msgid "client"
 msgstr ""
 
-#: pages/models.py:169
+#: pages/models.py:172
 msgid "website"
 msgstr ""
 
-#: pages/models.py:170
+#: pages/models.py:173
 msgid "completed"
 msgstr ""
 
-#: pages/models.py:173
+#: pages/models.py:176
 msgid "first_image"
 msgstr ""
 
-#: pages/models.py:178 templates/pages/project_detail.html:8
+#: pages/models.py:181 templates/pages/project_detail.html:8
 #: templates/pages/project_detail.html:12
 msgid "Project"
 msgstr ""
 
-#: pages/models.py:179 templates/pages/profile.html:98
+#: pages/models.py:182 templates/pages/profile.html:98
 #: templates/pages/project_detail.html:19 templates/pages/projects_list.html:9
 #: templates/pages/projects_list.html:13 templates/pages/projects_list.html:20
 msgid "Projects"
 msgstr ""
 
-#: pages/models.py:202
+#: pages/models.py:205
 msgid "project image"
 msgstr ""
 
-#: pages/models.py:207
+#: pages/models.py:210
 msgid "Project Image"
 msgstr ""
 
-#: pages/models.py:208
+#: pages/models.py:211
 msgid "Project Images"
 msgstr ""
 
@@ -245,6 +245,19 @@ msgstr ""
 
 #: templates/_base.html:27
 msgid "Default arhitektuuriburoo"
+msgstr ""
+
+#: templates/admin2/parler/deletion_not_allowed.html:5
+#, python-format
+msgid ""
+"Deletion of the %(language_name)s translation of %(object_name)s "
+"'%(escaped_object)s' is not allowed, because it is the last available "
+"translation of this instance."
+msgstr ""
+
+#: templates/admin2/parler/language_tabs.html:15
+#: templates/admin2/parler/language_tabs.html:17
+msgid "Delete Translation"
 msgstr ""
 
 #: templates/include/bannerbigtop.html:12
@@ -686,22 +699,26 @@ msgstr ""
 msgid "languages"
 msgstr ""
 
-#: users/models.py:26
-msgid "phone_number"
+#: users/models.py:24
+msgid "info"
 msgstr ""
 
 #: users/models.py:27
+msgid "phone_number"
+msgstr ""
+
+#: users/models.py:28
 msgid "time_for_colling"
 msgstr ""
 
-#: users/models.py:29
+#: users/models.py:30
 msgid "instagram"
 msgstr ""
 
-#: users/models.py:31
+#: users/models.py:32
 msgid "active"
 msgstr ""
 
-#: users/models.py:34 users/models.py:35 users/models.py:36
+#: users/models.py:35 users/models.py:36 users/models.py:37
 msgid "user"
 msgstr ""
