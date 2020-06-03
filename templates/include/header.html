@@ -1,6 +1,6 @@
 {% load static %}
 {% load page_tags %}
-{% load i18n %}
+{% load i18n parler_tags %}
 
 <header id="header" id="home">
     <div class="header-top">
@@ -104,13 +104,16 @@
                 {% get_available_languages as LANGUAGES %}
                 {% get_language_info_list for LANGUAGES as languages %}
 
+
                 <li class="menu-has-children">
                     <a href="/{{ LANGUAGE_CODE.code }}/">
                         {{ LANGUAGE_CODE|language_name_local }}
                     </a>
                     <ul>
                         {% for language in languages %}
+                            {% get_translated_url LANGUAGE_CODE as tr_url %}
                             <li>
+{#                                {% if tr_url %}<link rel="alternate" hreflang="{{ language.name_local }}" href="{{ tr_url }}" />{% endif %}#}
                                 <a href="/{{ language.code }}/">
                                     {{ language.name_local }}
                                 </a>
