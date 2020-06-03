@@ -120,8 +120,7 @@ class PeopleListView(ListView):
         return group(pr, 3)
 
 
-class CategoryProfileListView(ViewUrlMixin, PeopleListView):
-    view_url_name = 'pages:profile_category'
+class CategoryProfileListView(PeopleListView):
 
     def get_queryset(self):
         # pr = Profile.objects.filter(profile_category__category_slug=self.kwargs['category_slug'])
