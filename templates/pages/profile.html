@@ -22,6 +22,8 @@
 {% endblock top %}
 
 {% block conteiner %}
+
+    {{ qqq }}
     <!-- Start project-details Area -->
     <section class="project-details-area section-gap">
         <div class="container" style="color: black">
@@ -94,7 +96,7 @@
                 </p>
             </div>
             <div class="col-lg-12 project-desc mt-60 mb-60">
-                {% if profile.team.all %}
+                {% if profile.projects.all %}
                     <h3 class="text-center mt-30 mb-30"> {% trans 'Projects' %}: </h3>
                     {% for pr in projects %}
                         <div class="row">

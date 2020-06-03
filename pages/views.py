@@ -120,7 +120,8 @@ class PeopleListView(ListView):
         return group(pr, 3)
 
 
-class CategoryProfileListView(PeopleListView):
+class CategoryProfileListView(ViewUrlMixin, PeopleListView):
+    view_url_name = 'pages:profile_category'
 
     def get_queryset(self):
         # pr = Profile.objects.filter(profile_category__category_slug=self.kwargs['category_slug'])
@@ -153,15 +154,13 @@ class ProfileView(TranslatableSlugMixin, DetailView):
         data = super().get_context_data(object_list=object_list, **kwargs)
 
         data['projects'] = self.get_projects()
-        # data['category'] = self.get_category()
 
         return data
 
     def get_projects(self):
-        profile = self.get_object()
-        pr = Project.objects.filter(project_team=profile)
+        profile = Profile.objects.get(translations__slug=self.object.slug)
+        pr = profile.projects.all()
         return group(pr, 4)
-
 
 class NewsListView(ListView):
     model = News
