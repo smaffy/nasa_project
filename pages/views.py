@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, FormView
-from parler.views import TranslatableSlugMixin
+from parler.views import TranslatableSlugMixin, ViewUrlMixin
 
 from users.models import CustomUser
 from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory, group
@@ -54,7 +54,9 @@ class ProjectsListView(ListView):
 class CategoryProjectListView(ProjectsListView):
 
     def get_queryset(self):
-        pr = Project.objects.filter(project_category__category_slug=self.kwargs['category_slug'])
+        categ = ProjectCategory.objects.get(translations__category_slug=self.kwargs['category_slug'])
+        pr = Project.objects.filter(project_category=categ)
+        # pr = Project.objects.filter(project_category__category_slug=self.kwargs['category_slug'])
         return group(pr, 6)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -65,13 +67,14 @@ class CategoryProjectListView(ProjectsListView):
 
     def get_category(self):
         try:
-            category = ProjectCategory.objects.get(category_slug=self.kwargs['category_slug'])
+            category = ProjectCategory.objects.get(translations__category_slug=self.kwargs['category_slug'])
+            # category = ProjectCategory.objects.get(category_slug=self.kwargs['category_slug'])
         except ProjectCategory.DoesNotExist:
             raise Http404
         return category
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(TranslatableSlugMixin, DetailView):
     model = Project
     context_object_name = 'project'
     template_name = 'pages/project_detail.html'
@@ -83,9 +86,14 @@ class ProjectDetailView(DetailView):
 
         return data
 
+    # def get_project(self):
+    #     # pr = ProjectImage.objects.filter(project__slug=self.kwargs['slug'])
+    #     return Project.objects.get(slug=self.get_object())
+
     def get_images(self):
-        pr = ProjectImage.objects.filter(project__slug=self.kwargs['slug'])
-        return group(pr, 4)
+        proj = self.get_object()
+        img = ProjectImage.objects.filter(project=proj)
+        return group(img, 4)
 
 
 class ServiceListView(ListView):
@@ -112,10 +120,14 @@ class PeopleListView(ListView):
         return group(pr, 3)
 
 
-class CategoryProfileListView(PeopleListView):
+class CategoryProfileListView(ViewUrlMixin, PeopleListView):
+    view_url_name = 'pages:profile_category'
 
     def get_queryset(self):
-        pr = Profile.objects.filter(profile_category__category_slug=self.kwargs['category_slug'])
+        # pr = Profile.objects.filter(profile_category__category_slug=self.kwargs['category_slug'])
+        categ = ProfileCategory.objects.get(translations__category_slug=self.kwargs['category_slug'])
+        pr = Profile.objects.filter(profile_category=categ)
+
         return group(pr, 6)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -126,13 +138,14 @@ class CategoryProfileListView(PeopleListView):
 
     def get_category(self):
         try:
-            category = ProfileCategory.objects.get(category_slug=self.kwargs['category_slug'])
+            # category = ProfileCategory.objects.get(category_slug=self.kwargs['category_slug'])
+            category = ProfileCategory.objects.get(translations__category_slug=self.kwargs['category_slug'])
         except ProfileCategory.DoesNotExist:
             raise Http404
         return category
 
 
-class ProfileView(DetailView):
+class ProfileView(TranslatableSlugMixin, DetailView):
     model = Profile
     context_object_name = 'profile'
     template_name = 'pages/profile.html'
@@ -146,7 +159,7 @@ class ProfileView(DetailView):
         return data
 
     def get_projects(self):
-        profile = Profile.objects.get(slug=self.kwargs['slug'])
+        profile = self.get_object()
         pr = Project.objects.filter(project_team=profile)
         return group(pr, 4)
 

@@ -5,6 +5,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
+from parler.utils.context import smart_override, switch_language
+from parler.utils.i18n import get_language
 from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
 
@@ -111,8 +113,11 @@ class Profile(TranslatableModel):
             self.slug = slugify(self.get_name())
         super(Profile, self).save(*args, **kwargs)
 
+    # def get_absolute_url(self):
+    #     return reverse('pages:profile', kwargs={'slug': self.slug})
     def get_absolute_url(self):
-        return reverse('pages:profile', kwargs={'slug': self.slug, })
+        with switch_language(self):
+            return reverse('pages:profile', kwargs={'slug': self.slug})
 
     def get_short_description(self):
         desc = truncatewords(self.short_description, 25) + '...'
@@ -207,7 +212,7 @@ class Project(TranslatableModel):
         super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:projects_detail', kwargs={'slug': self.slug, })
+        return reverse('pages:projects_detail', kwargs={'slug': 'wien'})
 
     def get_images(self):
         images = ProjectImage.objects.filter(project__slug=self.slug)
