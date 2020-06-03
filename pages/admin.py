@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
+from django.db import models
 from django.template.defaultfilters import truncatewords
 
 from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory
@@ -21,8 +23,14 @@ from parler.admin import TranslatableAdmin, TranslatableStackedInline
 # admin.site.register(TranslatableSite, NewSiteAdmin)
 
 
-class ImageInline(TranslatableStackedInline):
+class ImageInline(admin.StackedInline):
     model = ProjectImage
+    max_num = 10
+    extra = 0
+
+
+class ProjectsInline(admin.StackedInline):
+    model = Profile.projects.through
     max_num = 10
     extra = 0
 
@@ -38,6 +46,23 @@ class ProjectAdmin(TranslatableAdmin):
         'short_description',
     )
     inlines = [ImageInline, ]
+    fieldsets = (
+        ('Title', {
+            "fields": ('title', 'slug', )
+        }),
+        (None, {
+            "fields": ('project_category', 'project_team', )
+        }),
+        (None, {
+            "fields": ('client', 'website', 'completed', 'index',)
+        }),
+        (None, {
+            "fields": ('first_image', )
+        }),
+        (None, {
+            "fields": ('short_description', 'description',)
+        }),
+    )
     # prepopulated_fields = {'slug': ('title',)}
 
     def get_prepopulated_fields(self, request, obj=None):
@@ -52,11 +77,35 @@ class ProfileAdmin(TranslatableAdmin):
     save_on_top = True
     save_as = True
     form = ProfileAdminForm
+    inlines = [ProjectsInline, ]
     list_display = (
         'first_name', 'last_name', 'slug',
         'short_description',
     )
     # prepopulated_fields = {'slug': ('first_name', 'last_name',)}
+    fieldsets = (
+        ('Title', {
+            "fields": ('first_name', 'last_name', 'slug', )
+        }),
+        (None, {
+            "fields": ('profile_category',)
+        }),
+        ('Social', {
+            "fields": ('facebook', 'twitter',)
+        }),
+        ('Contact', {
+            "fields": ('phone_number', 'email',)
+        }),
+        (None, {
+            "fields": ('start_work',)
+        }),
+        (None, {
+            "fields": ('image',)
+        }),
+        (None, {
+            "fields": ('short_description', 'description',)
+        }),
+    )
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('first_name', 'last_name',)}
@@ -71,7 +120,7 @@ class ServiceAdmin(TranslatableAdmin):
     save_as = True
     list_display = (
         'title', 'slug',
-        'short_description',
+         'short_description',
     )
 
     def get_prepopulated_fields(self, request, obj=None):
@@ -133,11 +182,12 @@ class NewsAdmin(TranslatableAdmin):
 
 
 @admin.register(ProjectImage)
-class ProjectImageAdmin(TranslatableAdmin):
+class ProjectImageAdmin(ModelAdmin):
     save_on_top = True
     save_as = True
     list_display = (
         'image',
         'index',
     )
+
 

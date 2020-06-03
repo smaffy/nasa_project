@@ -33,217 +33,217 @@ msgstr "Русский"
 #: pages/forms.py:10 pages/forms.py:18 pages/forms.py:26 pages/models.py:30
 #: pages/models.py:88 pages/models.py:119 pages/models.py:175
 msgid "description"
-msgstr ""
+msgstr "description"
 
 #: pages/forms.py:34
 msgid "name"
-msgstr ""
+msgstr "name"
 
 #: pages/forms.py:35 pages/models.py:85 users/models.py:26
 msgid "email"
-msgstr ""
+msgstr "email"
 
 #: pages/forms.py:36
 msgid "subject"
-msgstr ""
+msgstr "subject"
 
 #: pages/forms.py:37
 msgid "message"
-msgstr ""
+msgstr "message"
 
 #: pages/models.py:27 pages/models.py:54 pages/models.py:116
 #: pages/models.py:143 pages/models.py:167
 msgid "title"
-msgstr ""
+msgstr "title"
 
 #: pages/models.py:28 pages/models.py:80 pages/models.py:117
 #: pages/models.py:168 users/models.py:12
 msgid "slug"
-msgstr ""
+msgstr "slug"
 
 #: pages/models.py:29 pages/models.py:87 pages/models.py:118
 #: pages/models.py:174
 msgid "short_description"
-msgstr ""
+msgstr "short_description"
 
 #: pages/models.py:35 templates/pages/service_detail.html:7
 #: templates/pages/service_detail.html:18 templates/pages/service_list.html:18
 msgid "Service"
-msgstr ""
+msgstr "Service"
 
 #: pages/models.py:36
 msgid "Services"
-msgstr ""
+msgstr "Services"
 
 #: pages/models.py:55 pages/models.py:144
 msgid "category_slug"
-msgstr ""
+msgstr "category_slug"
 
 #: pages/models.py:59
 msgid "Profile Category"
-msgstr ""
+msgstr "Profile Category"
 
 #: pages/models.py:60
 msgid "Profile Categories"
-msgstr ""
+msgstr "Profile Categories"
 
 #: pages/models.py:78
 msgid "first name"
-msgstr ""
+msgstr "first name"
 
 #: pages/models.py:79
 msgid "last name"
-msgstr ""
+msgstr "last name"
 
 #: pages/models.py:82 users/models.py:29
 msgid "facebook"
-msgstr ""
+msgstr "facebook"
 
 #: pages/models.py:83 users/models.py:31
 msgid "twitter"
-msgstr ""
+msgstr "twitter"
 
 #: pages/models.py:84
 msgid "phone number"
-msgstr ""
+msgstr "phone number"
 
 #: pages/models.py:86
 msgid "start_work"
-msgstr ""
+msgstr "start_work"
 
 #: pages/models.py:89
 msgid "profile image"
-msgstr ""
+msgstr "profile image"
 
 #: pages/models.py:93
 msgid "Profile"
-msgstr ""
+msgstr "Profile"
 
 #: pages/models.py:94
 msgid "Profiles"
-msgstr ""
+msgstr "Profiles"
 
 #: pages/models.py:120
 msgid "news image"
-msgstr ""
+msgstr "news image"
 
 #: pages/models.py:121
 msgid "published"
-msgstr ""
+msgstr "published"
 
 #: pages/models.py:125 pages/models.py:126 templates/pages/news_detail.html:8
 #: templates/pages/news_detail.html:19 templates/pages/news_list.html:8
 #: templates/pages/news_list.html:12 templates/pages/news_list.html:19
 #: templates/pages/news_list.html:30
 msgid "News"
-msgstr ""
+msgstr "News"
 
 #: pages/models.py:148
 msgid "Project Category"
-msgstr ""
+msgstr "Project Category"
 
 #: pages/models.py:149
 msgid "Project Categories"
-msgstr ""
+msgstr "Project Categories"
 
 #: pages/models.py:171
 msgid "client"
-msgstr ""
+msgstr "client"
 
 #: pages/models.py:172
 msgid "website"
-msgstr ""
+msgstr "website"
 
 #: pages/models.py:173
 msgid "completed"
-msgstr ""
+msgstr "completed"
 
 #: pages/models.py:176
 msgid "first_image"
-msgstr ""
+msgstr "first_image"
 
 #: pages/models.py:181 templates/pages/project_detail.html:8
 #: templates/pages/project_detail.html:12
 msgid "Project"
-msgstr ""
+msgstr "Project"
 
 #: pages/models.py:182 templates/pages/profile.html:98
 #: templates/pages/project_detail.html:19 templates/pages/projects_list.html:9
 #: templates/pages/projects_list.html:13 templates/pages/projects_list.html:20
 msgid "Projects"
-msgstr ""
+msgstr "Projects"
 
 #: pages/models.py:205
 msgid "project image"
-msgstr ""
+msgstr "project image"
 
 #: pages/models.py:210
 msgid "Project Image"
-msgstr ""
+msgstr "Project Image"
 
 #: pages/models.py:211
 msgid "Project Images"
-msgstr ""
+msgstr "Project Images"
 
 #: pages/urls.py:11
 msgid "about_us/"
-msgstr ""
+msgstr "about_us/"
 
 #: pages/urls.py:13
 msgid "projects/"
-msgstr ""
+msgstr "projects/"
 
 #: pages/urls.py:14
 msgid "projects/category"
-msgstr ""
+msgstr "projects/category"
 
 #: pages/urls.py:15
 msgid "projects"
-msgstr ""
+msgstr "projects"
 
 #: pages/urls.py:16
 msgid "service/"
-msgstr ""
+msgstr "service/"
 
 #: pages/urls.py:17
 msgid "service"
-msgstr ""
+msgstr "service"
 
 #: pages/urls.py:18
 msgid "people/"
-msgstr ""
+msgstr "people/"
 
 #: pages/urls.py:19
 msgid "people/category"
-msgstr ""
+msgstr "people/category"
 
 #: pages/urls.py:20
 msgid "people"
-msgstr ""
+msgstr "people"
 
 #: pages/urls.py:21
 msgid "news/"
-msgstr ""
+msgstr "news/"
 
 #: pages/urls.py:22
 msgid "news"
-msgstr ""
+msgstr "news"
 
 #: pages/urls.py:23
 msgid "contact/"
-msgstr ""
+msgstr "contact/"
 
 #: pages/urls.py:24
 msgid "contact/success/"
-msgstr ""
+msgstr "contact/success/"
 
 #: pages/urls.py:26
 msgid "design_elements/"
-msgstr ""
+msgstr "design_elements/"
 
 #: templates/_base.html:27
 msgid "Default arhitektuuriburoo"
-msgstr ""
+msgstr "Default arhitektuuriburoo"
 
 #: templates/admin2/parler/deletion_not_allowed.html:5
 #, python-format
@@ -252,11 +252,14 @@ msgid ""
 "'%(escaped_object)s' is not allowed, because it is the last available "
 "translation of this instance."
 msgstr ""
+"Deletion of the %(language_name)s translation of %(object_name)s "
+"'%(escaped_object)s' is not allowed, because it is the last available "
+"translation of this instance."
 
 #: templates/admin2/parler/language_tabs.html:15
 #: templates/admin2/parler/language_tabs.html:17
 msgid "Delete Translation"
-msgstr ""
+msgstr "Delete Translation"
 
 #: templates/include/bannerbigtop.html:12
 msgid ""
@@ -266,7 +269,11 @@ msgid ""
 "                        Concept Design.\n"
 "                    "
 msgstr ""
-
+"\n"
+"                        Arhitektuur.     <br>\n"
+"                        Sisearhitektuur. <br>\n"
+"                        Concept Design.\n"
+"                    "
 #: templates/include/bannerbigtop.html:19
 msgid ""
 "\n"
@@ -276,10 +283,16 @@ msgid ""
 "ja ratsionaalne kaunite kunstidega.\n"
 "                    "
 msgstr ""
+"\n"
+"                        Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev "
+"arhitektuuri- ja disainibüroo. <br>\n"
+"                        Meie meeskonda ühendab huvi seostada pragmaatiline "
+"ja ratsionaalne kaunite kunstidega.\n"
+"                    "
 
 #: templates/include/bannerbigtop.html:24
 msgid "Get Started"
-msgstr ""
+msgstr "Get Started"
 
 #: templates/include/callto-action.html:11
 msgid ""
@@ -288,167 +301,187 @@ msgid ""
 "                            quality and affordable interior design?\n"
 "                        "
 msgstr ""
+"\n"
+"                            Looking for a <br>\n"
+"                            quality and affordable interior design?\n"
+"                        "
 
 #: templates/include/callto-action.html:17
 msgid ""
 "inappropriate behavior is often laughed off as “boys will be boys,” women "
 "face higher conduct standards especially in the workplace."
 msgstr ""
+"inappropriate behavior is often laughed off as “boys will be boys,” women "
+"face higher conduct standards especially in the workplace."
 
 #: templates/include/callto-action.html:19
 msgid "Request quote now"
-msgstr ""
+msgstr "Request quote now"
 
 #: templates/include/feature.html:9
 msgid "Some Features that Made us Unique"
-msgstr ""
+msgstr "Some Features that Made us Unique"
 
 #: templates/include/feature.html:11 templates/include/gallery.html:11
 #: templates/include/team.html:13 templates/include/testimonial.html:11
 #: templates/pages/people_list.html:34 templates/pages/projects_list.html:33
 msgid "Who are in extremely love with eco friendly system."
-msgstr ""
+msgstr "Who are in extremely love with eco friendly system."
 
 #: templates/include/feature.html:20
 msgid "Expert Technicians"
-msgstr ""
+msgstr "Expert Technicians"
 
 #: templates/include/feature.html:23
 msgid ""
 "Computer users and programmers have become so accustomed to using Windows, "
 "even for the changing."
 msgstr ""
+"Computer users and programmers have become so accustomed to using Windows, "
+"even for the changing."
 
 #: templates/include/feature.html:31
 msgid "Professional Service"
-msgstr ""
+msgstr "Professional Service"
 
 #: templates/include/feature.html:34
 msgid ""
 "Finding the perfect learning tool for Flash is a daunting task to any novice "
 "web developer. One can find help."
 msgstr ""
+"Finding the perfect learning tool for Flash is a daunting task to any novice "
+"web developer. One can find help."
 
 #: templates/include/feature.html:42
 msgid "Great Support"
-msgstr ""
+msgstr "Great Support"
 
 #: templates/include/feature.html:45
 msgid ""
 "While most people enjoy casino ambling, sports betting, lottery and bingo "
 "playing for the fun and excitement."
 msgstr ""
+"While most people enjoy casino ambling, sports betting, lottery and bingo "
+"playing for the fun and excitement."
 
 #: templates/include/feature.html:53
 msgid "Technical Skills"
-msgstr ""
+msgstr "Technical Skills"
 
 #: templates/include/feature.html:56
 msgid ""
 "“The moment you think of buying a Web Hosting Plan, you know one thing – So "
 "many choices, which one to choose."
 msgstr ""
+"“The moment you think of buying a Web Hosting Plan, you know one thing – So "
+"many choices, which one to choose."
 
 #: templates/include/feature.html:64
 msgid "Highly Recomended"
-msgstr ""
+msgstr "Highly Recomended"
 
 #: templates/include/feature.html:67
 msgid ""
 "Many conventional colleges and universities are now offering online DVD "
 "repair courses, which are the exact same."
 msgstr ""
+"Many conventional colleges and universities are now offering online DVD "
+"repair courses, which are the exact same."
 
 #: templates/include/feature.html:75
 msgid "Positive Reviews"
-msgstr ""
+msgstr "Positive Reviews"
 
 #: templates/include/feature.html:78
 msgid ""
 "So you have your new digital camera and clicking away to glory anything and "
 "everything in sight. Now you want."
 msgstr ""
+"So you have your new digital camera and clicking away to glory anything and "
+"everything in sight. Now you want."
 
 #: templates/include/footer.html:12 templates/include/header.html:94
 #: templates/pages/about.html:7 templates/pages/about.html:11
 #: templates/pages/about.html:18
 msgid "About Us"
-msgstr ""
+msgstr "About Us"
 
 #: templates/include/footer.html:14
 msgid ""
 "If you own an Iphone, you’ve probably already worked out how much fun it is "
 "to use it to watch movies-it has that."
 msgstr ""
+"If you own an Iphone, you’ve probably already worked out how much fun it is "
+"to use it to watch movies-it has that."
 
 #: templates/include/footer.html:27 users/admin.py:32
 msgid "Follow Us"
-msgstr ""
+msgstr "Follow Us"
 
 #: templates/include/footer.html:45 templates/include/footer.html:53
 #: templates/pages/contact.html:8 templates/pages/contact.html:12
 #: templates/pages/contact.html:19 templates/pages/success.html:18
 msgid "Contact Us"
-msgstr ""
+msgstr "Contact Us"
 
 #: templates/include/gallery.html:9 templates/pages/projects_list.html:31
 msgid "Our Recent Works may impress you"
-msgstr ""
+msgstr "Our Recent Works may impress you"
 
 #: templates/include/header.html:18 templates/include/header.html:33
 msgid "Other Design Elements"
-msgstr ""
+msgstr "Other Design Elements"
 
 #: templates/include/header.html:58
 msgid "AVALEHT"
-msgstr ""
+msgstr "HOME"
 
 #: templates/include/header.html:59
 msgid "TEHTUD TÖÖD"
-msgstr ""
+msgstr "PROJECTS"
 
 #: templates/include/header.html:62 templates/pages/projects_list.html:39
 #: templates/pages/projects_list.html:52
 msgid "All Projects"
-msgstr ""
+msgstr "All Projects"
 
 #: templates/include/header.html:69
 msgid "INIMESED"
-msgstr ""
+msgstr "PEOPLE"
 
 #: templates/include/header.html:71 templates/pages/people_list.html:40
 msgid "All People"
-msgstr ""
+msgstr "All People"
 
 #: templates/include/header.html:78
 msgid "TEENUSED"
-msgstr ""
+msgstr "Services"
 
 #: templates/include/header.html:79
 msgid "UUDISED"
-msgstr ""
+msgstr "News"
 
 #: templates/include/header.html:95
 msgid "Kontakt"
-msgstr ""
+msgstr "Contact"
 
 #: templates/include/news.html:12
 msgid "Last news"
-msgstr ""
+msgstr "Last news"
 
 #: templates/include/news.html:13
 msgid "news news news news"
-msgstr ""
+msgstr "news news news news"
 
 #: templates/include/pages/people.html:20
 #: templates/include/pages/projects4.html:18
 #: templates/include/pages/projects8.html:19
 msgid "More Details"
-msgstr ""
+msgstr "More Details"
 
 #: templates/include/service.html:10 templates/pages/service_list.html:11
 msgid "What we offer to our clients"
-msgstr ""
+msgstr "What we offer to our clients"
 
 #: templates/include/service.html:12
 msgid ""
@@ -465,27 +498,43 @@ msgid ""
 "regulaarsusega.\n"
 "                        "
 msgstr ""
+"\n"
+"                            Meil on üle kümne aasta jagu kogemusi väga "
+"erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.\n"
+"                            Aastast 2004 oleme taotlenud suurusjärgus 200+ "
+"ehitusluba.\n"
+"                            Omame suuri kogemusi miljööaladele "
+"projekterimisel ning fikseeritud eelarvega töötamisel.\n"
+"                            Koostöös klientidega oleme välja arendanud "
+"mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava\n"
+"                            ja teavitame klienti projekti arengutest kindla "
+"regulaarsusega.\n"
+"                         "
 
 #: templates/include/team.html:12 templates/pages/people_list.html:10
 #: templates/pages/people_list.html:14
 msgid "Our Team"
-msgstr ""
+msgstr "Our Team"
 
 #: templates/include/testimonial.html:10
 msgid "Testimonial from our Clients"
-msgstr ""
+msgstr "Testimonial from our Clients"
 
 #: templates/include/testimonial.html:23 templates/include/testimonial.html:59
 msgid ""
 "Accessories Here you can find the best computer accessory for your laptop, "
 "monitor, printer, scanner, speaker, projector, hardware."
 msgstr ""
+"Accessories Here you can find the best computer accessory for your laptop, "
+"monitor, printer, scanner, speaker, projector, hardware."
 
 #: templates/include/testimonial.html:41 templates/include/testimonial.html:77
 msgid ""
 "Hypnosis quit smoking methods maintain caused quite world over the last two "
 "decades. There is a lot of argument pertaining to"
 msgstr ""
+"Hypnosis quit smoking methods maintain caused quite world over the last two "
+"decades. There is a lot of argument pertaining to"
 
 #: templates/pages/about.html:16 templates/pages/contact.html:17
 #: templates/pages/elements.html:18 templates/pages/home.html:8
@@ -495,11 +544,11 @@ msgstr ""
 #: templates/pages/service_detail.html:16 templates/pages/service_list.html:16
 #: templates/pages/success.html:16
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: templates/pages/about.html:29
 msgid "Brand new app to blow your mind"
-msgstr ""
+msgstr "Brand new app to blow your mind"
 
 #: templates/pages/about.html:30
 msgid ""
@@ -520,104 +569,120 @@ msgid ""
 "                        </p>\n"
 "                    "
 msgstr ""
+"\n"
+"                        <h1>\n"
+"                            We’ve made a life <br>\n"
+"                            that will change you\n"
+"\n"
+"                        </h1>\n"
+"                        <p>\n"
+"                            <span>We are here to listen from you deliver "
+"exellence</span>\n"
+"                        </p>\n"
+"                        <p>\n"
+"                            Lorem ipsum dolor sit amet, consectetur "
+"adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna "
+"aliqua. Ut enim ad minim.\n"
+"                        </p>\n"
+"                    "
 
 #: templates/pages/about.html:43
 msgid "Get Started Now"
-msgstr ""
+msgstr "Get Started Now"
 
 #: templates/pages/contact.html:44
 msgid "Tallinn, Estonia"
-msgstr ""
+msgstr "Tallinn, Estonia"
 
 #: templates/pages/contact.html:46
 msgid "Pronksi 9, 10124 Tallinn"
-msgstr ""
+msgstr "Pronksi 9, 10124 Tallinn"
 
 #: templates/pages/contact.html:77
 msgid "Send us your query anytime!"
-msgstr ""
+msgstr "Send us your query anytime!"
 
 #: templates/pages/contact.html:87
 msgid "Enter your name"
-msgstr ""
+msgstr "Enter your name"
 
 #: templates/pages/contact.html:89
 msgid "Enter email address"
-msgstr ""
+msgstr "Enter email address"
 
 #: templates/pages/contact.html:91
 msgid "Enter your subject"
-msgstr ""
+msgstr "Enter your subject"
 
 #: templates/pages/contact.html:94
 msgid "Messege"
-msgstr ""
+msgstr "Messege"
 
 #: templates/pages/contact.html:97
 msgid "Send Message"
-msgstr ""
+msgstr "Send Message"
 
 #: templates/pages/elements.html:9 templates/pages/elements.html:13
 #: templates/pages/elements.html:20
 msgid "Elements"
-msgstr ""
+msgstr "Elements"
 
 #: templates/pages/people_list.html:21 templates/pages/profile.html:20
 msgid "People"
-msgstr ""
+msgstr "People"
 
 #: templates/pages/people_list.html:32
 msgid "Our Team may impress you"
-msgstr ""
+msgstr "Our Team may impress you"
 
 #: templates/pages/people_list.html:51 templates/pages/project_detail.html:82
 #: templates/pages/projects_list.html:50
 msgid "Category"
-msgstr ""
+msgstr "Category"
 
 #: templates/pages/people_list.html:53
 msgid "All People:"
-msgstr ""
+msgstr "All People:"
 
 #: templates/pages/profile.html:47
 msgid "Email "
-msgstr ""
+msgstr "Email"
 
 #: templates/pages/profile.html:50
 msgid "Phone number"
-msgstr ""
+msgstr "Phone number"
 
 #: templates/pages/profile.html:52
 msgid "Started work"
-msgstr ""
+msgstr "Started work"
 
 #: templates/pages/project_detail.html:49
 msgid "Client"
-msgstr ""
+msgstr "Client"
 
 #: templates/pages/project_detail.html:56
 msgid "Completed"
-msgstr ""
+msgstr "Completed"
 
 #: templates/pages/project_detail.html:63
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: templates/pages/project_detail.html:70
 msgid "Team"
-msgstr ""
+msgstr "Team"
 
 #: templates/pages/service_list.html:7
 msgid "Our Services"
-msgstr ""
+msgstr "Our Services"
 
 #: templates/pages/success.html:7 templates/pages/success.html:11
 msgid "Contact Success"
-msgstr ""
+msgstr "Contact Success"
 
 #: templates/pages/success.html:24
 msgid "Thanks for being awesome! "
-msgstr ""
+msgstr "Thanks for being awesome! "
 
 #: templates/pages/success.html:27
 msgid ""
@@ -632,91 +697,101 @@ msgid ""
 "                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
 "            "
 msgstr ""
+"\n"
+"                <br>\n"
+"                We have received your message and would like to thank you "
+"for writing to us. <br><br>\n"
+"                If your inquiry is urgent, please use the telephone number "
+"listed below to talk to one of our staff members. <br><br>\n"
+"                Otherwise, we will reply by email as soon as possible.\n"
+"                <br><br><br>\n"
+"                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
+"            "
 
 #: users/admin.py:23
 msgid "Address"
-msgstr ""
+msgstr "Address"
 
 #: users/admin.py:26
 msgid "Company"
-msgstr ""
+msgstr "Company"
 
 #: users/admin.py:29
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: users/admin.py:35
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: users/admin.py:38
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #: users/models.py:10
 msgid "first_name"
-msgstr ""
+msgstr "first_name"
 
 #: users/models.py:11
 msgid "last_name"
-msgstr ""
+msgstr "last_name"
 
 #: users/models.py:14
 msgid "address"
-msgstr ""
+msgstr "address"
 
 #: users/models.py:15
 msgid "postal_code"
-msgstr ""
+msgstr "postal_code"
 
 #: users/models.py:16
 msgid "city"
-msgstr ""
+msgstr "city"
 
 #: users/models.py:17
 msgid "country"
-msgstr ""
+msgstr "country"
 
 #: users/models.py:18
 msgid "company_name"
-msgstr ""
+msgstr "company_name"
 
 #: users/models.py:19
 msgid "logo"
-msgstr ""
+msgstr "logo"
 
 #: users/models.py:21
 msgid "registation_number"
-msgstr ""
+msgstr "registation_number"
 
 #: users/models.py:22
 msgid "address_inline"
-msgstr ""
+msgstr "address_inline"
 
 #: users/models.py:23
 msgid "languages"
-msgstr ""
+msgstr "languages"
 
 #: users/models.py:24
 msgid "info"
-msgstr ""
+msgstr "info"
 
 #: users/models.py:27
 msgid "phone_number"
-msgstr ""
+msgstr "phone_number"
 
 #: users/models.py:28
 msgid "time_for_colling"
-msgstr ""
+msgstr "time_for_colling"
 
 #: users/models.py:30
 msgid "instagram"
-msgstr ""
+msgstr "instagram"
 
 #: users/models.py:32
 msgid "active"
-msgstr ""
+msgstr "active"
 
 #: users/models.py:35 users/models.py:36 users/models.py:37
 msgid "user"
-msgstr ""
+msgstr "user"

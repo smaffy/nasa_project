@@ -3,6 +3,7 @@ from datetime import date
 
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.text import slugify
 from phonenumber_field.modelfields import PhoneNumberField
 from django.template.defaultfilters import truncatewords
@@ -90,7 +91,7 @@ class Profile(TranslatableModel):
     twitter = models.URLField(_('twitter'), max_length=200, blank=True, null=True)
     phone_number = PhoneNumberField(_('phone number'), blank=True, null=True)
     email = models.EmailField(_('email'), blank=True, null=True)
-    start_work = models.DateField(_('start_work'), auto_now=True)
+    start_work = models.DateField(_('start_work'), default=timezone.now)
 
     image = models.ImageField(_('profile image'), upload_to='images/profile/', default='images/defaults/project-details.jpg')
 
@@ -185,7 +186,7 @@ class Project(TranslatableModel):
     project_team = models.ManyToManyField(Profile, default=None, related_name='projects')
     client = models.CharField(_('client'), max_length=200, blank=True, null=True)
     website = models.URLField(_('website'), max_length=200, blank=True, null=True)
-    completed = models.DateField(_('completed'), auto_now=True)
+    completed = models.DateField(_('completed'), default=timezone.now)
     first_image = models.ImageField(_('first_image'), upload_to='images/projects/', default='images/defaults/project-details.jpg')
     index = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
