@@ -86,7 +86,7 @@ class Profile(TranslatableModel):
         description = models.TextField(_('description'), blank=True, null=True),
     )
 
-    profile_category = models.ManyToManyField(ProfileCategory, default=None, related_name='profile_category')
+    profile_category = models.ManyToManyField(ProfileCategory, blank=True, default=None, related_name='profile_category')
     facebook = models.URLField(_('facebook'), max_length=200, blank=True, null=True)
     twitter = models.URLField(_('twitter'), max_length=200, blank=True, null=True)
     phone_number = PhoneNumberField(_('phone number'), blank=True, null=True)
@@ -182,8 +182,8 @@ class Project(TranslatableModel):
         description = models.TextField(_('description'), blank=True, null=True),
     )
 
-    project_category = models.ManyToManyField(ProjectCategory, default=None, related_name='project_category')
-    project_team = models.ManyToManyField(Profile, default=None, related_name='projects')
+    project_category = models.ManyToManyField(ProjectCategory, blank=True, default=None, related_name='project_category')
+    project_team = models.ManyToManyField(Profile, blank=True, default=None, related_name='projects')
     client = models.CharField(_('client'), max_length=200, blank=True, null=True)
     website = models.URLField(_('website'), max_length=200, blank=True, null=True)
     completed = models.DateField(_('completed'), default=timezone.now)
