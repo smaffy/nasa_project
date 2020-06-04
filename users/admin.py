@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     save_on_top = True
     model = CustomUser
     list_display = [
-        'username', 'first_name', 'last_name',
+        'username',
         'company_name',
         'email', 'phone_number',
     ]
