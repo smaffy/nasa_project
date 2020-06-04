@@ -195,63 +195,63 @@ msgstr ""
 
 #: pages/urls.py:11
 msgid "about_us/"
-msgstr ""
+msgstr "o_nas/"
 
 #: pages/urls.py:13
 msgid "projects/"
-msgstr ""
+msgstr "projekty/"
 
 #: pages/urls.py:14
 msgid "projects/category"
-msgstr ""
+msgstr "projekty/kategoria"
 
 #: pages/urls.py:15
 msgid "projects"
-msgstr ""
+msgstr "projekty"
 
 #: pages/urls.py:16
 msgid "service/"
-msgstr ""
+msgstr "uslugi/"
 
 #: pages/urls.py:17
 msgid "service"
-msgstr ""
+msgstr "uslugi/"
 
 #: pages/urls.py:18
 msgid "people/"
-msgstr ""
+msgstr "ljudi/"
 
 #: pages/urls.py:19
 msgid "people/category"
-msgstr ""
+msgstr "ljudi/categoria"
 
 #: pages/urls.py:20
 msgid "people"
-msgstr ""
+msgstr "ljudi"
 
 #: pages/urls.py:21
 msgid "news/"
-msgstr ""
+msgstr "novosti/"
 
 #: pages/urls.py:22
 msgid "news"
-msgstr ""
+msgstr "novosti"
 
 #: pages/urls.py:23
 msgid "contact/"
-msgstr ""
+msgstr "kontakt/"
 
 #: pages/urls.py:24
 msgid "contact/success/"
-msgstr ""
+msgstr "kontakt/uspeshno/"
 
 #: pages/urls.py:26
 msgid "design_elements/"
-msgstr ""
+msgstr "elementy_dizaina/"
 
 #: templates/_base.html:27
 msgid "Default arhitektuuriburoo"
-msgstr ""
+msgstr "Просто архитектурное бюро"
 
 #: templates/admin2/parler/deletion_not_allowed.html:5
 #, python-format
