@@ -38,9 +38,9 @@
                         </span>
                         <br>
                     </p>
-                    <div class="details-info d-flex flex-row mt-20" style="color: black">
-                        {% company as contact %}
-                        {% if contact.active %}
+                    {% company as contact %}
+                    {% if contact.active %}
+                        <div class="details-info d-flex flex-row mt-20" style="color: black">
                             <ul class="names mr-20">
     {#                            <li>Rating    </li>#}
                                 {% if contact.company_name %}
@@ -98,9 +98,30 @@
                                 {% if contact.info %}
                                     <li>{{ contact.info }}</li>
                                 {% endif %}
+                                {% if contact.facebook or contact.instagram or contact.twitter %}
+                                    <li>
+                                        <ul class="names mt-20">
+                                            <div class="details-info d-flex flex-row">
+                                                <li class="ml-10"></li>
+                                                {% if contact.facebook %}
+                                                    <li><a href="{{ contact.facebook }}"><i class="fa fa-facebook mr-20"></i></a></li>
+                                                {% endif %}
+                                                {% if contact.instagram %}
+                                                    <li><a href="{{ contact.instagram }}"><i class="fa fa-instagram mr-20"></i></a></li>
+                                                {% endif %}
+                                                {% if contact.twitter %}
+                                                    <li><a href="{{ contact.twitter }}"><i class="fa fa-twitter mr-20"></i></a></li>
+                                                {% endif %}
+                                            </div>
+                                        </ul>
+                                    </li>
+
+
+                                {% endif %}
                             </ul>
-                        {% endif %}
-                    </div>
+                        </div>
+
+                    {% endif %}
                 </div>
             </div>
             <hr>
