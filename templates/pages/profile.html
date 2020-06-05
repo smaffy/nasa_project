@@ -126,8 +126,9 @@
             </div>
 
             {% profile_texts as texts %}
-            {% if texts.big_page_title or texts.small_page_title %}
+            {% if texts.small_page_title %}
                 <div class="col-md-12 mb-20 header-text text-center">
+                    <hr>
 {#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
                     <p>{{ texts.small_page_title }}</p>
                 </div>

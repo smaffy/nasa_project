@@ -33,6 +33,11 @@
                                 </div>
                                 <div class="details">
                                     <h4 class="title">{{ item.get_name }}</h4>
+                                    <p>
+                                        {{ item.get_short_description|safe }}
+                                    </p>
+                                    <h6 class="date pb-10" >from {{ item.start_work }}</h6>
+
                                     <div class="tags">
                                         <ul>
                                             {% for categ in item.profile_category.all %}
@@ -42,11 +47,6 @@
                                             {% endfor %}
                                         </ul>
                                     </div>
-
-                                    <p>
-                                        {{ item.get_short_description|safe }}
-                                    </p>
-                                    <h6 class="date pb-10" >from {{ item.start_work }}</h6>
                                 </div>
                             </a>
                         </div>

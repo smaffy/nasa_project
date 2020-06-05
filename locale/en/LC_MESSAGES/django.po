@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-04 15:56+0000\n"
+"POT-Creation-Date: 2020-06-05 17:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,53 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: nasa_project/settings.py:140
+#: nasa_project/settings.py:141
 msgid "English"
 msgstr "English"
 
-#: nasa_project/settings.py:141
+#: nasa_project/settings.py:142
 msgid "Estonian"
 msgstr "Eesti"
 
-#: nasa_project/settings.py:142
+#: nasa_project/settings.py:143
 msgid "Russian"
 msgstr "Русский"
 
-#: pages/forms.py:13 pages/forms.py:19 pages/models.py:30 pages/models.py:58
-#: pages/models.py:129 pages/models.py:158 pages/models.py:184
-#: texts/models.py:8
+#: pages/forms.py:13 pages/forms.py:19 pages/models.py:30 pages/models.py:59
+#: pages/models.py:131 pages/models.py:161 pages/models.py:188
 msgid "title"
 msgstr "title"
 
 #: pages/forms.py:14 pages/forms.py:20 pages/forms.py:33 pages/forms.py:40
-#: pages/models.py:31 pages/models.py:86 pages/models.py:130
-#: pages/models.py:185 users/models.py:12
+#: pages/models.py:31 pages/models.py:88 pages/models.py:132
+#: pages/models.py:189 users/models.py:12
 msgid "slug"
 msgstr "slug"
 
 #: pages/forms.py:15 pages/forms.py:21 pages/forms.py:34 pages/forms.py:41
-#: pages/models.py:32 pages/models.py:87 pages/models.py:131
-#: pages/models.py:186
+#: pages/models.py:32 pages/models.py:89 pages/models.py:133
+#: pages/models.py:190
 msgid "short_description"
 msgstr "short_description"
 
 #: pages/forms.py:16 pages/forms.py:22 pages/forms.py:35 pages/forms.py:42
-#: pages/models.py:33 pages/models.py:88 pages/models.py:132
-#: pages/models.py:187 texts/forms.py:13 texts/forms.py:14 texts/forms.py:17
-#: texts/forms.py:18
+#: pages/models.py:33 pages/models.py:90 pages/models.py:134
+#: pages/models.py:191
 msgid "description"
 msgstr "description"
 
 #: pages/forms.py:31 pages/forms.py:32 pages/forms.py:38 pages/forms.py:39
-#: pages/models.py:84
+#: pages/models.py:86
 msgid "first name"
 msgstr "first name"
 
-#: pages/forms.py:60
+#: pages/forms.py:60 texts/models.py:10
 msgid "name"
 msgstr "name"
 
-#: pages/forms.py:61 pages/models.py:95 users/models.py:26
+#: pages/forms.py:61 pages/models.py:97 users/models.py:26
 msgid "email"
 msgstr "email"
 
@@ -76,8 +74,8 @@ msgstr "subject"
 msgid "message"
 msgstr "message"
 
-#: pages/models.py:38 templates/pages/service_detail.html:7
-#: templates/pages/service_detail.html:18 templates/pages/service_list.html:18
+#: pages/models.py:38 templates/pages/service_detail.html:8
+#: templates/pages/service_detail.html:19 templates/pages/service_list.html:19
 msgid "Service"
 msgstr "Service"
 
@@ -85,109 +83,109 @@ msgstr "Service"
 msgid "Services"
 msgstr "Services"
 
-#: pages/models.py:59 pages/models.py:159
+#: pages/models.py:60 pages/models.py:162
 msgid "category_slug"
 msgstr "category_slug"
 
-#: pages/models.py:64
+#: pages/models.py:65
 msgid "Profile Category"
 msgstr "Profile Category"
 
-#: pages/models.py:65
+#: pages/models.py:66
 msgid "Profile Categories"
 msgstr "Profile Categories"
 
-#: pages/models.py:85
+#: pages/models.py:87
 msgid "last name"
 msgstr "last name"
 
-#: pages/models.py:92 users/models.py:29
+#: pages/models.py:94 users/models.py:29
 msgid "facebook"
 msgstr "facebook"
 
-#: pages/models.py:93 users/models.py:31
+#: pages/models.py:95 users/models.py:31
 msgid "twitter"
 msgstr "twitter"
 
-#: pages/models.py:94
+#: pages/models.py:96
 msgid "phone number"
 msgstr "phone number"
 
-#: pages/models.py:96
+#: pages/models.py:98
 msgid "start_work"
 msgstr "start_work"
 
-#: pages/models.py:98
+#: pages/models.py:100
 msgid "profile image"
 msgstr "profile image"
 
-#: pages/models.py:102
+#: pages/models.py:104
 msgid "Profile"
 msgstr "Profile"
 
-#: pages/models.py:103
+#: pages/models.py:105
 msgid "Profiles"
 msgstr "Profiles"
 
-#: pages/models.py:134
+#: pages/models.py:136
 msgid "news image"
 msgstr "news image"
 
-#: pages/models.py:135
+#: pages/models.py:137
 msgid "published"
 msgstr "published"
 
-#: pages/models.py:139 pages/models.py:140 templates/pages/news_detail.html:8
-#: templates/pages/news_detail.html:19 templates/pages/news_list.html:8
-#: templates/pages/news_list.html:12 templates/pages/news_list.html:19
-#: templates/pages/news_list.html:30
+#: pages/models.py:141 pages/models.py:142 templates/pages/news_detail.html:9
+#: templates/pages/news_detail.html:13 templates/pages/news_detail.html:20
+#: templates/pages/news_list.html:8 templates/pages/news_list.html:12
+#: templates/pages/news_list.html:19 templates/pages/news_list.html:35
 msgid "News"
 msgstr "News"
 
-#: pages/models.py:164
+#: pages/models.py:167
 msgid "Project Category"
 msgstr "Project Category"
 
-#: pages/models.py:165
+#: pages/models.py:168
 msgid "Project Categories"
 msgstr "Project Categories"
 
-#: pages/models.py:192
+#: pages/models.py:196
 msgid "client"
 msgstr "client"
 
-#: pages/models.py:193
+#: pages/models.py:197
 msgid "website"
 msgstr "website"
 
-#: pages/models.py:194
+#: pages/models.py:198
 msgid "completed"
 msgstr "completed"
 
-#: pages/models.py:195
+#: pages/models.py:199
 msgid "first_image"
 msgstr "first_image"
 
-#: pages/models.py:200 templates/pages/project_detail.html:8
-#: templates/pages/project_detail.html:12
+#: pages/models.py:204 templates/pages/project_detail.html:9
+#: templates/pages/project_detail.html:13
 msgid "Project"
 msgstr "Project"
 
-#: pages/models.py:201 templates/pages/profile.html:100
-#: templates/pages/project_detail.html:19 templates/pages/projects_list.html:9
-#: templates/pages/projects_list.html:13 templates/pages/projects_list.html:20
+#: pages/models.py:205 templates/pages/profile.html:100
+#: templates/pages/project_detail.html:20 templates/pages/projects_list.html:10
+#: templates/pages/projects_list.html:14 templates/pages/projects_list.html:21
 msgid "Projects"
 msgstr "Projects"
 
-#: pages/models.py:224
+#: pages/models.py:230
 msgid "project image"
 msgstr "project image"
 
-#: pages/models.py:229
+#: pages/models.py:235
 msgid "Project Image"
 msgstr "Project Image"
 
-#: pages/models.py:230
+#: pages/models.py:236
 msgid "Project Images"
 msgstr "Project Images"
 
@@ -267,53 +265,74 @@ msgstr ""
 msgid "Delete Translation"
 msgstr "Delete Translation"
 
-#: templates/include/bannerbigtop.html:12
+#: templates/include/bannerbigtop.html:17
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                        Arhitektuur.     <br>\n"
+#| "                        Sisearhitektuur. <br>\n"
+#| "                        Concept Design.\n"
+#| "                    "
 msgid ""
 "\n"
-"                        Arhitektuur.     <br>\n"
-"                        Sisearhitektuur. <br>\n"
-"                        Concept Design.\n"
-"                    "
+"                            Arhitektuur.     <br>\n"
+"                            Sisearhitektuur. <br>\n"
+"                            Concept Design.\n"
+"                        "
 msgstr ""
 "\n"
 "                        Arhitektuur.     <br>\n"
 "                        Sisearhitektuur. <br>\n"
 "                        Concept Design.\n"
-"                    "
-
-#: templates/include/bannerbigtop.html:19
-msgid ""
-"\n"
-"                        Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev "
-"arhitektuuri- ja disainibüroo. <br>\n"
-"                        Meie meeskonda ühendab huvi seostada pragmaatiline "
-"ja ratsionaalne kaunite kunstidega.\n"
-"                    "
-msgstr ""
-"\n"
-"                        Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev "
-"arhitektuuri- ja disainibüroo. <br>\n"
-"                        Meie meeskonda ühendab huvi seostada pragmaatiline "
-"ja ratsionaalne kaunite kunstidega.\n"
 "                    "
 
 #: templates/include/bannerbigtop.html:24
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                        Kauss Arhitektuur on aastast 2004 Tallinnas "
+#| "tegutsev arhitektuuri- ja disainibüroo. <br>\n"
+#| "                        Meie meeskonda ühendab huvi seostada "
+#| "pragmaatiline ja ratsionaalne kaunite kunstidega.\n"
+#| "                    "
+msgid ""
+"\n"
+"                            Kauss Arhitektuur on aastast 2004 Tallinnas "
+"tegutsev arhitektuuri- ja disainibüroo. <br>\n"
+"                            Meie meeskonda ühendab huvi seostada "
+"pragmaatiline ja ratsionaalne kaunite kunstidega.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev "
+"arhitektuuri- ja disainibüroo. <br>\n"
+"                        Meie meeskonda ühendab huvi seostada pragmaatiline "
+"ja ratsionaalne kaunite kunstidega.\n"
+"                    "
+
+#: templates/include/bannerbigtop.html:30
 msgid "Get Started"
 msgstr "Get Started"
 
-#: templates/include/callto-action.html:11
-msgid ""
-"\n"
-"                            Looking for a <br>\n"
-"                            quality and affordable interior design?\n"
-"                        "
-msgstr ""
-"\n"
-"                            Looking for a <br>\n"
-"                            quality and affordable interior design?\n"
-"                        "
-
 #: templates/include/callto-action.html:17
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                            Looking for a <br>\n"
+#| "                            quality and affordable interior design?\n"
+#| "                        "
+msgid ""
+"\n"
+"                                Looking for a <br>\n"
+"                                quality and affordable interior design?\n"
+"                            "
+msgstr ""
+"\n"
+"                            Looking for a <br>\n"
+"                            quality and affordable interior design?\n"
+"                        "
+
+#: templates/include/callto-action.html:23
 msgid ""
 "inappropriate behavior is often laughed off as “boys will be boys,” women "
 "face higher conduct standards especially in the workplace."
@@ -321,7 +340,7 @@ msgstr ""
 "inappropriate behavior is often laughed off as “boys will be boys,” women "
 "face higher conduct standards especially in the workplace."
 
-#: templates/include/callto-action.html:19
+#: templates/include/callto-action.html:26
 msgid "Request quote now"
 msgstr "Request quote now"
 
@@ -329,9 +348,9 @@ msgstr "Request quote now"
 msgid "Some Features that Made us Unique"
 msgstr "Some Features that Made us Unique"
 
-#: templates/include/feature.html:11 templates/include/gallery.html:11
-#: templates/include/team.html:13 templates/include/testimonial.html:11
-#: templates/pages/people_list.html:34 templates/pages/projects_list.html:33
+#: templates/include/feature.html:11 templates/include/gallery.html:17
+#: templates/include/team.html:19 templates/include/testimonial.html:11
+#: templates/pages/people_list.html:39 templates/pages/projects_list.html:39
 msgid "Who are in extremely love with eco friendly system."
 msgstr "Who are in extremely love with eco friendly system."
 
@@ -407,13 +426,13 @@ msgstr ""
 "So you have your new digital camera and clicking away to glory anything and "
 "everything in sight. Now you want."
 
-#: templates/include/footer.html:12 templates/include/header.html:99
-#: templates/pages/about.html:7 templates/pages/about.html:11
-#: templates/pages/about.html:18
+#: templates/include/footer.html:13 templates/include/header.html:99
+#: templates/pages/about.html:8 templates/pages/about.html:12
+#: templates/pages/about.html:19
 msgid "About Us"
 msgstr "About Us"
 
-#: templates/include/footer.html:14
+#: templates/include/footer.html:19
 msgid ""
 "If you own an Iphone, you’ve probably already worked out how much fun it is "
 "to use it to watch movies-it has that."
@@ -421,17 +440,17 @@ msgstr ""
 "If you own an Iphone, you’ve probably already worked out how much fun it is "
 "to use it to watch movies-it has that."
 
-#: templates/include/footer.html:27 users/admin.py:32
+#: templates/include/footer.html:33 users/admin.py:32
 msgid "Follow Us"
 msgstr "Follow Us"
 
-#: templates/include/footer.html:45 templates/include/footer.html:53
-#: templates/pages/contact.html:8 templates/pages/contact.html:12
-#: templates/pages/contact.html:19 templates/pages/success.html:18
+#: templates/include/footer.html:51 templates/include/footer.html:61
+#: templates/pages/contact.html:9 templates/pages/contact.html:13
+#: templates/pages/contact.html:20 templates/pages/success.html:19
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: templates/include/gallery.html:9 templates/pages/projects_list.html:31
+#: templates/include/gallery.html:15 templates/pages/projects_list.html:37
 msgid "Our Recent Works may impress you"
 msgstr "Our Recent Works may impress you"
 
@@ -447,8 +466,8 @@ msgstr "HOME"
 msgid "TEHTUD TÖÖD"
 msgstr "PROJECTS"
 
-#: templates/include/header.html:67 templates/pages/projects_list.html:39
-#: templates/pages/projects_list.html:52
+#: templates/include/header.html:67 templates/pages/projects_list.html:46
+#: templates/pages/projects_list.html:59
 msgid "All Projects"
 msgstr "All Projects"
 
@@ -456,7 +475,7 @@ msgstr "All Projects"
 msgid "INIMESED"
 msgstr "PEOPLE"
 
-#: templates/include/header.html:76 templates/pages/people_list.html:40
+#: templates/include/header.html:76 templates/pages/people_list.html:46
 msgid "All People"
 msgstr "All People"
 
@@ -472,11 +491,11 @@ msgstr "News"
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/include/news.html:12
+#: templates/include/news.html:18
 msgid "Last news"
 msgstr "Last news"
 
-#: templates/include/news.html:13
+#: templates/include/news.html:19
 msgid "news news news news"
 msgstr "news news news news"
 
@@ -486,24 +505,38 @@ msgstr "news news news news"
 msgid "More Details"
 msgstr "More Details"
 
-#: templates/include/service.html:10 templates/pages/service_list.html:11
+#: templates/include/service.html:16 templates/pages/service_list.html:12
 msgid "What we offer to our clients"
 msgstr "What we offer to our clients"
 
-#: templates/include/service.html:12
+#: templates/include/service.html:18
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                            Meil on üle kümne aasta jagu kogemusi väga "
+#| "erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.\n"
+#| "                            Aastast 2004 oleme taotlenud suurusjärgus "
+#| "200+ ehitusluba.\n"
+#| "                            Omame suuri kogemusi miljööaladele "
+#| "projekterimisel ning fikseeritud eelarvega töötamisel.\n"
+#| "                            Koostöös klientidega oleme välja arendanud "
+#| "mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava\n"
+#| "                            ja teavitame klienti projekti arengutest "
+#| "kindla regulaarsusega.\n"
+#| "                        "
 msgid ""
 "\n"
-"                            Meil on üle kümne aasta jagu kogemusi väga "
+"                                Meil on üle kümne aasta jagu kogemusi väga "
 "erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.\n"
-"                            Aastast 2004 oleme taotlenud suurusjärgus 200+ "
-"ehitusluba.\n"
-"                            Omame suuri kogemusi miljööaladele "
+"                                Aastast 2004 oleme taotlenud suurusjärgus "
+"200+ ehitusluba.\n"
+"                                Omame suuri kogemusi miljööaladele "
 "projekterimisel ning fikseeritud eelarvega töötamisel.\n"
-"                            Koostöös klientidega oleme välja arendanud "
+"                                Koostöös klientidega oleme välja arendanud "
 "mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava\n"
-"                            ja teavitame klienti projekti arengutest kindla "
-"regulaarsusega.\n"
-"                        "
+"                                ja teavitame klienti projekti arengutest "
+"kindla regulaarsusega.\n"
+"                            "
 msgstr ""
 "\n"
 "                            Meil on üle kümne aasta jagu kogemusi väga "
@@ -518,7 +551,7 @@ msgstr ""
 "regulaarsusega.\n"
 "                         "
 
-#: templates/include/team.html:12 templates/pages/people_list.html:10
+#: templates/include/team.html:18 templates/pages/people_list.html:10
 #: templates/pages/people_list.html:14
 msgid "Our Team"
 msgstr "Our Team"
@@ -543,38 +576,47 @@ msgstr ""
 "Hypnosis quit smoking methods maintain caused quite world over the last two "
 "decades. There is a lot of argument pertaining to"
 
-#: templates/pages/about.html:16 templates/pages/contact.html:17
+#: templates/pages/about.html:17 templates/pages/contact.html:18
 #: templates/pages/elements.html:18 templates/pages/home.html:8
-#: templates/pages/news_detail.html:17 templates/pages/news_list.html:17
+#: templates/pages/news_detail.html:18 templates/pages/news_list.html:17
 #: templates/pages/people_list.html:19 templates/pages/profile.html:18
-#: templates/pages/project_detail.html:17 templates/pages/projects_list.html:18
-#: templates/pages/service_detail.html:16 templates/pages/service_list.html:16
-#: templates/pages/success.html:16
+#: templates/pages/project_detail.html:18 templates/pages/projects_list.html:19
+#: templates/pages/service_detail.html:17 templates/pages/service_list.html:17
+#: templates/pages/success.html:17
 msgid "Home"
 msgstr "Home"
 
-#: templates/pages/about.html:29
-msgid "Brand new app to blow your mind"
-msgstr "Brand new app to blow your mind"
-
-#: templates/pages/about.html:30
+#: templates/pages/about.html:35
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                        <h1>\n"
+#| "                            We’ve made a life <br>\n"
+#| "                            that will change you\n"
+#| "\n"
+#| "                        </h1>\n"
+#| "                        <p>\n"
+#| "                            <span>We are here to listen from you deliver "
+#| "exellence</span>\n"
+#| "                        </p>\n"
+#| "                        <p>\n"
+#| "                            Lorem ipsum dolor sit amet, consectetur "
+#| "adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore "
+#| "magna aliqua. Ut enim ad minim.\n"
+#| "                        </p>\n"
+#| "                    "
 msgid ""
 "\n"
-"                        <h1>\n"
-"                            We’ve made a life <br>\n"
-"                            that will change you\n"
+"                            <h1>\n"
+"                                We’ve made a life <br>\n"
+"                                that will change you\n"
 "\n"
-"                        </h1>\n"
-"                        <p>\n"
-"                            <span>We are here to listen from you deliver "
+"                            </h1>\n"
+"                            <p>\n"
+"                                <span>We are here to listen from you deliver "
 "exellence</span>\n"
-"                        </p>\n"
-"                        <p>\n"
-"                            Lorem ipsum dolor sit amet, consectetur "
-"adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna "
-"aliqua. Ut enim ad minim.\n"
-"                        </p>\n"
-"                    "
+"                            </p>\n"
+"                        "
 msgstr ""
 "\n"
 "                        <h1>\n"
@@ -593,15 +635,20 @@ msgstr ""
 "                        </p>\n"
 "                    "
 
-#: templates/pages/about.html:43
-msgid "Get Started Now"
-msgstr "Get Started Now"
+#: templates/pages/about.html:47
+msgid ""
+"\n"
+"                            Lorem ipsum dolor sit amet, consectetur "
+"adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna "
+"aliqua. Ut enim ad minim.\n"
+"                        "
+msgstr ""
 
-#: templates/pages/contact.html:31 users/admin.py:26
+#: templates/pages/contact.html:37 users/admin.py:26
 msgid "Company"
 msgstr "Company"
 
-#: templates/pages/contact.html:35
+#: templates/pages/contact.html:41
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -610,79 +657,79 @@ msgstr "Company"
 #| "                        "
 msgid ""
 "\n"
-"                                about company\n"
-"                            "
+"                                    about company\n"
+"                                "
 msgstr ""
 "\n"
 "                            Looking for a <br>\n"
 "                            quality and affordable interior design?\n"
 "                        "
 
-#: templates/pages/contact.html:47
+#: templates/pages/contact.html:54
 #, fuzzy
 #| msgid "Company"
 msgid "Company  "
 msgstr "Company"
 
-#: templates/pages/contact.html:50
+#: templates/pages/contact.html:57
 #, fuzzy
 #| msgid "registation_number"
 msgid "Registation №"
 msgstr "registation_number"
 
-#: templates/pages/contact.html:53
+#: templates/pages/contact.html:60
 #, fuzzy
 #| msgid "Address"
 msgid "Adress"
 msgstr "Address"
 
-#: templates/pages/contact.html:56
+#: templates/pages/contact.html:63
 #, fuzzy
 #| msgid "Email "
 msgid "Email"
 msgstr "Email"
 
-#: templates/pages/contact.html:59
+#: templates/pages/contact.html:66
 #, fuzzy
 #| msgid "Phone number"
 msgid "Phone Number"
 msgstr "Phone number"
 
-#: templates/pages/contact.html:62
+#: templates/pages/contact.html:69
 #, fuzzy
 #| msgid "languages"
 msgid "Langueges"
 msgstr "languages"
 
-#: templates/pages/contact.html:144
+#: templates/pages/contact.html:151
 msgid "Tallinn, Estonia"
 msgstr "Tallinn, Estonia"
 
-#: templates/pages/contact.html:146
+#: templates/pages/contact.html:153
 msgid "Pronksi 9, 10124 Tallinn"
 msgstr "Pronksi 9, 10124 Tallinn"
 
-#: templates/pages/contact.html:177
+#: templates/pages/contact.html:184
 msgid "Send us your query anytime!"
 msgstr "Send us your query anytime!"
 
-#: templates/pages/contact.html:187
+#: templates/pages/contact.html:194
 msgid "Enter your name"
 msgstr "Enter your name"
 
-#: templates/pages/contact.html:189
+#: templates/pages/contact.html:196
 msgid "Enter email address"
 msgstr "Enter email address"
 
-#: templates/pages/contact.html:191
+#: templates/pages/contact.html:198
 msgid "Enter your subject"
 msgstr "Enter your subject"
 
-#: templates/pages/contact.html:194
+#: templates/pages/contact.html:201
 msgid "Messege"
 msgstr "Messege"
 
-#: templates/pages/contact.html:197
+#: templates/pages/contact.html:204
 msgid "Send Message"
 msgstr "Send Message"
 
@@ -695,16 +742,16 @@ msgstr "Elements"
 msgid "People"
 msgstr "People"
 
-#: templates/pages/people_list.html:32
+#: templates/pages/people_list.html:37
 msgid "Our Team may impress you"
 msgstr "Our Team may impress you"
 
-#: templates/pages/people_list.html:51 templates/pages/project_detail.html:82
-#: templates/pages/projects_list.html:50
+#: templates/pages/people_list.html:57 templates/pages/project_detail.html:84
+#: templates/pages/projects_list.html:57
 msgid "Category"
 msgstr "Category"
 
-#: templates/pages/people_list.html:53
+#: templates/pages/people_list.html:59
 msgid "All People:"
 msgstr "All People:"
 
@@ -720,46 +767,58 @@ msgstr "Phone number"
 msgid "Started work"
 msgstr "Started work"
 
-#: templates/pages/project_detail.html:49
+#: templates/pages/project_detail.html:51
 msgid "Client"
 msgstr "Client"
 
-#: templates/pages/project_detail.html:56
+#: templates/pages/project_detail.html:58
 msgid "Completed"
 msgstr "Completed"
 
-#: templates/pages/project_detail.html:63
+#: templates/pages/project_detail.html:65
 msgid "Website"
 msgstr "Website"
 
-#: templates/pages/project_detail.html:70
+#: templates/pages/project_detail.html:72
 msgid "Team"
 msgstr "Team"
 
-#: templates/pages/service_list.html:7
+#: templates/pages/service_list.html:8
 msgid "Our Services"
 msgstr "Our Services"
 
-#: templates/pages/success.html:7 templates/pages/success.html:11
+#: templates/pages/success.html:8 templates/pages/success.html:12
 msgid "Contact Success"
 msgstr "Contact Success"
 
-#: templates/pages/success.html:24
+#: templates/pages/success.html:31
 msgid "Thanks for being awesome! "
 msgstr "Thanks for being awesome! "
 
-#: templates/pages/success.html:27
+#: templates/pages/success.html:34
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                <br>\n"
+#| "                We have received your message and would like to thank you "
+#| "for writing to us. <br><br>\n"
+#| "                If your inquiry is urgent, please use the telephone "
+#| "number listed below to talk to one of our staff members. <br><br>\n"
+#| "                Otherwise, we will reply by email as soon as possible.\n"
+#| "                <br><br><br>\n"
+#| "                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
+#| "            "
 msgid ""
 "\n"
-"                <br>\n"
-"                We have received your message and would like to thank you "
-"for writing to us. <br><br>\n"
-"                If your inquiry is urgent, please use the telephone number "
-"listed below to talk to one of our staff members. <br><br>\n"
-"                Otherwise, we will reply by email as soon as possible.\n"
-"                <br><br><br>\n"
-"                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
-"            "
+"                    <br>\n"
+"                    We have received your message and would like to thank "
+"you for writing to us. <br><br>\n"
+"                    If your inquiry is urgent, please use the telephone "
+"number listed below to talk to one of our staff members. <br><br>\n"
+"                    Otherwise, we will reply by email as soon as possible.\n"
+"                    <br><br><br>\n"
+"                    Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
+"                "
 msgstr ""
 "\n"
 "                <br>\n"
@@ -772,19 +831,17 @@ msgstr ""
 "                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
 "            "
 
-#: texts/models.py:11
-msgid "big text"
+#: texts/forms.py:13 texts/forms.py:17 texts/models.py:11
+msgid "big page title"
 msgstr ""
 
-#: texts/models.py:12
-msgid "small text"
+#: texts/forms.py:14 texts/forms.py:18 texts/models.py:12
+msgid "small page title"
 msgstr ""
 
 #: texts/models.py:16 texts/models.py:17
-#, fuzzy
-#| msgid "Contact"
-msgid "Contact_page"
-msgstr "Contact"
+msgid "Page Texts"
+msgstr ""
 
 #: users/admin.py:23
 msgid "Address"
@@ -869,3 +926,14 @@ msgstr "active"
 #: users/models.py:35 users/models.py:36 users/models.py:37
 msgid "user"
 msgstr "user"
+
+#~ msgid "Brand new app to blow your mind"
+#~ msgstr "Brand new app to blow your mind"
+
+#~ msgid "Get Started Now"
+#~ msgstr "Get Started Now"
+
+#, fuzzy
+#~| msgid "Contact"
+#~ msgid "Contact_page"
+#~ msgstr "Contact"

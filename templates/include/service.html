@@ -27,10 +27,10 @@
                 </div>
             </div>
             {% for row in hservices %}
-                <div class="row mb-20 justify-content-center">
+                <div class="row mb-20">
                     {% for service in row %}
                         <div class="col-lg-4">
-                            <div class="single-service">
+                            <div class="single-service ">
                                 <a href="{{ service.get_absolute_url }}"  style="color: inherit">
                                     <h4>{{ service.title }}</h4>
                                     <p>
@@ -43,6 +43,15 @@
 
                 </div>
             {% endfor %}
+{#            <div class="row">#}
+{#                <div class="col-lg-4">#}
+{#                    <div class="single-service">#}
+{#                        <a href="{% url 'pages:service_list' %}"  style="color: inherit">#}
+{#                            <h4>{% trans 'More Services...' %}</h4>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
         </div>
     </section>
 {% endif %}

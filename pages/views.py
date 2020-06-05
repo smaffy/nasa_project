@@ -30,7 +30,7 @@ class HomePageView(TemplateView):
         return Project.objects.all()[:4]
 
     def get_services(self):
-        serv = Service.objects.all()
+        serv = Service.objects.all()[:6]
         return group(serv, 3)
 
     def get_news(self):
@@ -82,7 +82,8 @@ class ProjectDetailView(TranslatableSlugMixin, DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(object_list=object_list, **kwargs)
 
-        data['images'] = self.get_images()
+        imag = self.object.get_images()
+        data['images'] = imag
 
         return data
 
@@ -91,8 +92,8 @@ class ProjectDetailView(TranslatableSlugMixin, DetailView):
     #     return Project.objects.get(slug=self.get_object())
 
     def get_images(self):
-        proj = self.get_object()
-        img = ProjectImage.objects.filter(project=proj)
+        project = Project.objects.language('en').get(translations__slug=self.object.slug)
+        img = ProjectImage.objects.filter(project__id=project.id)
         return group(img, 4)
 
 

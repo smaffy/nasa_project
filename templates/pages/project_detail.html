@@ -123,10 +123,13 @@
                     </p>
                 </div>
             </div>
+{#            <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px"  src="{{ images.first.first.image.url }}" height="370" alt="">#}
             {% if images %}
                 {% for img in images %}
                     <div class="row">
                         {% with img.0 as image %}
+{#                            <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px"  src="{{ image.image.url }}" height="370" alt="">#}
+
                             {% include 'include/pages/image8.html' %}
                         {% endwith %}
                         {% if img.1 %}
@@ -153,6 +156,7 @@
             {% project_detail_texts as texts %}
             {% if texts.big_page_title or texts.small_page_title %}
                 <div class="col-md-12 mb-20 header-text text-center">
+                    <hr>
 {#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
                     <p>{{ texts.small_page_title }}</p>
                 </div>

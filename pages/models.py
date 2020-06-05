@@ -220,13 +220,14 @@ class Project(TranslatableModel):
             return reverse('pages:projects_detail', kwargs={'slug': self.slug})
 
     def get_images(self):
-        images = ProjectImage.objects.filter(project__slug=self.slug)
-        return group(images, 4)
+        project = Project.objects.language('en').get(translations__slug=self.slug)
+        img = ProjectImage.objects.filter(project__id=project.id)
+        return group(img, 4)
 
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, default=None, on_delete=models.CASCADE, related_name='image')
-    image = models.ImageField(_('project image'), upload_to='images/projects/', default='images/products/project_detail.jpg')
+    image = models.ImageField(_('project image'), upload_to='images/projects/', default='/images/defaults/project-details.jpg')
     index = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
     class Meta:

@@ -187,6 +187,7 @@ class ProjectImageAdmin(ModelAdmin):
     save_as = True
     list_display = (
         'image',
+        'project',
         'index',
     )
 

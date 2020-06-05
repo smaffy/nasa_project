@@ -47,6 +47,11 @@
     <!-- Start Sample Area -->
     <section class="sample-text-area">
         <div class="container">
+            <div class="button-group-area mb-40">
+                <a href="{% url 'pages:create_test_data' %}" class="genric-btn success circle mr-50">create_test_data</a>
+                <a href="{% url 'pages:delete_test_data' %}" class="genric-btn danger circle">delete_test_data</a>
+                <a href="{% url 'pages:delete_all_pages_app_data' %}" class="genric-btn danger circle">delete_all_pages_app_data</a>
+            </div>
             <h3 class="text-heading">Text Sample</h3>
             <p class="sample-text">
                 Every avid independent filmmaker has <b>Bold</b> about making that
