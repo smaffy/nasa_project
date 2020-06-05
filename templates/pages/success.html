@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load i18n %}
+{% load text_tags %}
 
 {% block title %}
     {% trans 'Contact Success' %}
@@ -21,17 +22,24 @@
 
 {% block conteiner %}
     <div style="text-align: center">
-        <h1><b>{% trans 'Thanks for being awesome! ' %}</b></h1>
+        {% success_texts as texts %}
+        {% if texts.big_page_title or texts.small_page_title %}
+            <h1 class="mb-10"><b>{{ texts.big_page_title }}</b></h1>
+            <br><br>
+            <h3>{{ texts.small_page_title }}</h3>
+        {% else %}
+            <h1><b>{% trans 'Thanks for being awesome! ' %}</b></h1>
 
-        <h3>
-            {% blocktrans %}
-                <br>
-                We have received your message and would like to thank you for writing to us. <br><br>
-                If your inquiry is urgent, please use the telephone number listed below to talk to one of our staff members. <br><br>
-                Otherwise, we will reply by email as soon as possible.
-                <br><br><br>
-                Talk to you soon, <b>Default arhitektuuriburoo.</b>
-            {% endblocktrans %}
-        </h3>
+            <h3>
+                {% blocktrans %}
+                    <br>
+                    We have received your message and would like to thank you for writing to us. <br><br>
+                    If your inquiry is urgent, please use the telephone number listed below to talk to one of our staff members. <br><br>
+                    Otherwise, we will reply by email as soon as possible.
+                    <br><br><br>
+                    Talk to you soon, <b>Default arhitektuuriburoo.</b>
+                {% endblocktrans %}
+            </h3>
+        {% endif %}
     </div>
 {% endblock conteiner %}

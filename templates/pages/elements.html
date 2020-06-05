@@ -3,7 +3,7 @@
 {% load static %}
 {% load thumbnail %}
 {% load i18n %}
-
+{% load text_tags %}
 
 {% block title %}
     {% trans 'Elements' %}
@@ -22,6 +22,27 @@
 {% endblock top %}
 
 {% block conteiner %}
+
+    <!--
+    Models for texts
+    ============================================= -->
+
+    {% try_texts as test %}
+    {% if not test %}
+        {% home_texts as texts %}
+        {% project_list_texts as texts2 %}
+        {% project_detail_texts as texts3 %}
+        {% people_list_texts as texts4 %}
+        {% profile_texts as texts5 %}
+        {% service_list_texts as texts6 %}
+        {% service_detail_texts as texts7 %}
+        {% news_list_texts as texts8 %}
+        {% news_detail_texts as texts9 %}
+        {% about_texts as texts10 %}
+        {% contact_texts as texts11 %}
+        {% home_callto_texts as texts12 %}
+        {% footer_texts as texts13 %}
+    {% endif %}
 
     <!-- Start Sample Area -->
     <section class="sample-text-area">

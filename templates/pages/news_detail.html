@@ -3,13 +3,14 @@
 
 {% load static %}
 {% load i18n %}
+{% load text_tags %}
 
 {% block title %}
     {% trans 'News' %} '{{ news.title }}'
 {% endblock title %}
 
 {% block title2 %}
-    {{ news.title }}
+    {% trans 'News' %} '{{ news.title }}'
 {% endblock title2 %}
 
 {% block top %}
@@ -23,7 +24,16 @@
 {% block conteiner %}
     <section class="service-area section-gap" id="service">
         <div class="container">
-            <h1 class="mb-50 text-center">{{ news.title }}</h1>
+{#            <h1 class="mb-50 text-center">{{ news.title }}</h1>#}
+            <div class="justify-content-center">
+                <div class="col-md-12 pb-50 header-text text-center">
+                    <h1 class="mb-10">{{ news.title }}</h1>
+                    {% news_detail_texts as texts %}
+                    {% if texts.small_page_title %}
+                        <p class="mb-10"><span>{{ texts.small_page_title }}</span></p>
+                    {% endif %}
+                </div>
+            </div>
             <div class="col-lg-12 justify-content-center">
                 {% with news.image as image %}
                     {% if image %}

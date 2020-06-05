@@ -50,7 +50,8 @@ class Service(TranslatableModel):
         super(Service, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:service_detail', kwargs={'slug': self.slug, })
+        with switch_language(self):
+            return reverse('pages:service_detail', kwargs={'slug': self.slug})
 
 
 class ProfileCategory(TranslatableModel):
@@ -76,7 +77,8 @@ class ProfileCategory(TranslatableModel):
         super(ProfileCategory, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:profile_category', kwargs={'category_slug': self.category_slug, })
+        with switch_language(self):
+            return reverse('pages:profile_category', kwargs={'category_slug': self.category_slug, })
 
 
 class Profile(TranslatableModel):
@@ -150,7 +152,8 @@ class News(TranslatableModel):
         super(News, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:news_detail', kwargs={'slug': self.slug, })
+        with switch_language(self):
+            return reverse('pages:news_detail', kwargs={'slug': self.slug, })
 
 
 class ProjectCategory(TranslatableModel):
@@ -176,7 +179,8 @@ class ProjectCategory(TranslatableModel):
         super(ProjectCategory, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:projects_category', kwargs={'category_slug': self.category_slug, })
+        with switch_language(self):
+            return reverse('pages:projects_category', kwargs={'category_slug': self.category_slug, })
 
 
 class Project(TranslatableModel):
@@ -212,7 +216,8 @@ class Project(TranslatableModel):
         super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('pages:projects_detail', kwargs={'slug': 'wien'})
+        with switch_language(self):
+            return reverse('pages:projects_detail', kwargs={'slug': self.slug})
 
     def get_images(self):
         images = ProjectImage.objects.filter(project__slug=self.slug)

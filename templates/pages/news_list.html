@@ -2,7 +2,7 @@
 
 {% load static %}
 {% load i18n %}
-
+{% load text_tags %}
 
 {% block title %}
     {% trans 'News' %}
@@ -27,7 +27,13 @@
         <div class="container">
             <div class="justify-content-center">
                 <div class="col-md-12 pb-50 header-text text-center">
-                    <h1 class="mb-10">{% trans 'News' %}</h1>
+                    {% news_list_texts as texts %}
+                    {% if texts.big_page_title or texts.small_page_title %}
+                        <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+                        <p>{{ texts.small_page_title }}</p>
+                    {% else %}
+                        <h1 class="mb-10">{% trans 'News' %}</h1>
+                    {% endif %}
                 </div>
             </div>
 

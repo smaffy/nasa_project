@@ -4,39 +4,21 @@
 {% load i18n %}
 {% load text_tags %}
 
-
 {% block title %}
     {% trans 'Home' %}
 {% endblock title %}
 
 {% block base %}
-    <!--
-    Models for texts
-    ============================================= -->
-    {% try_texts as test %}
-    {% if not test %}
-        {% home_texts as texts %}
-        {% project_list_texts as texts2 %}
-        {% project_detail_texts as texts3 %}
-        {% people_list_texts as texts4 %}
-        {% profile_texts as texts5 %}
-        {% service_list_texts as texts6 %}
-        {% service_detail_texts as texts7 %}
-        {% news_list_texts as texts8 %}
-        {% news_detail_texts as texts9 %}
-        {% about_texts as texts10 %}
-        {% contact_texts as texts11 %}
-    {% endif %}
+
     {% include 'include/bannerbigtop.html' %}
 
     <section class="gallery-area pt-40">
         <div class="container">
-            {{ texts1.name }}
             {% include 'include/gallery.html' %}
             {% include 'include/service.html' %}
             {% include 'include/team.html' %}
-            {% include 'include/feature.html' %}
-            {% include 'include/testimonial.html' %}
+{#            {% include 'include/feature.html' %}#}
+{#            {% include 'include/testimonial.html' %}#}
             {% include 'include/callto-action.html' %}
             {% include 'include/news.html' %}
             {% include 'include/brands.html' %}

@@ -3,6 +3,7 @@
 {% load static %}
 {% load thumbnail %}
 {% load i18n %}
+{% load text_tags %}
 
 {% block title %}
     {% trans 'Project' %} "{{ project.title }}"
@@ -146,6 +147,14 @@
                         {% endif %}
                     </div>
                 {% endfor %}
+            {% endif %}
+
+            {% project_detail_texts as texts %}
+            {% if texts.big_page_title or texts.small_page_title %}
+                <div class="col-md-12 mb-20 header-text text-center">
+                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+                    <p>{{ texts.small_page_title }}</p>
+                </div>
             {% endif %}
         </div>
     </section>

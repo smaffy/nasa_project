@@ -103,7 +103,7 @@ class ServiceListView(ListView):
     paginate_by = 10
 
 
-class ServiceDetailView(DetailView):
+class ServiceDetailView(TranslatableSlugMixin, DetailView):
     model = Service
     context_object_name = 'service'
     template_name = 'pages/service_detail.html'
@@ -161,6 +161,7 @@ class ProfileView(TranslatableSlugMixin, DetailView):
         profile = Profile.objects.get(translations__slug=self.object.slug)
         pr = profile.projects.all()
         return group(pr, 4)
+
 
 class NewsListView(ListView):
     model = News

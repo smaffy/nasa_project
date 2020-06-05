@@ -1,6 +1,7 @@
 {% load thumbnail %}
 {% load static %}
 {% load i18n %}
+{% load text_tags %}
 
 <!-- Start blog Area -->
 {% if hnews %}
@@ -9,8 +10,14 @@
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-10 pt-60 col-lg-9">
                     <div class="title text-center">
-                        <h1 class="mb-10">{% trans 'Last news' %}</h1>
-                        <p>{% trans 'news news news news' %}</p>
+                        {% news_list_texts as texts %}
+                        {% if texts.big_page_title or texts.small_page_title %}
+                            <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+                            <p>{{ texts.small_page_title }}</p>
+                        {% else %}
+                            <h1 class="mb-10">{% trans 'Last news' %}</h1>
+                            <p>{% trans 'news news news news' %}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@ class PageTextsAdmin(TranslatableAdmin):
     #     # Disable delete
     #     return False
     #
-    # def has_add_permission(self, request):
-    #     # Disable add
-    #     return False
+    def has_add_permission(self, request):
+        # Disable add
+        return False
 
