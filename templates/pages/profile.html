@@ -66,10 +66,10 @@
 {#                                </div>#}
 {#                            </li>#}
                             {% if profile.email %}
-                                <li>: {{ profile.email }}</li>
+                                <li>: <a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>
                             {% endif %}
                             {% if profile.phone_number %}
-                                <li>: {{ profile.phone_number }} </li>
+                                <li>: <a href="tel:{{ profile.phone_number }}">{{ profile.phone_number }}</a></li>
                             {% endif %}
                             <li>: {{ profile.start_work }}</li>
 
@@ -77,10 +77,10 @@
                     </div>
                     <div class="social-links mt-30">
                         {% if profile.facebook %}
-                            <a href="{{ profile.facebook }}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ profile.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
                         {% endif %}
                         {% if profile.twitter %}
-                            <a href="{{ profile.twitter }}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ profile.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
                         {% endif %}
 {#                        <a href="#"><i class="fa fa-dribbble"></i></a>#}
 {#                        <a href="#"><i class="fa fa-behance"></i></a>#}
@@ -128,7 +128,7 @@
             {% profile_texts as texts %}
             {% if texts.big_page_title or texts.small_page_title %}
                 <div class="col-md-12 mb-20 header-text text-center">
-                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+{#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
                     <p>{{ texts.small_page_title }}</p>
                 </div>
             {% endif %}

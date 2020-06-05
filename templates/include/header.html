@@ -18,13 +18,13 @@
                             <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
                             <li></li>
                             {% if contacts.facebook %}
-                                <li><a href="{{ contacts.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{ contacts.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
                             {% endif %}
                             {% if contacts.instagram %}
-                                <li><a href="{{ contacts.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="{{ contacts.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             {% endif %}
                             {% if contacts.twitter %}
-                                <li><a href="{{ contacts.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ contacts.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             {% endif %}
                         </ul>
                     </div>

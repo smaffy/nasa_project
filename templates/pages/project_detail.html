@@ -42,6 +42,7 @@
                     <p>
                         {{ project.short_description }}
                     </p>
+
                     <div class=" details-info d-flex flex-row">
                         <table class="names" style="vertical-align: top">
 {#                            <li>Rating    </li>#}
@@ -63,7 +64,7 @@
                                 <tr>
                                     <td> {% trans 'Website' %}    </td>
                                     <td>:</td>
-                                    <td> <a href="{{ project.website }}">{{ project.website }}</a></td>
+                                    <td> <a href="{{ project.website }}" target="_blank">{{ project.website }}</a></td>
                                 </tr>
                             {% endif %}
                             {% if project.project_team.all %}
@@ -73,7 +74,7 @@
                                     <td>
 
                                         {% for profile in project.project_team.all %}
-                                            <b><a href="{{ profile.get_absolute_url }}" >{{ profile.get_name }}</a></b>,
+                                            <b><a href="{{ profile.get_absolute_url }}" target="_blank">{{ profile.get_name }}</a></b>,
                                         {% endfor %}
                                     </td>
                                 </tr>
@@ -84,13 +85,13 @@
                                     <td>:</td>
                                     <td>
                                         {% for categ in project.project_category.all %}
-                                            <b><a href="{{ categ.get_absolute_url }}" >{{ categ.title }}</a></b>,
+                                            <b><a href="{{ categ.get_absolute_url }}" target="_blank">{{ categ.title }}</a></b>,
                                         {% endfor %}
                                     </td>
                                 </tr>
                             {% endif %}
                         </table>
-                        <ul class="desc">
+{#                        <ul class="desc">#}
 {#                            <li>#}
 {#                                <div class="star">#}
 {#                                    : <span class="fa fa-star checked"></span>#}
@@ -152,7 +153,7 @@
             {% project_detail_texts as texts %}
             {% if texts.big_page_title or texts.small_page_title %}
                 <div class="col-md-12 mb-20 header-text text-center">
-                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+{#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
                     <p>{{ texts.small_page_title }}</p>
                 </div>
             {% endif %}
