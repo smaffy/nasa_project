@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.8-slim
+FROM python:3.6-slim
 
 ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
