@@ -329,3 +329,4 @@ def delete_test_data(request):
     project_ids.clear()
     projectimage_ids.clear()
     return redirect('pages:home')
+

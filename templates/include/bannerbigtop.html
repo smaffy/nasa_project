@@ -3,7 +3,8 @@
 {% load text_tags %}
 
 <!-- start banner Area -->
-<section class="banner-area relative" id="home">
+{% home_big_banner_1840x950 as pic %}
+<section class="banner-area relative" id="home" {% if pic.image %} style="background:url({{ pic.image.url }}) center" {% endif %}>
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row fullscreen d-flex justify-content-center align-items-center">
@@ -15,15 +16,15 @@
                 {% else %}
                     <h1>
                         {% blocktrans %}
-                            Arhitektuur.     <br>
-                            Sisearhitektuur. <br>
+                            Architecture. <br>
+                            Interior architecture. <br>
                             Concept Design.
                         {% endblocktrans %}
                     </h1>
                     <p class="text-white mx-auto">
                         {% blocktrans %}
-                            Kauss Arhitektuur on aastast 2004 Tallinnas tegutsev arhitektuuri- ja disainibüroo. <br>
-                            Meie meeskonda ühendab huvi seostada pragmaatiline ja ratsionaalne kaunite kunstidega.
+                            Kauss Arhitektuur is an architecture and design bureau operating in Tallinn since 2004. <br>
+                            Our team is united by an interest in associating the pragmatic and the rational with the fine arts.
                         {% endblocktrans %}
                     </p>
                 {% endif %}

@@ -2,7 +2,7 @@ from django import template
 from django.core.exceptions import ObjectDoesNotExist
 from parler.utils.context import switch_language
 
-from texts.models import PageTexts
+from texts.models import PageTexts, PagePictures
 
 register = template.Library()
 
@@ -242,6 +242,7 @@ def home_callto_texts():
             big_page_title='Big page title home_callto_texts',
             small_page_title='Small page title home_callto_texts',
         )
+
         page.set_current_language('ru')
         page.name = 'главная_callto_тексты'
         page.set_current_language('et')
@@ -264,5 +265,58 @@ def footer_texts():
         page.name = 'низ_тексты'
         page.set_current_language('et')
         page.name = 'footer_tekst'
+
         page.save()
     return page
+
+
+@register.simple_tag(name='home_big_banner_1840x950')
+def home_big_banner():
+    try:
+        picture = PagePictures.objects.language('en').get(translations__name='home_big_banner_1840x950')
+    except ObjectDoesNotExist:
+        picture = PagePictures.objects.language('en').create(
+            name='home_big_banner_1840x950',
+        )
+        picture.set_current_language('ru')
+        picture.name = 'домашняя_большой_баннер_1840x950'
+        picture.set_current_language('et')
+        picture.name = 'avaleht_suur_banner_1840x950'
+
+        picture.save()
+    return picture
+
+
+@register.simple_tag(name='top_banner_1840x300')
+def top_banner_1840x300():
+    try:
+        picture = PagePictures.objects.language('en').get(translations__name='top_banner_1840x300')
+    except ObjectDoesNotExist:
+        picture = PagePictures.objects.language('en').create(
+            name='top_banner_1840x300',
+        )
+        picture.set_current_language('ru')
+        picture.name = 'верхний_баннер_1840x300'
+        picture.set_current_language('et')
+        picture.name = 'ulaosa_banner_1840x300'
+
+        picture.save()
+    return picture
+
+
+@register.simple_tag(name='home_call_to_banner_1110x350')
+def home_call_to_banner_1110x350():
+    try:
+        picture = PagePictures.objects.language('en').get(translations__name='home_call_to_banner_1110x350')
+    except ObjectDoesNotExist:
+        picture = PagePictures.objects.language('en').create(
+            name='home_call_to_banner_1110x350',
+        )
+        picture.set_current_language('ru')
+        picture.name = 'домашняя_call_to_баннер_1110x350'
+        picture.set_current_language('et')
+        picture.name = 'avaleht_call_to_banner_1110x350'
+
+        picture.save()
+    return picture
+

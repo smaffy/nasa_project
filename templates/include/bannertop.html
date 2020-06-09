@@ -1,7 +1,9 @@
 {% load static %}
-
+{% load text_tags %}
+{% top_banner_1840x300 as pic %}
 <!-- start banner Area -->
-<section class="banner-area relative" id="home">
+{% top_banner_1840x300 as pic %}
+<section class="banner-area relative" id="home" {% if pic.image %} style='background:url({{ pic.image.url }}) center' {% endif %}>
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">

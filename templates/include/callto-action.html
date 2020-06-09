@@ -3,11 +3,13 @@
 {% load text_tags %}
 
 <!-- Start callto-action Area -->
-<section class="callto-action-area pt-40 pb-30">
+<section class="callto-action-area pt-50 pb-10">
     <div class="container">
-        <div class="row justify-content-center pb-40 ">
-            <div class="callto-action-wrap col-lg-12 relative section-gap">
-                <div class="content">
+        <div class="row justify-content-center ">
+            {% home_call_to_banner_1110x350 as pic %}
+            <div class="callto-action-wrap col-lg-12 relative section-gap" {% if pic.image %} style='background:-webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url({{ pic.image.url }})' {% endif %}>
+{#            background:-webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(../../media/images/defaults/call-action-bg.jpg)  media/images/news.jpg#}
+                <div class="content pt-40 pb-0">
                     {% home_callto_texts as texts %}
                     {% if texts.big_page_title or texts.small_page_title %}
                         <h1>{{ texts.big_page_title }}</h1>
