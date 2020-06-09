@@ -14,7 +14,7 @@ WORKDIR /Docker
 COPY Pipfile Pipfile.lock /Docker/
 #RUN pip install --upgrade setuptools pip
 RUN pip install pipenv && pipenv install --system
-RUN apt-get update && apt-get install -y gettext libgettextpo-dev
+RUN apt-get update && apt-get install -y gettext libgettextpo-dev && apt-get -y clean
 
 #RUN DJANGO_MODE=build django-admin makemessages --all
 #RUN DJANGO_MODE=build django-admin compilemessages
