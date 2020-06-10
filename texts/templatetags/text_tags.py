@@ -10,7 +10,7 @@ register = template.Library()
 @register.simple_tag(name='try_texts')
 def try_texts():
     try:
-        PageTexts.objects.language('en').get(translations__name='home_texts')
+        PageTexts.objects.language('en').get(translations__name='footer_texts')
         return True
     except:
         return False
