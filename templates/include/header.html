@@ -1,3 +1,4 @@
+{% load thumbnail %}
 {% load static %}
 {% load page_tags %}
 {% load i18n parler_tags %}
@@ -54,7 +55,11 @@
                 {% company as contacts %}
                 {% if contacts.active %}
                     {% if contacts.logo %}
-                        <a href="{% url 'pages:home' %}"><img class="img-fluid d-block mx-auto" src="{{ contacts.logo.url }}" height="30" alt=""></a>
+                        <a href="{% url 'pages:home' %}">
+                            {% thumbnail contacts.logo "120x30" crop='center' as logo %}
+                                <img class="img-fluid d-block mx-auto" src="{{ logo.url }}" height="30" alt="">
+                            {% endthumbnail %}
+                        </a>
                     {% endif %}
                 {% else %}
                     <a href="{% url 'pages:home' %}"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>

@@ -4,7 +4,7 @@
 
 <!-- start banner Area -->
 {% home_big_banner_1840x950 as pic %}
-<section class="banner-area relative" id="home" {% if pic.image %} style="background:url({{ pic.image.url }}) center" {% endif %}>
+<section class="banner-area relative" id="home" {% if pic.image and pic.active %} style="background:url({{ pic.image.url }}) center" {% endif %}>
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row fullscreen d-flex justify-content-center align-items-center">

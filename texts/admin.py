@@ -17,9 +17,9 @@ class PageTextsAdmin(TranslatableAdmin):
     class Meta:
         proxy = True
 
-    def has_delete_permission(self, request, obj=None):
-        # Disable delete
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     # Disable delete
+    #     return False
 
     def has_add_permission(self, request):
         # Disable add
@@ -30,13 +30,14 @@ class PageTextsAdmin(TranslatableAdmin):
 class PagePicturesAdmin(TranslatableAdmin):
     save_on_top = True
     list_display = ('name', 'active')
+    exclude = ('name', )
 
     class Meta:
         proxy = True
-
-    def has_delete_permission(self, request, obj=None):
-        # Disable delete
-        return False
+    #
+    # def has_delete_permission(self, request, obj=None):
+    #     # Disable delete
+    #     return False
 
     def has_add_permission(self, request):
         # Disable add
