@@ -35,161 +35,161 @@ msgstr "Русский"
 #: pages/forms.py:13 pages/forms.py:19 pages/models.py:30 pages/models.py:59
 #: pages/models.py:131 pages/models.py:161 pages/models.py:188
 msgid "title"
-msgstr ""
+msgstr "название"
 
 #: pages/forms.py:14 pages/forms.py:20 pages/forms.py:33 pages/forms.py:40
 #: pages/models.py:31 pages/models.py:88 pages/models.py:132
 #: pages/models.py:189 users/models.py:12
 msgid "slug"
-msgstr ""
+msgstr "slug"
 
 #: pages/forms.py:15 pages/forms.py:21 pages/forms.py:34 pages/forms.py:41
 #: pages/models.py:32 pages/models.py:89 pages/models.py:133
 #: pages/models.py:190
 msgid "short_description"
-msgstr ""
+msgstr "короткое описание"
 
 #: pages/forms.py:16 pages/forms.py:22 pages/forms.py:35 pages/forms.py:42
 #: pages/models.py:33 pages/models.py:90 pages/models.py:134
 #: pages/models.py:191
 msgid "description"
-msgstr ""
+msgstr "описание"
 
 #: pages/forms.py:31 pages/forms.py:32 pages/forms.py:38 pages/forms.py:39
 #: pages/models.py:86
 msgid "first name"
-msgstr ""
+msgstr "имя"
 
 #: pages/forms.py:60 texts/models.py:10
 msgid "name"
-msgstr ""
+msgstr "имя"
 
 #: pages/forms.py:61 pages/models.py:97 users/models.py:26
 msgid "email"
-msgstr ""
+msgstr "email"
 
 #: pages/forms.py:62
 msgid "subject"
-msgstr ""
+msgstr "тема"
 
 #: pages/forms.py:63
 msgid "message"
-msgstr ""
+msgstr "сообщение"
 
 #: pages/models.py:38 templates/pages/service_detail.html:8
 #: templates/pages/service_detail.html:19 templates/pages/service_list.html:19
 msgid "Service"
-msgstr ""
+msgstr "Услуги"
 
 #: pages/models.py:39
 msgid "Services"
-msgstr ""
+msgstr "Услуги"
 
 #: pages/models.py:60 pages/models.py:162
 msgid "category_slug"
-msgstr ""
+msgstr "slug категории"
 
 #: pages/models.py:65
 msgid "Profile Category"
-msgstr ""
+msgstr "Категория Профиля"
 
 #: pages/models.py:66
 msgid "Profile Categories"
-msgstr ""
+msgstr "Категории Профиля"
 
 #: pages/models.py:87
 msgid "last name"
-msgstr ""
+msgstr "фамилия"
 
 #: pages/models.py:94 users/models.py:29
 msgid "facebook"
-msgstr ""
+msgstr "facebook"
 
 #: pages/models.py:95 users/models.py:31
 msgid "twitter"
-msgstr ""
+msgstr "twitter"
 
 #: pages/models.py:96
 msgid "phone number"
-msgstr ""
+msgstr "номер телефона"
 
 #: pages/models.py:98
 msgid "start_work"
-msgstr ""
+msgstr "начало работы"
 
 #: pages/models.py:100
 msgid "profile image"
-msgstr ""
+msgstr "фото профиля"
 
 #: pages/models.py:104
 msgid "Profile"
-msgstr ""
+msgstr "Профиль"
 
 #: pages/models.py:105
 msgid "Profiles"
-msgstr ""
+msgstr "Профили"
 
 #: pages/models.py:136
 msgid "news image"
-msgstr ""
+msgstr "изображение новости"
 
 #: pages/models.py:137
 msgid "published"
-msgstr ""
+msgstr "опубликованно"
 
 #: pages/models.py:141 pages/models.py:142 templates/pages/news_detail.html:9
 #: templates/pages/news_detail.html:13 templates/pages/news_detail.html:20
 #: templates/pages/news_list.html:8 templates/pages/news_list.html:12
 #: templates/pages/news_list.html:19 templates/pages/news_list.html:35
 msgid "News"
-msgstr ""
+msgstr "Новость"
 
 #: pages/models.py:167
 msgid "Project Category"
-msgstr ""
+msgstr "Категория Проекта"
 
 #: pages/models.py:168
 msgid "Project Categories"
-msgstr ""
+msgstr "Категории Проекта"
 
 #: pages/models.py:196
 msgid "client"
-msgstr ""
+msgstr "клиент"
 
 #: pages/models.py:197
 msgid "website"
-msgstr ""
+msgstr "сайт"
 
 #: pages/models.py:198
 msgid "completed"
-msgstr ""
+msgstr "завершено"
 
 #: pages/models.py:199
 msgid "first_image"
-msgstr ""
+msgstr "первое изображение"
 
 #: pages/models.py:204 templates/pages/project_detail.html:9
 #: templates/pages/project_detail.html:13
 msgid "Project"
-msgstr ""
+msgstr "Проект"
 
 #: pages/models.py:205 templates/pages/profile.html:100
 #: templates/pages/project_detail.html:20 templates/pages/projects_list.html:10
 #: templates/pages/projects_list.html:14 templates/pages/projects_list.html:21
 msgid "Projects"
-msgstr ""
+msgstr "Проекты"
 
 #: pages/models.py:230
 msgid "project image"
-msgstr ""
+msgstr "изображение проекта"
 
 #: pages/models.py:235
 msgid "Project Image"
-msgstr ""
+msgstr "Изображение для проектов"
 
 #: pages/models.py:236
 msgid "Project Images"
-msgstr ""
+msgstr "Изображения для проектов"
 
 #: pages/urls.py:11
 msgid "about_us/"
@@ -257,12 +257,16 @@ msgid ""
 "Deletion of the %(language_name)s translation of %(object_name)s "
 "'%(escaped_object)s' is not allowed, because it is the last available "
 "translation of this instance."
+
 msgstr ""
+"Удаление %(language_name)s переводов %(object_name)s "
+"'%(escaped_object)s' запрещено, потому как это последний"
+"доступный перевод "
 
 #: templates/admin2/parler/language_tabs.html:15
 #: templates/admin2/parler/language_tabs.html:17
 msgid "Delete Translation"
-msgstr ""
+msgstr "Удалить перевод"
 
 #: templates/include/bannerbigtop.html:17
 msgid ""
@@ -407,54 +411,54 @@ msgstr ""
 
 #: templates/include/header.html:63
 msgid "AVALEHT"
-msgstr ""
+msgstr "Главная"
 
 #: templates/include/header.html:64
 msgid "TEHTUD TÖÖD"
-msgstr ""
+msgstr "Проекты"
 
 #: templates/include/header.html:67 templates/pages/projects_list.html:46
 #: templates/pages/projects_list.html:59
 msgid "All Projects"
-msgstr ""
+msgstr "Все"
 
 #: templates/include/header.html:74
 msgid "INIMESED"
-msgstr ""
+msgstr "Персонал"
 
 #: templates/include/header.html:76 templates/pages/people_list.html:46
 msgid "All People"
-msgstr ""
+msgstr "Все"
 
 #: templates/include/header.html:83
 msgid "TEENUSED"
-msgstr ""
+msgstr "Услуги"
 
 #: templates/include/header.html:84
 msgid "UUDISED"
-msgstr ""
+msgstr "Новости"
 
 #: templates/include/header.html:100
 msgid "Kontakt"
-msgstr ""
+msgstr "Контакт"
 
 #: templates/include/news.html:18
 msgid "Last news"
-msgstr ""
+msgstr "Последние новости"
 
 #: templates/include/news.html:19
 msgid "news news news news"
-msgstr ""
+msgstr "новости новости новости новости"
 
 #: templates/include/pages/people.html:20
 #: templates/include/pages/projects4.html:18
 #: templates/include/pages/projects8.html:19
 msgid "More Details"
-msgstr ""
+msgstr "Дальше"
 
 #: templates/include/service.html:16 templates/pages/service_list.html:12
 msgid "What we offer to our clients"
-msgstr ""
+msgstr "Что мы предлагаем нашим клиентам"
 
 #: templates/include/service.html:18
 msgid ""
@@ -471,27 +475,38 @@ msgid ""
 "kindla regulaarsusega.\n"
 "                            "
 msgstr ""
-
+"\n"
+"У нас более десяти лет опыта"
+"Различные работы в области архитектуры и дизайна интерьера. \n"
+"С 2004 года мы подали заявку на порядок"
+"200+ разрешений на строительство. \n"
+"У нас большой опыт в экологических областях"
+"при проектировании и работе с фиксированным бюджетом. \n"
+"В сотрудничестве с клиентами мы разработали"
+"удобная модель управления процессами, в которой можно создать план действий \n"
+"и информировать клиента о разработках проекта"
+"через равные промежутки времени. \n"
+"           "
 #: templates/include/team.html:18 templates/pages/people_list.html:10
 #: templates/pages/people_list.html:14
 msgid "Our Team"
-msgstr ""
+msgstr "Команда"
 
 #: templates/include/testimonial.html:10
 msgid "Testimonial from our Clients"
-msgstr ""
+msgstr "Отзывы наших клиентов"
 
 #: templates/include/testimonial.html:23 templates/include/testimonial.html:59
 msgid ""
 "Accessories Here you can find the best computer accessory for your laptop, "
 "monitor, printer, scanner, speaker, projector, hardware."
-msgstr ""
+msgstr "Ла ла ла ла ла ла ла л ал ала л ла"
 
 #: templates/include/testimonial.html:41 templates/include/testimonial.html:77
 msgid ""
 "Hypnosis quit smoking methods maintain caused quite world over the last two "
 "decades. There is a lot of argument pertaining to"
-msgstr ""
+msgstr "Ла ла ла ла ла ла ла л ал ала л ла"
 
 #: templates/pages/about.html:17 templates/pages/contact.html:18
 #: templates/pages/elements.html:18 templates/pages/home.html:8
@@ -501,7 +516,7 @@ msgstr ""
 #: templates/pages/service_detail.html:17 templates/pages/service_list.html:17
 #: templates/pages/success.html:17
 msgid "Home"
-msgstr ""
+msgstr "Главная"
 
 #: templates/pages/about.html:35
 msgid ""
@@ -517,7 +532,17 @@ msgid ""
 "                            </p>\n"
 "                        "
 msgstr ""
-
+"\n"
+"                            <h1>\n"
+"                                We’ve made a life <br>\n"
+"                                that will change you\n"
+"\n"
+"                            </h1>\n"
+"                            <p>\n"
+"                                <span>We are here to listen from you deliver "
+"exellence</span>\n"
+"                            </p>\n"
+"                        "
 #: templates/pages/about.html:47
 msgid ""
 "\n"
@@ -526,10 +551,15 @@ msgid ""
 "aliqua. Ut enim ad minim.\n"
 "                        "
 msgstr ""
+"\n"
+"                            Lorem ipsum dolor sit amet, consectetur "
+"adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna "
+"aliqua. Ut enim ad minim.\n"
+"                        "
 
 #: templates/pages/contact.html:37 users/admin.py:26
 msgid "Company"
-msgstr ""
+msgstr "Компания"
 
 #: templates/pages/contact.html:41
 msgid ""
@@ -537,124 +567,127 @@ msgid ""
 "                                    about company\n"
 "                                "
 msgstr ""
+"\n"
+"                                    о компании\n"
+"                                "
 
 #: templates/pages/contact.html:54
 msgid "Company  "
-msgstr ""
+msgstr "Компания"
 
 #: templates/pages/contact.html:57
 msgid "Registation №"
-msgstr ""
+msgstr "Регострационный номер"
 
 #: templates/pages/contact.html:60
 msgid "Adress"
-msgstr ""
+msgstr "Адрес"
 
 #: templates/pages/contact.html:63
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: templates/pages/contact.html:66
 msgid "Phone Number"
-msgstr ""
+msgstr "Номер телефона"
 
 #: templates/pages/contact.html:69
 msgid "Langueges"
-msgstr ""
+msgstr "Языки"
 
 #: templates/pages/contact.html:151
 msgid "Tallinn, Estonia"
-msgstr ""
+msgstr "Tallinn, Estonia"
 
 #: templates/pages/contact.html:153
 msgid "Pronksi 9, 10124 Tallinn"
-msgstr ""
+msgstr "Pronksi 9, 10124 Tallinn"
 
 #: templates/pages/contact.html:184
 msgid "Send us your query anytime!"
-msgstr ""
+msgstr "Пиши нам в любое время"
 
 #: templates/pages/contact.html:194
 msgid "Enter your name"
-msgstr ""
+msgstr "Введите ваше имя"
 
 #: templates/pages/contact.html:196
 msgid "Enter email address"
-msgstr ""
+msgstr "Введите ваш email"
 
 #: templates/pages/contact.html:198
 msgid "Enter your subject"
-msgstr ""
+msgstr "Введите вашу тему"
 
 #: templates/pages/contact.html:201
 msgid "Messege"
-msgstr ""
+msgstr "Сообщение"
 
 #: templates/pages/contact.html:204
 msgid "Send Message"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/pages/elements.html:9 templates/pages/elements.html:13
 #: templates/pages/elements.html:20
 msgid "Elements"
-msgstr ""
+msgstr "Элементы"
 
 #: templates/pages/people_list.html:21 templates/pages/profile.html:20
 msgid "People"
-msgstr ""
+msgstr "Люди"
 
 #: templates/pages/people_list.html:37
 msgid "Our Team may impress you"
-msgstr ""
+msgstr "Наша команда может заинтересовать вас"
 
 #: templates/pages/people_list.html:57 templates/pages/project_detail.html:84
 #: templates/pages/projects_list.html:57
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
 #: templates/pages/people_list.html:59
 msgid "All People:"
-msgstr ""
+msgstr "Все Люди"
 
 #: templates/pages/profile.html:49
 msgid "Email "
-msgstr ""
+msgstr "Email"
 
 #: templates/pages/profile.html:52
 msgid "Phone number"
-msgstr ""
+msgstr "Номер телефона"
 
 #: templates/pages/profile.html:54
 msgid "Started work"
-msgstr ""
+msgstr "Начало работы"
 
 #: templates/pages/project_detail.html:51
 msgid "Client"
-msgstr ""
+msgstr "Клиент"
 
 #: templates/pages/project_detail.html:58
 msgid "Completed"
-msgstr ""
+msgstr "Завершено"
 
 #: templates/pages/project_detail.html:65
 msgid "Website"
-msgstr ""
+msgstr "Сайт"
 
 #: templates/pages/project_detail.html:72
 msgid "Team"
-msgstr ""
+msgstr "Команда"
 
 #: templates/pages/service_list.html:8
 msgid "Our Services"
-msgstr ""
+msgstr "Наши услуги"
 
 #: templates/pages/success.html:8 templates/pages/success.html:12
 msgid "Contact Success"
-msgstr ""
+msgstr "Отправка прошла успешно"
 
 #: templates/pages/success.html:31
 msgid "Thanks for being awesome! "
-msgstr ""
+msgstr "Спасибо"
 
 #: templates/pages/success.html:34
 msgid ""
@@ -669,99 +702,109 @@ msgid ""
 "                    Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
 "                "
 msgstr ""
+"\n"
+"                    <br>\n"
+"                    спасибо спасибо We have received your message and would like to thank "
+"you for writing to us. <br><br>\n"
+"                    If your inquiry is urgent, please use the telephone "
+"number listed below to talk to one of our staff members. <br><br>\n"
+"                    Otherwise, we will reply by email as soon as possible.\n"
+"                    <br><br><br>\n"
+"                    Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
+"                "
 
 #: texts/forms.py:13 texts/forms.py:17 texts/models.py:11
 msgid "big page title"
-msgstr ""
+msgstr "большое заглавие страницы"
 
 #: texts/forms.py:14 texts/forms.py:18 texts/models.py:12
 msgid "small page title"
-msgstr ""
+msgstr "маленькое заглавие страницы"
 
 #: texts/models.py:16 texts/models.py:17
 msgid "Page Texts"
-msgstr ""
+msgstr "Страницы Тексты/Изображения"
 
 #: users/admin.py:23
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #: users/admin.py:29
 msgid "Contact"
-msgstr ""
+msgstr "Контакт"
 
 #: users/admin.py:35
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: users/admin.py:38
 msgid "Logo"
-msgstr ""
+msgstr "Логотип"
 
 #: users/models.py:10
 msgid "first_name"
-msgstr ""
+msgstr "имя"
 
 #: users/models.py:11
 msgid "last_name"
-msgstr ""
+msgstr "фамилия"
 
 #: users/models.py:14
 msgid "address"
-msgstr ""
+msgstr "адрес"
 
 #: users/models.py:15
 msgid "postal_code"
-msgstr ""
+msgstr "почтовый индекс"
 
 #: users/models.py:16
 msgid "city"
-msgstr ""
+msgstr "город"
 
 #: users/models.py:17
 msgid "country"
-msgstr ""
+msgstr "страна"
 
 #: users/models.py:18
 msgid "company_name"
-msgstr ""
+msgstr "имя компании"
 
 #: users/models.py:19
 msgid "logo"
-msgstr ""
+msgstr "логотип"
 
 #: users/models.py:21
 msgid "registation_number"
-msgstr ""
+msgstr "номер регистрации"
 
 #: users/models.py:22
 msgid "address_inline"
-msgstr ""
+msgstr "адрес в линию"
 
 #: users/models.py:23
 msgid "languages"
-msgstr ""
+msgstr "языки"
 
 #: users/models.py:24
 msgid "info"
-msgstr ""
+msgstr "информация"
 
 #: users/models.py:27
 msgid "phone_number"
-msgstr ""
+msgstr "номер телефона"
 
 #: users/models.py:28
 msgid "time_for_colling"
-msgstr ""
+msgstr "время для звонков"
 
 #: users/models.py:30
 msgid "instagram"
-msgstr ""
+msgstr "instagram"
 
 #: users/models.py:32
 msgid "active"
-msgstr ""
+msgstr "active"
 
 #: users/models.py:35 users/models.py:36 users/models.py:37
 msgid "user"
-msgstr ""
+msgstr "пользователь"
