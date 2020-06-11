@@ -29,8 +29,8 @@
                 <div class="col-md-12 mb-20 header-text text-center">
                     {% about_texts as texts %}
                     {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                        <p>{{ texts.small_page_title }}</p>
+                        <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                        <p>{{ texts.small_page_title|safe }}</p>
                     {% else %}
                         {% blocktrans %}
                             <h1>

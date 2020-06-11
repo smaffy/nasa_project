@@ -40,7 +40,7 @@
                 <div class="col-lg-6 project-details-right">
                     <h3 class="pb-20 pt-20">{{ profile.get_name }}</h3>
                     <p>
-                        {{ profile.short_description }}
+                        {{ profile.short_description|safe }}
                     </p>
                     <div class="details-info d-flex flex-row  mt-20">
                         <ul class="names">
@@ -130,7 +130,7 @@
                 <div class="col-md-12 mb-20 header-text text-center">
                     <hr>
 {#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
-                    <p>{{ texts.small_page_title }}</p>
+                    <p>{{ texts.small_page_title|safe }}</p>
                 </div>
             {% endif %}
         </div>

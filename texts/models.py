@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -8,8 +9,8 @@ from parler.utils.context import switch_language
 class PageTexts(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(_('name'), blank=True, null=True, max_length=200, db_index=True),
-        big_page_title=models.TextField(_('big page title'), blank=True, null=True),
-        small_page_title=models.TextField(_('small page title'), blank=True, null=True),
+        big_page_title=RichTextUploadingField(_('big page title'), blank=True, null=True),
+        small_page_title=RichTextUploadingField(_('small page title'), blank=True, null=True),
     )
     active = models.BooleanField(_('active'), default=False)
 

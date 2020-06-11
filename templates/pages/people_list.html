@@ -31,8 +31,8 @@
                 <div class="col-md-12 pb-40 header-text text-center">
                     {% people_list_texts as texts %}
                     {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="pb-10">{{ texts.big_page_title }}</h1>
-                        <p>{{ texts.small_page_title }}</p>
+                        <h1 class="pb-10">{{ texts.big_page_title|safe }}</h1>
+                        <p>{{ texts.small_page_title|safe }}</p>
                     {% else %}
                         <h1 class="pb-10">{% trans 'Our Team may impress you' %}</h1>
                         <p>

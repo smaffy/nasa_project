@@ -30,7 +30,7 @@
                     <h1 class="mb-10">{{ news.title }}</h1>
                     {% news_detail_texts as texts %}
                     {% if texts.small_page_title %}
-                        <p class="mb-10"><span>{{ texts.small_page_title }}</span></p>
+                        <p class="mb-10"><span>{{ texts.small_page_title|safe }}</span></p>
                     {% endif %}
                 </div>
             </div>
