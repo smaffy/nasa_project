@@ -1,6 +1,8 @@
 import datetime
 from datetime import date
 
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -27,10 +29,10 @@ def group(iterable, mycount):
 
 class Service(TranslatableModel):
     translations = TranslatedFields(
-        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
-        slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
-        short_description = models.TextField(_('short_description')),
-        description = models.TextField(_('description'), blank=True, null=True),
+        title=models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        slug=models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
+        short_description=RichTextUploadingField(_('short_description')),
+        description=RichTextUploadingField(_('description'), blank=True, null=True),
 
     )
 
@@ -56,8 +58,8 @@ class Service(TranslatableModel):
 
 class ProfileCategory(TranslatableModel):
     translations = TranslatedFields(
-        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
-        category_slug = models.SlugField(_('category_slug'), db_index=True, max_length=200, unique=True, blank=True, null=True),
+        title=models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        category_slug=models.SlugField(_('category_slug'), db_index=True, max_length=200, unique=True, blank=True, null=True),
     )
 
     class Meta:
@@ -83,11 +85,11 @@ class ProfileCategory(TranslatableModel):
 
 class Profile(TranslatableModel):
     translations = TranslatedFields(
-        first_name = models.CharField(_('first name'), max_length=200),
-        last_name = models.CharField(_('last name'), max_length=200),
-        slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
-        short_description = models.TextField(_('short_description')),
-        description = models.TextField(_('description'), blank=True, null=True),
+        first_name=models.CharField(_('first name'), max_length=200),
+        last_name=models.CharField(_('last name'), max_length=200),
+        slug=models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
+        short_description=RichTextUploadingField(_('short_description')),
+        description=RichTextUploadingField(_('description'), blank=True, null=True),
     )
 
     profile_category = models.ManyToManyField(ProfileCategory, blank=True, default=None, related_name='profile_category')
@@ -128,10 +130,10 @@ class Profile(TranslatableModel):
 
 class News(TranslatableModel):
     translations = TranslatedFields(
-        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
-        slug = models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
-        short_description = models.TextField(_('short_description'), ),
-        description = models.TextField(_('description'), blank=True, null=True),
+        title=models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        slug=models.SlugField(_('slug'), max_length=200, unique=True, blank=True, null=True, db_index=True),
+        short_description=RichTextUploadingField(_('short_description'), ),
+        description=RichTextUploadingField(_('description'), blank=True, null=True),
     )
     image = models.ImageField(_('news image'), upload_to='images/news/', default='images/defaults/news.jpg')
     published = models.DateField(_('published'), default=datetime.date.today)
@@ -158,8 +160,8 @@ class News(TranslatableModel):
 
 class ProjectCategory(TranslatableModel):
     translations = TranslatedFields(
-        title = models.CharField(_('title'), max_length=200, unique=True, db_index=True),
-        category_slug = models.SlugField(_('category_slug'), db_index=True, max_length=200, unique=True, blank=True, null=True)
+        title=models.CharField(_('title'), max_length=200, unique=True, db_index=True),
+        category_slug=models.SlugField(_('category_slug'), db_index=True, max_length=200, unique=True, blank=True, null=True)
     )
 
     class Meta:
@@ -185,10 +187,10 @@ class ProjectCategory(TranslatableModel):
 
 class Project(TranslatableModel):
     translations = TranslatedFields(
-        title = models.CharField(_('title'), db_index=True, max_length=200, unique=True),
-        slug = models.SlugField(_('slug'), db_index=True, max_length=200, unique=True, blank=True, null=True),
-        short_description = models.TextField(_('short_description'), ),
-        description = models.TextField(_('description'), blank=True, null=True),
+        title=models.CharField(_('title'), db_index=True, max_length=200, unique=True),
+        slug=models.SlugField(_('slug'), db_index=True, max_length=200, unique=True, blank=True, null=True),
+        short_description=RichTextUploadingField(_('short_description'), ),
+        description=RichTextUploadingField(_('description'), blank=True, null=True),
     )
 
     project_category = models.ManyToManyField(ProjectCategory, blank=True, default=None, related_name='project_category')

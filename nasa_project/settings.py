@@ -174,8 +174,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]     # local
-
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]     # local
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')         # prod, for collect static
 
@@ -190,7 +191,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # CKEditor
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_BASEPATH = os.path.join(BASE_DIR, "/static/ckeditor/ckeditor/")
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
@@ -231,6 +232,11 @@ CKEDITOR_CONFIGS = {
                 # 'Youtube',
 
             ]},
+            {
+                'name': 'youtube',
+                'items': ['Youtube', ]
+            }
+
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
         # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
@@ -256,7 +262,7 @@ CKEDITOR_CONFIGS = {
             'dialog',
             'dialogui',
             'elementspath',
-            # 'youtube',
+            'youtube',
         ]),
     }
 }
