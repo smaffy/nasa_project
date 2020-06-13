@@ -39,7 +39,7 @@
                 <div class="mb-15">
                     {% with service.image as image %}
                         {% if image %}
-                            {% thumbnail image "200x200" crop='center' as img %}
+                            {% thumbnail image "300x300" crop='center' as img %}
                                 <img class="img-fluid d-block" style="border-radius: 10px"  src="{{ img.url }}" height="600" alt="">
                             {% endthumbnail %}
                         {% endif %}
