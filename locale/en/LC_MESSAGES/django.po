@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 10:58+0000\n"
+"POT-Creation-Date: 2020-06-13 21:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: design/forms.py:13 design/forms.py:17 design/models.py:12
+msgid "big page title"
+msgstr ""
+
+#: design/forms.py:14 design/forms.py:18 design/models.py:13
+msgid "small page title"
+msgstr ""
+
+#: design/models.py:11 design/models.py:27 pages/forms.py:60
+msgid "name"
+msgstr "name"
+
+#: design/models.py:15 design/models.py:30 users/models.py:31
+msgid "active"
+msgstr "active"
+
+#: design/models.py:18 design/models.py:19
+msgid "Page Texts"
+msgstr ""
+
+#: design/models.py:29
+#, fuzzy
+#| msgid "news image"
+msgid "image"
+msgstr "news image"
+
+#: design/models.py:33 design/models.py:34
+msgid "Page Pictures"
+msgstr ""
 
 #: nasa_project/settings.py:141
 msgid "English"
@@ -30,39 +60,35 @@ msgstr "EST"
 msgid "Russian"
 msgstr "RUS"
 
-#: pages/forms.py:13 pages/forms.py:19 pages/models.py:32 pages/models.py:61
-#: pages/models.py:133 pages/models.py:163 pages/models.py:190
+#: pages/forms.py:13 pages/forms.py:19 pages/models.py:32 pages/models.py:62
+#: pages/models.py:134 pages/models.py:164 pages/models.py:191
 msgid "title"
 msgstr "title"
 
 #: pages/forms.py:14 pages/forms.py:20 pages/forms.py:33 pages/forms.py:40
-#: pages/models.py:33 pages/models.py:90 pages/models.py:134
-#: pages/models.py:191 users/models.py:12
+#: pages/models.py:33 pages/models.py:91 pages/models.py:135
+#: pages/models.py:192 users/models.py:12
 msgid "slug"
 msgstr "slug"
 
 #: pages/forms.py:15 pages/forms.py:21 pages/forms.py:34 pages/forms.py:41
-#: pages/models.py:34 pages/models.py:91 pages/models.py:135
-#: pages/models.py:192
+#: pages/models.py:34 pages/models.py:92 pages/models.py:136
+#: pages/models.py:193
 msgid "short_description"
 msgstr "short_description"
 
 #: pages/forms.py:16 pages/forms.py:22 pages/forms.py:35 pages/forms.py:42
-#: pages/models.py:35 pages/models.py:92 pages/models.py:136
-#: pages/models.py:193
+#: pages/models.py:35 pages/models.py:93 pages/models.py:137
+#: pages/models.py:194
 msgid "description"
 msgstr "description"
 
 #: pages/forms.py:31 pages/forms.py:32 pages/forms.py:38 pages/forms.py:39
-#: pages/models.py:88
+#: pages/models.py:89
 msgid "first name"
 msgstr "first name"
 
-#: pages/forms.py:60 texts/models.py:11 texts/models.py:27
-msgid "name"
-msgstr "name"
-
-#: pages/forms.py:61 pages/models.py:99 users/models.py:26
+#: pages/forms.py:61 pages/models.py:100 users/models.py:25
 msgid "email"
 msgstr "email"
 
@@ -74,118 +100,118 @@ msgstr "subject"
 msgid "message"
 msgstr "message"
 
-#: pages/models.py:40 templates/pages/service_detail.html:8
-#: templates/pages/service_detail.html:19 templates/pages/service_list.html:19
-msgid "Service"
-msgstr "Service"
-
-#: pages/models.py:41
-msgid "Services"
-msgstr "Services"
-
-#: pages/models.py:62 pages/models.py:164
-msgid "category_slug"
-msgstr "category_slug"
-
-#: pages/models.py:67
-msgid "Profile Category"
-msgstr "Profile Category"
-
-#: pages/models.py:68
-msgid "Profile Categories"
-msgstr "Profile Categories"
-
-#: pages/models.py:89
-msgid "last name"
-msgstr "last name"
-
-#: pages/models.py:96 users/models.py:29
-msgid "facebook"
-msgstr "facebook"
-
-#: pages/models.py:97 users/models.py:31
-msgid "twitter"
-msgstr "twitter"
-
-#: pages/models.py:98
-msgid "phone number"
-msgstr "phone number"
-
-#: pages/models.py:100
-msgid "start_work"
-msgstr "start_work"
-
-#: pages/models.py:102
-msgid "profile image"
-msgstr "profile image"
-
-#: pages/models.py:106
-msgid "Profile"
-msgstr "Profile"
-
-#: pages/models.py:107
-msgid "Profiles"
-msgstr "Profiles"
-
-#: pages/models.py:138
+#: pages/models.py:38 pages/models.py:139
 msgid "news image"
 msgstr "news image"
 
-#: pages/models.py:139
+#: pages/models.py:41 templates/pages/service_detail.html:9
+#: templates/pages/service_detail.html:20 templates/pages/service_list.html:20
+msgid "Service"
+msgstr "Service"
+
+#: pages/models.py:42
+msgid "Services"
+msgstr "Services"
+
+#: pages/models.py:63 pages/models.py:165
+msgid "category_slug"
+msgstr "category_slug"
+
+#: pages/models.py:68
+msgid "Profile Category"
+msgstr "Profile Category"
+
+#: pages/models.py:69
+msgid "Profile Categories"
+msgstr "Profile Categories"
+
+#: pages/models.py:90
+msgid "last name"
+msgstr "last name"
+
+#: pages/models.py:97 users/models.py:28
+msgid "facebook"
+msgstr "facebook"
+
+#: pages/models.py:98 users/models.py:30
+msgid "twitter"
+msgstr "twitter"
+
+#: pages/models.py:99
+msgid "phone number"
+msgstr "phone number"
+
+#: pages/models.py:101
+msgid "start_work"
+msgstr "start_work"
+
+#: pages/models.py:103
+msgid "profile image"
+msgstr "profile image"
+
+#: pages/models.py:107
+msgid "Profile"
+msgstr "Profile"
+
+#: pages/models.py:108
+msgid "Profiles"
+msgstr "Profiles"
+
+#: pages/models.py:140
 msgid "published"
 msgstr "published"
 
-#: pages/models.py:143 pages/models.py:144 templates/pages/news_detail.html:9
+#: pages/models.py:144 pages/models.py:145 templates/pages/news_detail.html:9
 #: templates/pages/news_detail.html:13 templates/pages/news_detail.html:20
 #: templates/pages/news_list.html:8 templates/pages/news_list.html:12
 #: templates/pages/news_list.html:19 templates/pages/news_list.html:35
 msgid "News"
 msgstr "News"
 
-#: pages/models.py:169
+#: pages/models.py:170
 msgid "Project Category"
 msgstr "Project Category"
 
-#: pages/models.py:170
+#: pages/models.py:171
 msgid "Project Categories"
 msgstr "Project Categories"
 
-#: pages/models.py:198
+#: pages/models.py:199
 msgid "client"
 msgstr "client"
 
-#: pages/models.py:199
+#: pages/models.py:200
 msgid "website"
 msgstr "website"
 
-#: pages/models.py:200
+#: pages/models.py:201
 msgid "completed"
 msgstr "completed"
 
-#: pages/models.py:201
+#: pages/models.py:202
 msgid "first_image"
 msgstr "first_image"
 
-#: pages/models.py:206 templates/pages/project_detail.html:9
+#: pages/models.py:207 templates/pages/project_detail.html:9
 #: templates/pages/project_detail.html:13
 msgid "Project"
 msgstr "Project"
 
-#: pages/models.py:207 templates/pages/profile.html:100
+#: pages/models.py:208 templates/pages/profile.html:100
 #: templates/pages/project_detail.html:20 templates/pages/projects_list.html:10
 #: templates/pages/projects_list.html:14 templates/pages/projects_list.html:21
 msgid "Projects"
 msgstr "Projects"
 
-#: pages/models.py:232
+#: pages/models.py:233
 msgid "project image"
 msgstr "project image"
 
-#: pages/models.py:237
+#: pages/models.py:238
 msgid "Project Image"
 msgstr "Project Image"
 
-#: pages/models.py:238
+#: pages/models.py:239
 msgid "Project Images"
 msgstr "Project Images"
 
@@ -432,7 +458,7 @@ msgstr ""
 "So you have your new digital camera and clicking away to glory anything and "
 "everything in sight. Now you want."
 
-#: templates/include/footer.html:13 templates/include/header.html:115
+#: templates/include/footer.html:13 templates/include/header.html:148
 #: templates/pages/about.html:8 templates/pages/about.html:12
 #: templates/pages/about.html:19
 msgid "About Us"
@@ -460,40 +486,40 @@ msgstr "Contact Us"
 msgid "Our Recent Works may impress you"
 msgstr "Our Recent Works may impress you"
 
-#: templates/include/header.html:20
+#: templates/include/header.html:68
 msgid "Other Design Elements"
 msgstr "Other Design Elements"
 
-#: templates/include/header.html:79
+#: templates/include/header.html:112
 msgid "AVALEHT"
 msgstr "HOME"
 
-#: templates/include/header.html:80
+#: templates/include/header.html:113
 msgid "TEHTUD TÖÖD"
 msgstr "PROJECTS"
 
-#: templates/include/header.html:83 templates/pages/projects_list.html:46
+#: templates/include/header.html:116 templates/pages/projects_list.html:46
 #: templates/pages/projects_list.html:59
 msgid "All Projects"
 msgstr "All Projects"
 
-#: templates/include/header.html:90
+#: templates/include/header.html:123
 msgid "INIMESED"
 msgstr "PEOPLE"
 
-#: templates/include/header.html:92 templates/pages/people_list.html:46
+#: templates/include/header.html:125 templates/pages/people_list.html:46
 msgid "All People"
 msgstr "All People"
 
-#: templates/include/header.html:99
+#: templates/include/header.html:132
 msgid "TEENUSED"
 msgstr "Services"
 
-#: templates/include/header.html:100
+#: templates/include/header.html:133
 msgid "UUDISED"
 msgstr "News"
 
-#: templates/include/header.html:116
+#: templates/include/header.html:149
 msgid "Kontakt"
 msgstr "Contact"
 
@@ -511,7 +537,7 @@ msgstr "news news news news"
 msgid "More Details"
 msgstr "More Details"
 
-#: templates/include/service.html:16 templates/pages/service_list.html:12
+#: templates/include/service.html:16 templates/pages/service_list.html:13
 msgid "What we offer to our clients"
 msgstr "What we offer to our clients"
 
@@ -587,8 +613,8 @@ msgstr ""
 #: templates/pages/home.html:8 templates/pages/news_detail.html:18
 #: templates/pages/news_list.html:17 templates/pages/people_list.html:19
 #: templates/pages/profile.html:18 templates/pages/project_detail.html:18
-#: templates/pages/projects_list.html:19 templates/pages/service_detail.html:17
-#: templates/pages/service_list.html:17 templates/pages/success.html:17
+#: templates/pages/projects_list.html:19 templates/pages/service_detail.html:18
+#: templates/pages/service_list.html:18 templates/pages/success.html:17
 msgid "Home"
 msgstr "Home"
 
@@ -707,35 +733,35 @@ msgstr "Phone number"
 msgid "Langueges"
 msgstr "languages"
 
-#: templates/pages/contact.html:151
+#: templates/pages/contact.html:148
 msgid "Tallinn, Estonia"
 msgstr "Tallinn, Estonia"
 
-#: templates/pages/contact.html:153
+#: templates/pages/contact.html:150
 msgid "Pronksi 9, 10124 Tallinn"
 msgstr "Pronksi 9, 10124 Tallinn"
 
-#: templates/pages/contact.html:184
+#: templates/pages/contact.html:181
 msgid "Send us your query anytime!"
 msgstr "Send us your query anytime!"
 
-#: templates/pages/contact.html:194
+#: templates/pages/contact.html:191
 msgid "Enter your name"
 msgstr "Enter your name"
 
-#: templates/pages/contact.html:196
+#: templates/pages/contact.html:193
 msgid "Enter email address"
 msgstr "Enter email address"
 
-#: templates/pages/contact.html:198
+#: templates/pages/contact.html:195
 msgid "Enter your subject"
 msgstr "Enter your subject"
 
-#: templates/pages/contact.html:201
+#: templates/pages/contact.html:198
 msgid "Messege"
 msgstr "Messege"
 
-#: templates/pages/contact.html:204
+#: templates/pages/contact.html:201
 msgid "Send Message"
 msgstr "Send Message"
 
@@ -791,7 +817,7 @@ msgstr "Website"
 msgid "Team"
 msgstr "Team"
 
-#: templates/pages/service_list.html:8
+#: templates/pages/service_list.html:9
 msgid "Our Services"
 msgstr "Our Services"
 
@@ -838,32 +864,6 @@ msgstr ""
 "                <br><br><br>\n"
 "                Talk to you soon, <b>Default arhitektuuriburoo.</b>\n"
 "            "
-
-#: texts/forms.py:13 texts/forms.py:17 texts/models.py:12
-msgid "big page title"
-msgstr ""
-
-#: texts/forms.py:14 texts/forms.py:18 texts/models.py:13
-msgid "small page title"
-msgstr ""
-
-#: texts/models.py:15 texts/models.py:30 users/models.py:32
-msgid "active"
-msgstr "active"
-
-#: texts/models.py:18 texts/models.py:19
-msgid "Page Texts"
-msgstr ""
-
-#: texts/models.py:29
-#, fuzzy
-#| msgid "news image"
-msgid "image"
-msgstr "news image"
-
-#: texts/models.py:33 texts/models.py:34
-msgid "Page Pictures"
-msgstr ""
 
 #: users/admin.py:23
 msgid "Address"
@@ -922,28 +922,27 @@ msgid "address_inline"
 msgstr "address_inline"
 
 #: users/models.py:23
-msgid "languages"
-msgstr "languages"
-
-#: users/models.py:24
 msgid "info"
 msgstr "info"
 
-#: users/models.py:27
+#: users/models.py:26
 msgid "phone_number"
 msgstr "phone_number"
 
-#: users/models.py:28
+#: users/models.py:27
 msgid "time_for_colling"
 msgstr "time_for_colling"
 
-#: users/models.py:30
+#: users/models.py:29
 msgid "instagram"
 msgstr "instagram"
 
-#: users/models.py:35 users/models.py:36 users/models.py:37
+#: users/models.py:34 users/models.py:35 users/models.py:36
 msgid "user"
 msgstr "user"
+
+#~ msgid "languages"
+#~ msgstr "languages"
 
 #~ msgid "ENG"
 #~ msgstr "ENG"

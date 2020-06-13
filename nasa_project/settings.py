@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     # Local apps
     'pages.apps.PagesConfig',
     'users.apps.UsersConfig',
-    'texts.apps.TextsConfig',
+    'design.apps.DesignConfig',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +85,7 @@ TEMPLATES = [
             ],
             'libraries': {
                 'page_tags': 'pages.templatetags.page_tags',
-                'text_tags': 'texts.templatetags.text_tags',
+                'design_tags': 'design.templatetags.design_tags',
             }
         },
     },

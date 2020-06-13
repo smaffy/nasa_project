@@ -11,12 +11,12 @@
                 {% company as contacts %}
                 {% if contacts.active %}
 
-                    <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+                    <div class="col-lg-4 col-sm-4 col-4 header-top-left no-padding">
                         <a href="tel:{{ contacts.phone_number }}">{{ contacts.phone_number }}</a>
                         <a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a>
                     </div>
 
-                    <div class="col-lg-2 col-sm-2 col-4 header-top-right no-padding">
+                    <div class="col-lg-4 col-sm-4 col-4 header-top-right no-padding">
                         <ul>
 {#                            {% if request.user.is_authenticated and request.user.is_superuser %}#}
 {#                                <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>#}
@@ -55,17 +55,20 @@
 
                 {% else %}
 
-                    <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+                    <div class="col-lg-4 col-sm-4 col-4 header-top-left no-padding">
                         <a href="tel:+372 506 5668">+372 555 5665</a>
                         <a href="mailto:info@nasa.ee">info@default.ee</a>
                     </div>
+                    <div class="col-lg-4 col-sm-4 col-4 header-top-right no-padding"></div>
                 {% endif %}
 
-                    <div  class="col-lg-4 col-sm-4 col-4 header-top-right no-padding d-flex">
+                    <div  class="col-lg-4 col-sm-4 col-4 header-top-right no-padding">
                         <nav id="nav-menu-container">
                             <ul class="nav-menu">
                                 {% if request.user.is_authenticated and request.user.is_superuser %}
                                     <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
+                                {% else %}
+                                    <li>    </li>
                                 {% endif %}
                                 <li></li>
 
@@ -73,7 +76,7 @@
                                 {% get_available_languages as langs %}
                                 {% get_language_info_list for langs as languages %}
 
-                                <li>
+                                <li class="float-right">
                                     {% for language in languages %}
                                         {% get_translated_url cur_lang as tr_url %}
                                         <a href="{% url 'pages:home' %}">

@@ -2,7 +2,7 @@ from django import template
 from django.core.exceptions import ObjectDoesNotExist
 from parler.utils.context import switch_language
 
-from texts.models import PageTexts, PagePictures
+from design.models import PageTexts, PagePictures
 
 register = template.Library()
 
