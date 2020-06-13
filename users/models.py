@@ -20,7 +20,6 @@ class CustomUser(AbstractUser):
 
     registation_number = models.CharField(_('registation_number'), max_length=50, blank=True, null=True)
     address_inline = models.CharField(_('address_inline'), max_length=300, blank=True, null=True)
-    languages = models.CharField(_('languages'), max_length=300, blank=True, null=True)
     info = models.TextField(_('info'), blank=True, null=True)
 
     email = models.EmailField(_('email'), blank=True, null=True)

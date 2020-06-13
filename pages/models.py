@@ -35,6 +35,7 @@ class Service(TranslatableModel):
         description=RichTextUploadingField(_('description'), blank=True, null=True),
 
     )
+    image = models.ImageField(_('news image'), upload_to='images/services/', default='images/defaults/news.jpg', blank=True, null=True)
 
     class Meta:
         verbose_name = _('Service')
