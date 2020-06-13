@@ -195,6 +195,7 @@ CKEDITOR_BASEPATH = os.path.join(BASE_DIR, "/static/ckeditor/ckeditor/")
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
@@ -233,10 +234,10 @@ CKEDITOR_CONFIGS = {
 
             ]},
             {
-                'name': 'youtube',
-                'items': ['Youtube', ]
-            }
+                'name': 'Adds',
+                'items': ['Youtube', 'Image', 'ckawesome']
 
+            },
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
         # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
@@ -263,6 +264,7 @@ CKEDITOR_CONFIGS = {
             'dialogui',
             'elementspath',
             'youtube',
+            'ckawesome',
         ]),
     }
 }

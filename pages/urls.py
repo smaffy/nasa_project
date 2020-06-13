@@ -24,6 +24,7 @@ urlpatterns = [
     path(_('contact/success/'), views.SuccessView.as_view(), name='success'),
 
     path(_('design_elements/'), views.ElementsView.as_view(), name='elements'),
+    path(_('design_elements/icons/'), views.IconsView.as_view(), name='elements_icons'),
     path('create_test_data/', db_test.create_test_data, name='create_test_data'),
     path('delete_test_data/', db_test.delete_test_data, name='delete_test_data'),
     path('delete_all_pages_app_data/', db_test.delete_all_data, name='delete_all_pages_app_data'),

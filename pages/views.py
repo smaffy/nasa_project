@@ -14,6 +14,10 @@ class ElementsView(TemplateView):
     template_name = 'pages/elements.html'
 
 
+class IconsView(TemplateView):
+    template_name = 'pages/elements_icons.html'
+
+
 class HomePageView(TemplateView):
     template_name = 'pages/home.html'
 
