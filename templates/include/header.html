@@ -4,6 +4,7 @@
 {% load i18n parler_tags %}
 
 <header id="header" id="home">
+
     <div class="header-top">
         <div class="container">
             <div class="row">
@@ -14,11 +15,12 @@
                         <a href="tel:{{ contacts.phone_number }}">{{ contacts.phone_number }}</a>
                         <a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a>
                     </div>
-                    <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
+
+                    <div class="col-lg-2 col-sm-2 col-4 header-top-right no-padding">
                         <ul>
-                            {% if request.user.is_authenticated and request.user.is_superuser %}
-                                <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
-                            {% endif %}
+{#                            {% if request.user.is_authenticated and request.user.is_superuser %}#}
+{#                                <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>#}
+{#                            {% endif %}#}
                             <li></li>
                             {% if contacts.facebook %}
                                 <li><a href="{{ contacts.facebook }}" target="_blank"><i class="fa fa-facebook" style="font-size: 20px"></i></a></li>
@@ -29,22 +31,67 @@
                             {% if contacts.twitter %}
                                 <li><a href="{{ contacts.twitter }}" target="_blank"><i class="fa fa-twitter" style="font-size: 20px"></i></a></li>
                             {% endif %}
+
+{#                            {% get_current_language as cur_lang %}#}
+{#                            {% get_available_languages as langs %}#}
+{#                            {% get_language_info_list for langs as languages %}#}
+
                         </ul>
+{#                            <nav id="nav-menu-container" class="nav-menu">#}
+{##}
+{##}
+{#                                {% for language in languages %}#}
+{#                                    {% get_translated_url cur_lang as tr_url %}#}
+{#                                    <a href="/{{ language.code }}/">#}
+{#                                        {{ language.name_translated }}#}
+{#                                    </a>#}
+{#                                {% endfor %}#}
+{##}
+{##}
+{#                            </nav>#}
+
+
                     </div>
+
                 {% else %}
 
                     <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
                         <a href="tel:+372 506 5668">+372 555 5665</a>
                         <a href="mailto:info@nasa.ee">info@default.ee</a>
                     </div>
-                    
                 {% endif %}
+
+                    <div  class="col-lg-4 col-sm-4 col-4 header-top-right no-padding d-flex">
+                        <nav id="nav-menu-container">
+                            <ul class="nav-menu">
+                                {% if request.user.is_authenticated and request.user.is_superuser %}
+                                    <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
+                                {% endif %}
+                                <li></li>
+
+                                {% get_current_language as cur_lang %}
+                                {% get_available_languages as langs %}
+                                {% get_language_info_list for langs as languages %}
+
+                                <li>
+                                    {% for language in languages %}
+                                        {% get_translated_url cur_lang as tr_url %}
+                                        <a href="{% url 'pages:home' %}">
+                                            {{ language.name_translated }}
+                                        </a>
+                                    {% endfor %}
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
 
             </div>
         </div>
     </div>
-
     <div class="container main-menu">
+
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
                 {% company as contacts %}
@@ -102,29 +149,16 @@
                 <li><a href="{% url 'pages:contact' %}">{% trans 'Kontakt' %}</a></li>
 
 
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
 
-
-                <li class="menu-has-children">
-                    <a href="/{{ LANGUAGE_CODE.code }}/">
-                        {{ LANGUAGE_CODE|language_name_local }}
-                    </a>
-                    <ul>
-                        {% for language in languages %}
-                            {% get_translated_url LANGUAGE_CODE as tr_url %}
-                            <li>
-{#                                {% if tr_url %}<link rel="alternate" hreflang="{{ language.name_local }}" href="{{ tr_url }}" />{% endif %}#}
-                                <a href="/{{ language.code }}/">
-                                    {{ language.name_local }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
     </div>
+
+    <script>
+        let lang1 = {{ langs.0 }};
+        let lang2 = {{ langs.1 }};
+        let lang3 = {{ langs.2 }};
+
+    </script>
 </header><!-- #header -->
