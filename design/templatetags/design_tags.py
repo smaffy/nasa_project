@@ -1,5 +1,6 @@
 from django import template
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.safestring import mark_safe
 from parler.utils.context import switch_language
 
 from design.models import PageTexts, PagePictures, FunctionalSettings
@@ -23,8 +24,9 @@ def home_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='home_texts',
-            big_page_title='Big page title home_texts',
+            banner_big_text='Big page title home_texts',
             small_page_title='Small page title home_texts',
+            admin_exclude='name,admin_exclude,big_page_title,add_name',
         )
         page.set_current_language('ru')
         page.name = 'домашняя_страница_тексты'
@@ -41,8 +43,10 @@ def project_list_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='project_list_texts',
+            banner_big_text='Project List banner_big_text',
             big_page_title='Big page title project_list_texts',
             small_page_title='Small page title project_list_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'список_проектов_тексты'
@@ -59,8 +63,11 @@ def project_detail_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='project_detail_texts',
+            banner_big_text='Project ',
+            add_name=True,
             big_page_title='Big page title project_detail_texts',
             small_page_title='Small page title project_detail_texts',
+            admin_exclude='name,admin_exclude,big_page_title',
         )
         page.set_current_language('ru')
         page.name = 'проект_тексты'
@@ -77,8 +84,10 @@ def people_list_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='people_list_texts',
+            banner_big_text='Our Team',
             big_page_title='Big page title people_list_texts',
             small_page_title='Small page title people_list_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'список_людей_тексты'
@@ -95,8 +104,11 @@ def profile_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='profile_texts',
+            banner_big_text='Profile ',
+            add_name=True,
             big_page_title='Big page title profile_texts',
             small_page_title='Small page title profile_texts',
+            admin_exclude='name,admin_exclude,big_page_title',
         )
         page.set_current_language('ru')
         page.name = 'профиль_тексты'
@@ -113,8 +125,10 @@ def service_list_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='service_list_texts',
+            banner_big_text='Services',
             big_page_title='Big page title service_list_texts',
             small_page_title='Small page title service_list_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'список_сервисов_тексты'
@@ -131,6 +145,8 @@ def service_detail_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='service_detail_texts',
+            banner_big_text='Service',
+            add_name=True,
             big_page_title='Big page title service_detail_texts',
             small_page_title='Small page title service_detail_texts',
         )
@@ -149,6 +165,8 @@ def news_detail_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='news_detail_texts',
+            banner_big_text='News ',
+            add_name=True,
             big_page_title='Big page title news_detail_texts',
             small_page_title='Small page title news_detail_texts',
         )
@@ -167,8 +185,10 @@ def news_list_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='news_list_texts',
+            banner_big_text='News List',
             big_page_title='Big page title news_list_texts',
             small_page_title='Small page title news_list_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'новость_тексты'
@@ -185,8 +205,10 @@ def about_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='about_texts',
+            banner_big_text='About Us',
             big_page_title='Big page title about_texts',
             small_page_title='Small page title about_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'о_нас_тексты'
@@ -203,8 +225,10 @@ def contact_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='contact_texts',
+            banner_big_text='Contact Us',
             big_page_title='Big page title contact_texts',
             small_page_title='Small page title contact_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'контакты_тексты'
@@ -221,8 +245,10 @@ def success_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='success_texts',
+            banner_big_text='Thank You',
             big_page_title='Big page title success_texts',
             small_page_title='Small page title success_texts',
+            admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
         page.name = 'успех_тексты'
@@ -241,6 +267,7 @@ def home_callto_texts():
             name='home_callto_texts',
             big_page_title='Big page title home_callto_texts',
             small_page_title='Small page title home_callto_texts',
+            admin_exclude='name,admin_exclude,banner_big_text,add_name',
         )
 
         page.set_current_language('ru')
@@ -260,6 +287,7 @@ def footer_texts():
             name='footer_texts',
             big_page_title='Big page title footer_texts',
             small_page_title='Small page title footer_texts',
+            admin_exclude='name,admin_exclude,big_page_title,banner_big_text,add_name',
         )
         page.set_current_language('ru')
         page.name = 'низ_тексты'

@@ -10,12 +10,14 @@ from .models import PageTexts
 
 
 class PageTextsAdminForm(TranslatableModelForm):
-    big_page_title = forms.CharField(widget=CKEditorUploadingWidget(), label=_('big page title')),
-    small_page_title = forms.CharField(widget=CKEditorUploadingWidget(), label=_('small page title')),
+    big_page_title = forms.CharField(widget=CKEditorUploadingWidget(), label=_('big page title'))
+    small_page_title = forms.CharField(widget=CKEditorUploadingWidget(), label=_('small page title'))
+    banner_big_text = forms.CharField(widget=CKEditorUploadingWidget(), label=_('banner big text'))
 
     translations = TranslatedFields(
         big_page_title=forms.CharField(widget=CKEditorUploadingWidget(), label=_('big page title')),
         small_page_title=forms.CharField(widget=CKEditorUploadingWidget(), label=_('small page title')),
+        banner_big_text=forms.CharField(widget=CKEditorUploadingWidget(), label=_('banner big text')),
     )
 
     class Meta:

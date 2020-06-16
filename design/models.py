@@ -76,7 +76,7 @@ class FunctionalSettings(models.Model):
 
     contact_form = models.BooleanField(_('contact_form'), default=True)
 
-    admin_exclude = models.CharField(blank=True, null=True, max_length=600)
+    admin_exclude = models.CharField(default='name,admin_exclude', blank=True, null=True, max_length=600)
 
     class Meta:
         verbose_name = _('Functional Settings')
@@ -89,10 +89,13 @@ class FunctionalSettings(models.Model):
 class PageTexts(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(_('name'), blank=True, null=True, max_length=200, db_index=True),
+        banner_big_text=RichTextUploadingField(_('banner big text'), blank=True, null=True),
         big_page_title=RichTextUploadingField(_('big page title'), blank=True, null=True),
         small_page_title=RichTextUploadingField(_('small page title'), blank=True, null=True),
     )
+    add_name = models.BooleanField(_('add_name_to_bannertext'), default=False)
     active = models.BooleanField(_('active'), default=False)
+    admin_exclude = models.CharField(default='name,admin_exclude', blank=True, null=True, max_length=600)
 
     class Meta:
         verbose_name = _('Page Texts')

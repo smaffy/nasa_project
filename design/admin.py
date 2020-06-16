@@ -18,13 +18,22 @@ class PageTextsAdmin(TranslatableAdmin):
     class Meta:
         proxy = True
 
-    def has_delete_permission(self, request, obj=None):
-        # Disable delete
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     # Disable delete
+    #     return False
 
     def has_add_permission(self, request):
         # Disable add
         return False
+
+    def get_fields(self, request, obj=None):
+        fields = list(super(PageTextsAdmin, self).get_fields(request, obj))
+        exclude_set = set()
+        if obj:  # obj will be None on the add page, and something on change pages
+            l = obj.admin_exclude.split(',')
+            for a in l:
+                exclude_set.add(a)
+        return [f for f in fields if f not in exclude_set]
 
 
 @admin.register(PagePictures)
