@@ -70,8 +70,13 @@ BUTTON_SIZE_CHOICES = (
 
 class FunctionalSettings(models.Model):
     name = models.CharField(_('name'), blank=True, null=True, max_length=200)
+
     project_category = models.BooleanField(_('project_category'), default=True)
     profile_category = models.BooleanField(_('profile_category'), default=False)
+
+    contact_form = models.BooleanField(_('contact_form'), default=True)
+
+    admin_exclude = models.CharField(blank=True, null=True, max_length=600)
 
     class Meta:
         verbose_name = _('Functional Settings')
@@ -103,6 +108,9 @@ class PagePictures(TranslatableModel):
     )
     image = models.ImageField(_('image'), upload_to='images/defaults/', default=None, blank=True, null=True)
     active = models.BooleanField(_('active'), default=False)
+
+    preview_width = models.IntegerField(blank=True, null=True)
+    preview_height = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = _('Page Pictures')

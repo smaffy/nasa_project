@@ -8,26 +8,16 @@ from .models import Project, Profile, News, Service, ProjectImage, ProjectCatego
 from .forms import ProjectAdminForm, ProfileAdminForm, NewsAdminForm
 from parler.admin import TranslatableAdmin, TranslatableStackedInline
 
-#
-# class TranslatableSite(TranslatableModel, Site):
-#     class Meta:
-#         proxy = True
-#
-#     translations = TranslatedFields()
-#
-#
-# class NewSiteAdmin(TranslatableAdmin, SiteAdmin):
-#     pass
-#
-#
-# admin.site.unregister(Site)
-# admin.site.register(TranslatableSite, NewSiteAdmin)
-
 
 class ImageInline(admin.StackedInline):
     model = ProjectImage
     max_num = 10
     extra = 0
+
+    readonly_fields = ['get_img_preview', ]
+
+    def get_img_preview(self, obj):
+        return mark_safe('<img src="{url}" width=200 height=150 />'.format(url=obj.image.url))
 
 
 class ProjectsInline(admin.StackedInline):
@@ -47,6 +37,8 @@ class ProjectAdmin(TranslatableAdmin):
         'short_description',
     )
     inlines = [ImageInline, ]
+    readonly_fields = ['get_img_preview', ]
+
     fieldsets = (
         ('Title', {
             "fields": ('title', 'slug', )
@@ -58,7 +50,7 @@ class ProjectAdmin(TranslatableAdmin):
             "fields": ('client', 'website', 'completed', 'index',)
         }),
         (None, {
-            "fields": ('first_image', )
+            "fields": ('first_image', 'get_img_preview',)
         }),
         (None, {
             "fields": ('short_description', 'description',)
@@ -68,6 +60,9 @@ class ProjectAdmin(TranslatableAdmin):
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
+
+    def get_img_preview(self, obj):
+        return mark_safe('<img src="{url}" width=300 height=200 />'.format(url=obj.first_image.url))
 
     class Meta:
         proxy = True
@@ -102,7 +97,7 @@ class ProfileAdmin(TranslatableAdmin):
             "fields": ('start_work',)
         }),
         (None, {
-            "fields": ('image', 'get_img_preview')
+            "fields": ('image', 'get_img_preview',)
         }),
         (None, {
             "fields": ('short_description', 'description')
@@ -113,7 +108,7 @@ class ProfileAdmin(TranslatableAdmin):
         return {'slug': ('first_name', 'last_name',)}
 
     def get_img_preview(self, obj):
-        return mark_safe('<img src="{url}" width=200 height=150 />'.format(url=obj.image.url))
+        return mark_safe('<img src="{url}" width=300 height=300 />'.format(url=obj.image.url))
 
     class Meta:
         proxy = True
@@ -127,9 +122,13 @@ class ServiceAdmin(TranslatableAdmin):
         'title', 'slug',
          'short_description',
     )
+    readonly_fields = ['get_img_preview', ]
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
+
+    def get_img_preview(self, obj):
+        return mark_safe('<img src="{url}" width=300 height=200 />'.format(url=obj.image.url))
 
     class Meta:
         proxy = True
@@ -177,10 +176,15 @@ class NewsAdmin(TranslatableAdmin):
         'title',
         'short_description',
     )
+    readonly_fields = ['get_img_preview', ]
+
     # prepopulated_fields = {'slug': ('title',)}
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('title',)}
+
+    def get_img_preview(self, obj):
+        return mark_safe('<img src="{url}" width=300 height=200 />'.format(url=obj.image.url))
 
     class Meta:
         proxy = True
@@ -194,6 +198,12 @@ class ProjectImageAdmin(ModelAdmin):
         'image',
         'project',
         'index',
+        'get_img_preview',
     )
+    readonly_fields = ['get_img_preview', ]
+
+    def get_img_preview(self, obj):
+        return mark_safe('<img src="{url}" width=200 height=150 />'.format(url=obj.image.url))
+
 
 

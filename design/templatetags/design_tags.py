@@ -277,6 +277,8 @@ def home_big_banner():
     except ObjectDoesNotExist:
         picture = PagePictures.objects.language('en').create(
             name='home_big_banner_1840x950',
+            preview_width=920,
+            preview_height=475,
         )
         picture.set_current_language('ru')
         picture.name = 'домашняя_большой_баннер_1840x950'
@@ -294,6 +296,8 @@ def top_banner_1840x300():
     except ObjectDoesNotExist:
         picture = PagePictures.objects.language('en').create(
             name='top_banner_1840x300',
+            preview_width=920,
+            preview_height=150,
         )
         picture.set_current_language('ru')
         picture.name = 'верхний_баннер_1840x300'
@@ -311,6 +315,9 @@ def home_call_to_banner_1110x350():
     except ObjectDoesNotExist:
         picture = PagePictures.objects.language('en').create(
             name='home_call_to_banner_1110x350',
+            preview_width=555,
+            preview_height=175,
+
         )
         picture.set_current_language('ru')
         picture.name = 'домашняя_call_to_баннер_1110x350'
@@ -326,6 +333,22 @@ def category_settings():
     try:
         item = FunctionalSettings.objects.get(name='category_settings')
     except ObjectDoesNotExist:
-        item = FunctionalSettings.objects.create(name='category_settings')
+        item = FunctionalSettings.objects.create(
+            name='category_settings',
+            admin_exclude='name,contact_form,admin_exclude',
+        )
+        item.save()
+    return item
+
+
+@register.simple_tag(name='contact_form_tag')
+def contact_form_tag():
+    try:
+        item = FunctionalSettings.objects.get(name='contact_form')
+    except ObjectDoesNotExist:
+        item = FunctionalSettings.objects.create(
+            name='contact_form',
+            admin_exclude='name,project_category,profile_category,admin_exclude',
+        )
         item.save()
     return item

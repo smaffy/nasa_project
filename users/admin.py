@@ -2,6 +2,7 @@ from django.contrib.admin.forms import AdminPasswordChangeForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 CustomUser = get_user_model()
@@ -16,6 +17,7 @@ class CustomUserAdmin(UserAdmin):
         'company_name',
         'email', 'phone_number',
     ]
+    readonly_fields = ['get_logo_preview', ]
     fieldsets = [
         (None, {
             'fields': (('username', 'first_name', 'last_name'), 'active')
@@ -24,7 +26,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('address', 'postal_code', 'city', 'country')
         }),
         (_('Company'), {
-            'fields': ('company_name', 'registation_number', 'address_inline', 'languages',)
+            'fields': ('company_name', 'registation_number', 'address_inline',)
         }),
         (_('Contact'), {
             "fields": ('email', 'phone_number', 'time_for_colling')
@@ -36,7 +38,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('password', )
         }),
         (_('Logo'), {
-            'fields': ('logo',)
+            'fields': ('logo', 'get_logo_preview', )
         }),
     ]
 
@@ -49,5 +51,7 @@ class CustomUserAdmin(UserAdmin):
     #     return False
     #
 
+    def get_logo_preview(self, obj):
+        return mark_safe('<img src="{url}" width=120 height=30 style="background-color: lightslategray"/>'.format(url=obj.logo.url))
 
 

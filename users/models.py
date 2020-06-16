@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
     city = models.CharField(_('city'), max_length=100, null=True, blank=True)
     country = models.CharField(_('country'), max_length=100, null=True, blank=True)
     company_name = models.CharField(_('company_name'), max_length=100, null=True, blank=True)
-    logo = models.ImageField(_('logo'), upload_to='images/users/', default='images/defaults/logo.png')
+    logo = models.ImageField(_('logo_120x30'), upload_to='images/users/', default='images/defaults/logo.png')
 
     registation_number = models.CharField(_('registation_number'), max_length=50, blank=True, null=True)
     address_inline = models.CharField(_('address_inline'), max_length=300, blank=True, null=True)
