@@ -8,22 +8,22 @@
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row fullscreen d-flex justify-content-center align-items-center">
-            <div class="banner-content col-lg-9 col-md-12 justify-content-center ">
+            <div class="banner-content col-lg-9 col-md-12 justify-content-center " style="font-family: 'Tangerine', serif; color: red;">
                 {% home_texts as texts %}
                 {% if texts.active %}
                     {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                        <p class="text-white mx-auto">{{ texts.small_page_title }}</p>
+                        <h1 class="mb-10 font_big">{{ texts.big_page_title|safe }}</h1>
+                        <p class="text-white mx-auto font">{{ texts.small_page_title|safe }}</p>
                     {% endif %}
                 {% else %}
-                    <h1>
+                    <h1 class="font_big">
                         {% blocktrans %}
                             Architecture. <br>
                             Interior architecture. <br>
                             Concept Design. <i class="fa fa-camera"></i>
                         {% endblocktrans %}
                     </h1>
-                    <p class="text-white mx-auto">
+                    <p class="text-white mx-auto font">
                         {% blocktrans %}
                             Kauss Arhitektuur is an architecture and design bureau operating in Tallinn since 2004. <br>
                             Our team is united by an interest in associating the pragmatic and the rational with the fine arts.

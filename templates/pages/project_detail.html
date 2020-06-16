@@ -79,16 +79,20 @@
                                     </td>
                                 </tr>
                             {% endif %}
-                            {% if project.project_category.all %}
-                                <tr>
-                                    <td> {% trans 'Category' %}    </td>
-                                    <td>:</td>
-                                    <td>
-                                        {% for categ in project.project_category.all %}
-                                            <b><a href="{{ categ.get_absolute_url }}" target="_blank">{{ categ.title }}</a></b>,
-                                        {% endfor %}
-                                    </td>
-                                </tr>
+
+                            {% category_settings as category_set %}
+                            {% if category_set.project_category %}
+                                {% if project.project_category.all %}
+                                    <tr>
+                                        <td> {% trans 'Category' %}    </td>
+                                        <td>:</td>
+                                        <td>
+                                            {% for categ in project.project_category.all %}
+                                                <b><a href="{{ categ.get_absolute_url }}">{{ categ.title }}</a></b>,
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
                             {% endif %}
                         </table>
 {#                        <ul class="desc">#}

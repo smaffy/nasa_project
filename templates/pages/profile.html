@@ -42,19 +42,42 @@
                     <p>
                         {{ profile.short_description|safe }}
                     </p>
-                    <div class="details-info d-flex flex-row  mt-20">
-                        <ul class="names">
+                    <div class=" details-info d-flex flex-row mt-20">
+                        <table class="names" style="vertical-align: top">
 {#                            <li>Rating    </li>#}
                             {% if profile.email %}
-                                <li> {% trans 'Email ' %}</li>
+                                <tr>
+                                    <td> {% trans 'Email' %}    </td>
+                                    <td>:</td>
+                                    <td> <a href="mailto:{{ profile.email }}">{{ profile.email }}</a> </td>
+                                </tr>
                             {% endif %}
                             {% if profile.phone_number %}
-                                <li> {% trans 'Phone number' %}</li>
+                                <tr>
+                                    <td> {% trans 'Phone number' %}    </td>
+                                    <td>:</td>
+                                    <td> <a href="tel:{{ profile.phone_number }}">{{ profile.phone_number }}</a> </td>
+                                </tr>
                             {% endif %}
-                            <li> {% trans 'Started work' %} </li>
-                        </ul>
-                        <ul class="desc">
-{#                            <li>#}
+                            <tr>
+                                    <td> {% trans 'Started work' %}     </td>
+                                    <td>:</td>
+                                    <td> {{ profile.start_work }} </td>
+                                </tr>
+
+                            {% category_settings as category_set %}
+                            {% if category_set.profile_category %}
+                                <tr>
+                                    <td> {% trans 'Category' %}     </td>
+                                    <td>:</td>
+                                    <td>
+                                        {% for categ in profile.profile_category.all %}
+                                            <b><a href="{{ categ.get_absolute_url }}">{{ categ.title }}</a></b>,
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+{#                              <li>#}
 {#                                <div class="star">#}
 {#                                    : <span class="fa fa-star checked"></span>#}
 {#                                    <span class="fa fa-star checked"></span>#}
@@ -65,15 +88,7 @@
                                     {#<span class="fa fa-star"></span>#}
 {#                                </div>#}
 {#                            </li>#}
-                            {% if profile.email %}
-                                <li>: <a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>
-                            {% endif %}
-                            {% if profile.phone_number %}
-                                <li>: <a href="tel:{{ profile.phone_number }}">{{ profile.phone_number }}</a></li>
-                            {% endif %}
-                            <li>: {{ profile.start_work }}</li>
-
-                        </ul>
+                        </table>
                     </div>
                     <div class="social-links mt-30">
                         {% if profile.facebook %}

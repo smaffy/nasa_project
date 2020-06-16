@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 from django.db import models
 from django.template.defaultfilters import truncatewords
+from django.utils.safestring import mark_safe
 
 from .models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory
 from .forms import ProjectAdminForm, ProfileAdminForm, NewsAdminForm
@@ -78,6 +79,7 @@ class ProfileAdmin(TranslatableAdmin):
     save_as = True
     form = ProfileAdminForm
     inlines = [ProjectsInline, ]
+    readonly_fields = ['get_img_preview', ]
     list_display = (
         'first_name', 'last_name', 'slug',
         'short_description',
@@ -100,15 +102,18 @@ class ProfileAdmin(TranslatableAdmin):
             "fields": ('start_work',)
         }),
         (None, {
-            "fields": ('image',)
+            "fields": ('image', 'get_img_preview')
         }),
         (None, {
-            "fields": ('short_description', 'description',)
+            "fields": ('short_description', 'description')
         }),
     )
 
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('first_name', 'last_name',)}
+
+    def get_img_preview(self, obj):
+        return mark_safe('<img src="{url}" width=200 height=150 />'.format(url=obj.image.url))
 
     class Meta:
         proxy = True

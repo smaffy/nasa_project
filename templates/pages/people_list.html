@@ -41,25 +41,28 @@
                     {% endif %}
                 </div>
 
-                <div class="col-md-12 pb-10 header-text text-center">
-                    <div class="row pb-15 pt-30 justify-content-center ml-20 mr-20" style="float: none">
-                        <a class="primary-btn mt-30 ml-10" href="{% url 'pages:people' %}">{% trans 'All People' %}</a>
-                        {% profile_categories as categories %}
-                        {% for categ in categories %}
-                            <a class="primary-btn mt-30 ml-10" href="{{ categ.get_absolute_url }}">{{ categ.title }}</a>
-                        {% endfor %}
+                {% category_settings as category_set %}
+                {% if category_set.profile_category %}
+                    <div class="col-md-12 pb-10 header-text text-center">
+                        <div class="row pb-15 pt-30 justify-content-center ml-20 mr-20" style="float: none">
+                            <a class="primary-btn mt-30 ml-10" href="{% url 'pages:people' %}">{% trans 'All People' %}</a>
+                            {% profile_categories as categories %}
+                            {% for categ in categories %}
+                                <a class="primary-btn mt-30 ml-10" href="{{ categ.get_absolute_url }}">{{ categ.title }}</a>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-12 pb-10 header-text text-center">
-                    <h3 class="pb-15 pt-30">
-                        {% if category %}
-                            <div style="text-align: center">{% trans 'Category' %}: {{ category.title }}</div>
-                        {% else %}
-                            <div style="text-align: center">{% trans 'All People:' %}</div>
-                        {% endif %}
-                    </h3>
-                </div>
+                    <div class="col-md-12 pb-10 header-text text-center">
+                        <h3 class="pb-15 pt-30">
+                            {% if category %}
+                                <div style="text-align: center">{% trans 'Category' %}: {{ category.title }}</div>
+                            {% else %}
+                                <div style="text-align: center">{% trans 'All People:' %}</div>
+                            {% endif %}
+                        </h3>
+                    </div>
+                {% endif %}
             </div>
 
             {% for pr in people_list %}

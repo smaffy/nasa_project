@@ -1,6 +1,6 @@
 {% load thumbnail %}
 {% load static %}
-{% load page_tags %}
+{% load page_tags design_tags %}
 {% load i18n parler_tags %}
 
 <header id="header" id="home">
@@ -113,25 +113,36 @@
           <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="{% url 'pages:home' %}">{% trans 'AVALEHT' %}</a></li>
-                <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'TEHTUD TÖÖD' %}</a>
-{#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
-                    <ul>
-                        <li><a href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a></li>
-                        {% project_categories as project_categories %}
-                            {% for category in project_categories %}
-                                <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
-                            {% endfor %}
-                    </ul>
-                </li>
-                <li class="menu-has-children"><a href="{% url 'pages:people' %}">{% trans 'INIMESED' %}</a>
-                    <ul>
-                        <li><a href="{% url 'pages:people' %}">{% trans 'All People' %}</a></li>
-                        {% profile_categories as profile_categories %}
-                            {% for category in profile_categories %}
-                                <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
-                            {% endfor %}
-                    </ul>
-                </li>
+
+                {% category_settings as category_set %}
+                {% if category_set.project_category %}
+                    <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'TEHTUD TÖÖD' %}</a>
+    {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
+                        <ul>
+                            <li><a href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a></li>
+                            {% project_categories as project_categories %}
+                                {% for category in project_categories %}
+                                    <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                                {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'TEHTUD TÖÖD' %}</a>
+                {% endif %}
+                {% if category_set.profile_category %}
+                    <li class="menu-has-children"><a href="{% url 'pages:people' %}">{% trans 'INIMESED' %}</a>
+                        <ul>
+                            <li><a href="{% url 'pages:people' %}">{% trans 'All People' %}</a></li>
+                            {% profile_categories as profile_categories %}
+                                {% for category in profile_categories %}
+                                    <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                                {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'pages:people' %}">{% trans 'INIMESED' %}</a>
+                {% endif %}
+
                 <li><a href="{% url 'pages:service_list' %}">{% trans 'TEENUSED' %}</a></li>
                 <li><a href="{% url 'pages:news' %}">{% trans 'UUDISED' %}</a></li>
 

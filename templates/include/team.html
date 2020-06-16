@@ -38,15 +38,18 @@
                                     </p>
                                     <h6 class="date pb-10" >from {{ item.start_work }}</h6>
 
-                                    <div class="tags">
-                                        <ul>
-                                            {% for categ in item.profile_category.all %}
-                                                <li class="mb-2">
-                                                    <a href="{{ categ.get_absolute_url }}">{{ categ.title }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
+                                    {% category_settings as category_set %}
+                                    {% if category_set.profile_category %}
+                                        <div class="tags">
+                                            <ul>
+                                                {% for categ in item.profile_category.all %}
+                                                    <li class="mb-2">
+                                                        <a href="{{ categ.get_absolute_url }}">{{ categ.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </a>
                         </div>

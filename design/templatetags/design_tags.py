@@ -2,7 +2,7 @@ from django import template
 from django.core.exceptions import ObjectDoesNotExist
 from parler.utils.context import switch_language
 
-from design.models import PageTexts, PagePictures
+from design.models import PageTexts, PagePictures, FunctionalSettings
 
 register = template.Library()
 
@@ -320,3 +320,12 @@ def home_call_to_banner_1110x350():
         picture.save()
     return picture
 
+
+@register.simple_tag(name='category_settings')
+def category_settings():
+    try:
+        item = FunctionalSettings.objects.get(name='category_settings')
+    except ObjectDoesNotExist:
+        item = FunctionalSettings.objects.create(name='category_settings')
+        item.save()
+    return item
