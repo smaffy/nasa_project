@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
+{% load parler_tags %}
 
 {% load static %}
 {% load i18n %}
 {% load design_tags %}
 
 {% block title %}
-    {% trans 'Contact Success' %}
+    {% block title2 %}
+        {% success_texts as texts %}
+        {% if texts.active %}
+            {% if texts|get_translated_field:'browser_title' %}
+                {% with texts|get_translated_field:'browser_title' as titl %}
+                    {{ titl|safe }}
+                {% endwith %}
+            {% else %}
+                {% trans 'Contact Success' %}
+            {% endif %}
+        {% endif %}
+    {% endblock title2 %}
 {% endblock title %}
-
-{% block title2 %}
-    {% trans 'Contact Success' %}
-{% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">

@@ -79,7 +79,7 @@
                                 <li class="float-right">
                                     {% for language in languages %}
                                         {% get_translated_url cur_lang as tr_url %}
-                                        <a href="{% url 'pages:home' %}">
+                                        <a href="/{{ language.code }}/">
                                             {{ language.name_translated }}
                                         </a>
                                     {% endfor %}

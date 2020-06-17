@@ -1,3 +1,4 @@
+{% load parler_tags %}
 {% load static %}
 {% load i18n %}
 {% load design_tags %}
@@ -10,27 +11,21 @@
         <div class="row fullscreen d-flex justify-content-center align-items-center">
             <div class="banner-content col-lg-9 col-md-12 justify-content-center " style="font-family: 'Tangerine', serif; color: red;">
                 {% home_texts as texts %}
+                {% design_settings as design %}
                 {% if texts.active %}
-                    {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="mb-10 font_big">{{ texts.big_page_title|safe }}</h1>
-                        <p class="text-white mx-auto font">{{ texts.small_page_title|safe }}</p>
+                    {% if texts|get_translated_field:'banner_big_text' or texts|get_translated_field:'small_page_title' %}
+                        {% with texts|get_translated_field:'banner_big_text' as big %}
+                            <h1 class="mb-10 title-size">{{ big|safe }}</h1>
+                        {% endwith %}
+                        {% with texts|get_translated_field:'small_page_title' as small %}
+                            <p class="text-white mx-auto title-size">{{ small|safe }}</p>
+                        {% endwith %}
+
+                        {% if design|get_translated_field:'home_big_banner_button' %}
+                            <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }}</a>
+                        {% endif %}
                     {% endif %}
-                {% else %}
-                    <h1 class="font_big">
-                        {% blocktrans %}
-                            Architecture. <br>
-                            Interior architecture. <br>
-                            Concept Design. <i class="fa fa-camera"></i>
-                        {% endblocktrans %}
-                    </h1>
-                    <p class="text-white mx-auto font">
-                        {% blocktrans %}
-                            Kauss Arhitektuur is an architecture and design bureau operating in Tallinn since 2004. <br>
-                            Our team is united by an interest in associating the pragmatic and the rational with the fine arts.
-                        {% endblocktrans %}
-                    </p>
                 {% endif %}
-                <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{% trans 'Get Started' %}</a>
             </div>
         </div>
     </div>

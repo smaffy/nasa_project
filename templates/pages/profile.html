@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load parler_tags %}
 
 {% load static %}
 {% load thumbnail %}
@@ -6,12 +7,19 @@
 {% load design_tags %}
 
 {% block title %}
-    {{ profile.first_name }} {{ profile.last_name }}
+    {% block title2 %}
+        {% profile_texts as texts %}
+        {% if texts.active %}
+            {% if texts|get_translated_field:'browser_title' %}
+                {% with texts|get_translated_field:'browser_title' as titl %}
+                    {{ titl|safe }}
+                {% endwith %}
+            {% else %}
+                {{ profile.first_name }} {{ profile.last_name }}
+            {% endif %}
+        {% endif %}
+    {% endblock title2 %}
 {% endblock title %}
-
-{% block title2 %}
-    {{ profile.first_name }} {{ profile.last_name }}
-{% endblock title2 %}
 
 {% block top %}
     <p class="text-white link-nav">

@@ -3,9 +3,18 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.utils.safestring import mark_safe
 from parler.utils.context import switch_language
 
-from design.models import PageTexts, PagePictures, FunctionalSettings
+from design.models import PageTexts, PagePictures, FunctionalSettings, DesignSettings
 
 register = template.Library()
+
+
+@register.simple_tag(name='design_settings')
+def design():
+    try:
+        page = DesignSettings.objects.language('en').get(name='design')
+    except ObjectDoesNotExist:
+        page = DesignSettings.objects.language('en').create(info='default')
+    return page
 
 
 @register.simple_tag(name='try_texts')

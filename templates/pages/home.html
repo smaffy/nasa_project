@@ -1,11 +1,21 @@
 {% extends '_base.html' %}
+{% load parler_tags %}
 
 {% load static %}
 {% load i18n %}
 {% load design_tags %}
 
 {% block title %}
-    {% trans 'Home' %}
+    {% home_texts as texts %}
+    {% if texts.active %}
+        {% if texts|get_translated_field:'browser_title' %}
+            {% with texts|get_translated_field:'browser_title' as titl %}
+                {{ titl|safe }}
+            {% endwith %}
+        {% else %}
+            {% trans 'Home' %}
+        {% endif %}
+    {% endif %}
 {% endblock title %}
 
 {% block base %}

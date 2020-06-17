@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load parler_tags %}
 
 {% load static %}
 {% load thumbnail %}
@@ -6,12 +7,21 @@
 {% load design_tags %}
 
 {% block title %}
-    {% trans 'Project' %} "{{ project.title }}"
+    {% block title2 %}
+        {% project_detail_texts as texts %}
+        {% if texts.active %}
+            {% if texts|get_translated_field:'browser_title' %}
+                {% with texts|get_translated_field:'browser_title' as titl %}
+                    {{ titl|safe }}
+                {% endwith %}
+            {% else %}
+                {% trans 'Project' %} "{{ project.title }}"
+            {% endif %}
+        {% endif %}
+    {% endblock title2 %}
 {% endblock title %}
 
-{% block title2 %}
-    {% trans 'Project' %} "{{ project.title }}"
-{% endblock title2 %}
+
 
 {% block top %}
     <p class="text-white link-nav">

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load parler_tags %}
 {% load thumbnail %}
 
 {% load static %}
@@ -6,12 +7,19 @@
 {% load design_tags %}
 
 {% block title %}
-    {% trans 'Our Services' %}
-{% endblock title %}
-
-{% block title2 %}
-    {% trans 'What we offer to our clients' %}
-{% endblock title2 %}
+    {% block title2 %}
+        {% service_list_texts as texts %}
+        {% if texts.active %}
+            {% if texts|get_translated_field:'browser_title' %}
+                {% with texts|get_translated_field:'browser_title' as titl %}
+                    {{ titl|safe }}
+                {% endwith %}
+            {% else %}
+                {% trans 'Our Services' %}
+            {% endif %}
+        {% endif %}
+    {% endblock title2 %}
+ {% endblock title %}
 
 {% block top %}
     <p class="text-white link-nav">
@@ -21,25 +29,28 @@
     </p>
 {% endblock top %}
 
-{% block conteiner %}
+{% block conteiner %}0
 
     <!-- Start service Area -->
     <section class="service-area section-gap" id="service">
         <div class="container">
-            <div class="justify-content-center">
-                <div class="col-md-12 pb-50 header-text text-center">
-                    {% service_list_texts as texts %}
-                    {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
-                        <p>{{ texts.small_page_title|safe }}</p>
-                    {% else %}
-                        <h1 class="mb-10">What we offer to our clients</h1>
-                        <p>
-                            Who are in extremely love with eco friendly system..
-                        </p>
-                    {% endif %}
+
+            {% service_list_texts as texts %}
+            {% if texts.active %}
+                <div class="justify-content-center">
+                    <div class="col-md-12 pb-50 header-text text-center">
+                        {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
+                            {% with texts|get_translated_field:'big_page_title' as big %}
+                                <h1 class="mb-10 title-size">{{ big|safe }}</h1>
+                            {% endwith %}
+                            {% with texts|get_translated_field:'small_page_title' as small %}
+                                <h4 class="title-size">{{ small|safe }}</h4>
+                            {% endwith %}
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
+
 
             {% for service in allservices %}
                 <a href="{{ service.get_absolute_url }}">
