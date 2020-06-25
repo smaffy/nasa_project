@@ -12,8 +12,10 @@
                     <div class="title text-center">
                         {% news_list_texts as texts %}
                         {% if texts.big_page_title or texts.small_page_title %}
-                            <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                            <p>{{ texts.small_page_title }}</p>
+                            <a href="{% url 'pages:news' %}">
+                                <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+                                <p>{{ texts.small_page_title }}</p>
+                            </a>
                         {% else %}
                             <h1 class="mb-10">{% trans 'Last news' %}</h1>
                             <p>{% trans 'news news news news' %}</p>

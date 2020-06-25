@@ -12,8 +12,10 @@
                     <div class="title text-center">
                         {% people_list_texts as texts %}
                         {% if texts.big_page_title or texts.small_page_title %}
-                            <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                            <p>{{ texts.small_page_title }}</p>
+                            <a href="{% url 'pages:people' %}">
+                                <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+                                <p>{{ texts.small_page_title }}</p>
+                            </a>
                         {% else %}
                             <h1 class="mb-10">{% trans 'Our Team' %}</h1>
                             <p>{% trans 'Who are in extremely love with eco friendly system.' %}</p>

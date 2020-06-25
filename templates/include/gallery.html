@@ -9,8 +9,10 @@
             <div class="col-md-12 pb-40 header-text text-center">
                 {% project_list_texts as texts %}
                     {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                        <p>{{ texts.small_page_title }}</p>
+                        <a href="{% url 'pages:projects' %}">
+                            <h1 class="mb-10">{{ texts.big_page_title }}</h1>
+                            <p>{{ texts.small_page_title }}</p>
+                        </a>
                     {% else %}
                         <h1 class="pb-10">{% trans 'Our Recent Works may impress you' %}</h1>
                         <p>

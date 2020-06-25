@@ -1,25 +1,29 @@
+{% extends '_base.html' %}
+
 {% load static %}
 {% load i18n %}
 {% load design_tags %}
-<!-- start banner Area -->
-{##}
-{#{% top_banner_1840x300 as pic %}#}
-{#<section class="banner-area relative" id="home" {% if pic.image and pic.active %} style="background:url({{ pic.image.url }}) center" {% endif %}>#}
-{#    <div class="overlay overlay-bg"></div>#}
-{#    <div class="container">#}
-{#        <div class="row d-flex align-items-center justify-content-center">#}
-{#            <div class="about-content col-lg-12">#}
-{#                <h1 class="text-white">#}
-{#                    {% block title2 %}#}
-{##}
-{#                    {% endblock title2 %}#}
-{#                </h1>#}
-{##}
-{#                {% block top %}#}
-{#                {% endblock top %}#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</section>#}
-{#<!-- End banner Area -->#}
+
+{#    {% include 'include/bannertop.html' %}#}
+
+
+{% top_banner_1840x300 as pic %}
+
+<section class="banner-area relative" id="home" {% if pic.image and pic.active or design.banner_height %} style="background:url({{ pic.image.url }}) no-repeat center center; {% if design.banner_height %}height: {{ design.banner_height }}px{% endif %}" {% endif %}>
+    {% if design.overlay %} <div class="overlay overlay-bg" style="background-color: {{ design.overlay_color }}; opacity: {{ design.overlay_opacity }};"></div> {% endif %}
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    {% block title2 %}
+
+                    {% endblock title2 %}
+                </h1>
+
+                {% block top %}
+                {% endblock top %}
+
+            </div>
+        </div>
+    </div>
+</section>

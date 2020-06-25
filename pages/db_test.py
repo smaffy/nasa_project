@@ -88,7 +88,7 @@ project_title_et = 'projekt'
 
 project_client_en = project_client_ru = project_client_et = 'Admiral OU'
 project_website_en = project_website_ru = project_website_et = 'www.vsdemo.ee'
-
+slugen = 'lalala'
 
 # _title_en = ''
 # _title_ru = ''
@@ -110,14 +110,14 @@ def create_service():
         service.title = a + service_title_ru
         service.short_description = a + short_description_ru
         service.description = a + description_ru
-        service.slug = slugify(service.title)
+        service.slug = slugen + a
+        service.save()
 
         service.set_current_language('et')
         service.title = a + service_title_et
         service.short_description = a + short_description_et
         service.description = a + description_et
         service.slug = slugify(service.title)
-
         service.save()
 
         service.set_current_language('en')
@@ -139,14 +139,14 @@ def create_news():
         news.title = a + news_title_ru
         news.short_description = a + short_description_ru
         news.description = a + description_ru
-        news.slug = slugify(news.title)
+        news.slug = slugen + a
+        news.save()
 
         news.set_current_language('et')
         news.title = a + news_title_et
         news.short_description = a + short_description_et
         news.description = a + description_et
         news.slug = slugify(news.title)
-
         news.save()
 
         news.set_current_language('en')
@@ -164,7 +164,8 @@ def create_profileCategory():
             )
         category.set_current_language('ru')
         category.title = a + profile_category_title_ru
-        category.slug = slugify(category.title)
+        category.slug = slugen + a
+        category.save()
 
         category.set_current_language('et')
         category.title = a + profile_category_title_et
@@ -187,6 +188,7 @@ def create_projectCategory():
         category.set_current_language('ru')
         category.title = a + project_category_title_ru
         category.slug = slugify(category.title)
+        category.save()
 
         category.set_current_language('et')
         category.title = a + project_category_title_et
@@ -229,7 +231,8 @@ def create_profile(oncategory=False):
         profile.phone_number = profile_phone_number_ru
         profile.short_description = a + short_description_ru
         profile.description = a + description_ru
-        profile.slug = slugify(profile.get_name())
+        profile.slug = slugen + a
+        profile.save()
 
         profile.set_current_language('et')
         profile.first_name = a + profile_first_name_et
@@ -241,7 +244,6 @@ def create_profile(oncategory=False):
         profile.short_description = a + short_description_et
         profile.description = a + description_et
         profile.slug = slugify(profile.get_name())
-
         profile.save()
 
         profile.set_current_language('en')
@@ -272,7 +274,8 @@ def create_project(oncategory=False):
         project.website = project_website_ru
         project.short_description = a + short_description_ru
         project.description = a + description_ru
-        project.slug = slugify(project.title)
+        project.slug = slugen + a
+        project.save()
 
         project.set_current_language('et')
         project.title = a + project_title_et
@@ -281,7 +284,6 @@ def create_project(oncategory=False):
         project.short_description = a + short_description_et
         project.description = a + description_et
         project.slug = slugify(project.title)
-
         project.save()
 
         project.set_current_language('en')

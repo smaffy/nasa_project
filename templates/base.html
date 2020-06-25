@@ -14,34 +14,48 @@
 
 
     {% top_banner_1840x300 as pic %}
-    <section class="banner-area relative" id="home" {% if pic.image and pic.active %} style="background:url({{ pic.image.url }}) center" {% endif %}>
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="about-content col-lg-12">
-                    <h1 class="text-white">
-                        {% block title2 %}
 
-                        {% endblock title2 %}
-                    </h1>
+    {% if design.active and not design.full_top_banner %}
+        <section class="gallery-area pt-40" {% if design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
+            <div class="container {% if design.active and design.vertical_lines %}module{% endif %} {% if design.container_color %} container_color {% endif %}">
+    {% endif %}
+                <section class="banner-area relative no-margin no-padding" id="home" {% if pic.image and pic.active or design.banner_height %} style="background:url({{ pic.image.url }}) no-repeat center center; {% if design.banner_height %}height: {{ design.banner_height }}px{% endif %}" {% endif %}>
+                    {% if design.active and design.overlay_default %}
+                        <div class="overlay overlay-bg"></div>
+                    {% elif design.active and design.overlay %}
+                        <div class="overlay overlay-bg" style="background-color: {{ design.overlay_color }}; opacity: {{ design.overlay_opacity }};"></div>
+                    {% else %}
+                        <div class="overlay overlay-bg"></div>
+                    {% endif %}
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-center">
+                            <div class="about-content col-lg-12">
+                                <h1 class="text-white">
+                                    {% block title2 %}
 
-                    {% block top %}
-                    {% endblock top %}
+                                    {% endblock title2 %}
+                                </h1>
 
-                </div>
+                                {% block top %}
+                                {% endblock top %}
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End banner Area -->
+    {% if design.active and design.full_top_banner %}
+        <section class="gallery-area pt-40" {% if design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
+            <div class="container module {% if design.container_color %} container_color {% endif %}">
+    {% elif not design.active %}
+        <section class="gallery-area pt-40" {% if design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
+            <div class="container module {% if design.container_color %} container_color {% endif %}">
+    {% endif %}
+                {% block conteiner %}
+
+                {% endblock conteiner %}
+
             </div>
-        </div>
-    </section>
-    <!-- End banner Area -->
-
-    <section class="gallery-area pt-40">
-        <div class="container">
-{#            resize to fullscreen#}
-            {% block conteiner %}
-
-            {% endblock conteiner %}
-
-        </div>
-    </section>
+        </section>
 
 {% endblock base %}

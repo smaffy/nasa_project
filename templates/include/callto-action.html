@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row justify-content-center ">
             {% home_call_to_banner_1110x350 as pic %}
-            <div class="callto-action-wrap col-lg-12 relative section-gap" {% if pic.image %} style='background:-webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url({{ pic.image.url }})' {% endif %}>
+            <div class="callto-action-wrap col-lg-12 relative section-gap" {% if pic.image %} style='background:-webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url({{ pic.image.url }}) no-repeat center ' {% endif %}>
 {#            background:-webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(../../media/images/defaults/call-action-bg.jpg)  media/images/news.jpg#}
                 <div class="content pt-40 pb-0">
                     {% home_callto_texts as texts %}

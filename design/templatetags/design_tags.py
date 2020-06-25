@@ -11,7 +11,7 @@ register = template.Library()
 @register.simple_tag(name='design_settings')
 def design():
     try:
-        page = DesignSettings.objects.language('en').get(name='design')
+        page = DesignSettings.objects.language('en').filter(name='design', active=True).first()
     except ObjectDoesNotExist:
         page = DesignSettings.objects.language('en').create(info='default')
     return page

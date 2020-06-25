@@ -1,6 +1,7 @@
 from django import template
 from django.core.exceptions import ObjectDoesNotExist
 
+from design.models import DesignSettings
 from pages.models import ProjectCategory, ProfileCategory
 from users.models import CustomUser
 
@@ -45,3 +46,16 @@ def company():
         password = CustomUser.objects.make_random_password()
         comp = CustomUser.objects.get_or_create(username='company', password=password)
     return comp
+
+
+@register.simple_tag(name='logo_size')
+def logo_size():
+    try:
+        des = DesignSettings.objects.language('en').filter(name='design', active=True).first()
+        if des and des.active:
+            size = des.logo_width + 'x' + des.logo_height
+        else:
+            size = '120x30'
+    except ObjectDoesNotExist:
+        size = '120x30'
+    return size

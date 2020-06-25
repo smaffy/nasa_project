@@ -200,7 +200,7 @@ class ContactView(FormView):
         from_email = data['email']
         if CustomUser.objects.get(username='company').email:
             contacts = CustomUser.objects.get(username='company')
-            send_mail(subject, message, from_email, contacts.email)
+            send_mail(subject, message, from_email, [contacts.email, ])
         else:
             send_mail(subject, message, from_email, ['rudakovacz@gmail.com', ])
         

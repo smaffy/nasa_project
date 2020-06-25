@@ -5,29 +5,62 @@
 
 <!-- start banner Area -->
 {% home_big_banner_1840x950 as pic %}
-<section class="banner-area relative" id="home" {% if pic.image and pic.active %} style="background:url({{ pic.image.url }}) center" {% endif %}>
-    <div class="overlay overlay-bg"></div>
-    <div class="container">
-        <div class="row fullscreen d-flex justify-content-center align-items-center">
-            <div class="banner-content col-lg-9 col-md-12 justify-content-center " style="font-family: 'Tangerine', serif; color: red;">
-                {% home_texts as texts %}
-                {% design_settings as design %}
-                {% if texts.active %}
-                    {% if texts|get_translated_field:'banner_big_text' or texts|get_translated_field:'small_page_title' %}
-                        {% with texts|get_translated_field:'banner_big_text' as big %}
-                            <h1 class="mb-10 title-size">{{ big|safe }}</h1>
-                        {% endwith %}
-                        {% with texts|get_translated_field:'small_page_title' as small %}
-                            <p class="text-white mx-auto title-size">{{ small|safe }}</p>
-                        {% endwith %}
+<section class="banner-area relative {% if design.active and design.home_banner_height %} banner_height {% endif %}" id="home" {% if pic.image and pic.active %} style="background:url({{ pic.image.url }}) no-repeat center center" {% endif %}>
+    {% if design.active and design.overlay_default %}
+        <div class="overlay overlay-bg"></div>
+    {% elif design.active and design.overlay %}
+        <div class="overlay overlay-bg" style="background-color: {{ design.overlay_color }}; opacity: {{ design.overlay_opacity }};"></div>
+    {% else %}
+        <div class="overlay overlay-bg"></div>
+    {% endif %}
+    <div class="container {% if design.active and design.home_banner_text_align_horizontal == 'ttl' %} ctl {% elif design.home_banner_text_align_horizontal == 'ttr' %} ctr lll {% endif %}">
+        {% if design.active %}
+            {% if design.home_banner_text_align_vertical %}
+                <div class="row fullscreen no-padding no-margin {{ design.home_banner_text_align_horizontal }}  {{ design.home_banner_text_align_vertical }}">
+                    <div class="banner-content col-lg-9 col-md-12 no-padding no-margin ttt ttb {{ design.home_banner_text_align_horizontal }}" >
+                        {% home_texts as texts %}
+                        {% if texts.active %}
+                            {% if texts|get_translated_field:'banner_big_text' or texts|get_translated_field:'small_page_title' %}
+                                {% with texts|get_translated_field:'banner_big_text' as big %}
+                                    <h1 class="mb-10">{{ big|safe }}</h1>
+                                {% endwith %}
+                                {% with texts|get_translated_field:'small_page_title' as small %}
+                                    <p class="text-white mx-auto">{{ small|safe }}</p>
+                                {% endwith %}
 
-                        {% if design|get_translated_field:'home_big_banner_button' %}
-                            <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }}</a>
+                                {% if design|get_translated_field:'home_big_banner_button' %}
+                                    <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }}</a>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+        {% else %}
+            <div class="row fullscreen d-flex justify-content-center align-items-center">
+                <div class="banner-content col-lg-9 col-md-12 justify-content-center ">
+                    {% home_texts as texts %}
+                    {% design_settings as design %}
+                    {% if texts.active %}
+                        {% if texts|get_translated_field:'banner_big_text' or texts|get_translated_field:'small_page_title' %}
+                            {% with texts|get_translated_field:'banner_big_text' as big %}
+                                <h1 class="mb-10 title-size">{{ big|safe }}</h1>
+                            {% endwith %}
+                            {% with texts|get_translated_field:'small_page_title' as small %}
+                                <p class="text-white mx-auto title-size">{{ small|safe }}</p>
+                            {% endwith %}
+
+                            {% if design %}
+                                {% if design|get_translated_field:'home_big_banner_button' %}
+                                    <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }}</a>
+                                {% endif %}
+                            {% endif %}
                         {% endif %}
                     {% endif %}
-                {% endif %}
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 </section>
 <!-- End banner Area -->

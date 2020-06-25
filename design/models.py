@@ -35,10 +35,16 @@ BUTTON_SIZE_CHOICES = (
     (' small', 'small'),
 )
 
+HOME_V = (
+    ('align-items-start', 'start'),
+    ('align-items-center', 'center'),
+    ('align-items-end', 'end'),
+)
+
 HOME = (
-    ('left', 'left'),
-    ('center', 'center'),
-    ('right', 'right'),
+    ('ttl', 'left'),
+    ('justify-content-center', 'center'),
+    ('ttr', 'right'),
 )
 
 FONT_CHOICES = (
@@ -62,23 +68,38 @@ class DesignSettings(TranslatableModel):
     translations = TranslatedFields(
         home_big_banner_button=models.CharField(_('home_big_banner_button'), max_length=50, default='', null=True, blank=True)
     )
+    active = models.BooleanField(_('active'), default=False)
     name = models.CharField(_('name'), default='design', blank=True, null=True, max_length=200, editable=False)
     info = models.CharField(_('info'), blank=True, null=True, max_length=200)
 
     button_color = models.CharField(_('button_color'), max_length=100, choices=BUTTON_COLOR_CHOICES, default='success', null=True, blank=True)
     button_size = models.CharField(_('button_size'), max_length=100, choices=BUTTON_SIZE_CHOICES, default=' ', null=True, blank=True)
     button_form = models.CharField(_('button_form'), max_length=100, choices=BUTTON_FORM_CHOICES, default=' radius', null=True, blank=True)
-    home_banner_text_align = models.CharField(_('home_banner_text_align'), max_length=100, choices=HOME, default='center', null=True, blank=True)
+    home_banner_text_align_vertical = models.CharField(_('home_banner_text_align_vertical'), max_length=100, choices=HOME_V, default='align-items-center', null=True, blank=True)
+    home_banner_text_align_horizontal = models.CharField(_('home_banner_text_align_horizontal'), max_length=100, choices=HOME, default='justify-content-center', null=True, blank=True)
     font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+    social_icons_top_size = models.CharField(_('social_icons_top_size'), default=20, max_length=50, null=True, blank=True)
+    social_icons_footer_size = models.CharField(_('social_icons_footer_size'), default=30, max_length=50, null=True, blank=True)
 
-    main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, default='black', null=True, blank=True)
-    main_menu_text_color = models.CharField(_('main_menu_color (#000000 or white)'), max_length=200, default='black', null=True, blank=True)
-    background_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, default='lightgray', null=True, blank=True)
-    container_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, default='white', null=True, blank=True)
-    vertical_lines_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, default='gray', null=True, blank=True)
+    main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
+    home_banner_height = models.CharField(_('home_banner_height'), default=950, max_length=50, null=True, blank=True)
+    banner_height = models.CharField(_('banner_height'), default=300, max_length=50, null=True, blank=True)
+    background_color = models.CharField(_('background_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    footer_background_color = models.CharField(_('footer_background_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    container_color = models.CharField(_('container_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    vertical_lines_color = models.CharField(_('vertical_lines_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    vertical_lines_width = models.CharField(_('vertical_lines_width 3 or 5'), max_length=20, null=True, blank=True)
+
+    overlay_default = models.BooleanField(_('overlay_default'), default=True)
+    overlay = models.BooleanField(_('overlay'), default=True)
+    overlay_opacity = models.CharField(_('overlay_opacity (from 0.1 to 0.9)'), max_length=50, null=True, blank=True)
+    overlay_color = models.CharField(_('overlay_color (#000000 or black)'), max_length=200, null=True, blank=True)
 
     background_image = models.ImageField(_('background_image'), upload_to='images/background/', default=None, blank=True, null=True)
-
+    logo_height = models.CharField(_('logo_height (30)'), default=30, max_length=50, null=True, blank=True)
+    logo_width = models.CharField(_('logo_width (120)'), default=120, max_length=50, null=True, blank=True)
     background_image_on = models.BooleanField(_('background_image_on'), default=False)
     full_top_banner = models.BooleanField(_('full_top_banner'), default=True)
     menu_left = models.BooleanField(_('menu_left'), default=False)

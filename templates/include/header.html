@@ -5,9 +5,9 @@
 
 <header id="header" id="home">
 
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
+    <div class="header-top" >
+        <div class="container" {% if design.active and not design.full_top_banner %} style="padding-right: 3%; padding-left: 3%; padding-top: 3%" {% endif %}>
+            <div class="row" style="margin-top: 5px">
                 {% company as contacts %}
                 {% if contacts.active %}
 
@@ -23,13 +23,13 @@
 {#                            {% endif %}#}
                             <li></li>
                             {% if contacts.facebook %}
-                                <li><a href="{{ contacts.facebook }}" target="_blank"><i class="fa fa-facebook" style="font-size: 20px"></i></a></li>
+                                <li class="social-icons-top"><a href="{{ contacts.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
                             {% endif %}
                             {% if contacts.instagram %}
-                                <li><a href="{{ contacts.instagram }}" target="_blank"><i class="fa fa-instagram" style="font-size: 20px"></i></a></li>
+                                <li class="social-icons-top"><a href="{{ contacts.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             {% endif %}
                             {% if contacts.twitter %}
-                                <li><a href="{{ contacts.twitter }}" target="_blank"><i class="fa fa-twitter" style="font-size: 20px"></i></a></li>
+                                <li class="social-icons-top"><a href="{{ contacts.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             {% endif %}
 
 {#                            {% get_current_language as cur_lang %}#}
@@ -64,25 +64,23 @@
 
                     <div  class="col-lg-4 col-sm-4 col-4 header-top-right no-padding">
                         <nav id="nav-menu-container">
-                            <ul class="nav-menu">
+                            <ul class="nav-menu row">
+                                <li>
                                 {% if request.user.is_authenticated and request.user.is_superuser %}
-                                    <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
-                                {% else %}
-                                    <li>    </li>
+                                    <a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a>
                                 {% endif %}
-                                <li></li>
 
                                 {% get_current_language as cur_lang %}
                                 {% get_available_languages as langs %}
                                 {% get_language_info_list for langs as languages %}
 
-                                <li class="float-right">
-                                    {% for language in languages %}
-                                        {% get_translated_url cur_lang as tr_url %}
-                                        <a href="/{{ language.code }}/">
-                                            {{ language.name_translated }}
-                                        </a>
-                                    {% endfor %}
+
+                                {% for language in languages %}
+                                    {% get_translated_url cur_lang as tr_url %}
+                                    <a href="/{{ language.code }}/">
+                                        {{ language.name_translated }}
+                                    </a>
+                                {% endfor %}
                                 </li>
 
                             </ul>
@@ -93,15 +91,16 @@
             </div>
         </div>
     </div>
-    <div class="container main-menu">
+    <div class="container main-menu" {% if design.active and not design.full_top_banner %} style="padding-right: 3%; padding-left: 3%" {% endif %}>
 
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
                 {% company as contacts %}
+                {% logo_size as size %}
                 {% if contacts.active %}
                     {% if contacts.logo %}
                         <a href="{% url 'pages:home' %}">
-                            {% thumbnail contacts.logo "120x30" crop='center' as logo %}
+                            {% thumbnail contacts.logo size crop='center' as logo %}
                                 <img class="img-fluid d-block mx-auto" src="{{ logo.url }}" height="30" alt="">
                             {% endthumbnail %}
                         </a>
@@ -127,7 +126,7 @@
                         </ul>
                     </li>
                 {% else %}
-                    <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'TEHTUD TÖÖD' %}</a>
+                    <li><a href="{% url 'pages:projects' %}">{% trans 'TEHTUD TÖÖD' %}</a>
                 {% endif %}
                 {% if category_set.profile_category %}
                     <li class="menu-has-children"><a href="{% url 'pages:people' %}">{% trans 'INIMESED' %}</a>

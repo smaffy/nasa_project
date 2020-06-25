@@ -7,26 +7,42 @@
 {% load design_tags %}
 
 {% block title %}
-    {% block title2 %}
-        {% service_list_texts as texts %}
-        {% if texts.active %}
-            {% if texts|get_translated_field:'browser_title' %}
-                {% with texts|get_translated_field:'browser_title' as titl %}
-                    {{ titl|safe }}
-                {% endwith %}
-            {% else %}
-                {% trans 'Our Services' %}
-            {% endif %}
+    {% service_list_texts as texts %}
+    {% if texts.active %}
+        {% if texts|get_translated_field:'browser_title' %}
+            {% with texts|get_translated_field:'browser_title' as titl %}
+                {{ titl|safe }}
+            {% endwith %}
+        {% else %}
+            {% trans 'Our Services' %}
         {% endif %}
-    {% endblock title2 %}
+    {% else %}
+        {% trans 'Our Services' %}
+    {% endif %}
  {% endblock title %}
 
+{% block title2 %}
+    {% service_list_texts as texts %}
+    {% if texts.active %}
+        {% if texts|get_translated_field:'banner_big_text' %}
+            {% with texts|get_translated_field:'banner_big_text' as titl %}
+                {{ titl|safe }}
+            {% endwith %}
+        {% endif %}
+    {% else %}
+        {% trans 'Our Services' %}
+    {% endif %}
+{% endblock title2 %}
+
 {% block top %}
-    <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
-        <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:service_list' %}"> {% trans 'Service' %} </a>
-    </p>
+    {% design_settings as design %}
+    {% if design.top_navigation %}
+        <p class="text-white link-nav">
+            <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
+            <span class="lnr lnr-arrow-right"></span>
+            <a href="{% url 'pages:service_list' %}"> {% trans 'Service' %} </a>
+        </p>
+    {% endif %}
 {% endblock top %}
 
 {% block conteiner %}0

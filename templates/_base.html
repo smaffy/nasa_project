@@ -30,7 +30,7 @@
         {% if contact.active %}
             , {{ contact.company_name }}
         {% else %}
-            , {% trans 'Default arhitektuuriburoo' %}
+            , {% trans 'Default' %}
         {% endif %}
     </title>
 
@@ -97,10 +97,27 @@
 
     <style>
         {% design_settings as design %}
-        {% if design.font %}
+
+        {% if design.active %}
+            .container_color {
+                background: {{ design.container_color }};
+            }
+            .module {
+                padding: 1rem;
+                color: white;
+                border-width: {{ design.vertical_lines_width }}px;
+                border-style: solid;
+                border-image:
+                    linear-gradient(
+                        to bottom,
+                        {{ design.vertical_lines_color }},
+                        rgba(0, 0, 0, 0)
+                    ) 1 100%;
+            }
             body{
-                color:#777;
+                color:yellow;
                 font-family: {{ design.font }};
+
                 {#font-size:5px;#}
             }
             h1,h2,h3,h4,h5,h6,p,div,span{
@@ -112,14 +129,35 @@
                 font-family: {{ design.font }};
                 {#color:#000#}
             }
+            .header-top-left a {
+                font-size: {{ design.main_menu_text_size }}px;
+                color: {{ design.main_menu_text_color }};
+            }
+
             .nav-menu a {
-                font-size: 14px;
+                font-size: {{ design.main_menu_text_size }}px;
+                color: {{ design.main_menu_text_color }};
             }
             h1.title-size {
                 font-size: 40px;
             }
             h4.title-size {
                 font-size: 20px;
+            }
+            li.social-icons-top {
+                font-size: {{ design.social_icons_top_size }}px;
+            }
+            div.footer-social {
+                font-size: {{ design.social_icons_footer_size }}px;
+            }
+
+            #header.header-scrolled {
+                transition: all 0.5s;
+                background-color: {{ design.overlay_color }};
+                opacity: 0.9;
+            }
+            .banner_height {
+                height: {{ design.home_banner_height }}px;
             }
         {% endif %}
 
@@ -128,9 +166,12 @@
 </head>
 
 {#<body style="background: linear-gradient(0deg, rgba(237,237,249,1) 0%, rgba(74,74,74,1) 61%, rgba(22,22,22,1) 100%);>#}
-<body>
-{#    style="background-color: midnightblue"#}
-    {% include 'include/header.html' %}
+<body {% if design.background_color %} style="background: {{ design.background_color }}" {% endif %}>
+    {% if design.active and design.full_top_banner %}
+        {% include 'include/header.html' %}
+    {% elif not design.active %}
+        {% include 'include/header.html' %}
+    {% endif %}
 
     {% block base %}
 

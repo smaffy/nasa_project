@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+
 {% load parler_tags %}
 
 {% load static %}
@@ -15,15 +16,29 @@
         {% else %}
             {% trans 'Home' %}
         {% endif %}
+    {% else %}
+        {% trans 'Home' %}
     {% endif %}
 {% endblock title %}
 
 {% block base %}
 
-    {% include 'include/bannerbigtop.html' %}
+    {% if not design.active %}
+        {% include 'include/bannerbigtop.html' %}
+    {% elif design.active and design.full_top_banner %}
+        {% include 'include/bannerbigtop.html' %}
+    {% endif %}
 
-    <section class="gallery-area pt-40">
-        <div class="container">
+    <section class="gallery-area pt-40" {% if design.active and design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
+        <div class="container {% if design.active and design.vertical_lines %}module{% endif %} {% if design.active and design.container_color %} container_color {% endif %}" >
+{#            {% if design.background_overlay %} <div class="overlay overlay-bg" style="background-color: green; opacity: {{ design.overlay_opacity }};"></div> {% endif %}#}
+
+            {% if design.active and not design.full_top_banner %}
+                {% include 'include/header.html' %}
+
+                {% include 'include/bannerbigtop.html' %}
+            {% endif %}
+
             {% include 'include/gallery.html' %}
             {% include 'include/service.html' %}
             {% include 'include/team.html' %}

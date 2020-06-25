@@ -38,3 +38,28 @@
 .pagination-action:hover {
     color: #3354AA;
 }
+
+.ctl {
+    padding-left: 5%;
+    margin-left: 0;
+}
+.ctr {
+    padding-right: 5%;
+    margin-right: 0;
+
+}
+.ttt {
+    margin-top: 15%;
+}
+.ttl {
+    text-align: left;
+}
+.ttr {
+    text-align: right;
+}
+.ttb {
+    margin-bottom: 5%;
+}
+.lll {
+    margin-right: -15%;
+}

@@ -9,6 +9,15 @@ from .forms import PageTextsAdminForm
 from .models import PageTexts, PagePictures, FunctionalSettings, DesignSettings
 
 
+def delete_design(TranslatableAdmin, request, queryset):
+    DesignSettings.objects.exclude(info='default').delete()
+
+
+def create_or_clear_default_design(TranslatableAdmin, request, queryset):
+    DesignSettings.objects.filter(info='default').delete()
+    DesignSettings.objects.create(info='default')
+
+
 @admin.register(PageTexts)
 class PageTextsAdmin(TranslatableAdmin):
     save_on_top = True
@@ -90,33 +99,66 @@ class FunctionalSettingsAdmin(admin.ModelAdmin):
 @admin.register(DesignSettings)
 class DesignSettingsAdmin(TranslatableAdmin):
     save_on_top = True
+    actions = [delete_design, create_or_clear_default_design]
     list_display = ('name', 'info')
     exclude = ('name',)
     readonly_fields = ['get_img_preview', 'get_font_preview']
 
+    fieldsets = (
+        (None, {
+            "fields": ('active', 'info',)
+        }),
+        ('ON/OFF', {
+            "fields": ('background_image_on', 'full_top_banner', 'menu_left', 'vertical_lines', 'top_navigation',)
+        }),
+        ('Main', {
+            "fields": ('font', 'get_font_preview', 'main_text_color', 'background_color', 'container_color', 'background_image', 'get_img_preview',)
+        }),
+        ('Home Banner', {
+            "fields": ('home_banner_text_align_vertical', 'home_banner_text_align_horizontal', 'home_banner_height',)
+        }),
+        ('Icons', {
+            "fields": ('social_icons_top_size', 'social_icons_footer_size',)
+        }),
+        ('Main Menu', {
+            "fields": ('main_menu_text_color', 'main_menu_text_size', 'banner_height', )
+        }),
+        ('Vertical Lines', {
+            "fields": ('vertical_lines_color', 'vertical_lines_width',)
+        }),
+        ('Overlay Header Menu', {
+            "fields": ('overlay_default', 'overlay', 'overlay_opacity', 'overlay_color',)
+        }),
+        ('Buttons', {
+            "fields": ('button_color', 'button_size', 'button_form', 'home_big_banner_button')
+        }),
+        ('Logo', {
+            "fields": ('logo_height', 'logo_width',)
+        }),
+        # (None, {
+        #     "fields": ('active', 'info',)
+        # }),
+        # (None, {
+        #     "fields": ('active', 'info',)
+        # }),
+    )
+
     class Meta:
         proxy = True
-    #
-    # def has_delete_permission(self, request, obj=None):
-    #     # Disable delete
-    #     return False
-    #
+
+    def has_delete_permission(self, request, obj=None):
+        # Disable delete
+        return False
+
     # def has_add_permission(self, request):
     #     # Disable add
     #     return False
 
-    # def get_prepopulated_fields(self, request, obj=None):
-    #     ttext = """
-    #         <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inconsolata&family=Lato&family=Merriweather&family=Open+Sans&family=Roboto&family=Rubik&family=Sriracha&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-    #
-    #
-    #         {}:     <p style="font-family: {}; color:green">Almost before we knew it, we had left the ground.</p>
-    #     """
-    #     text = mark_safe(ttext.format(obj.font))
-    #     return {'get_font_preview': ('title', )}
-
     def get_img_preview(self, obj):
-        return mark_safe('<img src="{url}" height=400 />'.format(url=obj.background_image.url))
+        if obj.background_image.url:
+            return mark_safe('<img src="{url}" height=400 />'.format(url=obj.background_image.url))
+        else:
+            return 'no image'
 
     def get_font_preview(self, obj):
         if obj.font == "Poppins, sans-serif":
@@ -145,6 +187,8 @@ class DesignSettingsAdmin(TranslatableAdmin):
             a = '<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">'
         if obj.font == "Marck Script, cursive":
             a = '<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">'
+        else:
+            a = '<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">'
 
         ttext = a + """
     

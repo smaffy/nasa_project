@@ -7,26 +7,43 @@
 {% load design_tags %}
 
 {% block title %}
-    {% block title2 %}
-        {% profile_texts as texts %}
-        {% if texts.active %}
-            {% if texts|get_translated_field:'browser_title' %}
-                {% with texts|get_translated_field:'browser_title' as titl %}
-                    {{ titl|safe }}
-                {% endwith %}
-            {% else %}
-                {{ profile.first_name }} {{ profile.last_name }}
-            {% endif %}
+    {% profile_texts as texts %}
+    {% if texts.active %}
+        {% if texts|get_translated_field:'browser_title' %}
+            {% with texts|get_translated_field:'browser_title' as titl %}
+                {{ titl|safe }} {% if texts.add_name %} {{ profile.first_name }} {{ profile.last_name }} {% endif %}
+            {% endwith %}
+        {% else %}
+            {{ profile.first_name }} {{ profile.last_name }}
         {% endif %}
-    {% endblock title2 %}
+    {% else %}
+        {{ profile.first_name }} {{ profile.last_name }}
+    {% endif %}
 {% endblock title %}
 
+{% block title2 %}
+    {% profile_texts as texts %}
+    {% if texts.active %}
+        {% if texts|get_translated_field:'banner_big_text' %}
+            {% with texts|get_translated_field:'banner_big_text' as titl %}
+                {{ titl|safe }} {% if texts.add_name %} {{ profile.first_name }} {{ profile.last_name }} {% endif %}
+            {% endwith %}
+
+        {% endif %}
+    {% else %}
+        {{ profile.first_name }} {{ profile.last_name }}
+    {% endif %}
+{% endblock title2 %}
+
 {% block top %}
-    <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
-        <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:people' %}"> {% trans 'People' %} </a>
-    </p>
+    {% design_settings as design %}
+    {% if design.top_navigation %}
+        <p class="text-white link-nav">
+            <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
+            <span class="lnr lnr-arrow-right"></span>
+            <a href="{% url 'pages:people' %}"> {% trans 'People' %} </a>
+        </p>
+    {% endif %}
 {% endblock top %}
 
 {% block conteiner %}

@@ -14,11 +14,14 @@
 {% endblock title2 %}
 
 {% block top %}
-    <p class="text-white link-nav">
-        <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
-        <span class="lnr lnr-arrow-right"></span>
-        <a href="{% url 'pages:elements' %}"> {% trans 'Elements' %} </a>
-    </p>
+    {% design_settings as design %}
+    {% if design.top_navigation %}
+        <p class="text-white link-nav">
+            <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
+            <span class="lnr lnr-arrow-right"></span>
+            <a href="{% url 'pages:elements' %}"> {% trans 'Elements' %} </a>
+        </p>
+    {% endif %}
 {% endblock top %}
 
 {% block conteiner %}

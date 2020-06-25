@@ -4,7 +4,7 @@
 {% load design_tags %}
 
 <!-- start footer Area -->
-<footer class="footer-area section-gap mt-0 pt-0">
+<footer class="footer-area section-gap mt-0 pt-0" {% if design.background_color %} style="background-color: {{ design.footer_background_color }}" {% endif %}>
     <hr>
     <div class="container">
         <div class="row">
@@ -32,7 +32,7 @@
                         {% if contacts.facebook or contacts.instagram or contacts.twitter %}
                             <h6>{% trans 'Follow Us' %}</h6>
                             <p>Let us be social</p>
-                            <div class="footer-social d-flex align-items-center" style="font-size: 30px">
+                            <div class="footer-social d-flex align-items-center">
                                 {% if contacts.facebook %}
                                     <a href="{{ contacts.facebook }}" target="_blank"><i class="fa fa-facebook" ></i></a>
                                 {% endif %}
