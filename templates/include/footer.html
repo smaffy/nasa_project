@@ -4,7 +4,7 @@
 {% load design_tags %}
 
 <!-- start footer Area -->
-<footer class="footer-area section-gap mt-0 pt-0" {% if design.background_color %} style="background-color: {{ design.footer_background_color }}" {% endif %}>
+<footer class="footer-area section-gap mt-0 pt-0 {% if design.active and design.footer_background_color %} footer-bg-color {% elif design.active and design.background_color %} bg-color {% endif %}">
     <hr>
     <div class="container">
         <div class="row">

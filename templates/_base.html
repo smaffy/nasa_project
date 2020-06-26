@@ -99,6 +99,12 @@
         {% design_settings as design %}
 
         {% if design.active %}
+            .bg-color {
+                background-color: {{ design.background_color }};
+            }
+            .footer-bg-color {
+                background-color: {{ design.footer_background_color }};
+            }
             .container_color {
                 background: {{ design.container_color }};
             }

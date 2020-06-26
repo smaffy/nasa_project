@@ -17,7 +17,7 @@
 
     {% if design.active and not design.full_top_banner %}
         <section class="gallery-area pt-40" {% if design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
-            <div class="container {% if design.active and design.vertical_lines %}module{% endif %} {% if design.container_color %} container_color {% endif %}">
+            <div class="container {% if design.vertical_lines %}module{% endif %} {% if design.container_color %} container_color {% endif %}">
     {% endif %}
                 <section class="banner-area relative no-margin no-padding" id="home" {% if pic.image and pic.active or design.banner_height %} style="background:url({{ pic.image.url }}) no-repeat center center; {% if design.banner_height %}height: {{ design.banner_height }}px{% endif %}" {% endif %}>
                     {% if design.active and design.overlay_default %}

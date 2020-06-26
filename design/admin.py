@@ -135,6 +135,9 @@ class DesignSettingsAdmin(TranslatableAdmin):
         ('Logo', {
             "fields": ('logo_height', 'logo_width',)
         }),
+        ('Footer', {
+            "fields": ('footer_background_color',)
+        }),
         # (None, {
         #     "fields": ('active', 'info',)
         # }),
