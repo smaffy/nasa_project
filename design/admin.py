@@ -51,12 +51,30 @@ class PagePicturesAdmin(TranslatableAdmin):
     list_display = ('name', 'active')
     exclude = ('name', 'preview_height', 'preview_width', )
 
-    readonly_fields = ['get_img_preview', ]
+    readonly_fields = ['get_img_preview', 'get_img_preview_with_overlay']
 
     def get_img_preview(self, obj):
         return mark_safe('<img src="{url}" width={w} height={h} />'.format(url=obj.image.url,
                                                                            w=obj.preview_width,
                                                                            h=obj.preview_height))
+
+    def get_img_preview_with_overlay(self, obj):
+        # return mark_safe('<img src="{url}" width={w} height={h} />'.format(url=obj.image.url,
+        #                                                                    w=obj.preview_width,
+        #                                                                    h=obj.preview_height))
+        design = DesignSettings.objects.language('en').filter(name='design', active=True).first()
+
+        if design.main_menu_text_color:
+            main_menu_text_color = design.main_menu_text_color
+        else:
+            main_menu_text_color = 'white'
+
+        if design.overlay_color and design.overlay_opacity and obj.image:
+            fpic = mark_safe( '<div style="text-align: center; background: url({im}) no-repeat center center; height: {h}px; width: {w}px;"><div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: {h}px; width: {w}px; border: 1px solid gray; color: {t}"> <b>Menu Text</b> </div></div>'.format(
+                    im=obj.image.url, b=design.overlay_color, t=main_menu_text_color, o=design.overlay_opacity, w=obj.preview_width, h=obj.preview_height))
+        else:
+            fpic = mark_safe('<div style="text-align: center; background: url({im}) no-repeat center center; height: {h}px; width: {w}px; color={t}"><div class="overlay overlay-bg"> <b>Menu Text</b> </div></div>'.format(im=obj.image.url, b=design.overlay_color, t=main_menu_text_color, o=design.overlay_opacity, w=obj.preview_width, h=obj.preview_height))
+        return fpic
 
     class Meta:
         proxy = True
@@ -102,7 +120,7 @@ class DesignSettingsAdmin(TranslatableAdmin):
     actions = [delete_design, create_or_clear_default_design]
     list_display = ('name', 'info')
     exclude = ('name',)
-    readonly_fields = ['get_img_preview', 'get_font_preview']
+    readonly_fields = ['get_img_preview', 'get_font_preview', 'preview_background_color', 'preview_container_color', 'preview_vertical_lines_color', 'preview_main_menu_text_color', 'preview_overlay']
 
     fieldsets = (
         (None, {
@@ -112,7 +130,7 @@ class DesignSettingsAdmin(TranslatableAdmin):
             "fields": ('background_image_on', 'full_top_banner', 'menu_left', 'vertical_lines', 'top_navigation',)
         }),
         ('Main', {
-            "fields": ('font', 'get_font_preview', 'main_text_color', 'background_color', 'container_color', 'background_image', 'get_img_preview',)
+            "fields": ('font', 'get_font_preview', 'main_text_color', ('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
         }),
         ('Home Banner', {
             "fields": ('home_banner_text_align_vertical', 'home_banner_text_align_horizontal', 'home_banner_height',)
@@ -121,13 +139,13 @@ class DesignSettingsAdmin(TranslatableAdmin):
             "fields": ('social_icons_top_size', 'social_icons_footer_size',)
         }),
         ('Main Menu', {
-            "fields": ('main_menu_text_color', 'main_menu_text_size', 'banner_height', )
+            "fields": ('main_menu_text_color', 'main_menu_text_size', 'preview_main_menu_text_color', 'banner_height', )
         }),
         ('Vertical Lines', {
-            "fields": ('vertical_lines_color', 'vertical_lines_width',)
+            "fields": (('vertical_lines_color', 'preview_vertical_lines_color',), 'vertical_lines_width',)
         }),
         ('Overlay Header Menu', {
-            "fields": ('overlay_default', 'overlay', 'overlay_opacity', 'overlay_color',)
+            "fields": ('overlay_default', 'overlay', 'overlay_opacity', 'overlay_color', 'preview_overlay')
         }),
         ('Buttons', {
             "fields": ('button_color', 'button_size', 'button_form', 'home_big_banner_button')
@@ -156,6 +174,57 @@ class DesignSettingsAdmin(TranslatableAdmin):
     # def has_add_permission(self, request):
     #     # Disable add
     #     return False
+
+    def preview_background_color(self, obj):
+        if obj.background_color:
+            return mark_safe('<div style="background-color: {}; height: 25px; width: 100px; border: 1px solid gray;"> </div>'.format(obj.background_color))
+
+    def preview_container_color(self, obj):
+        if obj.container_color:
+            return mark_safe('<div style="background-color: {}; height: 25px; width: 100px; border: 1px solid gray;"> </div>'.format(obj.container_color))
+
+    def preview_vertical_lines_color(self, obj):
+        if obj.vertical_lines_color:
+            return mark_safe('<div style="background-color: {}; height: 25px; width: 100px; border: 1px solid gray;"> </div>'.format(obj.vertical_lines_color))
+
+    def preview_main_menu_text_color(self, obj):
+        if obj.main_menu_text_color:
+            main_menu_text_color = obj.main_menu_text_color
+        else:
+            main_menu_text_color = 'white'
+        if obj.overlay_color:
+            return mark_safe('<div style="background-color: {b}; color: {t}; height: 25px; width: 100px; border: 1px solid gray;"> Menu Text </div>'.format(b=obj.overlay_color, t=main_menu_text_color))
+        else:
+            return mark_safe('<div style="background-color: gray; color: {t}; height: 25px; width: 100px; border: 1px solid gray;"> Menu Text </div>'.format(t=main_menu_text_color))
+
+    def preview_overlay(self, obj):
+        home_pic = PagePictures.objects.language('en').get(translations__name='home_big_banner_1840x950').image
+        banner = PagePictures.objects.language('en').get(translations__name='top_banner_1840x300').image
+        if obj.main_menu_text_color:
+            main_menu_text_color = obj.main_menu_text_color
+        else:
+            main_menu_text_color = 'white'
+        if home_pic:
+            if obj.overlay_color and obj.overlay_opacity:
+                fpic = mark_safe('<div style="background: url({im}) no-repeat center center; height: 100px; width: 200px;"><div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: 100px; width: 200px; border: 1px solid gray; color: {t}"> Menu Text </div></div>'.format(im=home_pic.url, b=obj.overlay_color, t=main_menu_text_color, o=obj.overlay_opacity))
+            else:
+                fpic = mark_safe('<div style="background: url({im}); height: 100px; width: 200px;"><div class="overlay overlay-bg" style="height: 100px; border: 1px solid gray; color: {t}"> Menu Text </div></div>'.format(t=main_menu_text_color, im=home_pic.url, ))
+        else:
+            if obj.overlay_color and obj.overlay_opacity:
+                fpic = mark_safe('<div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: 100px; width: 200px; border: 1px solid gray; color: {t}"> Menu Text </div>'.format(b=obj.overlay_color, t=main_menu_text_color, o=obj.overlay_opacity))
+            else:
+                fpic = mark_safe('<div class="overlay overlay-bg" style="height: 100px; border: 1px solid gray; color: {t}"> Menu Text </div>'.format(t=main_menu_text_color))
+        if banner:
+            if obj.overlay_color and obj.overlay_opacity:
+                spic = mark_safe('<div style="background: url({im}) no-repeat center center; height: 100px; width: 200px;"><div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: 100px; width: 200px; border: 1px solid gray; color: {t}"> Menu Text </div></div>'.format(im=banner.url, b=obj.overlay_color, t=main_menu_text_color, o=obj.overlay_opacity))
+            else:
+                spic = mark_safe('<div style="background: url({im}); height: 100px; width: 200px;"><div class="overlay overlay-bg" style="height: 100px; border: 1px solid gray; color: {t}"> Menu Text </div></div>'.format(t=main_menu_text_color, im=banner.url, ))
+        else:
+            if obj.overlay_color and obj.overlay_opacity:
+                spic = mark_safe('<div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: 100px; width: 200px; border: 1px solid gray; color: {t}"> Menu Text </div>'.format(b=obj.overlay_color, t=main_menu_text_color, o=obj.overlay_opacity))
+            else:
+                spic = mark_safe('<div class="overlay overlay-bg" style="height: 100px; border: 1px solid gray; color: {t}"> Menu Text </div>'.format(t=main_menu_text_color))
+        return mark_safe(fpic + '<br>' + spic)
 
     def get_img_preview(self, obj):
         if obj.background_image.url:
