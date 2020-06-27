@@ -49,22 +49,22 @@
 {% block conteiner %}
     <section class="service-area section-gap" id="service">
         <div class="container">
-            {% service_detail_texts as texts %}
-            {% if texts.big_page_title or texts.small_page_title %}
-                <div class="col-md-12 mb-20 header-text text-center">
-                    <h1 class="mb-10 title-size">{{ texts.big_page_title|safe }}</h1>
-                    <p class="title-size">{{ texts.small_page_title|safe }}</p>
-                </div>
-            {% endif %}
-
-            <div class="section-top-border p-4 mt-0">
+            <div class="col-md-12 mb-20 header-text text-center">
                 <h1 class="mb-10">{{ service.title }}</h1>
+                {% service_detail_texts as texts %}
+                {% if texts.active %}
+                    {% if texts|get_translated_field:'small_page_title' %}
+                        {% with texts|get_translated_field:'small_page_title' as small %}
+                            <p>{{ small|safe }}</p>
+                        {% endwith %}
+                    {% endif %}
+                {% endif %}
 
-                <div class="mb-15">
+                <div class="mb-15 center">
                     {% with service.image as image %}
                         {% if image %}
-                            {% thumbnail image "300x300" crop='center' as img %}
-                                <img class="img-fluid d-block" style="border-radius: 10px"  src="{{ img.url }}" height="600" alt="">
+                            {% thumbnail image "1045x300" crop='center' as img %}
+                                <img class="img-fluid d-block" style="border-radius: 10px"  src="{{ img.url }}" height="1045" alt="">
                             {% endthumbnail %}
                         {% endif %}
                     {% endwith %}

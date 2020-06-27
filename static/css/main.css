@@ -893,12 +893,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .genric-btn.default:hover {
   border: 1px solid #f9f9ff;
-  background: #fff;
+  background:transparent;
 }
 
 .genric-btn.default-border {
   border: 1px solid #f9f9ff;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.default-border:hover {
@@ -916,13 +916,13 @@ h1,h2,h3,h4,h5,h6 {
 .genric-btn.primary:hover {
   color: #c6b069;
   border: 1px solid #c6b069;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.primary-border {
   color: #c6b069;
   border: 1px solid #c6b069;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.primary-border:hover {
@@ -940,13 +940,13 @@ h1,h2,h3,h4,h5,h6 {
 .genric-btn.success:hover {
   color: #4cd3e3;
   border: 1px solid #4cd3e3;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.success-border {
   color: #4cd3e3;
   border: 1px solid #4cd3e3;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.success-border:hover {
@@ -964,13 +964,13 @@ h1,h2,h3,h4,h5,h6 {
 .genric-btn.info:hover {
   color: #38a4ff;
   border: 1px solid #38a4ff;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.info-border {
   color: #38a4ff;
   border: 1px solid #38a4ff;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.info-border:hover {
@@ -988,13 +988,13 @@ h1,h2,h3,h4,h5,h6 {
 .genric-btn.warning:hover {
   color: #f4e700;
   border: 1px solid #f4e700;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.warning-border {
   color: #f4e700;
   border: 1px solid #f4e700;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.warning-border:hover {
@@ -1012,17 +1012,17 @@ h1,h2,h3,h4,h5,h6 {
 .genric-btn.danger:hover {
   color: #f44a40;
   border: 1px solid #f44a40;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.danger-border {
   color: #f44a40;
   border: 1px solid #f44a40;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.danger-border:hover {
-  color: #fff;
+  color: transparent;
   background: #f44a40;
   border: 1px solid transparent;
 }
@@ -1037,13 +1037,13 @@ h1,h2,h3,h4,h5,h6 {
 .genric-btn.link:hover {
   color: #222;
   border: 1px solid #f9f9ff;
-  background: #fff;
+  background: transparent;
 }
 
 .genric-btn.link-border {
   color: #222;
   border: 1px solid #f9f9ff;
-  background: #fff;
+  background: transparent;
   text-decoration: underline;
 }
 

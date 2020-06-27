@@ -7,24 +7,27 @@ from parler.utils.context import switch_language
 
 BUTTON_COLOR_CHOICES = (
     ('default', 'default'),
+    ('default-border', 'default-border'),
     ('primary', 'primary'),
+    ('primary-border', 'primary-border'),
     ('success', 'success'),
+    ('success-border', 'success-border'),
     ('info', 'info'),
+    ('info-border', 'info-border'),
     ('warning', 'warning'),
+    ('warning-border', 'warning-border'),
     ('danger', 'danger'),
+    ('danger-border', 'danger-border'),
     ('link', 'link'),
+    ('link-border', 'link-border'),
     ('disable', 'disable'),
 )
 
 BUTTON_FORM_CHOICES = (
     (' ', 'square default'),
-    ('-border', 'square border'),
-    (' radius', 'radius'),
-    ('-border radius', 'radius border'),
-    (' circle', 'circle'),
-    ('-border circle', 'circle border'),
-    (' circle arrow', 'circle arrow'),
-    ('-border circle arrow', 'circle arrow border'),
+    ('radius', 'radius'),
+    ('circle', 'circle'),
+    ('circle arrow', 'circle arrow'),
 )
 
 BUTTON_SIZE_CHOICES = (
@@ -66,7 +69,9 @@ FONT_CHOICES = (
 
 class DesignSettings(TranslatableModel):
     translations = TranslatedFields(
-        home_big_banner_button=models.CharField(_('home_big_banner_button'), max_length=50, default='', null=True, blank=True)
+        home_big_banner_button=models.CharField(_('home_big_banner_button'), max_length=50, default='', null=True, blank=True),
+        contact_button_text=models.CharField(_('contact_button_text'), max_length=50, default='', null=True, blank=True),
+        callto_banner_button_text=models.CharField(_('callto_banner_button_text'), max_length=50, default='', null=True, blank=True),
     )
     active = models.BooleanField(_('active'), default=False)
     name = models.CharField(_('name'), default='design', blank=True, null=True, max_length=200, editable=False)
@@ -74,7 +79,7 @@ class DesignSettings(TranslatableModel):
 
     button_color = models.CharField(_('button_color'), max_length=100, choices=BUTTON_COLOR_CHOICES, default='success', null=True, blank=True)
     button_size = models.CharField(_('button_size'), max_length=100, choices=BUTTON_SIZE_CHOICES, default=' ', null=True, blank=True)
-    button_form = models.CharField(_('button_form'), max_length=100, choices=BUTTON_FORM_CHOICES, default=' radius', null=True, blank=True)
+    button_form = models.CharField(_('button_form'), max_length=100, choices=BUTTON_FORM_CHOICES, default='radius', null=True, blank=True)
     home_banner_text_align_vertical = models.CharField(_('home_banner_text_align_vertical'), max_length=100, choices=HOME_V, default='align-items-center', null=True, blank=True)
     home_banner_text_align_horizontal = models.CharField(_('home_banner_text_align_horizontal'), max_length=100, choices=HOME, default='justify-content-center', null=True, blank=True)
     font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
@@ -88,6 +93,7 @@ class DesignSettings(TranslatableModel):
     banner_height = models.CharField(_('banner_height'), default=300, max_length=50, null=True, blank=True)
     background_color = models.CharField(_('background_color (#000000 or black)'), max_length=200, null=True, blank=True)
     footer_background_color = models.CharField(_('footer_background_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    footer_font_color = models.CharField(_('footer_background_color (#000000 or black)'), max_length=200, null=True, blank=True)
     container_color = models.CharField(_('container_color (#000000 or black)'), max_length=200, null=True, blank=True)
     vertical_lines_color = models.CharField(_('vertical_lines_color (#000000 or black)'), max_length=200, null=True, blank=True)
     vertical_lines_width = models.CharField(_('vertical_lines_width 3 or 5'), max_length=20, null=True, blank=True)
@@ -112,6 +118,9 @@ class DesignSettings(TranslatableModel):
 
     def __str__(self):
         return self.name
+
+    def get_button(self):
+        return self.button_size + ' ' + self.button_color + ' ' + self.button_form
 
 
 class FunctionalSettings(models.Model):

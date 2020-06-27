@@ -52,11 +52,15 @@
             <div class="justify-content-center">
                 <div class="col-md-12 pb-50 header-text text-center">
                     {% news_list_texts as texts %}
-                    {% if texts.big_page_title or texts.small_page_title %}
-                        <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
-                        <p>{{ texts.small_page_title|safe }}</p>
-                    {% else %}
-                        <h1 class="mb-10">{% trans 'News' %}</h1>
+                    {% if texts.active %}
+                        {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
+                            {% with texts|get_translated_field:'big_page_title' as big %}
+                                <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                            {% endwith %}
+                            {% with texts|get_translated_field:'small_page_title' as small %}
+                                <p>{{ small|safe }}</p>
+                            {% endwith %}
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

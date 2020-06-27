@@ -166,13 +166,17 @@
             </div>
 
             {% profile_texts as texts %}
-            {% if texts.small_page_title %}
-                <div class="col-md-12 mb-20 header-text text-center">
-                    <hr>
-{#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
-                    <p>{{ texts.small_page_title|safe }}</p>
-                </div>
+            {% if texts.active %}
+                {% if texts|get_translated_field:'small_page_title' %}
+                    <div class="col-md-12 mb-20 header-text text-center">
+                        <hr>
+                        {% with texts|get_translated_field:'small_page_title' as small %}
+                            <p>{{ small|safe }}</p>
+                        {% endwith %}
+                    </div>
+                {% endif %}
             {% endif %}
+                
         </div>
     </section>
     <!-- End project-details Area -->

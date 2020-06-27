@@ -60,13 +60,12 @@
                                 <h1 class="mb-10 title-size">{{ big|safe }}</h1>
                             {% endwith %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
-                                <h4 class="title-size">{{ small|safe }}</h4>
+                                <p class="title-size">{{ small|safe }}</p>
                             {% endwith %}
                         {% endif %}
                     </div>
                 </div>
             {% endif %}
-
 
             {% for service in allservices %}
                 <a href="{{ service.get_absolute_url }}">

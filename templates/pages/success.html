@@ -47,23 +47,18 @@
 {% block conteiner %}
     <div style="text-align: center">
         {% success_texts as texts %}
-        {% if texts.big_page_title or texts.small_page_title %}
-            <h1 class="mb-10"><b>{{ texts.big_page_title|safe }}</b></h1>
-            <br><br>
-            <h3>{{ texts.small_page_title|safe }}</h3>
-        {% else %}
-            <h1><b>{% trans 'Thanks for being awesome! ' %}</b></h1>
-
-            <h3>
-                {% blocktrans %}
-                    <br>
-                    We have received your message and would like to thank you for writing to us. <br><br>
-                    If your inquiry is urgent, please use the telephone number listed below to talk to one of our staff members. <br><br>
-                    Otherwise, we will reply by email as soon as possible.
-                    <br><br><br>
-                    Talk to you soon, <b>Default arhitektuuriburoo.</b>
-                {% endblocktrans %}
-            </h3>
+        {% if texts.active %}
+            {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
+                {% with texts|get_translated_field:'big_page_title' as big %}
+                    <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                {% endwith %}
+                {% with texts|get_translated_field:'small_page_title' as small %}
+                    <p>{{ small|safe }}</p>
+                {% endwith %}
+                {% with texts|get_translated_field:'add_other_text' as other %}
+                    <p class="mt-20">{{ other|safe }}</p>
+                {% endwith %}
+            {% endif %}
         {% endif %}
     </div>
 {% endblock conteiner %}

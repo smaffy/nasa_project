@@ -46,10 +46,10 @@
                 <!-- End banner Area -->
     {% if design.active and design.full_top_banner %}
         <section class="gallery-area pt-40" {% if design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
-            <div class="container module {% if design.container_color %} container_color {% endif %}">
+            <div class="container {% if design.vertical_lines %}module{% endif %} {% if design.container_color %} container_color {% endif %}">
     {% elif not design.active %}
         <section class="gallery-area pt-40" {% if design.background_image_on and design.background_image %} style="background: url({{ design.background_image.url }}) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;" {% elif design.background_color %} style="background-color: {{ design.background_color }}" {% endif %}>
-            <div class="container module {% if design.container_color %} container_color {% endif %}">
+            <div class="container {% if design.vertical_lines %}module{% endif %} {% if design.container_color %} container_color {% endif %}">
     {% endif %}
                 {% block conteiner %}
 

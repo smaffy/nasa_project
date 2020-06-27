@@ -14,10 +14,10 @@
                 {{ titl|safe }} {% if texts.add_name %} "{{ project.title }}" {% endif %}
             {% endwith %}
         {% else %}
-            {% trans 'Project' %} "{{ project.title }}"
+            {% trans 'Project' %} {% if texts.add_name %} "{{ project.title }}" {% endif %}
         {% endif %}
     {% else %}
-        {% trans 'Project' %} "{{ project.title }}"
+        {% trans 'Project' %}
     {% endif %}
 {% endblock title %}
 
@@ -30,7 +30,7 @@
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Project' %} "{{ project.title }}"
+        {% trans 'Project' %}
     {% endif %}
 {% endblock title2 %}
 
@@ -182,13 +182,15 @@
             {% endif %}
 
             {% project_detail_texts as texts %}
-            {% if texts.big_page_title or texts.small_page_title %}
-                <div class="col-md-12 mb-20 header-text text-center">
-                    <hr>
-{#                    <h1 class="mb-10">{{ texts.big_page_title }}</h1>#}
-                    <p>{{ texts.small_page_title|safe }}</p>
-                </div>
+            {% if texts.active %}
+                {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
+                    {% with texts|get_translated_field:'small_page_title' as small %}
+                        <p>{{ small|safe }}</p>
+                    {% endwith %}
+                {% endif %}
             {% endif %}
+
+
         </div>
     </section>
     <!-- End project-details Area -->

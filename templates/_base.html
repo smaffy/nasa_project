@@ -103,10 +103,16 @@
                 background-color: {{ design.background_color }};
             }
             .footer-bg-color {
-                background-color: {{ design.footer_background_color }};
+                background: {{ design.footer_background_color }};
             }
             .container_color {
                 background: {{ design.container_color }};
+            }
+            .background_color {
+                background: {{ design.background_color }};
+            }
+            .transparent {
+                background: transparent;
             }
             .module {
                 padding: 1rem;
@@ -121,7 +127,7 @@
                     ) 1 100%;
             }
             body{
-                color:yellow;
+                color: {{ design.main_text_color }};
                 font-family: {{ design.font }};
 
                 {#font-size:5px;#}

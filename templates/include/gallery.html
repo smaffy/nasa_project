@@ -1,3 +1,4 @@
+{% load parler_tags %}
 {% load static %}
 {% load i18n %}
 {% load design_tags %}
@@ -8,17 +9,24 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 pb-40 header-text text-center">
                 {% project_list_texts as texts %}
-                    {% if texts.big_page_title or texts.small_page_title %}
+                {% if texts.active %}
+                    {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
                         <a href="{% url 'pages:projects' %}">
-                            <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                            <p>{{ texts.small_page_title }}</p>
+                            {% with texts|get_translated_field:'big_page_title' as big %}
+                                <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                            {% endwith %}
                         </a>
-                    {% else %}
-                        <h1 class="pb-10">{% trans 'Our Recent Works may impress you' %}</h1>
-                        <p>
-                            {% trans 'Who are in extremely love with eco friendly system.' %}
-                        </p>
+                            {% with texts|get_translated_field:'small_page_title' as small %}
+                                <p>{{ small|safe }}</p>
+                            {% endwith %}
+
                     {% endif %}
+                {% else %}
+                    <a href="{% url 'pages:projects' %}">
+                        <h1 class="pb-10">{% trans 'Our Recent Works may impress you' %}</h1>
+                    </a>
+                {% endif %}
+
             </div>
         </div>
         <div class="row">

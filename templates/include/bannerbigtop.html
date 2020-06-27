@@ -23,13 +23,14 @@
                             {% if texts|get_translated_field:'banner_big_text' or texts|get_translated_field:'small_page_title' %}
                                 {% with texts|get_translated_field:'banner_big_text' as big %}
                                     <h1 class="mb-10">{{ big|safe }}</h1>
+
                                 {% endwith %}
                                 {% with texts|get_translated_field:'small_page_title' as small %}
                                     <p class="text-white mx-auto">{{ small|safe }}</p>
                                 {% endwith %}
 
                                 {% if design|get_translated_field:'home_big_banner_button' %}
-                                    <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }}</a>
+                                    <a href="{% url 'pages:contact' %}" class="genric-btn {{ design.get_button }} text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }} {% if 'arrow' in design.button_form %}<span class="lnr lnr-arrow-right"></span>{% endif %}</a>
                                 {% endif %}
                             {% endif %}
                         {% endif %}

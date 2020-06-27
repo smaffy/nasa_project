@@ -1,3 +1,4 @@
+{% load parler_tags %}
 {% load thumbnail %}
 {% load static %}
 {% load i18n %}
@@ -11,14 +12,21 @@
                 <div class="menu-content pb-10 pt-60 col-lg-9">
                     <div class="title text-center">
                         {% news_list_texts as texts %}
-                        {% if texts.big_page_title or texts.small_page_title %}
-                            <a href="{% url 'pages:news' %}">
-                                <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                                <p>{{ texts.small_page_title }}</p>
-                            </a>
-                        {% else %}
-                            <h1 class="mb-10">{% trans 'Last news' %}</h1>
-                            <p>{% trans 'news news news news' %}</p>
+                        {% if texts.active %}
+                            {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
+                                <a href="{% url 'pages:news' %}">
+                                    {% with texts|get_translated_field:'big_page_title' as big %}
+                                        <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                                    {% endwith %}
+                                </a>
+                                    {% with texts|get_translated_field:'small_page_title' as small %}
+                                        <p>{{ small|safe }}</p>
+                                    {% endwith %}
+                            {% else %}
+                                <a href="{% url 'pages:news' %}">
+                                    <h1 class="mb-10">{% trans 'News' %}</h1>
+                                </a>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>

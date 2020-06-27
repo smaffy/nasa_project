@@ -1,7 +1,7 @@
 {% load static %}
 
 <!-- Start brands Area -->
-<section class="brands-area pb-20 pt-20">
+<section class="brands-area pb-20 pt-20 {% if design.active %} {% if design.container_color %} container_color {% elif design.background_color %} background_color {% endif %} {% endif %}">
     <div class="container no-padding">
         <div class="brand-wrap justify-content-center">
             <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">

@@ -1,3 +1,4 @@
+{% load parler_tags %}
 {% load static %}
 {% load i18n %}
 {% load design_tags %}
@@ -9,23 +10,23 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 pb-50 pt-40 header-text text-center">
                     {% service_list_texts as texts %}
-                    {% if texts.big_page_title or texts.small_page_title %}
-                        <a href="{% url 'pages:service_list' %}">
-                            <h1 class="mb-10">{{ texts.big_page_title }}</h1>
-                            <p>{{ texts.small_page_title }}</p>
-                        </a>
-                    {% else %}
-                        <h1 class="mb-10">{% trans 'What we offer to our clients' %}</h1>
-                        <p>
-                            {% blocktrans %}
-                                Meil on üle kümne aasta jagu kogemusi väga erinevate töödega arhitektuuri ja sisearhitektuuri valdkonnas.
-                                Aastast 2004 oleme taotlenud suurusjärgus 200+ ehitusluba.
-                                Omame suuri kogemusi miljööaladele projekterimisel ning fikseeritud eelarvega töötamisel.
-                                Koostöös klientidega oleme välja arendanud mugava protsessijuhtimise mudeli, mille käigus koostame tegevuskava
-                                ja teavitame klienti projekti arengutest kindla regulaarsusega.
-                            {% endblocktrans %}
-                        </p>
+                    {% if texts.active %}
+                        {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
+                            <a href="{% url 'pages:service_list' %}">
+                                {% with texts|get_translated_field:'big_page_title' as big %}
+                                    <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                                {% endwith %}
+                            </a>
+                                {% with texts|get_translated_field:'small_page_title' as small %}
+                                    <p>{{ small|safe }}</p>
+                                {% endwith %}
+                        {% else %}
+                            <a href="{% url 'pages:service_list' %}">
+                                <h1 class="mb-10">{% trans 'Services' %}</h1>
+                            </a>
+                        {% endif %}
                     {% endif %}
+
                 </div>
             </div>
             {% for row in hservices %}

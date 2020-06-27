@@ -63,3 +63,16 @@
 .lll {
     margin-right: -15%;
 }
+
+.module {
+    padding: 1rem;
+    color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-image:
+        linear-gradient(
+            to bottom,
+            gray,
+            rgba(0, 0, 0, 0)
+        ) 1 100%;
+}

@@ -5,8 +5,246 @@ from django import forms
 from django.utils.safestring import mark_safe
 from parler.admin import TranslatableAdmin
 
+from users.models import CustomUser
 from .forms import PageTextsAdminForm
 from .models import PageTexts, PagePictures, FunctionalSettings, DesignSettings
+
+mystyle = """
+    <style>
+        .genric-btn {
+          display: inline-block;
+          outline: none;
+          line-height: 40px;
+          padding: 0 30px;
+          font-size: .8em;
+          text-align: center;
+          text-decoration: none;
+          font-weight: 500;
+          cursor: pointer;
+          -webkit-transition: all 0.3s ease 0s;
+          -moz-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s;
+        }
+    
+        .genric-btn:focus {
+          outline: none;
+        }
+    
+        .genric-btn.e-large {
+          padding: 0 40px;
+          line-height: 50px;
+        }
+    
+        .genric-btn.large {
+          line-height: 45px;
+        }
+    
+        .genric-btn.medium {
+          line-height: 30px;
+        }
+    
+        .genric-btn.small {
+          line-height: 25px;
+        }
+    
+        .genric-btn.radius {
+          border-radius: 3px;
+        }
+    
+        .genric-btn.circle {
+          border-radius: 20px;
+        }
+    
+        .genric-btn.arrow {
+          display: -webkit-inline-box;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+        }
+    
+        .genric-btn.arrow span {
+          margin-left: 10px;
+        }
+    
+        .genric-btn.default {
+          color: #222;
+          background: #f9f9ff;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.default:hover {
+          border: 1px solid #f9f9ff;
+          background:transparent;
+        }
+    
+        .genric-btn.default-border {
+          border: 1px solid #f9f9ff;
+          background: transparent;
+        }
+    
+        .genric-btn.default-border:hover {
+          color: #222;
+          background: #f9f9ff;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.primary {
+          color: #fff;
+          background: #c6b069;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.primary:hover {
+          color: #c6b069;
+          border: 1px solid #c6b069;
+          background: transparent;
+        }
+    
+        .genric-btn.primary-border {
+          color: #c6b069;
+          border: 1px solid #c6b069;
+          background: transparent;
+        }
+    
+        .genric-btn.primary-border:hover {
+          color: #fff;
+          background: #c6b069;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.success {
+          color: transparent;
+          background: #4cd3e3;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.success:hover {
+          color: #4cd3e3;
+          border: 1px solid #4cd3e3;
+          background: transparent;
+        }
+    
+        .genric-btn.success-border {
+          color: #4cd3e3;
+          border: 1px solid #4cd3e3;
+          background: transparent;
+        }
+    
+        .genric-btn.success-border:hover {
+          color: #fff;
+          background: #4cd3e3;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.info {
+          color: #fff;
+          background: #38a4ff;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.info:hover {
+          color: #38a4ff;
+          border: 1px solid #38a4ff;
+          background: transparent;
+        }
+    
+        .genric-btn.info-border {
+          color: #38a4ff;
+          border: 1px solid #38a4ff;
+          background: transparent;
+        }
+    
+        .genric-btn.info-border:hover {
+          color: #fff;
+          background: #38a4ff;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.warning {
+          color: #fff;
+          background: #f4e700;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.warning:hover {
+          color: #f4e700;
+          border: 1px solid #f4e700;
+          background: transparent;
+        }
+    
+        .genric-btn.warning-border {
+          color: #f4e700;
+          border: 1px solid #f4e700;
+          background: transparent;
+        }
+    
+        .genric-btn.warning-border:hover {
+          color: #fff;
+          background: #f4e700;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.danger {
+          color: #fff;
+          background: #f44a40;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.danger:hover {
+          color: #f44a40;
+          border: 1px solid #f44a40;
+          background: transparent;
+        }
+    
+        .genric-btn.danger-border {
+          color: #f44a40;
+          border: 1px solid #f44a40;
+          background: transparent;
+        }
+    
+        .genric-btn.danger-border:hover {
+          color: transparent;
+          background: #f44a40;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.link {
+          color: #222;
+          background: #f9f9ff;
+          text-decoration: underline;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.link:hover {
+          color: #222;
+          border: 1px solid #f9f9ff;
+          background: transparent;
+        }
+    
+        .genric-btn.link-border {
+          color: #222;
+          border: 1px solid #f9f9ff;
+          background: transparent;
+          text-decoration: underline;
+        }
+    
+        .genric-btn.link-border:hover {
+          color: #222;
+          background: #f9f9ff;
+          border: 1px solid transparent;
+        }
+    
+        .genric-btn.disable {
+          color: #222,0.3;
+          background: #f9f9ff;
+          border: 1px solid transparent;
+          cursor: not-allowed;
+        }
+    </style>
+        """
 
 
 def delete_design(TranslatableAdmin, request, queryset):
@@ -70,10 +308,10 @@ class PagePicturesAdmin(TranslatableAdmin):
             main_menu_text_color = 'white'
 
         if design.overlay_color and design.overlay_opacity and obj.image:
-            fpic = mark_safe( '<div style="text-align: center; background: url({im}) no-repeat center center; height: {h}px; width: {w}px;"><div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: {h}px; width: {w}px; border: 1px solid gray; color: {t}"> <b>Menu Text</b> </div></div>'.format(
+            fpic = mark_safe('<div style="text-align: center; background: url({im}) center; height: {h}px; width: {w}px;"><div class="overlay overlay-bg" style="background-color: {b}; color: {t}; opacity: {o}; height: {h}px; width: {w}px; border: 1px solid gray; color: {t}"> <b>Menu Text</b> </div></div>'.format(
                     im=obj.image.url, b=design.overlay_color, t=main_menu_text_color, o=design.overlay_opacity, w=obj.preview_width, h=obj.preview_height))
         else:
-            fpic = mark_safe('<div style="text-align: center; background: url({im}) no-repeat center center; height: {h}px; width: {w}px; color={t}"><div class="overlay overlay-bg"> <b>Menu Text</b> </div></div>'.format(im=obj.image.url, b=design.overlay_color, t=main_menu_text_color, o=design.overlay_opacity, w=obj.preview_width, h=obj.preview_height))
+            fpic = mark_safe('<div style="text-align: center; background: url({im}) center; height: {h}px; width: {w}px; color={t}"><div class="overlay overlay-bg"> <b>Menu Text</b> </div></div>'.format(im=obj.image.url, b=design.overlay_color, t=main_menu_text_color, o=design.overlay_opacity, w=obj.preview_width, h=obj.preview_height))
         return fpic
 
     class Meta:
@@ -120,7 +358,18 @@ class DesignSettingsAdmin(TranslatableAdmin):
     actions = [delete_design, create_or_clear_default_design]
     list_display = ('name', 'info')
     exclude = ('name',)
-    readonly_fields = ['get_img_preview', 'get_font_preview', 'preview_background_color', 'preview_container_color', 'preview_vertical_lines_color', 'preview_main_menu_text_color', 'preview_overlay']
+    readonly_fields = [
+        'get_img_preview',
+        'get_font_preview',
+        'preview_background_color',
+        'preview_container_color',
+        'preview_vertical_lines_color',
+        'preview_main_menu_text_color',
+        'preview_overlay',
+        'preview_footer',
+        'get_logo_preview',
+        'get_home_button_preview',
+    ]
 
     fieldsets = (
         (None, {
@@ -130,7 +379,7 @@ class DesignSettingsAdmin(TranslatableAdmin):
             "fields": ('background_image_on', 'full_top_banner', 'menu_left', 'vertical_lines', 'top_navigation',)
         }),
         ('Main', {
-            "fields": ('font', 'get_font_preview', 'main_text_color', ('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
+            "fields": ('font', 'main_text_color', 'get_font_preview', ('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
         }),
         ('Home Banner', {
             "fields": ('home_banner_text_align_vertical', 'home_banner_text_align_horizontal', 'home_banner_height',)
@@ -148,13 +397,13 @@ class DesignSettingsAdmin(TranslatableAdmin):
             "fields": ('overlay_default', 'overlay', 'overlay_opacity', 'overlay_color', 'preview_overlay')
         }),
         ('Buttons', {
-            "fields": ('button_color', 'button_size', 'button_form', 'home_big_banner_button')
+            "fields": ('button_color', 'button_size', 'button_form', 'home_big_banner_button', 'contact_button_text', 'callto_banner_button_text', 'get_home_button_preview')
         }),
         ('Logo', {
-            "fields": ('logo_height', 'logo_width',)
+            "fields": ('logo_height', 'logo_width', 'get_logo_preview')
         }),
         ('Footer', {
-            "fields": ('footer_background_color',)
+            "fields": ('footer_font_color', 'footer_background_color', 'preview_footer')
         }),
         # (None, {
         #     "fields": ('active', 'info',)
@@ -179,9 +428,62 @@ class DesignSettingsAdmin(TranslatableAdmin):
         if obj.background_color:
             return mark_safe('<div style="background-color: {}; height: 25px; width: 100px; border: 1px solid gray;"> </div>'.format(obj.background_color))
 
+    # def preview_main_text_color(self, obj):
+    #     if obj.container_color and obj.main_text_color:
+    #         return mark_safe('<div style="background-color: {b}; color={t}; height: 25px; width: 100px; border: 1px solid gray;"> Text text text </div>'.format(b=obj.container_color, t=obj.main_text_color))
+    #     if obj.main_text_color:
+    #         return mark_safe('<div style="color={t}; height: 25px; width: 100px; border: 1px solid gray;"> Text text text </div>'.format(t=obj.main_text_color))
+
+    def get_home_button_preview(self, obj):
+        btn = obj.get_button
+        mygenricbtn = 'display: inline-block; outline: none; line-height: 40px; padding: 0 30px; font-size: .8em; text-align: center; text-decoration: none; font-weight: 500; cursor: pointer; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;'
+
+        style = {
+            ' elarge': 'padding: 0 40px; line-height: 50px;',
+            ' large': 'line-height: 45px;',
+            ' medium': 'line-height: 30px;',
+            ' small': 'line-height: 25px;',
+            'radius': 'border-radius: 3px;',
+            'circle': 'border-radius: 20px;',
+            'circle arrow': 'border-radius: 20px;',
+            'default': 'color: #222; background: #f9f9ff; border: 1px solid transparent;',
+            'default-border': 'border: 1px solid #f9f9ff; background: transparent;',
+            'primary': 'color: #fff; background: #c6b069; border: 1px solid transparent;',
+            'primary-border': 'color: #c6b069; border: 1px solid #c6b069; background: transparent;',
+            'success': 'color: #fff; background: #4cd3e3; border: 1px solid transparent;',
+            'success-border': 'color: #4cd3e3; border: 1px solid #4cd3e3; background: transparent;',
+            'info': 'color: #fff; background: #38a4ff; border: 1px solid transparent;',
+            'info-border': 'color: #38a4ff; border: 1px solid #38a4ff; background: transparent;',
+            'warning': '  color: #fff; background: #f4e700; border: 1px solid transparent;',
+            'warning-border': 'color: #f4e700; border: 1px solid #f4e700; background: transparent;',
+            'danger': 'color: #fff; background: #f44a40; border: 1px solid transparent;',
+            'danger-border': 'color: #f44a40; border: 1px solid #f44a40; background: transparent;',
+            'link': 'color: #222; background: #f9f9ff; text-decoration: underline; border: 1px solid transparent;',
+            'link-border': 'color: #222; border: 1px solid #f9f9ff; background: transparent; text-decoration: underline;',
+            'disable': 'color: #222,0.3; background: #f9f9ff; border: 1px solid transparent; cursor: not-allowed;',
+            None: ' ',
+            ' ': ' ',
+        }
+
+        color = style[obj.button_color]
+        size = style[obj.button_size]
+        form = style[obj.button_form]
+
+        return mark_safe('<a href="#" style="{mybtn} {f} {s} {c} text-transform: uppercase; margin-top: 10px"> {t} </a>'.format(mybtn=mygenricbtn, f=form, s=size, c=color, t=obj.home_big_banner_button))
+
     def preview_container_color(self, obj):
         if obj.container_color:
-            return mark_safe('<div style="background-color: {}; height: 25px; width: 100px; border: 1px solid gray;"> </div>'.format(obj.container_color))
+            return mark_safe('<div style="background-color: {}; height: 25px; width: 100px; border: 1px solid gray;">  </div>'.format(obj.container_color))
+
+    def preview_footer(self, obj):
+        if obj.footer_font_color:
+            footer_font_color = obj.footer_font_color
+        else:
+            footer_font_color = obj.main_text_color
+        if obj.footer_background_color:
+            return mark_safe('<div style="background-color: {b}; color: {t}; height: 25px; width: 100px; border: 1px solid gray;"> Text text text </div>'.format(b=obj.footer_background_color, t=footer_font_color))
+        elif obj.background_color:
+            return mark_safe('<div style="background-color: {b}; color: {t};  height: 25px; width: 100px; border: 1px solid gray;"> Text text text </div>'.format(b=obj.background_color, t=footer_font_color))
 
     def preview_vertical_lines_color(self, obj):
         if obj.vertical_lines_color:
@@ -232,6 +534,14 @@ class DesignSettingsAdmin(TranslatableAdmin):
         else:
             return 'no image'
 
+    def get_logo_preview(self, obj):
+        comp = CustomUser.objects.get(username='company')
+        if comp.logo:
+            if obj.logo_height or obj.logo_width:
+                return mark_safe('<img src="{url}" height={h} width={w} />'.format(url=comp.logo.url, h=obj.logo_height, w=obj.logo_width))
+            else:
+                return mark_safe('<img src="{url}" height=30px width=120px />'.format(url=comp.logo.url))
+
     def get_font_preview(self, obj):
         if obj.font == "Poppins, sans-serif":
             a = '<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">'
@@ -264,8 +574,8 @@ class DesignSettingsAdmin(TranslatableAdmin):
 
         ttext = a + """
     
-            {f}:     <p style="font-family: {f}; color:green">Almost before we knew it, we had left the ground.</p>
+            {f}:     <p style="background-color: {c};font-family: {f}; color:{t}">Almost before we knew it, we had left the ground.</p>
         """
-        return mark_safe(ttext.format(f=obj.font))
+        return mark_safe(ttext.format(f=obj.font, t=obj.main_text_color, c=obj.container_color))
 
 
