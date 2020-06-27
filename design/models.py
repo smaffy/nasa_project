@@ -87,8 +87,8 @@ class DesignSettings(TranslatableModel):
     social_icons_footer_size = models.CharField(_('social_icons_footer_size'), default=30, max_length=50, null=True, blank=True)
 
     main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
-    # main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    # main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
+    main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
     home_banner_height = models.CharField(_('home_banner_height'), default=950, max_length=50, null=True, blank=True)
     banner_height = models.CharField(_('banner_height'), default=300, max_length=50, null=True, blank=True)
     background_color = models.CharField(_('background_color (#000000 or black)'), max_length=200, null=True, blank=True)
