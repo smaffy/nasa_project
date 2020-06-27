@@ -112,6 +112,13 @@ class DesignSettings(TranslatableModel):
     vertical_lines = models.BooleanField(_('vertical_lines'), default=False)
     top_navigation = models.BooleanField(_('top_navigation'), default=True)
 
+    # big_title_color,size,font
+    # small_title_color,size,font
+    # banner_title_color,size,font
+    # date_color,size,font
+    # main_text_color,size,font
+    # bold_text_color,size,font
+
     class Meta:
         verbose_name = _('Design Settings')
         verbose_name_plural = _('Design Settings')

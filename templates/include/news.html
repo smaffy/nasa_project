@@ -22,11 +22,11 @@
                                     {% with texts|get_translated_field:'small_page_title' as small %}
                                         <p>{{ small|safe }}</p>
                                     {% endwith %}
-                            {% else %}
-                                <a href="{% url 'pages:news' %}">
-                                    <h1 class="mb-10">{% trans 'News' %}</h1>
-                                </a>
                             {% endif %}
+                        {% else %}
+                            <a href="{% url 'pages:news' %}">
+                                <h1 class="mb-10">{% trans 'News' %}</h1>
+                            </a>
                         {% endif %}
                     </div>
                 </div>

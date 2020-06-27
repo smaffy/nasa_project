@@ -17,14 +17,14 @@
                             {% with texts|get_translated_field:'big_page_title' as big %}
                                 <h6 class="font_big"><a href="{% url 'pages:about' %}" style="color: black">{{ big|safe }}</a></h6>
                             {% endwith %}
-                        {% else %}
-                            <h6 class="font_big"><a href="{% url 'pages:about' %}" style="color: black">{% trans 'About Us' %}</a></h6>
                         {% endif %}
                         {% if texts|get_translated_field:'small_page_title' %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
                                 <p>{{ small|safe }}</p>
                             {% endwith %}
                         {% endif %}
+                    {% else %}
+                        <h6 class="font_big"><a href="{% url 'pages:about' %}" style="color: black">{% trans 'About Us' %}</a></h6>
                     {% endif %}
 
                     <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
