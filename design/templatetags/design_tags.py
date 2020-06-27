@@ -33,7 +33,8 @@ def home_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='home_texts',
-            banner_big_text='Big page title home_texts',
+            big_page_title='Big page title home_texts',
+            banner_big_text='Banner text home_texts',
             small_page_title='Small page title home_texts',
             admin_exclude='name,admin_exclude,big_page_title,add_name',
         )

@@ -163,8 +163,8 @@ class PageTexts(TranslatableModel):
         small_page_title=RichTextUploadingField(_('small page title'), blank=True, null=True),
         add_other_text=RichTextUploadingField(_('add_other_text'), blank=True, null=True),
     )
-    add_name = models.BooleanField(_('add_name_to_bannertext'), default=False, blank=True, null=True)
-    active = models.BooleanField(_('active'), default=False, blank=True, null=True)
+    add_name = models.BooleanField(_('add_name_to_bannertext'), default=False)
+    active = models.BooleanField(_('active'), default=False)
     admin_exclude = models.CharField(default='name,admin_exclude', blank=True, null=True, max_length=600)
 
     class Meta:
