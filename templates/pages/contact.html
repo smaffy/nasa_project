@@ -48,8 +48,8 @@
 
 {% block conteiner %}
     <!-- Start contact-page Area -->
-    <section class="contact-page-area section-gap pt-0 ">
-        <div class="container  {% if design.active %} {% if design.container_color %} container_color {% elif design.background_color %} background_color {% endif %} {% endif %}" >
+    <section class="contact-page-area section-gap pt-0 {% if design.active %} {% if design.container_color %} container_color {% elif design.background_color %} background_color {% endif %} {% endif %}">
+        <div class="container  " >
             <div class="row align-items-center mb-80">
                 <div class="col-lg-12 about-video-left">
                     {% contact_texts as texts %}

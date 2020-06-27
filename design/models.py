@@ -87,8 +87,8 @@ class DesignSettings(TranslatableModel):
     social_icons_footer_size = models.CharField(_('social_icons_footer_size'), default=30, max_length=50, null=True, blank=True)
 
     main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
-    main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
+    # main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    # main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
     home_banner_height = models.CharField(_('home_banner_height'), default=950, max_length=50, null=True, blank=True)
     banner_height = models.CharField(_('banner_height'), default=300, max_length=50, null=True, blank=True)
     background_color = models.CharField(_('background_color (#000000 or black)'), max_length=200, null=True, blank=True)
@@ -112,12 +112,18 @@ class DesignSettings(TranslatableModel):
     vertical_lines = models.BooleanField(_('vertical_lines'), default=False)
     top_navigation = models.BooleanField(_('top_navigation'), default=True)
 
+    # menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    # size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
+    # font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+    #
+    #
     # big_title_color,size,font
     # small_title_color,size,font
     # banner_title_color,size,font
     # date_color,size,font
     # main_text_color,size,font
     # bold_text_color,size,font
+    # footer_text_color,size,font
 
     class Meta:
         verbose_name = _('Design Settings')
