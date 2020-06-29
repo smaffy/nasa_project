@@ -1,7 +1,9 @@
+from django.contrib.admin import ModelAdmin
 from django.contrib.admin.forms import AdminPasswordChangeForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
+
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
@@ -20,7 +22,7 @@ class CustomUserAdmin(UserAdmin):
     readonly_fields = ['get_logo_preview', ]
     fieldsets = [
         (None, {
-            'fields': (('username', 'first_name', 'last_name'), 'active')
+            'fields': (('username', 'first_name', 'last_name'), 'active', 'is_staff', 'groups', )
         }),
         (_('Address'), {
             'fields': ('address', 'postal_code', 'city', 'country')
@@ -54,4 +56,8 @@ class CustomUserAdmin(UserAdmin):
     def get_logo_preview(self, obj):
         return mark_safe('<img src="{url}" width=120 height=30 style="background-color: lightslategray"/>'.format(url=obj.logo.url))
 
-
+    def get_readonly_fields(self, request, obj=None):
+        if not request.user.is_superuser:
+            self.readonly_fields.append('is_staff')
+            self.readonly_fields.append('groups')
+        return self.readonly_fields

@@ -70,7 +70,7 @@
                 <div  class="col-lg-8 col-sm-8 col-8 header-top-right no-padding">
                     <nav id="nav-menu-container">
                         <ul class="nav-menu row float-right">
-                            {% if request.user.is_authenticated and request.user.is_superuser %}
+                            {% if request.user.is_authenticated and request.user.is_staff %}
                                 <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
                             {% else %}
                                  <li></li>
