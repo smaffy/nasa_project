@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-27 09:34+0000\n"
+"POT-Creation-Date: 2020-06-29 12:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,6 +90,14 @@ msgstr ""
 
 #: design/models.py:89
 msgid "main_text_color (#000000 or black)"
+msgstr ""
+
+#: design/models.py:90
+msgid "main_menu_text_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:91
+msgid "main_menu_text_size"
 msgstr ""
 
 #: design/models.py:92
@@ -552,13 +560,13 @@ msgstr ""
 "So you have your new digital camera and clicking away to glory anything and "
 "everything in sight. Now you want."
 
-#: templates/include/footer.html:27 templates/include/header.html:161
+#: templates/include/footer.html:27 templates/include/header.html:180
 #: templates/pages/about.html:16 templates/pages/about.html:19
 #: templates/pages/about.html:32 templates/pages/about.html:42
 msgid "About Us"
 msgstr "About Us"
 
-#: templates/include/footer.html:41 users/admin.py:34
+#: templates/include/footer.html:41 users/admin.py:36
 msgid "Follow Us"
 msgstr "Follow Us"
 
@@ -573,40 +581,40 @@ msgstr "Contact Us"
 msgid "Our Recent Works may impress you"
 msgstr "Our Recent Works may impress you"
 
-#: templates/include/header.html:70
+#: templates/include/header.html:74
 msgid "Other Design Elements"
 msgstr "Other Design Elements"
 
-#: templates/include/header.html:114
+#: templates/include/header.html:133
 msgid "HOME"
 msgstr ""
 
-#: templates/include/header.html:118 templates/include/header.html:129
+#: templates/include/header.html:137 templates/include/header.html:148
 msgid "PROJECTS"
 msgstr ""
 
-#: templates/include/header.html:121 templates/pages/projects_list.html:72
+#: templates/include/header.html:140 templates/pages/projects_list.html:72
 #: templates/pages/projects_list.html:85
 msgid "All Projects"
 msgstr "All Projects"
 
-#: templates/include/header.html:132 templates/include/header.html:142
+#: templates/include/header.html:151 templates/include/header.html:161
 msgid "PEOPLE"
 msgstr ""
 
-#: templates/include/header.html:134 templates/pages/people_list.html:73
+#: templates/include/header.html:153 templates/pages/people_list.html:73
 msgid "All People"
 msgstr "All People"
 
-#: templates/include/header.html:145
+#: templates/include/header.html:164
 msgid "SERVICES"
 msgstr ""
 
-#: templates/include/header.html:146
+#: templates/include/header.html:165
 msgid "NEWS"
 msgstr ""
 
-#: templates/include/header.html:162
+#: templates/include/header.html:181
 msgid "CONTACT"
 msgstr ""
 
@@ -725,6 +733,14 @@ msgstr "Send Message"
 msgid "Elements"
 msgstr "Elements"
 
+#: templates/pages/elements.html:578
+msgid ""
+"\n"
+"            <h1> Sorry, You are not a staff of this site. Please log in or "
+"contact administrator. </h1>\n"
+"        "
+msgstr ""
+
 #: templates/pages/elements_icons.html:9 templates/pages/elements_icons.html:13
 #, fuzzy
 #| msgid "Elements"
@@ -786,23 +802,23 @@ msgstr "Our Services"
 msgid "Contact Success"
 msgstr "Contact Success"
 
-#: users/admin.py:25
+#: users/admin.py:27
 msgid "Address"
 msgstr "Address"
 
-#: users/admin.py:28
+#: users/admin.py:30
 msgid "Company"
 msgstr "Company"
 
-#: users/admin.py:31
+#: users/admin.py:33
 msgid "Contact"
 msgstr "Contact"
 
-#: users/admin.py:37
+#: users/admin.py:39
 msgid "Password"
 msgstr "Password"
 
-#: users/admin.py:40
+#: users/admin.py:42
 msgid "Logo"
 msgstr "Logo"
 
