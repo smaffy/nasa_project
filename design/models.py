@@ -82,21 +82,21 @@ class DesignSettings(TranslatableModel):
     button_form = models.CharField(_('button_form'), max_length=100, choices=BUTTON_FORM_CHOICES, default='radius', null=True, blank=True)
     home_banner_text_align_vertical = models.CharField(_('home_banner_text_align_vertical'), max_length=100, choices=HOME_V, default='align-items-center', null=True, blank=True)
     home_banner_text_align_horizontal = models.CharField(_('home_banner_text_align_horizontal'), max_length=100, choices=HOME, default='justify-content-center', null=True, blank=True)
-    font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+    font = models.CharField(_('fonts_for_all_site'), max_length=200, choices=FONT_CHOICES, default='Poppins, sans-serif', null=True, blank=True)
     social_icons_top_size = models.CharField(_('social_icons_top_size'), default=20, max_length=50, null=True, blank=True)
     social_icons_footer_size = models.CharField(_('social_icons_footer_size'), default=30, max_length=50, null=True, blank=True)
 
-    main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
-    main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
-    home_banner_height = models.CharField(_('home_banner_height'), default=950, max_length=50, null=True, blank=True)
-    banner_height = models.CharField(_('banner_height'), default=300, max_length=50, null=True, blank=True)
+    # main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    # main_menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    # main_menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
+    home_banner_height = models.CharField(_('home_banner_height px'), default=950, max_length=50, null=True, blank=True)
+    banner_height = models.CharField(_('banner_height px'), default=300, max_length=50, null=True, blank=True)
     background_color = models.CharField(_('background_color (#000000 or black)'), max_length=200, null=True, blank=True)
     footer_background_color = models.CharField(_('footer_background_color (#000000 or black)'), max_length=200, null=True, blank=True)
     footer_font_color = models.CharField(_('footer_background_color (#000000 or black)'), max_length=200, null=True, blank=True)
     container_color = models.CharField(_('container_color (#000000 or black)'), max_length=200, null=True, blank=True)
     vertical_lines_color = models.CharField(_('vertical_lines_color (#000000 or black)'), max_length=200, null=True, blank=True)
-    vertical_lines_width = models.CharField(_('vertical_lines_width 3 or 5'), max_length=20, null=True, blank=True)
+    vertical_lines_width = models.CharField(_('vertical_lines_width px'), max_length=20, null=True, blank=True)
 
     overlay_default = models.BooleanField(_('overlay_default'), default=True)
     overlay = models.BooleanField(_('overlay'), default=True)
@@ -111,19 +111,34 @@ class DesignSettings(TranslatableModel):
     menu_left = models.BooleanField(_('menu_left'), default=False)
     vertical_lines = models.BooleanField(_('vertical_lines'), default=False)
     top_navigation = models.BooleanField(_('top_navigation'), default=True)
-    #
-    # menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    # menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
-    # menu_text_font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
-    #
 
-    # big_title_color,size,font
-    # small_title_color,size,font
-    # banner_title_color,size,font
-    # date_color,size,font
-    # main_text_color,size,font
-    # bold_text_color,size,font
-    # footer_text_color,size,font
+    menu_text_color = models.CharField(_('menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    menu_text_size = models.CharField(_('menu_text_size px'), default=14, max_length=50, null=True, blank=True)
+    menu_text_font = models.CharField(_('menu_text_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
+
+    main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    main_text_size = models.CharField(_('main_text_size px'), default=14, max_length=50, null=True, blank=True)
+    main_text_font = models.CharField(_('main_text_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
+
+    big_title_color = models.CharField(_('big_title_color (#000000 or black)'), max_length=200, null=True, blank=True)
+    big_title_size = models.CharField(_('big_title_size px'), default=14, max_length=50, null=True, blank=True)
+    big_title_font = models.CharField(_('big_title_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
+
+    small_title_color = models.CharField(_('small_title_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    small_title_size = models.CharField(_('small_title_size px'), default=14, max_length=50, null=True, blank=True)
+    small_title_font = models.CharField(_('small_title_font'), max_length=200, choices=FONT_CHOICES,null=True, blank=True)
+
+    banner_title_color = models.CharField(_('banner_title_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    banner_title_size = models.CharField(_('banner_title_size px'), default=14, max_length=50, null=True, blank=True)
+    banner_title_font = models.CharField(_('banner_title_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
+
+    date_color = models.CharField(_('date_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    date_size = models.CharField(_('date_size px'), default=14, max_length=50, null=True, blank=True)
+    date_font = models.CharField(_('date_font'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+
+    footer_text_color = models.CharField(_('footer_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    footer_text_size = models.CharField(_('footer_text_size px'), default=14, max_length=50, null=True, blank=True)
+    footer_text_font = models.CharField(_('footer_text_font'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
 
     class Meta:
         verbose_name = _('Design Settings')
@@ -132,8 +147,39 @@ class DesignSettings(TranslatableModel):
     def __str__(self):
         return self.name
 
-    def get_button(self):
+    def get_button_style(self):
         return self.button_size + ' ' + self.button_color + ' ' + self.button_form
+
+    def get_style(self, size, color, font):
+        t_size = t_color = t_font = None
+        if size:
+            t_size = 'font-size: {}px; '.format(size)
+        if color:
+            t_color = 'color: {}; '.format(color)
+        if font:
+            t_font = 'font-family: {}; '.format(font)
+        return t_size + t_color + t_font
+
+    def get_menu_text_style(self):
+        return self.get_style(size=self.menu_text_size, color=self.menu_text_color, font=self.menu_text_font)
+
+    def get_main_text_style(self):
+        return self.get_style(self.main_text_size, self.main_text_color, self.main_text_font)
+
+    def get_big_title_style(self):
+        return self.get_style(self.big_title_size, self.big_title_color, self.big_title_font)
+
+    def get_small_title_style(self):
+        return self.get_style(self.small_title_size, self.small_title_color, self.small_title_font)
+
+    def get_banner_title_style(self):
+        return self.get_style(self.banner_title_size, self.banner_title_color, self.banner_title_font)
+
+    def get_date_style(self):
+        return self.get_style(self.date_size, self.date_color, self.date_font)
+
+    def get_footer_text_style(self):
+        return self.get_style(self.footer_text_size, self.footer_text_color, self.footer_text_font)
 
 
 class FunctionalSettings(models.Model):

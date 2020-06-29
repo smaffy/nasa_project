@@ -101,6 +101,12 @@
                 border: none;
             }
         {% if design.active %}
+            #nav-menu-container a {
+                {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %}
+            }
+            div.header-top a {
+                {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %}
+            }
             .bg-color {
                 background-color: {{ design.background_color }};
             }

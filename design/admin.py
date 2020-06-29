@@ -379,16 +379,26 @@ class DesignSettingsAdmin(TranslatableAdmin):
             "fields": ('background_image_on', 'full_top_banner', 'menu_left', 'vertical_lines', 'top_navigation',)
         }),
         ('Main', {
-            "fields": ('font', 'main_text_color', 'get_font_preview', ('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
+            "fields": ('get_font_preview', ('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
         }),
+        ('Text styles', {
+            "fields": (
+                'font',
+                ('main_text_color', 'main_text_size', 'main_text_font',),
+                ('menu_text_color', 'menu_text_size', 'menu_text_font',),
+                ('big_title_color', 'big_title_size', 'big_title_font',),
+                ('small_title_color', 'small_title_size', 'small_title_font',),
+                ('banner_title_color', 'banner_title_size', 'banner_title_font',),
+                ('date_color', 'date_size', 'date_font',),
+                ('footer_text_color', 'footer_text_size', 'footer_text_font',),
+            )
+        }),
+
         ('Home Banner', {
-            "fields": ('home_banner_text_align_vertical', 'home_banner_text_align_horizontal', 'home_banner_height',)
+            "fields": ('home_banner_text_align_vertical', 'home_banner_text_align_horizontal', 'home_banner_height', 'banner_height',)
         }),
         ('Icons', {
             "fields": ('social_icons_top_size', 'social_icons_footer_size',)
-        }),
-        ('Main Menu', {
-            "fields": ('main_menu_text_color', 'main_menu_text_size', 'preview_main_menu_text_color', 'banner_height', )
         }),
         ('Vertical Lines', {
             "fields": (('vertical_lines_color', 'preview_vertical_lines_color',), 'vertical_lines_width',)
@@ -435,7 +445,7 @@ class DesignSettingsAdmin(TranslatableAdmin):
     #         return mark_safe('<div style="color={t}; height: 25px; width: 100px; border: 1px solid gray;"> Text text text </div>'.format(t=obj.main_text_color))
 
     def get_home_button_preview(self, obj):
-        btn = obj.get_button
+        btn = obj.get_button_style
         mygenricbtn = 'display: inline-block; outline: none; line-height: 40px; padding: 0 30px; font-size: .8em; text-align: center; text-decoration: none; font-weight: 500; cursor: pointer; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;'
 
         style = {

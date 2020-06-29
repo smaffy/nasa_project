@@ -11,7 +11,7 @@
                 {% company as contacts %}
                 {% if contacts.active %}
 
-                    <div class="col-lg-4 col-sm-4 col-4 header-top-left no-padding">
+                    <div class="col-lg-4 col-sm-4 col-4 header-top-left no-padding ">
                         {% if contacts.phone_number %} <a href="tel:{{ contacts.phone_number }}">{{ contacts.phone_number }}</a> {% endif %}
                         {% if contacts.email %} <a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a> {% endif %}
                     </div>
@@ -135,62 +135,62 @@
                     <a href="{% url 'pages:home' %}"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>
                 {% endif %}
             </div>
-          <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li class="menu-active"><a href="{% url 'pages:home' %}">{% trans 'HOME' %}</a></li>
 
-                {% category_settings as category_set %}
-                {% if category_set.project_category %}
-                    <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'PROJECTS' %}</a>
-    {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
-                        <ul>
-                            <li><a href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a></li>
-                            {% project_categories as project_categories %}
-                                {% for category in project_categories %}
-                                    <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
-                                {% endfor %}
-                        </ul>
-                    </li>
-                {% else %}
-                    <li><a href="{% url 'pages:projects' %}">{% trans 'PROJECTS' %}</a>
-                {% endif %}
-                {% if category_set.profile_category %}
-                    <li class="menu-has-children"><a href="{% url 'pages:people' %}">{% trans 'PEOPLE' %}</a>
-                        <ul>
-                            <li><a href="{% url 'pages:people' %}">{% trans 'All People' %}</a></li>
-                            {% profile_categories as profile_categories %}
-                                {% for category in profile_categories %}
-                                    <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
-                                {% endfor %}
-                        </ul>
-                    </li>
-                {% else %}
-                    <li><a href="{% url 'pages:people' %}">{% trans 'PEOPLE' %}</a>
-                {% endif %}
+            <nav id="nav-menu-container" >
+                <ul class="nav-menu" >
+                    <li class="menu-active"><a href="{% url 'pages:home' %}">{% trans 'HOME' %}</a></li>
+                    {% category_settings as category_set %}
+                    {% if category_set.project_category %}
+                        <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'PROJECTS' %}</a>
+        {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
+                            <ul>
+                                <li><a href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a></li>
+                                {% project_categories as project_categories %}
+                                    {% for category in project_categories %}
+                                        <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                                    {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li ><a href="{% url 'pages:projects' %}">{% trans 'PROJECTS' %}</a>
+                    {% endif %}
+                    {% if category_set.profile_category %}
+                        <li class="menu-has-children"><a href="{% url 'pages:people' %}">{% trans 'PEOPLE' %}</a>
+                            <ul>
+                                <li><a href="{% url 'pages:people' %}">{% trans 'All People' %}</a></li>
+                                {% profile_categories as profile_categories %}
+                                    {% for category in profile_categories %}
+                                        <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                                    {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'pages:people' %}">{% trans 'PEOPLE' %}</a>
+                    {% endif %}
 
-                <li><a href="{% url 'pages:service_list' %}">{% trans 'SERVICES' %}</a></li>
-                <li><a href="{% url 'pages:news' %}">{% trans 'NEWS' %}</a></li>
-
-
-{#              <li class="menu-has-children"><a href="">Pages</a>#}
-{#                <ul>#}
-{#                    <li><a href="project-details.html">Project Details</a></li>#}
-{#                    <li><a href="elements.html">Elements</a></li>#}
-{#                    <li class="menu-has-children"><a href="">Level 2 </a>#}
-{#                        <ul>#}
-{#                            <li><a href="#">Item One</a></li>#}
-{#                            <li><a href="#">Item Two</a></li>#}
-{#                        </ul>#}
-{#                    </li>#}
-{#                </ul>#}
-{#              </li>#}
-                <li><a href="{% url 'pages:about' %}">{% trans 'About Us' %}</a></li>
-                <li><a href="{% url 'pages:contact' %}">{% trans 'CONTACT' %}</a></li>
+                    <li><a href="{% url 'pages:service_list' %}">{% trans 'SERVICES' %}</a></li>
+                    <li><a href="{% url 'pages:news' %}">{% trans 'NEWS' %}</a></li>
 
 
+    {#              <li class="menu-has-children"><a href="">Pages</a>#}
+    {#                <ul>#}
+    {#                    <li><a href="project-details.html">Project Details</a></li>#}
+    {#                    <li><a href="elements.html">Elements</a></li>#}
+    {#                    <li class="menu-has-children"><a href="">Level 2 </a>#}
+    {#                        <ul>#}
+    {#                            <li><a href="#">Item One</a></li>#}
+    {#                            <li><a href="#">Item Two</a></li>#}
+    {#                        </ul>#}
+    {#                    </li>#}
+    {#                </ul>#}
+    {#              </li>#}
+                    <li><a href="{% url 'pages:about' %}">{% trans 'About Us' %}</a></li>
+                    <li><a href="{% url 'pages:contact' %}">{% trans 'CONTACT' %}</a></li>
 
-            </ul>
-          </nav><!-- #nav-menu-container -->
+
+
+                </ul>
+            </nav><!-- #nav-menu-container -->
         </div>
     </div>
 
