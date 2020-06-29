@@ -12,8 +12,8 @@
                 {% if contacts.active %}
 
                     <div class="col-lg-4 col-sm-4 col-4 header-top-left no-padding">
-                        <a href="tel:{{ contacts.phone_number }}">{{ contacts.phone_number }}</a>
-                        <a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a>
+                        {% if contacts.phone_number %} <a href="tel:{{ contacts.phone_number }}">{{ contacts.phone_number }}</a> {% endif %}
+                        {% if contacts.email %} <a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a> {% endif %}
                     </div>
 {#                    <div class="col-lg-4 col-sm-4 col-4 header-top-right no-padding float-right">#}
 {#                        <ul class="nav-menu float-right">#}
@@ -68,8 +68,29 @@
                 {% endif %}
 
                 <div  class="col-lg-8 col-sm-8 col-8 header-top-right no-padding">
-                    <nav id="nav-menu-container">
-                        <ul class="nav-menu row float-right">
+                    <nav id="nav-menu-container row">
+                        <ul class="nav-menu float-right">
+{#                            <li>#}
+                                {% get_current_language as cur_lang %}
+                                {% get_available_languages as langs %}
+                                {% get_language_info_list for langs as languages %}
+
+
+                                {% for language in languages %}
+                                    {% get_translated_url cur_lang as tr_url %}
+                                    <li>
+                                        <a href="/{{ language.code }}/">
+                                            {{ language.name_translated }}
+                                        </a>
+                                    </li>
+
+                                {% endfor %}
+{#                            </li>#}
+
+                        </ul>
+                    </nav>
+                    <nav id="nav-menu-container row">
+                        <ul class="nav-menu float-right">
                             {% if request.user.is_authenticated and request.user.is_staff %}
                                 <li><a href="{% url 'pages:elements' %}"> {% trans 'Other Design Elements' %}</a></li>
                             {% else %}
@@ -87,22 +108,8 @@
                                     <li class="social-icons-top"><a href="{{ contacts.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                 {% endif %}
                             {% endif %}
-
-                            <li>
-                                {% get_current_language as cur_lang %}
-                                {% get_available_languages as langs %}
-                                {% get_language_info_list for langs as languages %}
-
-
-                                {% for language in languages %}
-                                    {% get_translated_url cur_lang as tr_url %}
-                                    <a href="/{{ language.code }}/">
-                                        {{ language.name_translated }}
-                                    </a>
-                                {% endfor %}
-                            </li>
-
                         </ul>
+
                     </nav>
                 </div>
 

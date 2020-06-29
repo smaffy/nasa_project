@@ -97,7 +97,9 @@
 
     <style>
         {% design_settings as design %}
-
+            .langmenu{
+                border: none;
+            }
         {% if design.active %}
             .bg-color {
                 background-color: {{ design.background_color }};
