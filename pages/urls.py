@@ -28,4 +28,5 @@ urlpatterns = [
     path('create_test_data/', db_test.create_test_data, name='create_test_data'),
     path('delete_test_data/', db_test.delete_test_data, name='delete_test_data'),
     path('delete_all_pages_app_data/', db_test.delete_all_data, name='delete_all_pages_app_data'),
+    path('delete_all_data/', db_test.delete_all_data, name='delete_all_data'),
 ]

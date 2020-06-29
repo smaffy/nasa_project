@@ -4,8 +4,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect, render
 from django.utils.text import slugify
 
+from design.templatetags import design_tags
 from users.models import CustomUser
 from pages.models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory, group
+from design.models import DesignSettings, PageTexts, PagePictures
 
 
 service_ids = []
@@ -352,3 +354,51 @@ def delete_test_data(request):
     projectimage_ids.clear()
     return redirect('pages:home')
 
+
+def delete_all_data(request):
+    Service.objects.all().delete()
+    News.objects.all().delete()
+    ProfileCategory.objects.all().delete()
+    ProjectCategory.objects.all().delete()
+    Profile.objects.all().delete()
+    Project.objects.all().delete()
+    ProjectImage.objects.all().delete()
+
+    CustomUser.objects.exclude(username='admin').delete()
+
+    DesignSettings.objects.all().delete()
+    PageTexts.objects.all().delete()
+    PagePictures.objects.all().delete()
+
+    service_ids.clear()
+    news_ids.clear()
+    profile_category_ids.clear()
+    project_category_ids.clear()
+    profile_ids.clear()
+    project_ids.clear()
+    projectimage_ids.clear()
+
+    DesignSettings.objects.language('en').create(info='default')
+    password = CustomUser.objects.make_random_password()
+    CustomUser.objects.create(username='company', password=password)
+
+    design_tags.about_texts()
+    design_tags.project_list_texts()
+    design_tags.project_detail_texts()
+    design_tags.people_list_texts()
+    design_tags.profile_texts()
+    design_tags.service_list_texts()
+    design_tags.service_detail_texts()
+    design_tags.news_detail_texts()
+    design_tags.news_list_texts()
+    design_tags.about_texts()
+    design_tags.contact_texts()
+    design_tags.success_texts()
+    design_tags.home_callto_texts()
+    design_tags.footer_texts()
+    design_tags.home_big_banner()
+    design_tags.top_banner_1840x300()
+    design_tags.home_call_to_banner_1110x350()
+    design_tags.category_settings()
+    design_tags.contact_form_tag()
+    return redirect('pages:home')
