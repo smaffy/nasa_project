@@ -111,12 +111,12 @@ class DesignSettings(TranslatableModel):
     menu_left = models.BooleanField(_('menu_left'), default=False)
     vertical_lines = models.BooleanField(_('vertical_lines'), default=False)
     top_navigation = models.BooleanField(_('top_navigation'), default=True)
-
+    #
     # menu_text_color = models.CharField(_('main_menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    # size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
-    # font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+    # menu_text_size = models.CharField(_('main_menu_text_size'), default=14, max_length=50, null=True, blank=True)
+    # menu_text_font = models.CharField(_('fonts'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
     #
-    #
+
     # big_title_color,size,font
     # small_title_color,size,font
     # banner_title_color,size,font
@@ -157,11 +157,11 @@ class FunctionalSettings(models.Model):
 class PageTexts(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(_('name'), blank=True, null=True, max_length=200, db_index=True),
-        banner_big_text=RichTextUploadingField(_('banner big text'), blank=True, null=True),
-        browser_title=models.CharField(_('browser_title'), blank=True, null=True, max_length=100),
-        big_page_title=RichTextUploadingField(_('big page title'), blank=True, null=True),
-        small_page_title=RichTextUploadingField(_('small page title'), blank=True, null=True),
-        add_other_text=RichTextUploadingField(_('add_other_text'), blank=True, null=True),
+        banner_big_text=RichTextUploadingField(_('banner big text'), default='Banner Big Text', blank=True, null=True),
+        browser_title=models.CharField(_('browser_title'), default='...', blank=True, null=True, max_length=100),
+        big_page_title=RichTextUploadingField(_('big page title'), default='Big page title', blank=True, null=True),
+        small_page_title=RichTextUploadingField(_('small page title'), default='Small page title', blank=True, null=True),
+        add_other_text=RichTextUploadingField(_('add_other_text'), default='other text', blank=True, null=True),
     )
     add_name = models.BooleanField(_('add_name_to_bannertext'), default=False)
     active = models.BooleanField(_('active'), default=False)

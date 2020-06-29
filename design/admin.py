@@ -439,7 +439,7 @@ class DesignSettingsAdmin(TranslatableAdmin):
         mygenricbtn = 'display: inline-block; outline: none; line-height: 40px; padding: 0 30px; font-size: .8em; text-align: center; text-decoration: none; font-weight: 500; cursor: pointer; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;'
 
         style = {
-            ' elarge': 'padding: 0 40px; line-height: 50px;',
+            ' e-large': 'padding: 0 40px; line-height: 50px;',
             ' large': 'line-height: 45px;',
             ' medium': 'line-height: 30px;',
             ' small': 'line-height: 25px;',
