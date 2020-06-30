@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 12:05+0000\n"
-"PO-Revision-Date: 2020-05-29 10:12+0000\n"
-"Last-Translator: b'Jekaterina Rudakova <jekrudcz@gmail.com>'\n"
+"POT-Creation-Date: 2020-06-27 09:34+0000\n"
+"PO-Revision-Date: 2020-06-28 11:14+0000\n"
+"Last-Translator: b'None None <>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -46,16 +46,16 @@ msgstr ""
 #: design/models.py:76 design/models.py:167 design/models.py:183
 #: users/models.py:31
 msgid "active"
-msgstr ""
+msgstr "Aktiivne"
 
 #: design/models.py:77 design/models.py:140 design/models.py:159
 #: design/models.py:180 pages/forms.py:60
 msgid "name"
-msgstr ""
+msgstr "Nimi"
 
 #: design/models.py:78 users/models.py:23
 msgid "info"
-msgstr ""
+msgstr "Info"
 
 #: design/models.py:80
 msgid "button_color"
@@ -91,14 +91,6 @@ msgstr ""
 
 #: design/models.py:89
 msgid "main_text_color (#000000 or black)"
-msgstr ""
-
-#: design/models.py:90
-msgid "main_menu_text_color (#000000 or white)"
-msgstr ""
-
-#: design/models.py:91
-msgid "main_menu_text_size"
 msgstr ""
 
 #: design/models.py:92
@@ -254,12 +246,12 @@ msgstr ""
 #: pages/models.py:35 pages/models.py:93 pages/models.py:137
 #: pages/models.py:194
 msgid "description"
-msgstr "описание"
+msgstr "Kirjeldus"
 
 #: pages/forms.py:31 pages/forms.py:32 pages/forms.py:38 pages/forms.py:39
 #: pages/models.py:89
 msgid "first name"
-msgstr ""
+msgstr "Nimi"
 
 #: pages/forms.py:61 pages/models.py:100 users/models.py:25
 msgid "email"
@@ -282,11 +274,11 @@ msgstr ""
 #: templates/pages/service_detail.html:33
 #: templates/pages/service_detail.html:43 templates/pages/service_list.html:43
 msgid "Service"
-msgstr ""
+msgstr "Teenused"
 
 #: pages/models.py:42 templates/include/service.html:26
 msgid "Services"
-msgstr ""
+msgstr "Teenused"
 
 #: pages/models.py:63 pages/models.py:165
 msgid "category_slug"
@@ -302,7 +294,7 @@ msgstr ""
 
 #: pages/models.py:90
 msgid "last name"
-msgstr ""
+msgstr "Perekonnanimi"
 
 #: pages/models.py:97 users/models.py:28
 msgid "facebook"
@@ -314,7 +306,7 @@ msgstr ""
 
 #: pages/models.py:99
 msgid "phone number"
-msgstr ""
+msgstr "Telefoni nr:"
 
 #: pages/models.py:101
 msgid "start_work"
@@ -342,7 +334,7 @@ msgstr ""
 #: templates/pages/news_list.html:16 templates/pages/news_list.html:19
 #: templates/pages/news_list.html:32 templates/pages/news_list.html:42
 msgid "News"
-msgstr ""
+msgstr "Uudised"
 
 #: pages/models.py:170
 msgid "Project Category"
@@ -372,12 +364,13 @@ msgstr ""
 #: templates/pages/project_detail.html:20
 #: templates/pages/project_detail.html:33
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #: pages/models.py:208 templates/pages/profile.html:140
-#: templates/pages/project_detail.html:43 templates/pages/projects_list.html:44
+#: templates/pages/project_detail.html:43
+#: templates/pages/projects_list.html:44
 msgid "Projects"
-msgstr ""
+msgstr "Projektid"
 
 #: pages/models.py:233
 msgid "project image"
@@ -393,7 +386,7 @@ msgstr ""
 
 #: pages/urls.py:11
 msgid "about_us/"
-msgstr ""
+msgstr "Meist"
 
 #: pages/urls.py:13
 msgid "projects/"
@@ -429,11 +422,11 @@ msgstr ""
 
 #: pages/urls.py:21
 msgid "news/"
-msgstr ""
+msgstr "uudised/"
 
 #: pages/urls.py:22
 msgid "news"
-msgstr ""
+msgstr "uudised"
 
 #: pages/urls.py:23
 msgid "contact/"
@@ -470,15 +463,15 @@ msgstr ""
 
 #: templates/include/feature.html:9
 msgid "Some Features that Made us Unique"
-msgstr ""
+msgstr "Mõned omadused, mis tevad meid ainulaadseteks"
 
 #: templates/include/feature.html:11 templates/include/testimonial.html:12
 msgid "Who are in extremely love with eco friendly system."
-msgstr ""
+msgstr "Mida kliendid räägivad meist:"
 
 #: templates/include/feature.html:20
 msgid "Expert Technicians"
-msgstr ""
+msgstr "Professionaalne Meeskond"
 
 #: templates/include/feature.html:23
 msgid ""
@@ -488,17 +481,17 @@ msgstr ""
 
 #: templates/include/feature.html:31
 msgid "Professional Service"
-msgstr ""
+msgstr "Professionaalne Teenindus"
 
 #: templates/include/feature.html:34
 msgid ""
-"Finding the perfect learning tool for Flash is a daunting task to any novice "
-"web developer. One can find help."
+"Finding the perfect learning tool for Flash is a daunting task to any novice"
+" web developer. One can find help."
 msgstr ""
 
 #: templates/include/feature.html:42
 msgid "Great Support"
-msgstr ""
+msgstr "Professionaalne Klienditugi"
 
 #: templates/include/feature.html:45
 msgid ""
@@ -508,7 +501,7 @@ msgstr ""
 
 #: templates/include/feature.html:53
 msgid "Technical Skills"
-msgstr ""
+msgstr "Tehnilised Kogemused"
 
 #: templates/include/feature.html:56
 msgid ""
@@ -518,7 +511,7 @@ msgstr ""
 
 #: templates/include/feature.html:64
 msgid "Highly Recomended"
-msgstr ""
+msgstr "Soovitused"
 
 #: templates/include/feature.html:67
 msgid ""
@@ -528,7 +521,7 @@ msgstr ""
 
 #: templates/include/feature.html:75
 msgid "Positive Reviews"
-msgstr ""
+msgstr "Positiivne Tagasiside"
 
 #: templates/include/feature.html:78
 msgid ""
@@ -536,78 +529,78 @@ msgid ""
 "everything in sight. Now you want."
 msgstr ""
 
-#: templates/include/footer.html:27 templates/include/header.html:180
+#: templates/include/footer.html:27 templates/include/header.html:161
 #: templates/pages/about.html:16 templates/pages/about.html:19
 #: templates/pages/about.html:32 templates/pages/about.html:42
 msgid "About Us"
-msgstr ""
+msgstr "Meist"
 
-#: templates/include/footer.html:41 users/admin.py:36
+#: templates/include/footer.html:41 users/admin.py:34
 msgid "Follow Us"
-msgstr ""
+msgstr "Leia meid"
 
 #: templates/include/footer.html:61 templates/include/footer.html:71
 #: templates/pages/contact.html:17 templates/pages/contact.html:20
 #: templates/pages/contact.html:33 templates/pages/contact.html:43
 #: templates/pages/success.html:42
 msgid "Contact Us"
-msgstr ""
+msgstr "Võta meiega ühendust"
 
 #: templates/include/gallery.html:26
 msgid "Our Recent Works may impress you"
-msgstr ""
+msgstr "Meie hiljutised tööd"
 
-#: templates/include/header.html:74
+#: templates/include/header.html:70
 msgid "Other Design Elements"
 msgstr ""
 
-#: templates/include/header.html:133
+#: templates/include/header.html:114
 msgid "HOME"
-msgstr ""
+msgstr "Avaleht"
 
-#: templates/include/header.html:137 templates/include/header.html:148
+#: templates/include/header.html:118 templates/include/header.html:129
 msgid "PROJECTS"
-msgstr ""
+msgstr "Projektid"
 
-#: templates/include/header.html:140 templates/pages/projects_list.html:72
+#: templates/include/header.html:121 templates/pages/projects_list.html:72
 #: templates/pages/projects_list.html:85
 msgid "All Projects"
-msgstr ""
+msgstr "Kõik projektid"
 
-#: templates/include/header.html:151 templates/include/header.html:161
+#: templates/include/header.html:132 templates/include/header.html:142
 msgid "PEOPLE"
-msgstr ""
+msgstr "Meeskond"
 
-#: templates/include/header.html:153 templates/pages/people_list.html:73
+#: templates/include/header.html:134 templates/pages/people_list.html:73
 msgid "All People"
-msgstr ""
+msgstr "Kõik meeskond"
 
-#: templates/include/header.html:164
+#: templates/include/header.html:145
 msgid "SERVICES"
-msgstr ""
+msgstr "Teenused"
 
-#: templates/include/header.html:165
+#: templates/include/header.html:146
 msgid "NEWS"
-msgstr ""
+msgstr "Uudised"
 
-#: templates/include/header.html:181
+#: templates/include/header.html:162
 msgid "CONTACT"
-msgstr ""
+msgstr "Kontakt"
 
 #: templates/include/pages/people.html:20
 #: templates/include/pages/projects4.html:18
 #: templates/include/pages/projects8.html:19
 msgid "More Details"
-msgstr ""
+msgstr "Loe edasi..."
 
 #: templates/include/team.html:28 templates/pages/people_list.html:18
 #: templates/pages/people_list.html:21 templates/pages/people_list.html:34
 msgid "Our Team"
-msgstr ""
+msgstr "Meie meeskond"
 
 #: templates/include/testimonial.html:11
 msgid "Testimonial from our Clients"
-msgstr ""
+msgstr "Meie klientide tagasiside"
 
 #: templates/include/testimonial.html:25 templates/include/testimonial.html:61
 msgid ""
@@ -626,23 +619,24 @@ msgstr ""
 #: templates/pages/home.html:17 templates/pages/home.html:20
 #: templates/pages/news_detail.html:41 templates/pages/news_list.html:40
 #: templates/pages/people_list.html:42 templates/pages/profile.html:42
-#: templates/pages/project_detail.html:41 templates/pages/projects_list.html:42
+#: templates/pages/project_detail.html:41
+#: templates/pages/projects_list.html:42
 #: templates/pages/service_detail.html:41 templates/pages/service_list.html:41
 #: templates/pages/success.html:40
 msgid "Home"
-msgstr ""
+msgstr "Avaleht"
 
 #: templates/pages/contact.html:72
 msgid "Company  "
-msgstr ""
+msgstr "Ettevõtte"
 
 #: templates/pages/contact.html:75
 msgid "Registation №"
-msgstr ""
+msgstr "Reg. nr:"
 
 #: templates/pages/contact.html:78
 msgid "Adress"
-msgstr ""
+msgstr "Aadress"
 
 #: templates/pages/contact.html:81 templates/pages/profile.html:75
 #, fuzzy
@@ -652,7 +646,7 @@ msgstr "email"
 
 #: templates/pages/contact.html:84
 msgid "Phone Number"
-msgstr ""
+msgstr "Telefoni nr:"
 
 #: templates/pages/contact.html:87
 msgid "Langueges"
@@ -668,48 +662,41 @@ msgstr ""
 
 #: templates/pages/contact.html:199
 msgid "Send us your query anytime!"
-msgstr ""
+msgstr "Saatke meile oma päring!"
 
 #: templates/pages/contact.html:212
 msgid "Enter your name"
-msgstr ""
+msgstr "Sisesta oma nimi"
 
 #: templates/pages/contact.html:214
 msgid "Enter email address"
-msgstr ""
+msgstr "Sisesta email"
 
 #: templates/pages/contact.html:216
 msgid "Enter your subject"
-msgstr ""
+msgstr "Sisesta teema"
 
 #: templates/pages/contact.html:219
 msgid "Messege"
-msgstr ""
+msgstr "Sõnum"
 
 #: templates/pages/contact.html:223 templates/pages/contact.html:225
 msgid "Send Message"
-msgstr ""
+msgstr "Saada teade"
 
 #: templates/pages/elements.html:9 templates/pages/elements.html:13
 #: templates/pages/elements.html:22 templates/pages/elements_icons.html:22
 msgid "Elements"
 msgstr ""
 
-#: templates/pages/elements.html:578
-msgid ""
-"\n"
-"            <h1> Sorry, You are not a staff of this site. Please log in or "
-"contact administrator. </h1>\n"
-"        "
-msgstr ""
-
-#: templates/pages/elements_icons.html:9 templates/pages/elements_icons.html:13
+#: templates/pages/elements_icons.html:9
+#: templates/pages/elements_icons.html:13
 msgid "Elements Icons"
 msgstr ""
 
 #: templates/pages/people_list.html:44 templates/pages/profile.html:44
 msgid "People"
-msgstr ""
+msgstr "Meeskond"
 
 #: templates/pages/people_list.html:84 templates/pages/profile.html:96
 #: templates/pages/project_detail.html:111
@@ -723,11 +710,11 @@ msgstr ""
 
 #: templates/pages/profile.html:82
 msgid "Phone number"
-msgstr ""
+msgstr "Telefoni nr:"
 
 #: templates/pages/profile.html:88
 msgid "Started work"
-msgstr ""
+msgstr "Töösuhe algus"
 
 #: templates/pages/project_detail.html:75
 msgid "Client"
@@ -748,67 +735,66 @@ msgstr ""
 #: templates/pages/projects_list.html:18 templates/pages/projects_list.html:21
 #: templates/pages/projects_list.html:34
 msgid "Projecs"
-msgstr ""
+msgstr "Projektid"
 
 #: templates/pages/service_list.html:17 templates/pages/service_list.html:20
 #: templates/pages/service_list.html:33
 msgid "Our Services"
-msgstr ""
+msgstr "Meie teenused"
 
 #: templates/pages/success.html:16 templates/pages/success.html:19
 #: templates/pages/success.html:32
 msgid "Contact Success"
 msgstr ""
 
-#: users/admin.py:27
+#: users/admin.py:25
 msgid "Address"
 msgstr ""
 
-#: users/admin.py:30
+#: users/admin.py:28
 msgid "Company"
 msgstr ""
 
-#: users/admin.py:33
+#: users/admin.py:31
 msgid "Contact"
 msgstr ""
 
-#: users/admin.py:39
+#: users/admin.py:37
 msgid "Password"
 msgstr ""
 
-#: users/admin.py:42
+#: users/admin.py:40
 msgid "Logo"
 msgstr ""
 
 #: users/models.py:10
 msgid "first_name"
-msgstr ""
+msgstr "Perekonnanimi"
 
 #: users/models.py:11
-#, fuzzy
 #| msgid "name"
 msgid "last_name"
-msgstr "имя"
+msgstr "Nimi"
 
 #: users/models.py:14
 msgid "address"
-msgstr ""
+msgstr "Aadress"
 
 #: users/models.py:15
 msgid "postal_code"
-msgstr ""
+msgstr "Indeks"
 
 #: users/models.py:16
 msgid "city"
-msgstr ""
+msgstr "Linn"
 
 #: users/models.py:17
 msgid "country"
-msgstr ""
+msgstr "Riik"
 
 #: users/models.py:18
 msgid "company_name"
-msgstr ""
+msgstr "Firma nimi"
 
 #: users/models.py:19
 msgid "logo_120x30"
@@ -816,7 +802,7 @@ msgstr ""
 
 #: users/models.py:21
 msgid "registation_number"
-msgstr ""
+msgstr "Reg.nr:"
 
 #: users/models.py:22
 msgid "address_inline"
@@ -824,7 +810,7 @@ msgstr ""
 
 #: users/models.py:26
 msgid "phone_number"
-msgstr ""
+msgstr "Telefoni nr:"
 
 #: users/models.py:27
 msgid "time_for_colling"
@@ -836,7 +822,7 @@ msgstr ""
 
 #: users/models.py:34 users/models.py:35 users/models.py:36
 msgid "user"
-msgstr ""
+msgstr "Kasutaja"
 
 #~ msgid "ENG"
 #~ msgstr "ENG"
