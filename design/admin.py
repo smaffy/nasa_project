@@ -249,6 +249,14 @@ mystyle = """
 mytext = '<p style="background-color: #e8e8e8; padding: 5px;{}">We knew it.</p>'
 
 
+def activate(TranslatableAdmin, request, queryset):
+    queryset.update(active=True)
+
+
+def deactivate(TranslatableAdmin, request, queryset):
+    queryset.update(active=False)
+
+
 def delete_design(TranslatableAdmin, request, queryset):
     DesignSettings.objects.exclude(info='default').delete()
 
@@ -262,6 +270,7 @@ def create_or_clear_default_design(TranslatableAdmin, request, queryset):
 class PageTextsAdmin(TranslatableAdmin):
     save_on_top = True
     list_display = ('name', 'active')
+    actions = [activate, deactivate]
 
     class Meta:
         proxy = True
@@ -286,6 +295,7 @@ class PageTextsAdmin(TranslatableAdmin):
 
 @admin.register(PagePictures)
 class PagePicturesAdmin(TranslatableAdmin):
+
     save_on_top = True
     list_display = ('name', 'active')
     exclude = ('name', 'preview_height', 'preview_width', )

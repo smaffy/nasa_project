@@ -26,7 +26,7 @@
 
                                 {% endwith %}
                                 {% with texts|get_translated_field:'small_page_title' as small %}
-                                    <p class="text-white mx-auto">{{ small|safe }}</p>
+                                    <div class="small_title-style">{{ small|safe }}</div>
                                 {% endwith %}
 
                                 {% if design|get_translated_field:'home_big_banner_button' %}

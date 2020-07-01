@@ -71,6 +71,13 @@
                 border: none;
             }
         {% if design.active %}
+            .menu-has-children ul {
+                {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %};
+                background-color: #7c7c7c;
+            }
+            .link-nav a,span{
+                {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
+            }
             .banner_h {
                 {% if design.banner_height %}height: {{ design.banner_height }}px{% endif %};
             }
@@ -80,17 +87,26 @@
             div.header-top a {
                 {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %}
             }
-            {#.big-title-style {#}
-            {#    {% if design.get_big_title_style %}{{ design.get_big_title_style }}{% endif %}#}
-
-            .small-title-style {
+            .big-title-style {
+                {% if design.get_big_title_style %}{{ design.get_big_title_style }}{% endif %}
+            }
+            .header-text h1.big-title-style {
+                {% if design.get_big_title_style %}{{ design.get_big_title_style }}{% endif %}
+            }
+            .header-text div.small-title-style {
                 {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
             }
-            .banner-title-style {
+            .banner-content h1.banner-title-style {
                 {% if design.get_banner_title_style %}{{ design.get_banner_title_style }}{% elif design.get_big_title_style %}{{ design.get_big_title_style }} {% else %} color:grey {% endif %}
+            }
+            .about-content h1.banner-title-style {
+                {% if design.get_banner_title_style %}{{ design.get_banner_title_style }}{% elif design.get_big_title_style %}{{ design.get_big_title_style }} {% else %} color:blue {% endif %}
+            }
+            .banner-content div.small_title-style {
+                {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
 
             }
-            .date-style {
+            .date-style{
                 {% if design.get_date_style %}{{ design.get_date_style }}{% endif %}
             }
             .footer-text-style {
@@ -126,15 +142,15 @@
             body{
                 {% if design.get_main_text_style %}{{ design.get_main_text_style }}{% endif %}
             }
-            h1,h2,h3,h4,h5,h6,p,div,span{
-                font-family: {{ design.font }};
+            {#h1,h2,h3,h4,h5,h6,p,div,span{#}
+            {#    font-family: {{ design.font }};#}
                 {#color:#222;#}
                 {#font-size: 15px;#}
-            }
-            .h1,.h2,.h3,.h4,.h5,.h6,.p,.div,.span,.primary-btn,.text-white,.text-black{
-                font-family: {{ design.font }};
+            {#}#}
+            {#.h1,.h2,.h3,.h4,.h5,.h6,.p,.div,.span,.primary-btn,.text-white,.text-black{#}
+            {#    font-family: {{ design.font }};#}
                 {#color:#000#}
-            }
+            {#}#}
             .header-top-left a {
                 font-size: {{ design.main_menu_text_size }}px;
                 color: {{ design.main_menu_text_color }};

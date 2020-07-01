@@ -51,7 +51,7 @@
 {#            <h1 class="mb-50 text-center">{{ news.title }}</h1>#}
             <div class="justify-content-center">
                 <div class="col-md-12 pb-50 header-text text-center">
-                    <h1 class="mb-10">{{ news.title }}</h1>
+                    <h1 class="mb-10 big-title-style">{{ news.title }}</h1>
                     {% news_detail_texts as texts %}
                     {% if texts.active %}
                         {% if texts|get_translated_field:'small_page_title' %}
@@ -75,7 +75,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <blockquote class="generic-blockquote">
-                            <p style="color: grey">{{ news.published }}</p>
+                            <p class="date-style">{{ news.published }}</p>
                             <p style="color: black">{{ news.short_description|safe }}</p>
                             <p style="color: black">{{ news.description|safe }}</p>
                         </blockquote>

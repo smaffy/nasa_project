@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from parler.models import TranslatableModel, TranslatedFields
@@ -150,36 +151,38 @@ class DesignSettings(TranslatableModel):
     def get_button_style(self):
         return self.button_size + ' ' + self.button_color + ' ' + self.button_form
 
-    def get_style(self, size, color, font):
-        t_size = t_color = t_font = ' '
+    def get_style(self, size, color, font, f):
+        t_size = t_color = ' '
         if size:
-            t_size = 'font-size: {}px; '.format(size)
+            t_size = mark_safe("font-size: {}px; ".format(size))
         if color:
-            t_color = 'color: {}; '.format(color)
+            t_color = mark_safe("color: {}; ".format(color))
         if font:
-            t_font = 'font-family: {}; '.format(font)
+            t_font = mark_safe("font-family: {}; ".format(font))
+        else:
+            t_font = mark_safe("font-family: {}; ".format(f))
         return t_size + t_color + t_font
 
     def get_menu_text_style(self):
-        return self.get_style(size=self.menu_text_size, color=self.menu_text_color, font=self.menu_text_font)
+        return self.get_style(size=self.menu_text_size, color=self.menu_text_color, font=self.menu_text_font, f=self.font)
 
     def get_main_text_style(self):
-        return self.get_style(self.main_text_size, self.main_text_color, self.main_text_font)
+        return self.get_style(self.main_text_size, self.main_text_color, self.main_text_font, f=self.font)
 
     def get_big_title_style(self):
-        return self.get_style(self.big_title_size, self.big_title_color, self.big_title_font)
+        return self.get_style(self.big_title_size, self.big_title_color, self.big_title_font, f=self.font)
 
     def get_small_title_style(self):
-        return self.get_style(self.small_title_size, self.small_title_color, self.small_title_font)
+        return self.get_style(self.small_title_size, self.small_title_color, self.small_title_font, f=self.font)
 
     def get_banner_title_style(self):
-        return self.get_style(self.banner_title_size, self.banner_title_color, self.banner_title_font)
+        return self.get_style(self.banner_title_size, self.banner_title_color, self.banner_title_font, f=self.font)
 
     def get_date_style(self):
-        return self.get_style(self.date_size, self.date_color, self.date_font)
+        return self.get_style(self.date_size, self.date_color, self.date_font, f=self.font)
 
     def get_footer_text_style(self):
-        return self.get_style(self.footer_text_size, self.footer_text_color, self.footer_text_font)
+        return self.get_style(self.footer_text_size, self.footer_text_color, self.footer_text_font, f=self.font)
 
 
 class FunctionalSettings(models.Model):

@@ -35,8 +35,8 @@
 
 {% block top %}
     {% design_settings as design %}
-    {% if design.top_navigation %}
-        <p class="text-white link-nav">
+    {% if design.active and design.top_navigation %}
+        <p class="link-nav">
             <a href="{% url 'pages:home' %}"> {% trans 'Home' %} </a>
             <span class="lnr lnr-arrow-right"></span>
             <a href="{% url 'pages:about' %}"> {% trans 'About Us' %} </a>
@@ -55,7 +55,7 @@
                     {% if texts.active %}
                         {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
                             {% with texts|get_translated_field:'big_page_title' as big %}
-                                <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                                <h1 class="mb-10 big-title-style">{{ texts.big_page_title|safe }}</h1>
                             {% endwith %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
                                 <p>{{ small|safe }}</p>

@@ -142,7 +142,6 @@
                     {% category_settings as category_set %}
                     {% if category_set.project_category %}
                         <li class="menu-has-children"><a href="{% url 'pages:projects' %}">{% trans 'PROJECTS' %}</a>
-        {#                  Valik töid Konkurss Sisearhitektuur Avalik Korterelamu Eramu Väikevorm#}
                             <ul>
                                 <li><a href="{% url 'pages:projects' %}">{% trans 'All Projects' %}</a></li>
                                 {% project_categories as project_categories %}
