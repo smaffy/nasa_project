@@ -25,7 +25,7 @@ SECRET_KEY = 'q^$vs7!h8grxxo!lv9b7+bzuw$*7+n*ia@ezt5g%^661%^b0gj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'demo2.vsdemo.ee']
 
 SITE_ID = 1
 
@@ -100,10 +100,10 @@ WSGI_APPLICATION = 'nasa_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
+        'NAME': 'vhost83860p1',
+        'USER': 'vhost83860p1',
+        'PASSWORD': 'vO9DLFpkNxz',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -178,7 +178,7 @@ STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')         # prod, for collect static
+STATIC_ROOT = '/www/apache/domains/www.vsdemo.ee/htdocs/demo2/static/'         # prod, for collect static
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
