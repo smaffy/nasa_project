@@ -22,7 +22,7 @@
                         {% if texts.active %}
                             {% if texts|get_translated_field:'banner_big_text' or texts|get_translated_field:'small_page_title' %}
                                 {% with texts|get_translated_field:'banner_big_text' as big %}
-                                    <h1 class="mb-10">{{ big|safe }}</h1>
+                                    <h1 class="mb-10 banner-title-style">{{ big|safe }}</h1>
 
                                 {% endwith %}
                                 {% with texts|get_translated_field:'small_page_title' as small %}

@@ -34,53 +34,23 @@
         {% endif %}
     </title>
 
-    {% design_settings as design %}
-    {% if design.font == "Poppins, sans-serif" %}
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-    {% elif design.font == "Sriracha, cursive" %}
-        <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
-    {% elif design.font == "'Lato, sans-serif" %}
-        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    {% elif design.font == "Roboto, sans-serif" %}
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    {% elif design.font == "Open Sans, sans-serif" %}
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    {% elif design.font == "Caveat, cursive" %}
-        <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-    {% elif design.font == "Yanone Kaffeesatz, sans-serif" %}
-        <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-    {% elif design.font == "Inconsolata, monospace" %}
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-    {% elif design.font == "Rubik, sans-serif" %}
-        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    {% elif design.font == "Merriweather, serif" %}
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-    {% elif design.font == "Arizonia, cursive" %}
-        <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
-    {% elif design.font == "Permanent Marker, cursive" %}
-        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    {% elif design.font == "Marck Script, cursive" %}
-        <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-'
-    {% endif %}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 
-{#<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">#}
-{##}
-{#<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">#}
-{#<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">#}
-{##}
 
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inconsolata&family=Lato&family=Merriweather&family=Open+Sans&family=Roboto&family=Rubik&family=Sriracha&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+{#    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inconsolata&family=Lato&family=Merriweather&family=Open+Sans&family=Roboto&family=Rubik&family=Sriracha&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">#}
 {#    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">#}
     <!--
     CSS
@@ -101,11 +71,30 @@
                 border: none;
             }
         {% if design.active %}
+            .banner_h {
+                {% if design.banner_height %}height: {{ design.banner_height }}px{% endif %};
+            }
             #nav-menu-container a {
                 {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %}
             }
             div.header-top a {
                 {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %}
+            }
+            {#.big-title-style {#}
+            {#    {% if design.get_big_title_style %}{{ design.get_big_title_style }}{% endif %}#}
+
+            .small-title-style {
+                {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
+            }
+            .banner-title-style {
+                {% if design.get_banner_title_style %}{{ design.get_banner_title_style }}{% elif design.get_big_title_style %}{{ design.get_big_title_style }} {% else %} color:grey {% endif %}
+
+            }
+            .date-style {
+                {% if design.get_date_style %}{{ design.get_date_style }}{% endif %}
+            }
+            .footer-text-style {
+                {% if design.get_footer_text_style %}{{ design.get_footer_text_style }}{% endif %}
             }
             .bg-color {
                 background-color: {{ design.background_color }};
@@ -135,10 +124,7 @@
                     ) 1 100%;
             }
             body{
-                color: {{ design.main_text_color }};
-                font-family: {{ design.font }};
-
-                {#font-size:5px;#}
+                {% if design.get_main_text_style %}{{ design.get_main_text_style }}{% endif %}
             }
             h1,h2,h3,h4,h5,h6,p,div,span{
                 font-family: {{ design.font }};

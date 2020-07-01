@@ -18,7 +18,6 @@ profile_ids = []
 project_ids = []
 projectimage_ids = []
 
-
 short_description_en = 'First phase is a new primary school building, which gives the school compex a new strong defined identity.'
 description_en = 'Renovation project for Kuusalu Highschool. First phase is a new primary school building, which gives the school compex a new strong defined identity.' \
                  'Renovation project for Kuusalu Highschool. First phase is a new primary school building, which gives the school compex a new strong defined identity.' \

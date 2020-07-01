@@ -7,6 +7,12 @@ from design.models import PageTexts, PagePictures, FunctionalSettings, DesignSet
 
 register = template.Library()
 
+banner_big_t = 'Banner Big Text'
+browser_t = '...'
+big_page_t ='Big page title'
+small_page_t = 'Small page title'
+add_other_t = 'other text'
+
 
 @register.simple_tag(name='design_settings')
 def design():
@@ -33,9 +39,14 @@ def home_texts():
     except ObjectDoesNotExist:
         page = PageTexts.objects.language('en').create(
             name='home_texts',
-            big_page_title='Big page title home_texts',
             banner_big_text='Banner text home_texts',
+            big_page_title='Big page title home_texts',
             small_page_title='Small page title home_texts',
+
+            browser_title='Home',
+            add_other_text='other text home_texts',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,big_page_title,add_name',
         )
         page.set_current_language('ru')
@@ -56,6 +67,11 @@ def project_list_texts():
             banner_big_text='Project List banner_big_text',
             big_page_title='Big page title project_list_texts',
             small_page_title='Small page title project_list_texts',
+
+            browser_title='Projects',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
@@ -77,6 +93,10 @@ def project_detail_texts():
             add_name=True,
             big_page_title='Big page title project_detail_texts',
             small_page_title='Small page title project_detail_texts',
+
+            browser_title='Project',
+            add_other_text='other text',
+
             admin_exclude='name,admin_exclude,big_page_title',
         )
         page.set_current_language('ru')
@@ -97,6 +117,11 @@ def people_list_texts():
             banner_big_text='Our Team',
             big_page_title='Big page title people_list_texts',
             small_page_title='Small page title people_list_texts',
+
+            browser_title='People',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
@@ -118,12 +143,16 @@ def profile_texts():
             add_name=True,
             big_page_title='Big page title profile_texts',
             small_page_title='Small page title profile_texts',
+
+            browser_title='Profile',
+            add_other_text='other text',
+
             admin_exclude='name,admin_exclude,big_page_title',
         )
         page.set_current_language('ru')
         page.name = 'профиль_тексты'
         page.set_current_language('et')
-        page.name = 'profiil_tekst'
+        page.name = 'profile_tekst'
         page.save()
     return page
 
@@ -138,6 +167,11 @@ def service_list_texts():
             banner_big_text='Services',
             big_page_title='Big page title service_list_texts',
             small_page_title='Small page title service_list_texts',
+
+            browser_title='Services',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
@@ -159,6 +193,11 @@ def service_detail_texts():
             add_name=True,
             big_page_title='Big page title service_detail_texts',
             small_page_title='Small page title service_detail_texts',
+
+            browser_title='Service',
+            add_other_text='other text',
+
+            admin_exclude='name,admin_exclude',
         )
         page.set_current_language('ru')
         page.name = 'сервис_тексты'
@@ -179,6 +218,11 @@ def news_detail_texts():
             add_name=True,
             big_page_title='Big page title news_detail_texts',
             small_page_title='Small page title news_detail_texts',
+
+            browser_title='News',
+            add_other_text='other text',
+
+            admin_exclude='name,admin_exclude',
         )
         page.set_current_language('ru')
         page.name = 'список_новостей_тексты'
@@ -198,10 +242,15 @@ def news_list_texts():
             banner_big_text='News List',
             big_page_title='Big page title news_list_texts',
             small_page_title='Small page title news_list_texts',
+
+            browser_title='News',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
-        page.name = 'новость_тексты'
+        page.name = 'новости_тексты'
         page.set_current_language('et')
         page.name = 'uudised_nimikiri_tekst'
         page.save()
@@ -218,6 +267,11 @@ def about_texts():
             banner_big_text='About Us',
             big_page_title='Big page title about_texts',
             small_page_title='Small page title about_texts',
+
+            browser_title='About Us',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
@@ -238,6 +292,11 @@ def contact_texts():
             banner_big_text='Contact Us',
             big_page_title='Big page title contact_texts',
             small_page_title='Small page title contact_texts',
+
+            browser_title='Contacts',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
@@ -258,6 +317,11 @@ def success_texts():
             banner_big_text='Thank You',
             big_page_title='Big page title success_texts',
             small_page_title='Small page title success_texts',
+
+            browser_title='Success',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,add_name',
         )
         page.set_current_language('ru')
@@ -277,6 +341,12 @@ def home_callto_texts():
             name='home_callto_texts',
             big_page_title='Big page title home_callto_texts',
             small_page_title='Small page title home_callto_texts',
+            banner_big_text='Banner text callto',
+
+            browser_title='Call to',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,banner_big_text,add_name',
         )
 
@@ -297,6 +367,12 @@ def footer_texts():
             name='footer_texts',
             big_page_title='Big page title footer_texts',
             small_page_title='Small page title footer_texts',
+
+            browser_title='footer',
+            banner_big_text='Banner text footer',
+            add_other_text='other text',
+            add_name=False,
+
             admin_exclude='name,admin_exclude,big_page_title,banner_big_text,add_name',
         )
         page.set_current_language('ru')

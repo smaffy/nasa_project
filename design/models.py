@@ -113,31 +113,31 @@ class DesignSettings(TranslatableModel):
     top_navigation = models.BooleanField(_('top_navigation'), default=True)
 
     menu_text_color = models.CharField(_('menu_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    menu_text_size = models.CharField(_('menu_text_size px'), default=14, max_length=50, null=True, blank=True)
+    menu_text_size = models.CharField(_('menu_text_size px'), max_length=50, null=True, blank=True)
     menu_text_font = models.CharField(_('menu_text_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
 
     main_text_color = models.CharField(_('main_text_color (#000000 or black)'), max_length=200, null=True, blank=True)
-    main_text_size = models.CharField(_('main_text_size px'), default=14, max_length=50, null=True, blank=True)
+    main_text_size = models.CharField(_('main_text_size px'), max_length=50, null=True, blank=True)
     main_text_font = models.CharField(_('main_text_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
 
     big_title_color = models.CharField(_('big_title_color (#000000 or black)'), max_length=200, null=True, blank=True)
-    big_title_size = models.CharField(_('big_title_size px'), default=14, max_length=50, null=True, blank=True)
+    big_title_size = models.CharField(_('big_title_size px'), max_length=50, null=True, blank=True)
     big_title_font = models.CharField(_('big_title_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
 
     small_title_color = models.CharField(_('small_title_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    small_title_size = models.CharField(_('small_title_size px'), default=14, max_length=50, null=True, blank=True)
+    small_title_size = models.CharField(_('small_title_size px'), max_length=50, null=True, blank=True)
     small_title_font = models.CharField(_('small_title_font'), max_length=200, choices=FONT_CHOICES,null=True, blank=True)
 
     banner_title_color = models.CharField(_('banner_title_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    banner_title_size = models.CharField(_('banner_title_size px'), default=14, max_length=50, null=True, blank=True)
+    banner_title_size = models.CharField(_('banner_title_size px'), max_length=50, null=True, blank=True)
     banner_title_font = models.CharField(_('banner_title_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
 
     date_color = models.CharField(_('date_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    date_size = models.CharField(_('date_size px'), default=14, max_length=50, null=True, blank=True)
+    date_size = models.CharField(_('date_size px'), max_length=50, null=True, blank=True)
     date_font = models.CharField(_('date_font'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
 
     footer_text_color = models.CharField(_('footer_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
-    footer_text_size = models.CharField(_('footer_text_size px'), default=14, max_length=50, null=True, blank=True)
+    footer_text_size = models.CharField(_('footer_text_size px'), max_length=50, null=True, blank=True)
     footer_text_font = models.CharField(_('footer_text_font'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
 
     class Meta:
@@ -151,7 +151,7 @@ class DesignSettings(TranslatableModel):
         return self.button_size + ' ' + self.button_color + ' ' + self.button_form
 
     def get_style(self, size, color, font):
-        t_size = t_color = t_font = None
+        t_size = t_color = t_font = ' '
         if size:
             t_size = 'font-size: {}px; '.format(size)
         if color:

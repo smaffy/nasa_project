@@ -246,6 +246,8 @@ mystyle = """
     </style>
         """
 
+mytext = '<p style="background-color: #e8e8e8; padding: 5px;{}">We knew it.</p>'
+
 
 def delete_design(TranslatableAdmin, request, queryset):
     DesignSettings.objects.exclude(info='default').delete()
@@ -260,7 +262,6 @@ def create_or_clear_default_design(TranslatableAdmin, request, queryset):
 class PageTextsAdmin(TranslatableAdmin):
     save_on_top = True
     list_display = ('name', 'active')
-    form = PageTextsAdminForm
 
     class Meta:
         proxy = True
@@ -369,6 +370,13 @@ class DesignSettingsAdmin(TranslatableAdmin):
         'preview_footer',
         'get_logo_preview',
         'get_home_button_preview',
+        'preview_menu_text_style',
+        'preview_main_text_style',
+        'preview_big_title_style',
+        'preview_small_title_style',
+        'preview_banner_title_style',
+        'preview_date_style',
+        'preview_footer_text_style'
     ]
 
     fieldsets = (
@@ -384,13 +392,13 @@ class DesignSettingsAdmin(TranslatableAdmin):
         ('Text styles', {
             "fields": (
                 'font',
-                ('main_text_color', 'main_text_size', 'main_text_font',),
-                ('menu_text_color', 'menu_text_size', 'menu_text_font',),
-                ('big_title_color', 'big_title_size', 'big_title_font',),
-                ('small_title_color', 'small_title_size', 'small_title_font',),
-                ('banner_title_color', 'banner_title_size', 'banner_title_font',),
-                ('date_color', 'date_size', 'date_font',),
-                ('footer_text_color', 'footer_text_size', 'footer_text_font',),
+                ('main_text_color', 'main_text_size', 'main_text_font', 'preview_main_text_style',),
+                ('menu_text_color', 'menu_text_size', 'menu_text_font', 'preview_menu_text_style',),
+                ('big_title_color', 'big_title_size', 'big_title_font', 'preview_big_title_style',),
+                ('small_title_color', 'small_title_size', 'small_title_font', 'preview_small_title_style',),
+                ('banner_title_color', 'banner_title_size', 'banner_title_font', 'preview_banner_title_style',),
+                ('date_color', 'date_size', 'date_font', 'preview_date_style',),
+                ('footer_text_color', 'footer_text_size', 'footer_text_font', 'preview_footer_text_style',),
             )
         }),
 
@@ -553,39 +561,52 @@ class DesignSettingsAdmin(TranslatableAdmin):
                 return mark_safe('<img src="{url}" height=30px width=120px />'.format(url=comp.logo.url))
 
     def get_font_preview(self, obj):
-        if obj.font == "Poppins, sans-serif":
-            a = '<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">'
-        if obj.font == "Sriracha, cursive":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">'
-        if obj.font == "Lato, sans-serif":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">'
-        if obj.font == "Roboto, sans-serif":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">'
-        if obj.font == "Open Sans, sans-serif":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">'
-        if obj.font == "Caveat, cursive":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">'
-        if obj.font == "Yanone Kaffeesatz, sans-serif":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">'
-        if obj.font == "Inconsolata, monospace":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">'
-        if obj.font == "Rubik, sans-serif":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">'
-        if obj.font == "Merriweather, serif":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">'
-        if obj.font == "Arizonia, cursive":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">'
-        if obj.font == "Permanent Marker, cursive":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">'
-        if obj.font == "Marck Script, cursive":
-            a = '<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">'
-        else:
-            a = '<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">'
-
+        a = """
+            <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+        """
         ttext = a + """
     
             {f}:     <p style="background-color: {c};font-family: {f}; color:{t}">Almost before we knew it, we had left the ground.</p>
         """
         return mark_safe(ttext.format(f=obj.font, t=obj.main_text_color, c=obj.container_color))
 
+    def preview_menu_text_style(self, obj):
+        style = obj.get_menu_text_style()
+        return mark_safe(mytext.format(style))
 
+    def preview_main_text_style(self, obj):
+        style = obj.get_main_text_style()
+        return mark_safe(mytext.format(style))
+
+    def preview_big_title_style(self, obj):
+        style = obj.get_big_title_style()
+        return mark_safe(mytext.format(style))
+
+    def preview_small_title_style(self, obj):
+        style = obj.get_small_title_style()
+        return mark_safe(mytext.format(style))
+
+    def preview_banner_title_style(self, obj):
+        style = obj.get_banner_title_style()
+        return mark_safe(mytext.format(style))
+
+    def preview_date_style(self, obj):
+        style = obj.get_date_style()
+        return mark_safe(mytext.format(style))
+
+    def preview_footer_text_style(self, obj):
+        style = obj.get_footer_text_style()
+        return mark_safe(mytext.format(style))
