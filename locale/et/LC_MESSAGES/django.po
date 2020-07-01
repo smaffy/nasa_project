@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-27 09:34+0000\n"
+"POT-Creation-Date: 2020-07-01 13:17+0000\n"
 "PO-Revision-Date: 2020-06-28 11:14+0000\n"
 "Last-Translator: b'None None <>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,209 +19,289 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: design/forms.py:13 design/forms.py:18 design/models.py:162
+#: design/forms.py:13 design/forms.py:18 design/models.py:211
 msgid "big page title"
 msgstr ""
 
-#: design/forms.py:14 design/forms.py:19 design/models.py:163
+#: design/forms.py:14 design/forms.py:19 design/models.py:212
 msgid "small page title"
 msgstr ""
 
-#: design/forms.py:15 design/forms.py:20 design/models.py:160
+#: design/forms.py:15 design/forms.py:20 design/models.py:209
 msgid "banner big text"
 msgstr ""
 
-#: design/models.py:72
+#: design/models.py:73
 msgid "home_big_banner_button"
 msgstr ""
 
-#: design/models.py:73
+#: design/models.py:74
 msgid "contact_button_text"
 msgstr ""
 
-#: design/models.py:74
+#: design/models.py:75
 msgid "callto_banner_button_text"
 msgstr ""
 
-#: design/models.py:76 design/models.py:167 design/models.py:183
+#: design/models.py:77 design/models.py:216 design/models.py:232
 #: users/models.py:31
 msgid "active"
 msgstr "Aktiivne"
 
-#: design/models.py:77 design/models.py:140 design/models.py:159
-#: design/models.py:180 pages/forms.py:60
+#: design/models.py:78 design/models.py:189 design/models.py:208
+#: design/models.py:229 pages/forms.py:60
 msgid "name"
 msgstr "Nimi"
 
-#: design/models.py:78 users/models.py:23
+#: design/models.py:79 users/models.py:23
 msgid "info"
 msgstr "Info"
 
-#: design/models.py:80
+#: design/models.py:81
 msgid "button_color"
 msgstr ""
 
-#: design/models.py:81
+#: design/models.py:82
 msgid "button_size"
 msgstr ""
 
-#: design/models.py:82
+#: design/models.py:83
 msgid "button_form"
 msgstr ""
 
-#: design/models.py:83
+#: design/models.py:84
 msgid "home_banner_text_align_vertical"
 msgstr ""
 
-#: design/models.py:84
+#: design/models.py:85
 msgid "home_banner_text_align_horizontal"
 msgstr ""
 
-#: design/models.py:85
-msgid "fonts"
-msgstr ""
-
 #: design/models.py:86
-msgid "social_icons_top_size"
+msgid "fonts_for_all_site"
 msgstr ""
 
 #: design/models.py:87
+msgid "social_icons_top_size"
+msgstr ""
+
+#: design/models.py:88
 msgid "social_icons_footer_size"
 msgstr ""
 
-#: design/models.py:89
-msgid "main_text_color (#000000 or black)"
-msgstr ""
-
-#: design/models.py:92
-msgid "home_banner_height"
-msgstr ""
-
 #: design/models.py:93
-msgid "banner_height"
+msgid "home_banner_height px"
 msgstr ""
 
 #: design/models.py:94
+msgid "banner_height px"
+msgstr ""
+
+#: design/models.py:95
 msgid "background_color (#000000 or black)"
 msgstr ""
 
-#: design/models.py:95 design/models.py:96
+#: design/models.py:96 design/models.py:97
 msgid "footer_background_color (#000000 or black)"
 msgstr ""
 
-#: design/models.py:97
+#: design/models.py:98
 msgid "container_color (#000000 or black)"
 msgstr ""
 
-#: design/models.py:98
+#: design/models.py:99
 msgid "vertical_lines_color (#000000 or black)"
 msgstr ""
 
-#: design/models.py:99
-msgid "vertical_lines_width 3 or 5"
-msgstr ""
-
-#: design/models.py:101
-msgid "overlay_default"
+#: design/models.py:100
+msgid "vertical_lines_width px"
 msgstr ""
 
 #: design/models.py:102
-msgid "overlay"
+msgid "overlay_default"
 msgstr ""
 
 #: design/models.py:103
-msgid "overlay_opacity (from 0.1 to 0.9)"
+msgid "overlay"
 msgstr ""
 
 #: design/models.py:104
+msgid "overlay_opacity (from 0.1 to 0.9)"
+msgstr ""
+
+#: design/models.py:105
 msgid "overlay_color (#000000 or black)"
 msgstr ""
 
-#: design/models.py:106
+#: design/models.py:107
 msgid "background_image"
 msgstr ""
 
-#: design/models.py:107
+#: design/models.py:108
 msgid "logo_height (30)"
 msgstr ""
 
-#: design/models.py:108
+#: design/models.py:109
 msgid "logo_width (120)"
 msgstr ""
 
-#: design/models.py:109
+#: design/models.py:110
 msgid "background_image_on"
 msgstr ""
 
-#: design/models.py:110
+#: design/models.py:111
 msgid "full_top_banner"
 msgstr ""
 
-#: design/models.py:111
+#: design/models.py:112
 msgid "menu_left"
 msgstr ""
 
-#: design/models.py:112
+#: design/models.py:113
 msgid "vertical_lines"
 msgstr ""
 
-#: design/models.py:113
+#: design/models.py:114
 msgid "top_navigation"
 msgstr ""
 
-#: design/models.py:129 design/models.py:130
-msgid "Design Settings"
+#: design/models.py:116
+msgid "menu_text_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:117
+msgid "menu_text_size px"
+msgstr ""
+
+#: design/models.py:118
+msgid "menu_text_font"
+msgstr ""
+
+#: design/models.py:120
+msgid "main_text_color (#000000 or black)"
+msgstr ""
+
+#: design/models.py:121
+msgid "main_text_size px"
+msgstr ""
+
+#: design/models.py:122
+msgid "main_text_font"
+msgstr ""
+
+#: design/models.py:124
+msgid "big_title_color (#000000 or black)"
+msgstr ""
+
+#: design/models.py:125
+msgid "big_title_size px"
+msgstr ""
+
+#: design/models.py:126
+msgid "big_title_font"
+msgstr ""
+
+#: design/models.py:128
+msgid "small_title_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:129
+msgid "small_title_size px"
+msgstr ""
+
+#: design/models.py:130
+msgid "small_title_font"
+msgstr ""
+
+#: design/models.py:132
+msgid "banner_title_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:133
+msgid "banner_title_size px"
+msgstr ""
+
+#: design/models.py:134
+msgid "banner_title_font"
+msgstr ""
+
+#: design/models.py:136
+msgid "date_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:137
+msgid "date_size px"
+msgstr ""
+
+#: design/models.py:138
+msgid "date_font"
+msgstr ""
+
+#: design/models.py:140
+msgid "footer_text_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:141
+msgid "footer_text_size px"
 msgstr ""
 
 #: design/models.py:142
+msgid "footer_text_font"
+msgstr ""
+
+#: design/models.py:145 design/models.py:146
+msgid "Design Settings"
+msgstr ""
+
+#: design/models.py:191
 msgid "project_category"
 msgstr ""
 
-#: design/models.py:143
+#: design/models.py:192
 msgid "profile_category"
 msgstr ""
 
-#: design/models.py:145
+#: design/models.py:194
 msgid "contact_form"
 msgstr ""
 
-#: design/models.py:150 design/models.py:151
+#: design/models.py:199 design/models.py:200
 msgid "Functional Settings"
 msgstr ""
 
-#: design/models.py:161
+#: design/models.py:210
 msgid "browser_title"
 msgstr ""
 
-#: design/models.py:164
+#: design/models.py:213
 msgid "add_other_text"
 msgstr ""
 
-#: design/models.py:166
+#: design/models.py:215
 msgid "add_name_to_bannertext"
 msgstr ""
 
-#: design/models.py:171 design/models.py:172
+#: design/models.py:220 design/models.py:221
 msgid "Page Texts"
 msgstr ""
 
-#: design/models.py:182
+#: design/models.py:231
 msgid "image"
 msgstr ""
 
-#: design/models.py:189 design/models.py:190
+#: design/models.py:238 design/models.py:239
 msgid "Page Pictures"
 msgstr ""
 
-#: nasa_project/settings.py:141
+#: nasa_project/settings.py:141 nasa_project/settings_prod.py:141
 msgid "English"
 msgstr "ENG"
 
-#: nasa_project/settings.py:142
+#: nasa_project/settings.py:142 nasa_project/settings_prod.py:142
 msgid "Estonian"
 msgstr "EST"
 
-#: nasa_project/settings.py:143
+#: nasa_project/settings.py:143 nasa_project/settings_prod.py:143
 msgid "Russian"
 msgstr "RUS"
 
@@ -367,8 +447,7 @@ msgid "Project"
 msgstr "Projekt"
 
 #: pages/models.py:208 templates/pages/profile.html:140
-#: templates/pages/project_detail.html:43
-#: templates/pages/projects_list.html:44
+#: templates/pages/project_detail.html:43 templates/pages/projects_list.html:44
 msgid "Projects"
 msgstr "Projektid"
 
@@ -485,8 +564,8 @@ msgstr "Professionaalne Teenindus"
 
 #: templates/include/feature.html:34
 msgid ""
-"Finding the perfect learning tool for Flash is a daunting task to any novice"
-" web developer. One can find help."
+"Finding the perfect learning tool for Flash is a daunting task to any novice "
+"web developer. One can find help."
 msgstr ""
 
 #: templates/include/feature.html:42
@@ -529,13 +608,13 @@ msgid ""
 "everything in sight. Now you want."
 msgstr ""
 
-#: templates/include/footer.html:27 templates/include/header.html:161
+#: templates/include/footer.html:27 templates/include/header.html:186
 #: templates/pages/about.html:16 templates/pages/about.html:19
 #: templates/pages/about.html:32 templates/pages/about.html:42
 msgid "About Us"
 msgstr "Meist"
 
-#: templates/include/footer.html:41 users/admin.py:34
+#: templates/include/footer.html:41 users/admin.py:36
 msgid "Follow Us"
 msgstr "Leia meid"
 
@@ -550,40 +629,40 @@ msgstr "Võta meiega ühendust"
 msgid "Our Recent Works may impress you"
 msgstr "Meie hiljutised tööd"
 
-#: templates/include/header.html:70
+#: templates/include/header.html:95
 msgid "Other Design Elements"
 msgstr ""
 
-#: templates/include/header.html:114
+#: templates/include/header.html:141
 msgid "HOME"
 msgstr "Avaleht"
 
-#: templates/include/header.html:118 templates/include/header.html:129
+#: templates/include/header.html:144 templates/include/header.html:154
 msgid "PROJECTS"
 msgstr "Projektid"
 
-#: templates/include/header.html:121 templates/pages/projects_list.html:72
+#: templates/include/header.html:146 templates/pages/projects_list.html:72
 #: templates/pages/projects_list.html:85
 msgid "All Projects"
 msgstr "Kõik projektid"
 
-#: templates/include/header.html:132 templates/include/header.html:142
+#: templates/include/header.html:157 templates/include/header.html:167
 msgid "PEOPLE"
 msgstr "Meeskond"
 
-#: templates/include/header.html:134 templates/pages/people_list.html:73
+#: templates/include/header.html:159 templates/pages/people_list.html:73
 msgid "All People"
 msgstr "Kõik meeskond"
 
-#: templates/include/header.html:145
+#: templates/include/header.html:170
 msgid "SERVICES"
 msgstr "Teenused"
 
-#: templates/include/header.html:146
+#: templates/include/header.html:171
 msgid "NEWS"
 msgstr "Uudised"
 
-#: templates/include/header.html:162
+#: templates/include/header.html:187
 msgid "CONTACT"
 msgstr "Kontakt"
 
@@ -619,8 +698,7 @@ msgstr ""
 #: templates/pages/home.html:17 templates/pages/home.html:20
 #: templates/pages/news_detail.html:41 templates/pages/news_list.html:40
 #: templates/pages/people_list.html:42 templates/pages/profile.html:42
-#: templates/pages/project_detail.html:41
-#: templates/pages/projects_list.html:42
+#: templates/pages/project_detail.html:41 templates/pages/projects_list.html:42
 #: templates/pages/service_detail.html:41 templates/pages/service_list.html:41
 #: templates/pages/success.html:40
 msgid "Home"
@@ -689,8 +767,15 @@ msgstr "Saada teade"
 msgid "Elements"
 msgstr ""
 
-#: templates/pages/elements_icons.html:9
-#: templates/pages/elements_icons.html:13
+#: templates/pages/elements.html:578
+msgid ""
+"\n"
+"            <h1> Sorry, You are not a staff of this site. Please log in or "
+"contact administrator. </h1>\n"
+"        "
+msgstr ""
+
+#: templates/pages/elements_icons.html:9 templates/pages/elements_icons.html:13
 msgid "Elements Icons"
 msgstr ""
 
@@ -747,23 +832,23 @@ msgstr "Meie teenused"
 msgid "Contact Success"
 msgstr ""
 
-#: users/admin.py:25
+#: users/admin.py:27
 msgid "Address"
 msgstr ""
 
-#: users/admin.py:28
+#: users/admin.py:30
 msgid "Company"
 msgstr ""
 
-#: users/admin.py:31
+#: users/admin.py:33
 msgid "Contact"
 msgstr ""
 
-#: users/admin.py:37
+#: users/admin.py:39
 msgid "Password"
 msgstr ""
 
-#: users/admin.py:40
+#: users/admin.py:42
 msgid "Logo"
 msgstr ""
 
@@ -772,7 +857,6 @@ msgid "first_name"
 msgstr "Perekonnanimi"
 
 #: users/models.py:11
-#| msgid "name"
 msgid "last_name"
 msgstr "Nimi"
 
