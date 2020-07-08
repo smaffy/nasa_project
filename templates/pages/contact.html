@@ -30,7 +30,7 @@
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Contact Us' %}
+        <h1 class="banner-title-style"> {% trans 'Contact Us' %} </h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -59,7 +59,7 @@
                                 <h1 class="mb-10 big-title-style">{{ texts.big_page_title|safe }}</h1>
                             {% endwith %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
-                                <p>{{ small|safe }}</p>
+                                <div class="small-title-style">{{ small|safe }}</div>
                             {% endwith %}
                         {% endif %}
                     {% endif %}
@@ -220,7 +220,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     {% if design.active %}
-                                        <input type="submit" class="genric-btn {{ design.get_button }} text-uppercase" style="float: right; {% if 'circle' in design.get_button %}border-radius: 20px; {% elif 'radius' in design.get_button %} border-radius: 3px; {% endif %}height: 50px; padding-top: 2px; padding-bottom: 2px; padding-left: 20px; padding-right: 20px" value="{% trans 'Send Message' %}">
+                                        <input type="submit" class="genric-btn {{ design.get_button_style }} text-uppercase button_text_style" style="float: right; {% if 'circle' in design.get_button_style %}border-radius: 20px; {% elif 'radius' in design.get_button_style %} border-radius: 3px; {% endif %}height: 50px; padding-top: 2px; padding-bottom: 2px; padding-left: 20px; padding-right: 20px;" value="{% trans 'Send Message' %}">
                                     {% else %}
                                         <input type="submit" class="genric-btn primary radius text-uppercase" style="float: right; border-radius: 15px; height: 50px; padding-top: 2px; padding-bottom: 2px; padding-left: 20px; padding-right: 20px" value="{% trans 'Send Message' %}">
                                     {% endif %}

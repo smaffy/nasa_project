@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 13:17+0000\n"
+"POT-Creation-Date: 2020-07-02 12:24+0000\n"
 "PO-Revision-Date: 2020-06-28 11:14+0000\n"
 "Last-Translator: b'None None <>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: design/forms.py:13 design/forms.py:18 design/models.py:211
+#: design/forms.py:13 design/forms.py:18 design/models.py:218
 msgid "big page title"
 msgstr ""
 
-#: design/forms.py:14 design/forms.py:19 design/models.py:212
+#: design/forms.py:14 design/forms.py:19 design/models.py:219
 msgid "small page title"
 msgstr ""
 
-#: design/forms.py:15 design/forms.py:20 design/models.py:209
+#: design/forms.py:15 design/forms.py:20 design/models.py:216
 msgid "banner big text"
 msgstr ""
 
@@ -43,13 +43,13 @@ msgstr ""
 msgid "callto_banner_button_text"
 msgstr ""
 
-#: design/models.py:77 design/models.py:216 design/models.py:232
+#: design/models.py:77 design/models.py:223 design/models.py:239
 #: users/models.py:31
 msgid "active"
 msgstr "Aktiivne"
 
-#: design/models.py:78 design/models.py:189 design/models.py:208
-#: design/models.py:229 pages/forms.py:60
+#: design/models.py:78 design/models.py:196 design/models.py:215
+#: design/models.py:236 pages/forms.py:60
 msgid "name"
 msgstr "Nimi"
 
@@ -249,47 +249,59 @@ msgstr ""
 msgid "footer_text_font"
 msgstr ""
 
-#: design/models.py:145 design/models.py:146
+#: design/models.py:144
+msgid "button_text_color (#000000 or white)"
+msgstr ""
+
+#: design/models.py:145
+msgid "button_text_size px"
+msgstr ""
+
+#: design/models.py:146
+msgid "button_text_font"
+msgstr ""
+
+#: design/models.py:149 design/models.py:150
 msgid "Design Settings"
 msgstr ""
 
-#: design/models.py:191
+#: design/models.py:198
 msgid "project_category"
 msgstr ""
 
-#: design/models.py:192
+#: design/models.py:199
 msgid "profile_category"
 msgstr ""
 
-#: design/models.py:194
+#: design/models.py:201
 msgid "contact_form"
 msgstr ""
 
-#: design/models.py:199 design/models.py:200
+#: design/models.py:206 design/models.py:207
 msgid "Functional Settings"
 msgstr ""
 
-#: design/models.py:210
+#: design/models.py:217
 msgid "browser_title"
 msgstr ""
 
-#: design/models.py:213
+#: design/models.py:220
 msgid "add_other_text"
 msgstr ""
 
-#: design/models.py:215
+#: design/models.py:222
 msgid "add_name_to_bannertext"
 msgstr ""
 
-#: design/models.py:220 design/models.py:221
+#: design/models.py:227 design/models.py:228
 msgid "Page Texts"
 msgstr ""
 
-#: design/models.py:231
+#: design/models.py:238
 msgid "image"
 msgstr ""
 
-#: design/models.py:238 design/models.py:239
+#: design/models.py:245 design/models.py:246
 msgid "Page Pictures"
 msgstr ""
 

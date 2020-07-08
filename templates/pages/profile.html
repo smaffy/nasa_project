@@ -26,12 +26,12 @@
     {% if texts.active %}
         {% if texts|get_translated_field:'banner_big_text' %}
             {% with texts|get_translated_field:'banner_big_text' as titl %}
-                {{ titl|safe }} {% if texts.add_name %} {{ profile.first_name }} {{ profile.last_name }} {% endif %}
+                <h1 class="banner-title-style"> {{ titl|safe }} {% if texts.add_name %} {{ profile.first_name }} {{ profile.last_name }} {% endif %} </h1>
             {% endwith %}
 
         {% endif %}
     {% else %}
-        {{ profile.first_name }} {{ profile.last_name }}
+        <h1 class="banner-title-style"> {{ profile.first_name }} {{ profile.last_name }}</h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -51,7 +51,7 @@
     {{ qqq }}
     <!-- Start project-details Area -->
     <section class="project-details-area section-gap">
-        <div class="container" style="color: black">
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-6 project-details-left">
                     {% with profile.image as image %}
@@ -171,7 +171,7 @@
                     <div class="col-md-12 mb-20 header-text text-center">
                         <hr>
                         {% with texts|get_translated_field:'small_page_title' as small %}
-                            <p>{{ small|safe }}</p>
+                            <div class="small-title-style">{{ small|safe }}</div>
                         {% endwith %}
                     </div>
                 {% endif %}

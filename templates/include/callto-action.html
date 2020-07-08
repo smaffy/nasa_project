@@ -15,15 +15,15 @@
                     {% if texts.active %}
                         {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
                             {% with texts|get_translated_field:'big_page_title' as big %}
-                                <h1 class="mb-10">{{ big|safe }}</h1>
+                                <h1 class="mb-10 big-title-style">{{ big|safe }}</h1>
 
                             {% endwith %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
-                                <p class="text-white mx-auto">{{ small|safe }}</p>
+                                <div class="small-title-style mx-auto">{{ small|safe }}</div>
                             {% endwith %}
 
                             {% if design|get_translated_field:'callto_banner_button_text' %}
-                                <a href="{% url 'pages:contact' %}" class="genric-btn {{ design.get_button }} text-uppercase mt-10">{{ design|get_translated_field:'callto_banner_button_text' }} {% if 'arrow' in design.button_form %}<span class="lnr lnr-arrow-right"></span>{% endif %}</a>
+                                <a href="{% url 'pages:contact' %}" class="genric-btn {{ design.get_button }} text-uppercase mt-10 button_text_style">{{ design|get_translated_field:'callto_banner_button_text' }} {% if 'arrow' in design.button_form %}<span class="lnr lnr-arrow-right"></span>{% endif %}</a>
                             {% endif %}
                         {% endif %}
                     {% endif %}

@@ -71,9 +71,14 @@
                 border: none;
             }
         {% if design.active %}
+            .main-style {
+                {% if design.get_main_style %}{{ design.get_main_style }}{% endif %}
+            }
+            .main-style-color {
+                {% if design.get_main_text_style %}{{ design.get_main_text_style }}{% endif %}
+            }
             .menu-has-children ul {
-                {% if design.get_menu_text_style %}{{ design.get_menu_text_style }}{% endif %};
-                background-color: #7c7c7c;
+                {% if design.get_menu_text_style %}background-color: #7c7c7c; {{ design.get_menu_text_style }}{% endif %};
             }
             .link-nav a,span{
                 {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
@@ -93,7 +98,7 @@
             .header-text h1.big-title-style {
                 {% if design.get_big_title_style %}{{ design.get_big_title_style }}{% endif %}
             }
-            .header-text div.small-title-style {
+            div.small-title-style {
                 {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
             }
             .banner-content h1.banner-title-style {
@@ -104,13 +109,18 @@
             }
             .banner-content div.small_title-style {
                 {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
-
+            }
+            .small_title-style {
+                {% if design.get_small_title_style %}{{ design.get_small_title_style }}{% endif %}
             }
             .date-style{
                 {% if design.get_date_style %}{{ design.get_date_style }}{% endif %}
             }
             .footer-text-style {
                 {% if design.get_footer_text_style %}{{ design.get_footer_text_style }}{% endif %}
+            }
+            input.button_text_style {
+                {% if design.get_button_text_style %} {{ design.get_button_text_style }} {% else %} color: #fff; {% endif %}
             }
             .bg-color {
                 background-color: {{ design.background_color }};
@@ -151,21 +161,7 @@
             {#    font-family: {{ design.font }};#}
                 {#color:#000#}
             {#}#}
-            .header-top-left a {
-                font-size: {{ design.main_menu_text_size }}px;
-                color: {{ design.main_menu_text_color }};
-            }
 
-            .nav-menu a {
-                font-size: {{ design.main_menu_text_size }}px;
-                color: {{ design.main_menu_text_color }};
-            }
-            h1.title-size {
-                font-size: 40px;
-            }
-            h4.title-size {
-                font-size: 20px;
-            }
             li.social-icons-top {
                 font-size: {{ design.social_icons_top_size }}px;
             }

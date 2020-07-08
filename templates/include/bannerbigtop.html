@@ -54,7 +54,7 @@
 
                             {% if design %}
                                 {% if design|get_translated_field:'home_big_banner_button' %}
-                                    <a href="{% url 'pages:contact' %}" class="primary-btn header-btn text-uppercase mt-10">{{ design|get_translated_field:'home_big_banner_button' }}</a>
+                                    <a href="{% url 'pages:contact' %}" class="genric-btn header-btn text-uppercase mt-10 button_text_style {{ design.get_button_style }}">{{ design|get_translated_field:'home_big_banner_button' }}</a>
                                 {% endif %}
                             {% endif %}
                         {% endif %}

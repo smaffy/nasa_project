@@ -15,21 +15,21 @@
                     {% if texts.active %}
                         {% if texts|get_translated_field:'big_page_title' %}
                             {% with texts|get_translated_field:'big_page_title' as big %}
-                                <h6 class="font_big"><a href="{% url 'pages:about' %}" style="color: black">{{ big|safe }}</a></h6>
+                                <h6><a href="{% url 'pages:about' %}" class="big-title-style">{{ big|safe }}</a></h6>
                             {% endwith %}
                         {% endif %}
                         {% if texts|get_translated_field:'small_page_title' %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
-                                <p>{{ small|safe }}</p>
+                                <div class="footer-text-style">{{ small|safe }}</div>
                             {% endwith %}
                         {% endif %}
                     {% else %}
-                        <h6 class="font_big"><a href="{% url 'pages:about' %}" style="color: black">{% trans 'About Us' %}</a></h6>
+                        <h6 class="big-title-style"><a href="{% url 'pages:about' %}" >{% trans 'About Us' %}</a></h6>
                     {% endif %}
 
-                    <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <div class="footer-text-style"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Webapp is made by <a href="https://vsdemo.ee"> VS OU</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 
                 </div>
             </div>
@@ -38,9 +38,9 @@
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
                     <div class="single-footer-widget">
                         {% if contacts.facebook or contacts.instagram or contacts.twitter %}
-                            <h6>{% trans 'Follow Us' %}</h6>
-                            <p>Let us be social</p>
-                            <div class="footer-social d-flex align-items-center">
+                            <h6 class="big-title-style">{% trans 'Follow Us' %}</h6>
+                            <div class="footer-text-style">Let us be social</div>
+                            <div class="footer-social d-flex align-items-center ">
                                 {% if contacts.facebook %}
                                     <a href="{{ contacts.facebook }}" target="_blank"><i class="fa fa-facebook" ></i></a>
                                 {% endif %}
@@ -58,9 +58,9 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
                     <div class="single-footer-widget">
-                        <h6><a href="{% url 'pages:contact' %}" style="color: inherit">{% trans 'Contact Us' %}</a></h6>
-                        <a href="tel:{{ contacts.phone_number }}" style="color: inherit">{{ contacts.phone_number }}</a>
-                        <a href="mailto:{{ contacts.email }}" style="color: inherit">{{ contacts.email }}</a>
+                        <h6><a href="{% url 'pages:contact' %}" class="big-title-style">{% trans 'Contact Us' %}</a></h6>
+                        <a href="tel:{{ contacts.phone_number }}" class="footer-text-style">{{ contacts.phone_number }}</a>
+                        <a href="mailto:{{ contacts.email }}" class="footer-text-style">{{ contacts.email }}</a>
                     </div>
                 </div>
             {% else %}
@@ -68,9 +68,9 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
                     <div class="single-footer-widget">
-                        <h6><a href="{% url 'pages:contact' %}" style="color: inherit">{% trans 'Contact Us' %}</a></h6>
-                        <a href="tel:+372 506 5668" style="color: inherit">+372 555 5665</a>
-                        <a href="mailto:info@nasa.ee" style="color: inherit">info@default.ee</a>
+                        <h6><a href="{% url 'pages:contact' %}" class="big-title-style">{% trans 'Contact Us' %}</a></h6>
+                        <a href="tel:+372 506 5668" class="footer-text-style">+372 555 5665</a>
+                        <a href="mailto:info@nasa.ee" class="footer-text-style">info@default.ee</a>
                     </div>
                 </div>
             {% endif %}

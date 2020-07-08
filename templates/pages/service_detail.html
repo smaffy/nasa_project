@@ -26,11 +26,11 @@
     {% if texts.active %}
         {% if texts|get_translated_field:'banner_big_text' %}
             {% with texts|get_translated_field:'banner_big_text' as titl %}
-                {{ titl|safe }} {% if texts.add_name %} "{{ service.title }}" {% endif %}
+                <h1 class="banner-title-style">  {{ titl|safe }} {% if texts.add_name %} "{{ service.title }}" {% endif %} </h1>
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Service' %}
+        <h1 class="banner-title-style"> {% trans 'Service' %} </h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -50,12 +50,12 @@
     <section class="service-area section-gap" id="service">
         <div class="container">
             <div class="col-md-12 mb-20 header-text text-center">
-                <h1 class="mb-10">{{ service.title }}</h1>
+                <h1 class="mb-10 big-title-style">{{ service.title }}</h1>
                 {% service_detail_texts as texts %}
                 {% if texts.active %}
                     {% if texts|get_translated_field:'small_page_title' %}
                         {% with texts|get_translated_field:'small_page_title' as small %}
-                            <p>{{ small|safe }}</p>
+                            <div class="small-title-style">{{ small|safe }}</div>
                         {% endwith %}
                     {% endif %}
                 {% endif %}
@@ -72,8 +72,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <blockquote class="generic-blockquote">
-                            <p style="color: black">{{ service.short_description|safe }}</p>
-                            <p style="color: black">{{ service.description|safe }}</p>
+                            <p class="main-style">{{ service.short_description|safe }}</p>
+                            <p class="main-style">{{ service.description|safe }}</p>
                         </blockquote>
                     </div>
                 </div>

@@ -16,16 +16,16 @@
                             {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
                                 <a href="{% url 'pages:news' %}">
                                     {% with texts|get_translated_field:'big_page_title' as big %}
-                                        <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                                        <h1 class="mb-10 big-title-style">{{ texts.big_page_title|safe }}</h1>
                                     {% endwith %}
                                 </a>
                                     {% with texts|get_translated_field:'small_page_title' as small %}
-                                        <p>{{ small|safe }}</p>
+                                        <div class="small-text-title">{{ small|safe }}</div>
                                     {% endwith %}
                             {% endif %}
                         {% else %}
                             <a href="{% url 'pages:news' %}">
-                                <h1 class="mb-10">{% trans 'News' %}</h1>
+                                <h1 class="mb-10 big-title-style">{% trans 'News' %}</h1>
                             </a>
                         {% endif %}
                     </div>
@@ -35,7 +35,7 @@
                 <div class="active-blog-carusel">
                     {% for item in hnews %}
                         <div class="single-blog-post item">
-                            <a href="{{ item.get_absolute_url }}" style="color: inherit">
+                            <a href="{{ item.get_absolute_url }}">
                                 <div class="thumb">
                                     {% thumbnail item.image "350x250" crop='center' as img %}
                                         <img class="content-image img-fluid d-block mx-auto" style="border-radius: 10px" src="{{ img.url }}" height="250" alt="">
@@ -52,7 +52,7 @@
         {#                                    </li>#}
         {#                                </ul>#}
         {#                            </div>#}
-                                    <h4 class="title">{{ item.title }}</h4>
+                                    <h4 class="title small-text-title">{{ item.title }}</h4>
                                     <p class="pb-10 date-style" >{{ item.published }}</p>
                                     <p>
                                         {{ item.short_description|safe }}

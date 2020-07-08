@@ -89,7 +89,7 @@ $(document).ready(function() {
     //------- Mobile Nav  js --------//
 
     if ($('#nav-menu-container').length) {
-        var $mobile_nav2 = $('div.container nav:eq(1)').clone().prop({
+        var $mobile_nav2 = $('div.container nav:eq(2)').clone().prop({
             id: 'mobile-nav2'
         });
         $mobile_nav2.find('> ul').attr({

@@ -135,11 +135,15 @@ class DesignSettings(TranslatableModel):
 
     date_color = models.CharField(_('date_color (#000000 or white)'), max_length=200, null=True, blank=True)
     date_size = models.CharField(_('date_size px'), max_length=50, null=True, blank=True)
-    date_font = models.CharField(_('date_font'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+    date_font = models.CharField(_('date_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
 
     footer_text_color = models.CharField(_('footer_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
     footer_text_size = models.CharField(_('footer_text_size px'), max_length=50, null=True, blank=True)
-    footer_text_font = models.CharField(_('footer_text_font'), max_length=200, choices=FONT_CHOICES, default='default', null=True, blank=True)
+    footer_text_font = models.CharField(_('footer_text_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
+
+    button_text_size = models.CharField(_('button_text_size px'), max_length=50, null=True, blank=True)
+    button_text_color = models.CharField(_('button_text_color (#000000 or white)'), max_length=200, null=True, blank=True)
+    button_text_font = models.CharField(_('button_text_font'), max_length=200, choices=FONT_CHOICES, null=True, blank=True)
 
     class Meta:
         verbose_name = _('Design Settings')
@@ -163,6 +167,16 @@ class DesignSettings(TranslatableModel):
             t_font = mark_safe("font-family: {}; ".format(f))
         return t_size + t_color + t_font
 
+    def get_main_style(self):
+        t_color = ' '
+        if self.main_text_color:
+            t_color = mark_safe(" color: {}; ".format(self.main_text_color))
+        if self.main_text_font:
+            t_font = mark_safe(" font-family: {}; ".format(self.main_text_font))
+        else:
+            t_font = mark_safe(" font-family: {}; ".format(self.font))
+        return t_color + t_font
+
     def get_menu_text_style(self):
         return self.get_style(size=self.menu_text_size, color=self.menu_text_color, font=self.menu_text_font, f=self.font)
 
@@ -179,10 +193,13 @@ class DesignSettings(TranslatableModel):
         return self.get_style(self.banner_title_size, self.banner_title_color, self.banner_title_font, f=self.font)
 
     def get_date_style(self):
-        return self.get_style(self.date_size, self.date_color, self.date_font, f=self.font)
+        return self.get_style(size=self.date_size, color=self.date_color, font=self.date_font, f=self.font)
 
     def get_footer_text_style(self):
         return self.get_style(self.footer_text_size, self.footer_text_color, self.footer_text_font, f=self.font)
+
+    def get_button_text_style(self):
+        return self.get_style(size=self.button_text_size, color=self.button_text_color, font=self.button_text_font, f=self.font)
 
 
 class FunctionalSettings(models.Model):

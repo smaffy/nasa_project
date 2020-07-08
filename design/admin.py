@@ -386,7 +386,8 @@ class DesignSettingsAdmin(TranslatableAdmin):
         'preview_small_title_style',
         'preview_banner_title_style',
         'preview_date_style',
-        'preview_footer_text_style'
+        'preview_footer_text_style',
+        'preview_button_text_style',
     ]
 
     fieldsets = (
@@ -397,11 +398,11 @@ class DesignSettingsAdmin(TranslatableAdmin):
             "fields": ('background_image_on', 'full_top_banner', 'menu_left', 'vertical_lines', 'top_navigation',)
         }),
         ('Main', {
-            "fields": ('get_font_preview', ('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
+            "fields": (('background_color', 'preview_background_color',), ('container_color', 'preview_container_color',), 'background_image', 'get_img_preview',)
         }),
         ('Text styles', {
             "fields": (
-                'font',
+                ('font', 'get_font_preview',),
                 ('main_text_color', 'main_text_size', 'main_text_font', 'preview_main_text_style',),
                 ('menu_text_color', 'menu_text_size', 'menu_text_font', 'preview_menu_text_style',),
                 ('big_title_color', 'big_title_size', 'big_title_font', 'preview_big_title_style',),
@@ -409,6 +410,7 @@ class DesignSettingsAdmin(TranslatableAdmin):
                 ('banner_title_color', 'banner_title_size', 'banner_title_font', 'preview_banner_title_style',),
                 ('date_color', 'date_size', 'date_font', 'preview_date_style',),
                 ('footer_text_color', 'footer_text_size', 'footer_text_font', 'preview_footer_text_style',),
+                ('button_text_size', 'button_text_color', 'button_text_font', 'preview_button_text_style', ),
             )
         }),
 
@@ -474,21 +476,21 @@ class DesignSettingsAdmin(TranslatableAdmin):
             'radius': 'border-radius: 3px;',
             'circle': 'border-radius: 20px;',
             'circle arrow': 'border-radius: 20px;',
-            'default': 'color: #222; background: #f9f9ff; border: 1px solid transparent;',
+            'default': 'background: #f9f9ff; border: 1px solid transparent;',
             'default-border': 'border: 1px solid #f9f9ff; background: transparent;',
-            'primary': 'color: #fff; background: #c6b069; border: 1px solid transparent;',
+            'primary': 'background: #c6b069; border: 1px solid transparent;',
             'primary-border': 'color: #c6b069; border: 1px solid #c6b069; background: transparent;',
-            'success': 'color: #fff; background: #4cd3e3; border: 1px solid transparent;',
+            'success': 'border: 1px solid transparent;',
             'success-border': 'color: #4cd3e3; border: 1px solid #4cd3e3; background: transparent;',
-            'info': 'color: #fff; background: #38a4ff; border: 1px solid transparent;',
+            'info': 'background: #38a4ff; border: 1px solid transparent;',
             'info-border': 'color: #38a4ff; border: 1px solid #38a4ff; background: transparent;',
-            'warning': '  color: #fff; background: #f4e700; border: 1px solid transparent;',
+            'warning': 'background: #f4e700; border: 1px solid transparent;',
             'warning-border': 'color: #f4e700; border: 1px solid #f4e700; background: transparent;',
-            'danger': 'color: #fff; background: #f44a40; border: 1px solid transparent;',
+            'danger': 'background: #f44a40; border: 1px solid transparent;',
             'danger-border': 'color: #f44a40; border: 1px solid #f44a40; background: transparent;',
-            'link': 'color: #222; background: #f9f9ff; text-decoration: underline; border: 1px solid transparent;',
+            'link': 'background: #f9f9ff; text-decoration: underline; border: 1px solid transparent;',
             'link-border': 'color: #222; border: 1px solid #f9f9ff; background: transparent; text-decoration: underline;',
-            'disable': 'color: #222,0.3; background: #f9f9ff; border: 1px solid transparent; cursor: not-allowed;',
+            'disable': ' background: #f9f9ff; border: 1px solid transparent; cursor: not-allowed;',
             None: ' ',
             ' ': ' ',
         }
@@ -496,8 +498,9 @@ class DesignSettingsAdmin(TranslatableAdmin):
         color = style[obj.button_color]
         size = style[obj.button_size]
         form = style[obj.button_form]
+        style = obj.get_button_text_style()
 
-        return mark_safe('<a href="#" style="{mybtn} {f} {s} {c} text-transform: uppercase; margin-top: 10px"> {t} </a>'.format(mybtn=mygenricbtn, f=form, s=size, c=color, t=obj.home_big_banner_button))
+        return mark_safe('<a href="#" style="{mybtn} {f} {s} {c} text-transform: uppercase; margin-top: 10px; {st}"> {t} </a>'.format(st=style, mybtn=mygenricbtn, f=form, s=size, c=color, t=obj.home_big_banner_button))
 
     def preview_container_color(self, obj):
         if obj.container_color:
@@ -619,4 +622,8 @@ class DesignSettingsAdmin(TranslatableAdmin):
 
     def preview_footer_text_style(self, obj):
         style = obj.get_footer_text_style()
+        return mark_safe(mytext.format(style))
+
+    def preview_button_text_style(self, obj):
+        style = obj.get_button_text_style()
         return mark_safe(mytext.format(style))

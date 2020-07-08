@@ -30,7 +30,7 @@
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Project' %}
+        <h1 class="banner-title-style"> {% trans 'Project' %}</h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -50,7 +50,7 @@
 
     <!-- Start project-details Area -->
     <section class="project-details-area section-gap">
-        <div class="container" style="color: black">
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-6 project-details-left">
                     {% with project.first_image as image %}
@@ -61,7 +61,7 @@
                         {% endif %}
                     {% endwith %}
                 </div>
-                <div class="col-lg-6 project-details-right" style="vertical-align: top">
+                <div class="col-lg-6 project-details-right" >
                     <h3 class="pb-20 pt-20 big-title-style">{{ project.title }}</h3>
                     <p>
                         {{ project.short_description|safe }}
@@ -145,7 +145,7 @@
 {#                    </div>#}
                 </div>
 
-                <div class="col-lg-12 project-desc mt-60 mb-60" style="color: black">
+                <div class="col-lg-12 project-desc mt-60 mb-60">
                     <p>
                         {{ project.description|safe }}
                     </p>
@@ -185,7 +185,7 @@
             {% if texts.active %}
                 {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
                     {% with texts|get_translated_field:'small_page_title' as small %}
-                        <p>{{ small|safe }}</p>
+                        <div class="small-title-style" style="text-align: center">{{ small|safe }}</div>
                     {% endwith %}
                 {% endif %}
             {% endif %}

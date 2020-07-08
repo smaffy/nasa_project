@@ -26,11 +26,11 @@
     {% if texts.active %}
         {% if texts|get_translated_field:'banner_big_text' %}
             {% with texts|get_translated_field:'banner_big_text' as titl %}
-                {{ titl|safe }}
+                <h1 class="banner-title-style"> {{ titl|safe }} </h1>
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Our Services' %}
+        <h1 class="banner-title-style"> {% trans 'Our Services' %}</h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -45,7 +45,7 @@
     {% endif %}
 {% endblock top %}
 
-{% block conteiner %}0
+{% block conteiner %}
 
     <!-- Start service Area -->
     <section class="service-area section-gap" id="service">
@@ -60,7 +60,7 @@
                                 <h1 class="mb-10 big-title-style">{{ big|safe }}</h1>
                             {% endwith %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
-                                <p class="title-size">{{ small|safe }}</p>
+                                <div class="small-title-style">{{ small|safe }}</div>
                             {% endwith %}
                         {% endif %}
                     </div>
@@ -70,7 +70,7 @@
             {% for service in allservices %}
                 <a href="{{ service.get_absolute_url }}">
                     <div class="section-top-border p-4">
-                        <h3 class="mb-10">{{ service.title }}</h3>
+                        <h3 class="mb-10 main-style">{{ service.title }}</h3>
                         <div class="mb-15">
                             {% with service.image as image %}
                                 {% if image %}
@@ -83,7 +83,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <blockquote class="generic-blockquote">
-                                    <p style="color: black">{{ service.short_description }}</p>
+                                    <p class="main-style">{{ service.short_description }}</p>
                                 </blockquote>
                             </div>
                         </div>

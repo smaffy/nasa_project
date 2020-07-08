@@ -1,7 +1,7 @@
 {% load thumbnail %}
 
 <div class="col-lg-4">
-    <div class="single-gallery">
+    <div class="single-gallery ">
             {% if image %}
                 <a href="{{ image.image.url }}">
                     {% thumbnail image.image "350x370" crop='center' as img %}

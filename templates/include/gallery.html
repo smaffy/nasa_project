@@ -13,7 +13,7 @@
                     {% if texts|get_translated_field:'big_page_title' or texts|get_translated_field:'small_page_title' %}
                         <a href="{% url 'pages:projects' %}">
                             {% with texts|get_translated_field:'big_page_title' as big %}
-                                <h1 class="mb-10">{{ texts.big_page_title|safe }}</h1>
+                                <h1 class="mb-10 big-title-style">{{ texts.big_page_title|safe }}</h1>
                             {% endwith %}
                         </a>
                             {% with texts|get_translated_field:'small_page_title' as small %}

@@ -25,11 +25,11 @@
     {% if texts.active %}
         {% if texts|get_translated_field:'banner_big_text' %}
             {% with texts|get_translated_field:'banner_big_text' as titl %}
-                {{ titl|safe }}
+                <h1 class="banner-title-style"> {{ titl|safe }} </h1>
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Contact Success' %}
+        <h1 class="banner-title-style"> {% trans 'Contact Success' %} </h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -53,7 +53,7 @@
                     <h1 class="mb-10 big-title-style">{{ texts.big_page_title|safe }}</h1>
                 {% endwith %}
                 {% with texts|get_translated_field:'small_page_title' as small %}
-                    <p>{{ small|safe }}</p>
+                    <div class="small-title-style">{{ small|safe }}</div>
                 {% endwith %}
                 {% with texts|get_translated_field:'add_other_text' as other %}
                     <p class="mt-20">{{ other|safe }}</p>

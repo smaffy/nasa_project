@@ -31,7 +31,7 @@
             {% endwith %}
         {% endif %}
     {% else %}
-        {% trans 'Our Team' %}
+        <h1 class="banner-title-style"> {% trans 'Our Team' %} </h1>
     {% endif %}
 {% endblock title2 %}
 
@@ -60,7 +60,7 @@
                                 <h1 class="mb-10 big-title-style">{{ texts.big_page_title|safe }}</h1>
                             {% endwith %}
                             {% with texts|get_translated_field:'small_page_title' as small %}
-                                <p>{{ small|safe }}</p>
+                                <div class="small-title-style">{{ small|safe }}</div>
                             {% endwith %}
                         {% endif %}
                     {% endif %}
