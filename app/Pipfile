@@ -16,6 +16,7 @@ django-allauth = "*"
 django-rosetta = "*"
 django-parler = "*"
 pipfile = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

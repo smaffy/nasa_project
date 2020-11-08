@@ -1,3 +1,6 @@
+/app/media/
+/app/staticfiles/
+
 /media/images/profile/
 /media/images/news/
 /media/images/projects/Chrysanthemum.jpg
@@ -32,3 +35,5 @@
 /media/images/defaults/luxfon.com-34941_rgGJ9wC.jpg
 /media/images/defaults/our-vodka-banner-1840-x-300_PIqBMav.jpg
 /media/images/defaults/our-vodka-banner-1840-x-300_REdo5Ze.jpg
+/app/media/
+/app/staticfiles/
