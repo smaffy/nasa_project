@@ -1,5 +1,3 @@
-/app/media/
-/app/staticfiles/
 
 /media/images/profile/
 /media/images/news/
@@ -37,3 +35,6 @@
 /media/images/defaults/our-vodka-banner-1840-x-300_REdo5Ze.jpg
 /app/media/
 /app/staticfiles/
+
+*.pyc
+__pycache
