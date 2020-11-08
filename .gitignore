@@ -36,3 +36,5 @@
 /app/media/
 /app/staticfiles/
 
+*.pyc
+__pycache
