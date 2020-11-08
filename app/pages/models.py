@@ -108,7 +108,7 @@ class Profile(TranslatableModel):
         verbose_name_plural = _('Profiles')
 
     def get_name(self):
-        return '%s %s' % (self.first_name, self.last_name)
+        return '%s %s' % (self.safe_translation_getter("first_name", language_code="en"), self.safe_translation_getter("last_name", language_code="en"))
 
     def __str__(self):
         return self.get_name()

@@ -112,9 +112,10 @@ class ProjectAndProfileTests(TestCase):
         self.project_category2 = ProjectCategory.objects.create(
             title='JS',
         )
-
-        self.project.project_category.add(ProjectCategory.objects.language('en').translated(title='Python'))
-        self.project.project_team.add(Profile.objects.language('en').translated(id=self.profile.id).first())
+        self.fc = ProjectCategory.objects.active_translations(language_code='en', title='Python').first()
+        self.project.project_category.add(self.fc)
+        self.fp = Profile.objects.active_translations(language_code='en', id=self.profile.id).first()
+        self.project.project_team.add(self.fp)
         #
         # self.project2.project_category.add(ProjectCategory.objects.get(title='JS'), ProjectCategory.objects.get(title='Python'))
         # self.project2.project_team.add(Profile.objects.get(id=self.profile.id), Profile.objects.get(id=self.profile2.id))
@@ -131,8 +132,6 @@ class ProjectAndProfileTests(TestCase):
     def test_project_listing(self):
         project_team = self.project.project_team.first()
         project_category = self.project.project_category.first()
-        project_team.set_current_language('en')
-        project_category.set_current_language('en')
 
         self.assertEqual(f'{self.project.safe_translation_getter("title", language_code="en")}', 'Django site')
         self.assertEqual(f'{project_category.safe_translation_getter("title", language_code="en")}', 'Python')
