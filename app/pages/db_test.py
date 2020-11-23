@@ -1,14 +1,23 @@
 import random
 
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect, render
 from django.utils.text import slugify
 
 from design.templatetags import design_tags
+from pages.tests import ProjectAndProfileTests
 from users.models import CustomUser
 from pages.models import Project, Profile, News, Service, ProjectImage, ProjectCategory, ProfileCategory, group
 from design.models import DesignSettings, PageTexts, PagePictures
 
+
+def get_int(c):
+    a = str(random.randint(0, 20000))
+    while a in c:
+        a = str(random.randint(0, 20000))
+    c.append(a)
+    return a
 
 service_ids = []
 news_ids = []
@@ -96,9 +105,7 @@ slugen = 'lalala'
 # _title_et = ''
 
 
-def create_service():
-    a = str(random.randint(0, 20000))
-
+def create_service(a='225'):
     try:
         Service.objects.language('en').get(translations__title=a + service_title_en)
     except ObjectDoesNotExist:
@@ -125,8 +132,7 @@ def create_service():
         service_ids.append(service.id)
 
 
-def create_news():
-    a = str(random.randint(0, 20000))
+def create_news(a='225'):
 
     try:
         News.objects.language('en').get(translations__title=a + news_title_en)
@@ -154,9 +160,7 @@ def create_news():
         news_ids.append(news.id)
 
 
-def create_profileCategory():
-    a = str(random.randint(0, 20000))
-
+def create_profileCategory(a='225'):
     try:
         ProfileCategory.objects.language('en').get(translations__title=a + profile_category_title_en)
     except ObjectDoesNotExist:
@@ -177,9 +181,7 @@ def create_profileCategory():
         profile_category_ids.append(category.id)
 
 
-def create_projectCategory():
-    a = str(random.randint(0, 20000))
-
+def create_projectCategory(a='225'):
     try:
         ProjectCategory.objects.language('en').get(translations__title=a + project_category_title_en)
     except ObjectDoesNotExist:
@@ -201,61 +203,56 @@ def create_projectCategory():
         project_category_ids.append(category.id)
 
 
-def create_profile(oncategory=False):
-    a = str(random.randint(0, 20000))
+def create_profile(a, oncategory=False):
+    # slug = a + profile_first_name_en + profile_last_name_en
 
-    try:
-        Profile.objects.language('en').get(translations__slug=a + profile_first_name_en + ' ' + profile_last_name_en)
-    except ObjectDoesNotExist:
-        profile = Profile.objects.language('en').create(
-            first_name=a + profile_first_name_en,
-            last_name=profile_last_name_en,
-            email=profile_email_en,
+    profile = Profile.objects.language('en').get_or_create(
+        translations__first_name=a + profile_first_name_en,
+        translations__last_name=profile_last_name_en,
+        email=profile_email_en,
 
-            facebook=profile_facebook_en,
-            twitter=profile_twitter_en,
-            phone_number=profile_phone_number_en,
-            short_description=a + short_description_en,
-            description=a + description_en,
+        facebook=profile_facebook_en,
+        twitter=profile_twitter_en,
+        phone_number=profile_phone_number_en,
+        translations__short_description=a + short_description_en,
+        translations__description=a + description_en,
 
-        )
-        if oncategory:
-            profile.set_current_language('en')
-            profile.profile_category.add(ProfileCategory.objects.language('en').first())
-
-        profile.set_current_language('ru')
-        profile.first_name = a + profile_first_name_ru
-        profile.last_name = a + profile_last_name_ru
-        profile.email = profile_email_ru
-        profile.facebook = profile_facebook_ru
-        profile.twitter = profile_twitter_ru
-        profile.phone_number = profile_phone_number_ru
-        profile.short_description = a + short_description_ru
-        profile.description = a + description_ru
-        profile.slug = slugen + a
-        profile.save()
-
-        profile.set_current_language('et')
-        profile.first_name = a + profile_first_name_et
-        profile.last_name = a + profile_last_name_et
-        profile.email = profile_email_et
-        profile.facebook = profile_facebook_et
-        profile.twitter = profile_twitter_et
-        profile.phone_number = profile_phone_number_et
-        profile.short_description = a + short_description_et
-        profile.description = a + description_et
-        profile.slug = slugify(profile.get_name())
-        profile.save()
-
+    )
+    if oncategory:
         profile.set_current_language('en')
-        profile_ids.append(profile.id)
+        profile.profile_category.add(ProfileCategory.objects.language('en').first())
+
+    profile.set_current_language('ru')
+    profile.translations.first_name = a + profile_first_name_ru
+    profile.translations.last_name = a + profile_last_name_ru
+    profile.email = profile_email_ru
+    profile.facebook = profile_facebook_ru
+    profile.twitter = profile_twitter_ru
+    profile.phone_number = profile_phone_number_ru
+    profile.translations.short_description = a + short_description_ru
+    # profile.translations.description = a + description_ru
+    profile.slug = slugen + a
+    profile.save()
+
+    profile.set_current_language('et')
+    profile.translations.first_name = a + profile_first_name_et
+    profile.translations.last_name = a + profile_last_name_et
+    profile.email = profile_email_et
+    profile.facebook = profile_facebook_et
+    profile.twitter = profile_twitter_et
+    profile.phone_number = profile_phone_number_et
+    profile.translations.short_description = a + short_description_et
+    # profile.translations.description = a + description_et
+    profile.slug = slugify(profile.get_name())
+    profile.save()
+
+    profile.set_current_language('en')
+    profile_ids.append(profile.id)
 
 
-def create_project(oncategory=False):
-    a = str(random.randint(0, 20000))
-
+def create_project(oncategory=False, a='225'):
     try:
-        Project.objects.language('en').get(translations__slug=a + project_title_en)
+        Project.objects.language('en').get_or_create(translations__slug=a + project_title_en)
     except ObjectDoesNotExist:
         project = Project.objects.language('en').create(
             title=a + project_title_en,
@@ -292,25 +289,113 @@ def create_project(oncategory=False):
 
 
 def create_project_image(project):
-    img = ProjectImage.objects.create(project=project, image='images/defaults/project-details.jpg')
+    img = ProjectImage.objects.get_or_create(project=project, image='images/defaults/project-details.jpg')[0]
     projectimage_ids.append(img.id)
 
 
 def create_test_data(request):
-    for n in range(0, 10):
-        create_service()
-        create_profileCategory()
-        create_projectCategory()
+    #
+    # user = get_user_model().objects.create_user(
+    #     username='company',
+    #     email='company@email.com',
+    #     password='testpass123'
+    # )
 
-        create_profile()
-        create_profile(oncategory=True)
-        create_news()
-        create_project()
-        create_project(oncategory=True)
+    profile_category_designer = ProfileCategory.objects.create(
+        title='Designer',
+    )
 
-    for n in range(0, 4):
-        for proj in Project.objects.language('en').all():
-            create_project_image(proj)
+    profile_category_manager = ProfileCategory.objects.create(
+        title='Manager',
+    )
+
+    profile = Profile.objects.create(
+        first_name='Alex',
+        last_name='Argo',
+        email='argo@email.com',
+
+        facebook='fb.com',
+        twitter='twitter.com',
+        phone_number='+37253402505',
+        short_description='hejhej lala lej',
+        description='description description',
+    )
+
+    profile2 = Profile.objects.create(
+        first_name='Lara',
+        last_name='Mara',
+        email='lama@email.com',
+        short_description='kuku jamba'
+    )
+
+    project = Project.objects.create(
+        title='Django site',
+        short_description='lalala',
+    )
+
+    project2 = Project.objects.create(
+        title='JavaScript site',
+        short_description='hehehe',
+    )
+
+    project_category_python = ProjectCategory.objects.create(
+        title='Python',
+    )
+
+    project_category_js = ProjectCategory.objects.create(
+        title='JS',
+    )
+
+    design = DesignSettings.objects.create(
+        info='default'
+    )
+
+    project.save()
+    project2.save()
+    profile.save()
+    profile2.save()
+
+    # self.project_category_python = ProjectCategory.objects.active_translations(language_code='en', title='Python').first()
+    # self.project_category_js = ProjectCategory.objects.active_translations(language_code='en', title='JS').first()
+
+    # self.profile_category_manager = ProfileCategory.objects.active_translations(language_code='en', title='Manager').first()
+    # self.profile_category_designer = ProfileCategory.objects.active_translations(language_code='en', title='Designer').first()
+    #
+    # self.first_profile = Profile.objects.active_translations(language_code='en', id=self.profile.id).first()
+    # self.second_profile = Profile.objects.active_translations(language_code='en', id=self.profile2.id).first()
+
+    project.project_category.add(project_category_python)
+    project.project_team.add(profile)
+
+    project2.project_category.add(project_category_python, project_category_js)
+    project2.project_team.add(profile, profile2)
+
+    profile.profile_category.add(profile_category_manager, profile_category_designer)
+    profile2.profile_category.add(profile_category_designer)
+
+    # self.review = Review.objects.create(
+    #     book=self.book,
+    #     author=self.user,
+    #     review='An excellent review',
+    # )
+
+    # for n in range(0, 10):
+    #     g = 'o4' + str(n)
+    #     create_service(a=g)
+    #     create_profileCategory(a=g)
+    #     create_projectCategory(a=g)
+    #
+    #     create_profile(a=g)
+    #     create_news(a=g)
+    #     create_project(a=g)
+    #
+    #     h = 'cat' + g
+    #     create_profile(a=h, oncategory=True)
+    #     create_project(a=h, oncategory=True)
+    #
+    # for n in range(0, 4):
+    #     for proj in Project.objects.language('en').all():
+    #         create_project_image(proj)
 
     return redirect('pages:home')
 

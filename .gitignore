@@ -7,3 +7,4 @@
 __pycache
 /Pipfile
 /Pipfile.lock
+/venv/

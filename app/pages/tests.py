@@ -5,6 +5,7 @@ from django.core import mail
 from django.test import TestCase
 from django.urls import reverse, resolve
 
+from design.models import DesignSettings, FunctionalSettings
 from .forms import ContactForm
 from .models import Project, ProjectCategory, Profile, Service, ProfileCategory, News
 from .views import HomePageView, AboutView, ContactView, SuccessView
@@ -68,11 +69,11 @@ class ProjectAndProfileTests(TestCase):
             password='testpass123'
         )
 
-        self.profile_category = ProfileCategory.objects.create(
+        self.profile_category_designer = ProfileCategory.objects.create(
             title='Designer',
         )
 
-        self.profile_category2 = ProfileCategory.objects.create(
+        self.profile_category_manager = ProfileCategory.objects.create(
             title='Manager',
         )
 
@@ -101,27 +102,52 @@ class ProjectAndProfileTests(TestCase):
         )
 
         self.project2 = Project.objects.create(
-            title='JS site',
+            title='JavaScript site',
             short_description='hehehe',
         )
 
-        self.project_category = ProjectCategory.objects.create(
+        self.project_category_python = ProjectCategory.objects.create(
             title='Python',
         )
 
-        self.project_category2 = ProjectCategory.objects.create(
+        self.project_category_js = ProjectCategory.objects.create(
             title='JS',
         )
-        self.fc = ProjectCategory.objects.active_translations(language_code='en', title='Python').first()
-        self.project.project_category.add(self.fc)
-        self.fp = Profile.objects.active_translations(language_code='en', id=self.profile.id).first()
-        self.project.project_team.add(self.fp)
+
+        self.design = DesignSettings.objects.create(
+            info='default'
+        )
+
+        self.func_set = FunctionalSettings.objects.create(
+            name='category_settings',
+            admin_exclude='name,contact_form,admin_exclude',
+            project_category=True,
+            profile_category=True,
+        )
+        self.func_set.save()
+
+        self.project.save()
+        self.project2.save()
+        self.profile.save()
+        self.profile2.save()
+
+        # self.project_category_python = ProjectCategory.objects.active_translations(language_code='en', title='Python').first()
+        # self.project_category_js = ProjectCategory.objects.active_translations(language_code='en', title='JS').first()
+
+        # self.profile_category_manager = ProfileCategory.objects.active_translations(language_code='en', title='Manager').first()
+        # self.profile_category_designer = ProfileCategory.objects.active_translations(language_code='en', title='Designer').first()
         #
-        # self.project2.project_category.add(ProjectCategory.objects.get(title='JS'), ProjectCategory.objects.get(title='Python'))
-        # self.project2.project_team.add(Profile.objects.get(id=self.profile.id), Profile.objects.get(id=self.profile2.id))
-        #
-        # self.profile.profile_category.add(ProfileCategory.objects.get(title='Manager'), ProfileCategory.objects.get(title='Designer'))
-        # self.profile2.profile_category.add(ProfileCategory.objects.get(title='Designer'))
+        # self.first_profile = Profile.objects.active_translations(language_code='en', id=self.profile.id).first()
+        # self.second_profile = Profile.objects.active_translations(language_code='en', id=self.profile2.id).first()
+
+        self.project.project_category.add(self.project_category_python)
+        self.project.project_team.add(self.profile)
+
+        self.project2.project_category.add(self.project_category_python, self.project_category_js)
+        self.project2.project_team.add(self.profile, self.profile2)
+
+        self.profile.profile_category.add(self.profile_category_manager, self.profile_category_designer)
+        self.profile2.profile_category.add(self.profile_category_designer)
 
         # self.review = Review.objects.create(
         #     book=self.book,
@@ -136,70 +162,71 @@ class ProjectAndProfileTests(TestCase):
         self.assertEqual(f'{self.project.safe_translation_getter("title", language_code="en")}', 'Django site')
         self.assertEqual(f'{project_category.safe_translation_getter("title", language_code="en")}', 'Python')
         self.assertEqual(f'{project_team.get_name()}', 'Alex Argo')
+        self.assertEqual(f'{project_category.title}', 'Python')
         self.assertEqual(f'{self.project.safe_translation_getter("short_description", language_code="en")}', 'lalala')
 
-#     def test_project2_listing(self):
-#         project_team = self.project2.project_team.all().order_by('first_name')
-#         project_category = self.project2.project_category.all().order_by('title')
-#
-#         self.assertEqual(f'{self.project2.title}', 'JS site')
-#         self.assertEqual(f'{project_category[1].title}', 'Python')
-#         self.assertEqual(f'{project_category[0].title}', 'JS')
-#         self.assertEqual(f'{project_team[1].get_name()}', 'Lara Mara')
-#         self.assertEqual(f'{project_team[0].get_name()}', 'Alex Argo')
-#         self.assertEqual(f'{self.project2.short_description}', 'hehehe')
-#
-#     def test_project_list_view(self):
-#         response = self.client.get(reverse('pages:projects'))
-#
-#         self.assertEqual(response.status_code, 200)
-#         self.assertContains(response, 'Django site')
-#         self.assertTemplateUsed(response, 'pages/projects_list.html')
-#
-#     def test_category_project_list_view(self):
-#         response = self.client.get(reverse('pages:projects_category', kwargs={'category_slug': 'js'}))
-#
-#         self.assertEqual(response.status_code, 200)
-#         self.assertContains(response, 'JS site')
-#         self.assertNotContains(response, 'Django site')
-#         self.assertTemplateUsed(response, 'pages/projects_list.html')
-#
-#     def test_category2_project_list_view(self):
-#         response = self.client.get(reverse('pages:projects_category', kwargs={'category_slug': 'python'}))
-#
-#         self.assertEqual(response.status_code, 200)
-#         self.assertContains(response, 'JS site')
-#         self.assertContains(response, 'Django site')
-#         self.assertTemplateUsed(response, 'pages/projects_list.html')
-#
-#     def test_project_detail_view(self):
-#         response = self.client.get(self.project.get_absolute_url())
-#         no_response = self.client.get('/en/projects/12345/')
-#
-#         self.assertEqual(response.status_code, 200)
-#         self.assertEqual(no_response.status_code, 404)
-#         self.assertContains(response, 'Django site')
-#         self.assertContains(response, 'lalala')
-#         self.assertContains(response, 'Alex Argo')
-#         self.assertContains(response, 'Python')
-#         self.assertNotContains(response, 'Lara Mara')
-#         self.assertNotContains(response, 'hehehe')
-#         self.assertTemplateUsed(response, 'pages/project_detail.html')
-#
-#     def test_project2_detail_view(self):
-#         response = self.client.get(self.project2.get_absolute_url())
-#         no_response = self.client.get('/en/projects/12345/')
-#
-#         self.assertEqual(response.status_code, 200)
-#         self.assertEqual(no_response.status_code, 404)
-#         self.assertContains(response, 'JS site')
-#         self.assertContains(response, 'hehehe')
-#         self.assertContains(response, 'Lara Mara')
-#         self.assertContains(response, 'JS')
-#         self.assertContains(response, 'Alex Argo')
-#         self.assertContains(response, 'Python')
-#         self.assertTemplateUsed(response, 'pages/project_detail.html')
-#
+    def test_project2_listing(self):
+        project_team = self.project2.project_team.all().order_by('translations__first_name')
+        project_category = self.project2.project_category.all().order_by('translations__title')
+
+        self.assertEqual(f'{self.project2.title}', 'JavaScript site')
+        self.assertEqual(f'{project_category[1].title}', 'Python')
+        self.assertEqual(f'{project_category[0].title}', 'JS')
+        self.assertEqual(f'{project_team[1].get_name()}', 'Lara Mara')
+        self.assertEqual(f'{project_team[0].get_name()}', 'Alex Argo')
+        self.assertEqual(f'{self.project2.short_description}', 'hehehe')
+
+    def test_project_list_view(self):
+        response = self.client.get(reverse('pages:projects'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Django site')
+        self.assertTemplateUsed(response, 'pages/projects_list.html')
+
+    def test_category_project_list_view(self):
+        response = self.client.get(reverse('pages:projects_category', kwargs={'category_slug': 'js'}))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'JavaScript site')
+        self.assertNotContains(response, 'Django site')
+        self.assertTemplateUsed(response, 'pages/projects_list.html')
+
+    def test_category2_project_list_view(self):
+        response = self.client.get(reverse('pages:projects_category', kwargs={'category_slug': 'python'}))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'JavaScript site')
+        self.assertContains(response, 'Django site')
+        self.assertTemplateUsed(response, 'pages/projects_list.html')
+
+    def test_project_detail_view(self):
+        response = self.client.get(self.project.get_absolute_url())
+        no_response = self.client.get('/en/projects/12345/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, 'Django site')
+        self.assertContains(response, 'lalala')
+        self.assertContains(response, 'Alex Argo')
+        self.assertContains(response, 'Python')
+        self.assertNotContains(response, 'Lara Mara')
+        self.assertNotContains(response, 'hehehe')
+        self.assertTemplateUsed(response, 'pages/project_detail.html')
+
+    def test_project2_detail_view(self):
+        response = self.client.get(self.project2.get_absolute_url())
+        no_response = self.client.get('/en/projects/12345/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, 'JavaScript site')
+        self.assertContains(response, 'hehehe')
+        self.assertContains(response, 'Lara Mara')
+        self.assertContains(response, 'JS')
+        self.assertContains(response, 'Alex Argo')
+        self.assertContains(response, 'Python')
+        self.assertTemplateUsed(response, 'pages/project_detail.html')
+
 #     # profile
 #     def test_profile2_listing(self):
 #         projects = self.profile2.projects.first()
@@ -207,7 +234,7 @@ class ProjectAndProfileTests(TestCase):
 #
 #         self.assertEqual(f'{self.profile2.get_name()}', 'Lara Mara')
 #         self.assertEqual(f'{profile_category.title}', 'Designer')
-#         self.assertEqual(f'{projects.title}', 'JS site')
+#         self.assertEqual(f'{projects.title}', 'JavaScript site')
 #         self.assertEqual(f'{projects.short_description}', 'hehehe')
 #
 #     def test_profile_listing(self):
@@ -218,7 +245,7 @@ class ProjectAndProfileTests(TestCase):
 #         self.assertEqual(f'{profile_categories[0].title}', 'Designer')
 #         self.assertEqual(f'{profile_categories[1].title}', 'Manager')
 #         self.assertEqual(f'{projects[0].title}', 'Django site')
-#         self.assertEqual(f'{projects[1].title}', 'JS site')
+#         self.assertEqual(f'{projects[1].title}', 'JavaScript site')
 #         self.assertEqual(f'{projects[1].short_description}', 'hehehe')
 #
 #     def test_profile_list_view(self):
